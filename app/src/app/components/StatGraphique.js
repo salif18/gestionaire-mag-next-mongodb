@@ -2,13 +2,13 @@ import React from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 
 const StatGraphique = ({ data }) => {
-
-  const chartData =data && data.length > 0 && data.map((row) => ({
-    label: `${row.annee}-${row.mois}`,
-    nombreVentes: row.nombre_ventes,
-    totalVentes: row.total_ventes,
-  }));
-
+  
+  const chartData = data && data.length > 0 ? data.map((row) => ({
+    label: row.annee && row.mois ? `${row.annee}-${row.mois}` : 'Inconnu',
+    nombreVentes: row.nombre_ventes || 0,
+    totalVentes: row.total_ventes || 0,
+  })) : [];
+  
   return (
     <div className='stats'>
       <h1>Interprétation graphique</h1>
