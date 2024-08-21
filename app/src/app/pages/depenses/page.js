@@ -1,6 +1,6 @@
 "use client"
 import React, { useContext, useEffect, useState } from 'react';
-import { MyStore } from '@/context/store';
+import { MyStore } from '../../context/store';
 import axios from 'axios';
 import DeleteIcon from '@mui/icons-material/Delete';
 import Navbar from '../../components/layouts/Navbar';
