@@ -1,0 +1,273 @@
+.cout{
+    padding: 15px;
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border:1px solid #dfdfdf;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px 2px #d3d3d3;
+    width: 300px;
+    cursor: pointer;
+    h1{
+        font-family: Roboto;
+        font-size: 18px;
+        font-weight: 600;
+    }
+    p{
+        font-size: 16px;
+        font-family: Roboto;
+
+    }
+    .icon{
+        font-size: 30px;
+        color: rgb(165, 78, 247);
+    }
+}
+
+.achats{
+    padding: 15px;
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border:1px solid #dfdfdf;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px 2px #d3d3d3;
+    width: 300px;
+    cursor: pointer;
+    h1{
+        font-family: Roboto;
+        font-size: 18px;
+        font-weight: 600;
+    }
+    p{
+        font-size: 16px;
+        font-family: Roboto;
+
+    }
+    .icon{
+        font-size: 30px;
+        color: rgb(252, 13, 13);
+    }
+}
+
+.coutprod{
+    padding: 15px;
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border:1px solid #dfdfdf;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px 2px #d3d3d3;
+    width: 400px;
+    cursor: pointer;
+    h1{
+        font-family: Roboto;
+        font-size: 18px;
+        font-weight: 600;
+    }
+    p{
+        font-size: 16px;
+        font-family: Roboto;
+
+    }
+    .icon{
+        font-size: 30px;
+        color: rgb(241, 8, 183);
+    }
+}
+
+.vents{
+    padding: 15px;
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border:1px solid #dfdfdf;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px 2px #d3d3d3;
+    width: 400px;
+    cursor: pointer;
+    h1{
+        font-family: Roboto;
+        font-size: 18px;
+        font-weight: 600;
+    }
+    p{
+        font-size: 16px;
+        font-family: Roboto;
+
+    }
+    .icon{
+        font-size: 30px;
+        color: rgb(252, 196, 13);
+    }
+}
+
+.revenus{
+    padding: 15px;
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border:1px solid #dfdfdf;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px 2px #d3d3d3;
+    width: 400px;
+    cursor: pointer;
+    h1{
+        font-family: Roboto;
+        font-size: 18px;
+        font-weight: 600;
+    }
+    p{
+        font-size: 16px;
+        font-family: Roboto;
+
+    }
+    .icon{
+        font-size: 50px;
+        color: rgb(36, 172, 24);
+    }
+    .r{
+        display: flex;
+    }
+}
+
+.depenses{
+    padding: 15px;
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border:1px solid #dfdfdf;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px 2px #d3d3d3;
+    width: 400px;
+    cursor: pointer;
+    h1{
+        font-family: Roboto;
+        font-size: 18px;
+        font-weight: 600;
+    }
+    p{
+        font-size: 16px;
+        font-family: Roboto;
+
+    }
+    .icon{
+        font-size: 30px;
+        color: rgb(103, 182, 155);
+    }
+}
+
+.stats{
+    padding: 15px;
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border:1px solid #dfdfdf;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px 2px #d3d3d3;
+    flex: 1;
+    cursor: pointer;
+    h1{
+        font-family: Roboto;
+        font-size: 18px;
+        font-weight: 600;
+    }
+    p{
+        font-size: 16px;
+        font-family: Roboto;
+
+    }
+}
+
+.tendance{
+    padding: 15px;
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border:1px solid #dfdfdf;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px 2px #d3d3d3;
+    width: 600px;
+    cursor: pointer;
+    h1{
+        font-family: Roboto;
+        font-size: 18px;
+        font-weight: 600;
+    }
+    .ssss{
+        display: flex;
+        
+    }
+    .tendance-cont{
+        display: flex;
+        flex-wrap: wrap;
+        margin-left: 10px;
+         p{
+        font-size: 12px;
+        font-family: Roboto;
+        margin-right: 10px;
+       }
+       span{
+        color:rgb(53, 28, 194);
+        font-weight: 600;
+       }
+    }
+   
+    .icon{
+        font-size: 30px;
+        color: rgb(255, 145, 0);
+    }
+}
+
+.stocksin{
+    padding: 15px;
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border:1px solid #dfdfdf;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px 2px #d3d3d3;
+    width: 600px;
+    cursor: pointer;
+    h1{
+        font-family: Roboto;
+        font-size: 18px;
+        font-weight: 600;
+    }
+    .ssss{
+        display: flex;
+    }
+    .stocks-cont{
+        //margin-left: 5px;
+        display: flex;
+        flex-wrap: wrap;
+        .nom{
+        font-size: 14px;
+        font-family: Roboto;
+        margin-right: 10px;
+       }
+       .cat{
+        font-size: 14px;
+        font-family: Roboto;
+        margin-right: 10px;
+        color: #009cb8;
+       }
+       span{
+        color:red
+       }
+    }
+   
+    .icon{
+        font-size: 30px;
+        color: rgb(245, 0, 0);
+    }
+}
