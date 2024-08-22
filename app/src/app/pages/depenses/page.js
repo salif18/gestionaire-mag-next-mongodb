@@ -3,8 +3,6 @@ import React, { useContext, useEffect, useState } from 'react';
 import { MyStore } from '../../context/store';
 import axios from 'axios';
 import DeleteIcon from '@mui/icons-material/Delete';
-import Navbar from '../../components/layouts/Navbar';
-import SideBar from '../../components/layouts/SideBar';
 import { useRouter } from 'next/navigation';
 
 
@@ -76,9 +74,9 @@ const Depenseur = () => {
 
     return (
       <>
-      <Navbar/>
+  
       <main className='App'>
-      <SideBar/>
+      
         <section className='depenseurs'>
             <header className='header-fournisseurs'>
               <h1>Enregistrer vos dépenses</h1>

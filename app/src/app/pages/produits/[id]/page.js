@@ -26,16 +26,16 @@ const SingleProduits = () => {
     const [items , setItems] = useState({})
 
     const router = useRouter();
-    const {_id} = useParams()
+    const {id} = useParams()
     
     //recuperer le produit de id
     useEffect(()=>{
-          axios.get(`/api/produits/${_id}`)
+          axios.get(`/api/produits/${id}`)
           .then((res) => {
             setItems(res.data.results)
           }).catch((err) => console.error(err))
     },[])
-   const item = items[0]
+   
 
     //valeur des champs options
     const options = [
@@ -58,15 +58,8 @@ const SingleProduits = () => {
   }
 
   //fonction envoie des donnee modifier dans le backend
-    const handlePut =()=>{
-      if(produits.nom.length <= 0 ||
-         produits.categories.length <= 0 ||
-         produits.prixAchat.length <= 0 ||
-         produits.prixVente.length <= 0 || 
-         produits.stocks.length <= 0 ){
-         setError("Si ce champs n'est pas a modifier veuillez entrer l'ancienne valeur")
-      }else{
-        axios.put(`/api/produits/${_id}`,produits)
+    const handlePut =(id)=>{
+        axios.put(`/api/produits/${id}`,produits)
           .then((response) => {
             setMessages(response.data.message)
           }).catch((err) => console.error(err));
@@ -78,7 +71,6 @@ const SingleProduits = () => {
             prixVente:"",
             stocks:"",
         })
-      }
     };
 
     
@@ -110,12 +102,12 @@ const handledelete = (id)=>{
         <div className='infos-fournisseur'>
          <div className='fourmi'>
          <label>Prix d'achats</label>
-         <input type='text' name='prixAchat' value={produits.prixAchat} onChange={(e)=>handleChange(e)} placeholder={item?.prixAchat}/>
+         <input type='text' name='prixAchat' value={produits.prixAchat} onChange={(e)=>handleChange(e)} placeholder={items?.prixAchat}/>
          {produits.prixAchat.length <= 0 && <span>{error}</span>}
          </div>
          <div className='fourmi'>
          <label>Prix de ventes</label>
-         <input type='number' name='prixVente' value={produits.prixVente} onChange={(e)=>handleChange(e)} placeholder={item?.prixVente} />
+         <input type='number' name='prixVente' value={produits.prixVente} onChange={(e)=>handleChange(e)} placeholder={items?.prixVente} />
          {produits.prixVente.length <= 0 && <span>{error}</span>}
          </div>
          <span className='messge-single'>{messages}</span>
@@ -124,13 +116,13 @@ const handledelete = (id)=>{
         <div className='infos-produit'>
         <div className='fourmi'>
         <label>Nom</label>
-        <input type='text' name='nom' value={produits.nom} onChange={(e)=>handleChange(e)} placeholder={item?.nom} />
+        <input type='text' name='nom' value={produits.nom} onChange={(e)=>handleChange(e)} placeholder={items?.nom} />
         {produits.nom.length <= 0 && <span>{error}</span>}
         </div>
         <div className='fourmi'>
             <label >Categories</label>
             <select type='text' name='categories' value={produits.categories} onChange={(e)=>handleChange(e)} placeholder='Categorie'>
-            <option >Catégorie--Select</option>
+            <option >{items?.categories ? items?.categories : "Catégorie--Select"}</option>
             {options.map((item) =>(
                 <option key={item.value} value={item.value}>{item.label}</option>
             ))}
@@ -141,13 +133,13 @@ const handledelete = (id)=>{
       
         <div className='fourmi'>
         <label>Quantités</label>
-        <input className='input-qty' type='number' name='stocks' value={produits.stocks} onChange={(e)=>handleChange(e)} placeholder={item?.stocks} />
+        <input className='input-qty' type='number' name='stocks' value={produits.stocks} onChange={(e)=>handleChange(e)} placeholder={items?.stocks} />
         {produits.stocks.length <= 0 && <span>{error}</span>}
         </div>
         </div>
 
-        <button className='btn-save-modif' onClick={()=>handlePut(item.id)}>Modifier</button>
-        <button className='btn-supp-modif' onClick={()=>handledelete(item.id)}>Supprimer</button>
+        <button className='btn-save-modif' onClick={()=>handlePut(items.id)}>Modifier</button>
+        <button className='btn-supp-modif' onClick={()=>handledelete(items.id)}>Supprimer</button>
          </div>
     </section>
     </main>

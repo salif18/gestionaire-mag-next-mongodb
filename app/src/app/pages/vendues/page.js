@@ -43,9 +43,7 @@ message && setTimeout(()=>setMessage(''),2000)
 //vue de frontend
     return (
       <>
-      <Navbar/>
       <main className='App'>
-      <SideBar/>
         <section className='list'>
             <header className='header-list'>
               <h1>Les Produits vendus</h1>

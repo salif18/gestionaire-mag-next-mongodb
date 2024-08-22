@@ -1,3 +1,4 @@
+"use client"
 import React from 'react';
 import Link from 'next/link';
 import CategoryIcon from '@mui/icons-material/Category';
@@ -8,18 +9,32 @@ import AddBusinessIcon from '@mui/icons-material/AddBusiness';
 import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
 import GridViewIcon from '@mui/icons-material/GridView';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import StyleIcon from '@mui/icons-material/Style';
+import { usePathname } from 'next/navigation';
 
 const SideBar = () => {
+    const pathname = usePathname()
+    const navLinks = [
+        {name:"Tableau de bord", href:'/', icon :GridViewIcon},
+        {name:"Magasin", href:'/pages/produits', icon :AddBusinessIcon},
+        {name:"Categories", href:'/pages/categories', icon :CategoryIcon},
+        {name:"Panier", href:'/pages/panier', icon :ShoppingCartIcon},
+        {name:"Ventes effectuées", href:'/pages/vendues', icon :MonetizationOnIcon},
+        {name:"Rapports", href:'/pages/rapports', icon :AssignmentIcon},
+        {name:"Meilleur vente", href:'/pages/best-ventes', icon :AutoAwesomeIcon},
+        {name:"Dépenses", href:'/pages/depenses', icon :StyleIcon},
+
+    ]
     return (
         <aside className='sidebar'>
-           <Link className='liens' href='/' ><GridViewIcon className='icon'/> Tableau de bord</Link> 
-           <Link className='liens' href='/pages/produits' ><AddBusinessIcon className='icon'/>Produits</Link> 
-           <Link className='liens' href='/pages/categories' ><CategoryIcon className='icon'/>Catégories</Link> 
-           <Link className='liens' href='/pages/panier' ><MonetizationOnIcon className='icon'/>Ventes</Link> 
-           <Link className='liens' href='/pages/vendues'><ShoppingCartIcon className='icon'/>Ventes effectuées</Link>
-           <Link className='liens' href='/pages/rapports' ><AssignmentIcon className='icon'/>Rapports</Link>
-           <Link className='liens' href='/pages/best-ventes'><AutoAwesomeIcon className='icon'/>Meilleur vente</Link> 
-           <Link className='liens' href='/pages/depenses'><PointOfSaleIcon className='icon'/>Dépenses</Link>
+           
+           {
+            navLinks.map((link)=>{
+                const isActive = pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href));
+                return  <Link className="liens" href={link.href}><link.icon className='icon'/>{link.name}</Link>
+            })
+           }
+          
         </aside>
     );
 }

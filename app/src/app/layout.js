@@ -1,6 +1,8 @@
 import { Inter } from 'next/font/google'
 import '../../public/styles/globals.scss'
 import { MyStoreProvider } from '../../src/app/context/store'
+import Navbar from './components/layouts/Navbar'
+import SideBar from './components/layouts/SideBar'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -12,13 +14,21 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-    
+
       <body className={inter.className}>
-      <MyStoreProvider>
-         {children}
-      </MyStoreProvider>
+        <Navbar />
+        <section className="body">
+          <SideBar />
+          <section className="contents">
+            <MyStoreProvider>
+              {children}
+            </MyStoreProvider>
+          </section>
+        </section>
+
+
       </body>
-      
+
     </html>
   )
 }

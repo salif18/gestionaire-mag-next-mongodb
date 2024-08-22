@@ -1,8 +1,6 @@
 "use client"
 import React, { useContext} from "react";
 import { MyStore } from "../../context/store";
-import SideBar from "../../components/layouts/SideBar";
-import Navbar from "../../components/layouts/Navbar";
 import { useRouter } from "next/navigation";
 
 
@@ -27,9 +25,9 @@ const Ventes = () => {
 
   return (
     <>
-    <Navbar/>
+
     <main className="App">
-    <SideBar/>
+    
     <section className="ventes">
       <header className="header-vente">
         <h1>Enregistrements des ventes</h1>

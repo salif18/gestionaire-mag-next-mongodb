@@ -1,9 +1,9 @@
 .sidebar{
-    flex: 1;
+    min-width: 250px;;
     display: flex;
     flex-direction: column;
     background-color: rgb(3, 3, 3);
-    height: 91vh;
+    min-height:91vh;
     .liens{
         display: flex;
         margin: 20px;

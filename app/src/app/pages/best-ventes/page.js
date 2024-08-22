@@ -1,8 +1,7 @@
 "use client"
 import React, {useContext, useEffect, useState } from 'react';
 import axios from 'axios';
-import Navbar from '../../components/layouts/Navbar';
-import SideBar from '../../components/layouts/SideBar';
+
 
 const BestVente = () => {
 
@@ -20,9 +19,9 @@ const BestVente = () => {
  
     return (
       <>
-      <Navbar/>
+      
       <main className='App'>
-      <SideBar/>
+      
         <section className='bestvente'>
         <header className='header-best'>
         <h1>TENDANCE DU MARCHE</h1>

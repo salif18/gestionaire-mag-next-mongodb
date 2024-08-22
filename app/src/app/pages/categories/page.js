@@ -5,8 +5,6 @@ import EditIcon from '@mui/icons-material/Edit';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import axios from 'axios';
 import DeleteIcon from '@mui/icons-material/Delete';
-import Navbar from '../../components/layouts/Navbar';
-import SideBar from '../../components/layouts/SideBar';
 import { useRouter } from 'next/navigation';
 
 const Categories = () => {
@@ -68,9 +66,9 @@ const handledelete = (id)=>{
      //vue de frontend
     return (
       <>
-      <Navbar/>
+   
       <main className='App'>
-      <SideBar/>
+
         <section className='categories'>
             <header className='header-categories'>
               <h1>Categories</h1>

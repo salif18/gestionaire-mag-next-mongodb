@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Roboto:ital,wght@0,100;0,300;0,700;1,100&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=PT+Sans+Caption&display=swap');
 @import url('https://fonts.googleapis.com/css2? family= PT+Sans+Caption & family= Roboto+Slab:wght@700 & display=swap');
@@ -16,22 +15,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Cabin&family=Exo+2:wght@300&family=Lato:wght@300;400&family=Montserrat:ital,wght@0,500;1,300&family=Open+Sans:wght@600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Cabin&family=Exo+2:wght@300&family=Lato:wght@300;400&family=Montserrat:ital,wght@0,500;1,300&family=Open+Sans:wght@600&family=Playfair+Display&display=swap');
 
-body{
+
+* {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  text-decoration: none;
 }
-.App{
+
+.body {
   display: flex;
-  height: 50vh
+  height: 91vh;
+
+  .contents {
+    flex:4; 
+    background: #f0f2f5;
+    width: 100%;
+    height: calc(100vh - 80px);
+    overflow-y: scroll
+  }
 }
 
 @import './home';
 @import './addProduits';
 @import './bestvente';
 @import './categories';
-@import './cout';
+@import './tableauboard';
 @import './depenseur';
 @import './listvente';
 @import './navbar';
@@ -41,6 +48,4 @@ body{
 @import './sidebar';
 @import './single';
 @import './tooltip';
-@import './ventes'
-
-
+@import './ventes';

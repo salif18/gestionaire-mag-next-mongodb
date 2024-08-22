@@ -103,9 +103,7 @@ const ProductFilter = produits.length > 0 && produits.filter((item) =>
 
     return (
       <>
-      <Navbar/>
       <main className='App'>
-      <SideBar/>
         <section className='produits'>
             <div className='title-stock'>
             <div className='leftp'>

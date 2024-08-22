@@ -3,8 +3,6 @@ import React, { useContext, useEffect, useState } from 'react';
 import PrintIcon from '@mui/icons-material/Print';
 import axios from 'axios';
 import { MyStore } from '../../context/store';
-import Navbar from '../../components/layouts/Navbar';
-import SideBar from '../../components/layouts/SideBar';
 
 const Rapports = () => {
   const [vendues, setVendues] = useState([])
@@ -56,18 +54,11 @@ useEffect(() => {
   const beneficeTotal = calculBenefice(ventesFilter);
 
    const datevente = ventesFilter[0]
-  // const d = new Date()
-  // const y = d.getFullYear(datevente.timestamps)
-  // const m = d.getMonth(datevente.timestamps)+1
-  // const day = d.getDate(datevente.timestamps)
 
-  // const date = `${day}/${m}/${y}`
   
     return (
       <>
-      <Navbar/>
       <main className='App'>
-      <SideBar/>
         <section className='rapports'>
             <header className='header-rapport'>
               <h1>Rapports</h1>

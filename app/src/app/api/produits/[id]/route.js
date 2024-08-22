@@ -21,23 +21,44 @@ export const GET = async (req) => {
 
 export const PUT = async (req) => {
   try {
-    await dbConnect()
-      const id = req.url.split('produits/')[1];
-      const { nom, categories, prixAchat, prixVente, stocks } = await req.json();
+    await dbConnect();
+    
+    // Extraction de l'ID du produit depuis l'URL
+    const id = req.url.split('produits/')[1];
+    
+    if (!id) {
+      return NextResponse.json({ message: 'ID du produit manquant' }, { status: 400 });
+    }
 
-      const produit = await Produit.findByIdAndUpdate(
-          id,
-          { nom, categories, prixAchat, prixVente, stocks },
-          { new: true } // retourne le document mis à jour
-      );
+    const { nom, categories, prixAchat, prixVente, stocks } = await req.json();
 
-      if (!produit) {
-          return NextResponse.json({ message: 'Produit non trouvé' }, { status: 404 });
-      }
+    // Trouver le produit existant
+    const produit = await Produit.findById(id);
 
-      return NextResponse.json({ message: 'Produit modifié avec succès !!', results: produit }, { status: 200 });
+    if (!produit) {
+      return NextResponse.json({ message: 'Produit non trouvé' }, { status: 404 });
+    }
+
+    // Mise à jour du produit avec les nouvelles valeurs
+    const produitMisAJour = await Produit.findByIdAndUpdate(
+      id,
+      { 
+        nom: nom !== undefined ? nom : produit.nom, 
+        categories: categories !== undefined ? categories : produit.categories, 
+        prixAchat: prixAchat !== undefined ? prixAchat : produit.prixAchat, 
+        prixVente: prixVente !== undefined ? prixVente : produit.prixVente, 
+        stocks: stocks !== undefined ? stocks : produit.stocks 
+      },
+      { new: true } // retourne le document mis à jour
+    );
+
+    return NextResponse.json(
+      { message: 'Produit modifié avec succès !!', results: produitMisAJour }, 
+      { status: 200 }
+    );
+
   } catch (err) {
-      return NextResponse.json({ message: err.message }, { status: 500 });
+    return NextResponse.json({ message: err.message }, { status: 500 });
   }
 };
 

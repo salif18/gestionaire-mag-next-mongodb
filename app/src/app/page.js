@@ -120,36 +120,29 @@ export default function Home() {
     
   return (
     <>
-    <Navbar/>
-    <main className="App">
-    <SideBar/>
-    <section className='home'>
+    <main className="home">
     <header className='header-home'>
       <h1>TABLEAU DE RESUME</h1>
     </header>
-    <div className='home-container-d'>
+    <section className='home-container-d'>
     <StatsWeek data={statsWeeks} />
      <Tendance/>
      <EtatStocks/>
-   </div>
-    <div className='home-container-a'>
+   </section>
+    <section className='home-container-a'>
      <Achats/>
     <CoutProduct/>
     <Ventes/>
-    </div>
-    <div className='home-container-b'>
+    </section>
+    <section className='home-container-b'>
     <Cout/>
      <Depenses/>
      <Revenues/>
-    </div>
-    <div className='home-container-c'>
+    </section>
+    <section className='home-container-c'>
     <StatGraphique data={statsVentes} />
     <Statstistiques data={statsVentes}  columns={columns} />
-    </div>
-    <div>
-    
-    </div>
-</section>
+    </section>
 </main>
 </>
   )

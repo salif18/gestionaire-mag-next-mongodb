@@ -1,8 +1,6 @@
 "use client"
 import React, { useContext, useState } from 'react';
 import { MyStore } from '../../context/store';
-import SideBar from '../../components/layouts/SideBar';
-import Navbar from '../../components/layouts/Navbar';
 import { useRouter } from 'next/navigation';
 
 const AddProduits = () => {
@@ -65,9 +63,8 @@ const AddProduits = () => {
     //vue frontend
     return (
         <>
-        <Navbar/>
+    
         <main className='App'>
-        <SideBar/>
         <section className='addproduits'>
             <div className='header-add'>
              <h1>Ajouter des produits</h1>
