@@ -57,17 +57,13 @@ const [searchValue,setSearchValue] = useState('')
 
 const ProductFilter = produits.length > 0 && produits.filter((item) => 
   item.nom.toLocaleLowerCase().startsWith(searchValue.toLocaleLowerCase()) || 
-  item.categories.toLocaleLowerCase().startsWith(searchValue.toLocaleLowerCase() ||
-  item.stocks == searchValue
-));
+  item.nom.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase()) ||
+  item.categories.toLocaleLowerCase().startsWith(searchValue.toLocaleLowerCase()) ||
+  item.categories.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase()) ||
+  item.prixVente == parseInt(searchValue)||
+  item.stocks == parseInt(searchValue)
+);
 
-//le slice par nombre
-const [selection,setSelection] = useState(produits.length)
-const options = [
-  {values:produits.length,label:'Afficher tous'},
-   {values:5,label:5},{values:10,label:10},{values:20,label:20},
-   {values:25,label:25},{values:50,label:50},{values:80,label:80},{values:100,label:100},
-  ]
 
   //DEFINITION DES DIFFERENTES COLONNES POUR LE TABLEAU DE DATA GRID
   const columns = [
@@ -119,14 +115,6 @@ const options = [
             <button className='btn-add' onClick={()=>router.push('/pages/add-product')}>Ajouter <AddBusinessIcon style={{marginLeft:5}} /></button>
             </div>
             <div className='filter-search'>
-             <select className='selection' value={selection} onChange={(e)=>setSelection(e.target.value)}>
-               {options.map((item)=>(
-                <option className='option' key={item.label} value={item.values}>{item.label}</option>))
-                
-              }
-               
-             </select>
-
              <input className='search-champs' type='text' value={searchValue} onChange={(e)=>setSearchValue(e.target.value)} placeholder='Rechercher un produit...' />
             </div>
 
