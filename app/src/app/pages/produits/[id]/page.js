@@ -26,11 +26,11 @@ const SingleProduits = () => {
     const [items , setItems] = useState({})
 
     const router = useRouter();
-    const {id} = useParams()
+    const {_id} = useParams()
     
     //recuperer le produit de id
     useEffect(()=>{
-          axios.get(`/api/produits/${id}`)
+          axios.get(`/api/produits/${_id}`)
           .then((res) => {
             setItems(res.data.results)
           }).catch((err) => console.error(err))
@@ -66,7 +66,7 @@ const SingleProduits = () => {
          produits.stocks.length <= 0 ){
          setError("Si ce champs n'est pas a modifier veuillez entrer l'ancienne valeur")
       }else{
-        axios.put(`/api/produits/${id}`,produits)
+        axios.put(`/api/produits/${_id}`,produits)
           .then((response) => {
             setMessages(response.data.message)
           }).catch((err) => console.error(err));

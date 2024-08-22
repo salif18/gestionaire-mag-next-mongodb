@@ -54,7 +54,12 @@ const handledelete = (id)=>{
 
 //la valeur de recherche
 const [searchValue,setSearchValue] = useState('')
-const ProductFilter = produits.length > 0 && produits.filter((item) => item.nom.toLocaleLowerCase().startsWith(searchValue.toLocaleLowerCase()) || item.categories.toLocaleLowerCase().startsWith(searchValue.toLocaleLowerCase() || item.stocks == searchValue))
+
+const ProductFilter = produits.length > 0 && produits.filter((item) => 
+  item.nom.toLocaleLowerCase().startsWith(searchValue.toLocaleLowerCase()) || 
+  item.categories.toLocaleLowerCase().startsWith(searchValue.toLocaleLowerCase() ||
+  item.stocks == searchValue
+));
 
 //le slice par nombre
 const [selection,setSelection] = useState(produits.length)
@@ -66,7 +71,6 @@ const options = [
 
   //DEFINITION DES DIFFERENTES COLONNES POUR LE TABLEAU DE DATA GRID
   const columns = [
-    { field: "id", headerName: "ID", width: 20 },
     { field: "nom", headerName: "Name", width: 100 },
     { field: 'categories', headerName: 'Categories', width: 100 },
     { field: 'prixAchat', headerName: "Prix d'achat", width: 200 },
@@ -125,7 +129,7 @@ const options = [
 
              <input className='search-champs' type='text' value={searchValue} onChange={(e)=>setSearchValue(e.target.value)} placeholder='Rechercher un produit...' />
             </div>
-            
+
             <section className='array-products'>
             <DataGrid
                     rows={!searchValue ? produits : ProductFilter}
