@@ -163,6 +163,29 @@
     }
 }
 
+.stats-graph{
+    padding: 15px;
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+    background: #ffffff;
+    border:1px solid #dfdfdf;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px 2px #d3d3d3;
+    flex: 1;
+    cursor: pointer;
+    h1{
+        font-family: Roboto;
+        font-size: 18px;
+        font-weight: 600;
+    }
+    p{
+        font-size: 16px;
+        font-family: Roboto;
+
+    }
+}
+
 .stats{
     padding: 15px;
     margin: 5px;
@@ -172,7 +195,7 @@
     border:1px solid #dfdfdf;
     border-radius: 10px;
     box-shadow: 2px 2px 2px 2px #d3d3d3;
-    flex: 1;
+    width: 300;;
     cursor: pointer;
     h1{
         font-family: Roboto;

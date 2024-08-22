@@ -52,7 +52,7 @@ const Ventes = () => {
           </thead>
          
           {panier.map((item)=>(
-            <tbody key={item.id}>
+            <tbody key={item._id}>
              <tr >
                 <th className="th">{item.nom}</th>
                 <th className="th">{item.categories}</th>

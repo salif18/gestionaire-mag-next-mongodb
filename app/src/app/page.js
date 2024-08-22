@@ -15,6 +15,7 @@ import Cout from "./components/Cout"
 import Navbar from "./components/layouts/Navbar"
 import SideBar from "./components/layouts/SideBar"
 import { MyStore } from "./context/store"
+import StatsWeek from "./components/StatsWeek"
 
 export default function Home() {
 
@@ -98,7 +99,39 @@ export default function Home() {
       { field: 'annee', headerName: 'Année', flex: 1 },
       { field: 'mois', headerName: 'Mois', flex: 1 },
       { field: 'nombre_ventes', headerName: 'Nombre de ventes', flex: 1 },
-      { field: 'total_ventes', headerName: 'Total des ventes', flex: 1 },
+      { field: 'total_ventes', headerName: 'Total', flex: 1 },
+    ]
+
+    const statsweek = [
+      {
+        day: "1",
+        total: "68728"
+      },
+      {
+        day: "2",
+        total: "28728"
+      },
+      {
+        day: "3",
+        total: "25898"
+      },
+      {
+        day: "4",
+        total: "84729"
+      },
+      {
+        day: "5",
+        total: "58998"
+      },
+      {
+        day: "6",
+        total: "64728"
+      },
+      {
+        day: "7",
+        total: "24728"
+      },
+  
     ]
 
     
@@ -119,7 +152,6 @@ export default function Home() {
      <Achats/>
     <CoutProduct/>
     <Ventes/>
-   
     </div>
     <div className='home-container-b'>
     <Cout/>
@@ -127,7 +159,10 @@ export default function Home() {
      <Revenues/>
     </div>
     <div className='home-container-c'>
-    <Statstistiques data={statsVentes}  columns={columns} />
+     <StatsWeek data={statsweek} />
+     <Statstistiques data={statsVentes}  columns={columns} />
+    </div>
+    <div className='home-container-c'>
     <StatGraphique data={statsVentes} />
     </div>
     <div>

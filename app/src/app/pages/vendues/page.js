@@ -30,7 +30,7 @@ const ListeVente = () => {
 
   //supprimer
 const handledelete = (item)=>{
-  axios.delete(`/api/ventes/${item.id}`)
+  axios.delete(`/api/ventes/${item._id}`)
   .then((res) => {
     setMessage(res.data.message)
     router.push('/pages/vendues') 
@@ -63,7 +63,7 @@ message && setTimeout(()=>setMessage(''),2000)
              </tr>
              </thead>
              {vendues.map((item)=>(
-              <tbody key={item.id}>
+              <tbody key={item._id}>
              <tr className='li_2' >
                <th className='co2'>{item.nom}</th>
                <th className='co2'>{item.categories}</th>

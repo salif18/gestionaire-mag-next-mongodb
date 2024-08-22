@@ -93,7 +93,7 @@ useEffect(() => {
                  </tr>
                  </thead>
                  {ventesFilter.map((item)=>(
-                  <tbody key={item.id}>
+                  <tbody key={item._id}>
                  <tr className='li_2' >
                   <th className='co2'>{item.nom}</th>
                   <th className='co2'>{item.categories}</th>

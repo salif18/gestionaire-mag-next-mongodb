@@ -116,7 +116,7 @@ const options = [
                {/*afficher cette partie si la valeur de recheche est existe */}
               {searchValue && 
                 ProductFilter.map((item)=>(
-                  <tbody className='table-body' key={item.id} >
+                  <tbody className='table-body' key={item._id} >
                <tr className='ligne-body' >
               
                 <th className='colon'>{item.nom}</th>
@@ -127,9 +127,9 @@ const options = [
                 <th className='colon'>{item.dateAchat}</th>
                 <th className='colon'>
                 {item.stocks > 0 && <span onClick={()=>handleAjouter(item)}><ShoppingCartIcon className='ico' /></span>}
-                <span onClick={()=>router.push(`/pages/produits/${item.id}`)}> <EditIcon className='edit' /> </span>
+                <span onClick={()=>router.push(`/pages/produits/${item._id}`)}> <EditIcon className='edit' /> </span>
                 {item.stocks <= 0 && 
-                  <span onClick={()=>handledelete(item.id)}>
+                  <span onClick={()=>handledelete(item._id)}>
                     <DeleteIcon className='del' /> 
                   </span>
                  }
@@ -139,7 +139,7 @@ const options = [
               {/*afficher cette partie si la valeur de recheche est nul et lavaleur de selection est existe */}
               {!searchValue && 
                 produits.slice(0,selection).map((item)=>(
-                  <tbody className='table-body' key={item.id}>
+                  <tbody className='table-body' key={item._id}>
                <tr className='ligne-body' >
                
                 <th className='colon'>{item.nom}</th>
@@ -150,9 +150,9 @@ const options = [
                 <th className='colon'>{item.dateAchat}</th>
                 <th className='colon'>
                 {item.stocks > 0 && <span onClick={()=>handleAjouter(item)}><ShoppingCartIcon className='ico' /></span>}
-                <span onClick={()=>router.push(`/pages/produits/${item.id}`)}> <EditIcon className='edit' /> </span>
+                <span onClick={()=>router.push(`/pages/produits/${item._id}`)}> <EditIcon className='edit' /> </span>
                 {item.stocks <= 0 && 
-                  <span onClick={()=>handledelete(item.id)}>
+                  <span onClick={()=>handledelete(item._id)}>
                     <DeleteIcon className='del' /> 
                   </span>
                  }
@@ -162,7 +162,7 @@ const options = [
               {/*afficher cette partie si la valeur de recheche est nul et lavaleur de selection est null */}
               {(!searchValue && !selection ) &&
                 produits.map((item)=>(
-                  <tbody className='table-body' key={item.id}>
+                  <tbody className='table-body' key={item._id}>
                <tr className='ligne-body' >
                
                 <th className='colon'>{item.nom}</th>
@@ -173,9 +173,9 @@ const options = [
                 <th className='colon'>{item.dateAchat}</th>
                 <th className='colon'>
                 {item.stocks > 0 && <span onClick={()=>handleAjouter(item)}><ShoppingCartIcon className='ico' /></span>}
-                <span onClick={()=>router.push(`/pages/produits/${item.id}`)}> <EditIcon className='edit' /> </span>
+                <span onClick={()=>router.push(`/pages/produits/${item._id}`)}> <EditIcon className='edit' /> </span>
                 {item.stocks <= 0 &&                  
-                  <span onClick={()=>handledelete(item.id)}>
+                  <span onClick={()=>handledelete(item._id)}>
                     <DeleteIcon className='del' /> 
                   </span>
                  }

@@ -12,7 +12,7 @@ const Tendance = () => {
             {bestVendu && bestVendu.length > 0 &&
                 bestVendu.slice(0,3).map((item) => (
                     <div className='tendance-cont' key={item._id}>
-                      <p>{item.nom}<ArrowUpwardIcon style={{color:'rgb(29, 245, 0)'}}/></p><span>{item.total_vendu}</span>
+                      <p>{item._id.nom}<ArrowUpwardIcon style={{color:'rgb(29, 245, 0)'}}/></p><span>{item.total_vendu}</span>
                     </div>
                 ))
             }

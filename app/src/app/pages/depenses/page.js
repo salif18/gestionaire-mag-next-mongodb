@@ -118,7 +118,7 @@ const Depenseur = () => {
             </div>
             {opperationFilter.length <=0 && <span className='aucun'>Aucunes dépenses</span>}
             { opperationFilter.map((item)=>(
-              <div className='card-contact' key={item.id}>
+              <div className='card-contact' key={item._id}>
              <div className='rig'>
              <h3>MONTANTS</h3>
                <p>{item.montants} FCFA</p>
@@ -131,7 +131,7 @@ const Depenseur = () => {
              <h3>DATE</h3>
              <p>{item.timestamps}</p>
              </div> 
-             <span className='btn-depense' onClick={()=>handleDelete(item.id)}><DeleteIcon className='i' /></span>
+             <span className='btn-depense' onClick={()=>handleDelete(item._id)}><DeleteIcon className='i' /></span>
              
              </div>
              ))}

@@ -30,9 +30,9 @@ const BestVente = () => {
       <div className='best-container'>
       <h1>Produits les plus achetes</h1>
       {bestVendu.map((item) =>(
-        <div className='card-best' key={item.id}>
-         <h1>{item.nom}</h1>
-         <span>{item.categories}</span>
+        <div className='card-best' key={item._id}>
+         <h1>{item._id.nom}</h1>
+         <span>{item._id.categories}</span>
          <p>{item.total_vendu}</p>
         </div>
       ))}
