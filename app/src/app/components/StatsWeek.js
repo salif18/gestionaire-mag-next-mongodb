@@ -1,3 +1,4 @@
+import moment from 'moment';
 import React from 'react'
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 
@@ -7,10 +8,15 @@ const StatsWeek = ({data}) => {
   const weekday = ["lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi", "dimanche"]
 
   // CONVERTIRE LES DONNEES EN MODEL BARDATA
-  const chartData = data && data.length > 0 && data.map((row) => ({
-    label: `${weekday[row.day -1]}`,
-    total: row.total,
-  }));
+  const chartData = data && data.length > 0 && data.map((row) => {
+    const day = parseInt(row.date.split("-")[0], 10); // Extraire le jour du mois
+    const dayOfWeek = moment(row.date, "DD-MM-YYYY").isoWeekday(); // Obtenir le jour de la semaine
+     console.log(day)
+    return {
+      label: weekday[dayOfWeek - 1], // Utiliser le jour de la semaine pour obtenir le label correct
+      total: row.total,
+    };
+  });
   return (
     <article className='widget4'>
     <h1>Statistiques Hebdomadaire</h1>

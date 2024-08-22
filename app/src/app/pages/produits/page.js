@@ -9,7 +9,7 @@ import AddBusinessIcon from '@mui/icons-material/AddBusiness';
 import Navbar from '../../components/layouts/Navbar';
 import SideBar from '../../components/layouts/SideBar';
 import { useRouter } from 'next/navigation'
-
+import { DataGrid } from '@mui/x-data-grid';
 
 
 const Produits = () => {
@@ -63,16 +63,43 @@ const options = [
    {values:5,label:5},{values:10,label:10},{values:20,label:20},
    {values:25,label:25},{values:50,label:50},{values:80,label:80},{values:100,label:100},
   ]
-// const numerotation =(produits)=>{
-//     const produitAvecNumero = produits.length > 0 && produits.map((item ,index)=>{
-//       const numerLine = index +1;
-//       return `${numerLine}.${item}`
-//     })
-//     return produitAvecNumero
-// }
 
-// const produitAvecNumero = numerotation(produits)
-// console.log(produitAvecNumero)
+  //DEFINITION DES DIFFERENTES COLONNES POUR LE TABLEAU DE DATA GRID
+  const columns = [
+    { field: "id", headerName: "ID", width: 20 },
+    { field: "nom", headerName: "Name", width: 100 },
+    { field: 'categories', headerName: 'Categories', width: 100 },
+    { field: 'prixAchat', headerName: "Prix d'achat", width: 200 },
+    { field: 'prixVente', headerName: "Prix de vente", width: 200 },
+    { field: 'stocks', headerName: 'Stocks', width: 200 ,
+      renderCell: (params) => {
+        return (
+            <section>
+             {params.row.stocks <= 0 ? <span className='fini'>Ce stock est fini</span> : params.row.stocks}
+            </section>
+        )
+    }
+
+    },
+    { field: "dateAchat", headerName: "Date d'achat", width: 200 },
+    {
+        field: 'actions', headerName: 'Actions', width: 200,
+        renderCell: (params) => {
+            return (
+                <section>
+                {params.row.stocks > 0 && <span onClick={()=>handleAjouter(params.row)}><ShoppingCartIcon className='ico' /></span>}
+                <span onClick={()=>router.push(`/pages/produits/${params.row._id}`)}> <EditIcon className='edit' /> </span>
+                {params.row.stocks <= 0 && 
+                  <span onClick={()=>handledelete(params.row._id)}>
+                    <DeleteIcon className='del' /> 
+                  </span>
+                 }
+                </section>
+            )
+        }
+    },
+
+];
 
     return (
       <>
@@ -99,91 +126,18 @@ const options = [
              <input className='search-champs' type='text' value={searchValue} onChange={(e)=>setSearchValue(e.target.value)} placeholder='Rechercher un produit...' />
             </div>
             
-            <div className='array-products'>
-              <table className='table'>
-               <thead className='table-header'>
-               <tr className='ligne'>
-               
-                 <th  className='colonne'>NOMS</th>
-                 <th className='colonne'>CATEGORIES</th>
-                 <th className='colonne'>PRIX D'ACHATS</th>
-                 <th className='colonne'>PRIX DE VENTE</th>
-                 <th className='colonne'>STOCKS</th>
-                 <th className='colonne'>DATE</th>
-                 <th className='colonne'>ACTIONS</th>
-               </tr>
-               </thead>
-               {/*afficher cette partie si la valeur de recheche est existe */}
-              {searchValue && 
-                ProductFilter.map((item)=>(
-                  <tbody className='table-body' key={item._id} >
-               <tr className='ligne-body' >
-              
-                <th className='colon'>{item.nom}</th>
-                <th className='colon'>{item.categories}</th>
-                <th className='colon'>{item.prixAchat} FCFA</th>
-                <th className='colon'>{item.prixVente} FCFA</th>
-                <th className='colon'>{item.stocks <= 0 ? <span className='fini'>Ce stock est fini</span> : item.stocks}</th>
-                <th className='colon'>{item.dateAchat}</th>
-                <th className='colon'>
-                {item.stocks > 0 && <span onClick={()=>handleAjouter(item)}><ShoppingCartIcon className='ico' /></span>}
-                <span onClick={()=>router.push(`/pages/produits/${item._id}`)}> <EditIcon className='edit' /> </span>
-                {item.stocks <= 0 && 
-                  <span onClick={()=>handledelete(item._id)}>
-                    <DeleteIcon className='del' /> 
-                  </span>
-                 }
-                </th>
-               </tr>
-              </tbody>))}
-              {/*afficher cette partie si la valeur de recheche est nul et lavaleur de selection est existe */}
-              {!searchValue && 
-                produits.slice(0,selection).map((item)=>(
-                  <tbody className='table-body' key={item._id}>
-               <tr className='ligne-body' >
-               
-                <th className='colon'>{item.nom}</th>
-                <th className='colon'>{item.categories}</th>
-                <th className='colon'>{item.prixAchat} FCFA</th>
-                <th className='colon'>{item.prixVente} FCFA</th>
-                <th className='colon'>{item.stocks <= 0 ? <span className='fini'>Ce stock est fini</span> : item.stocks}</th>
-                <th className='colon'>{item.dateAchat}</th>
-                <th className='colon'>
-                {item.stocks > 0 && <span onClick={()=>handleAjouter(item)}><ShoppingCartIcon className='ico' /></span>}
-                <span onClick={()=>router.push(`/pages/produits/${item._id}`)}> <EditIcon className='edit' /> </span>
-                {item.stocks <= 0 && 
-                  <span onClick={()=>handledelete(item._id)}>
-                    <DeleteIcon className='del' /> 
-                  </span>
-                 }
-                </th>
-                </tr>
-              </tbody>))}
-              {/*afficher cette partie si la valeur de recheche est nul et lavaleur de selection est null */}
-              {(!searchValue && !selection ) &&
-                produits.map((item)=>(
-                  <tbody className='table-body' key={item._id}>
-               <tr className='ligne-body' >
-               
-                <th className='colon'>{item.nom}</th>
-                <th className='colon'>{item.categories}</th>
-                <th className='colon'>{item.prixAchat} FCFA</th>
-                <th className='colon'>{item.prixVente} FCFA</th>
-                <th className='colon'>{item.stocks <= 0 ? <span className='fini'>Ce stock est fini</span> : item.stocks}</th>
-                <th className='colon'>{item.dateAchat}</th>
-                <th className='colon'>
-                {item.stocks > 0 && <span onClick={()=>handleAjouter(item)}><ShoppingCartIcon className='ico' /></span>}
-                <span onClick={()=>router.push(`/pages/produits/${item._id}`)}> <EditIcon className='edit' /> </span>
-                {item.stocks <= 0 &&                  
-                  <span onClick={()=>handledelete(item._id)}>
-                    <DeleteIcon className='del' /> 
-                  </span>
-                 }
-                </th>
-                </tr>
-              </tbody>))}
-              </table>
-            </div>
+            <section className='array-products'>
+            <DataGrid
+                    rows={!searchValue ? produits : ProductFilter}
+                    getRowId={(row) => row._id}
+                    disableSelectionOnclick
+                    columns={columns}
+                    pageSize={10}
+                    rowsPerPageOptions={[5]}
+                    checkboxSelection
+                />
+             
+            </section>
         </section>
         </main>
         </>

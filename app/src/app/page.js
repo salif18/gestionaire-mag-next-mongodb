@@ -20,9 +20,8 @@ import StatsWeek from "./components/StatsWeek"
 export default function Home() {
 
   const {setProduits , setVendues, setBestVendu ,setOpperations } = useContext(MyStore)
-
   const [statsVentes ,setStatsVentes ] = useState([])
-
+  const [statsWeeks ,setStatsWeeks ] = useState([])
   
   //charger les produits
   useEffect(() => {
@@ -50,6 +49,21 @@ export default function Home() {
     getVente()
   }, []);
 
+  
+  //charger les ventes hebdo
+  useEffect(() => {
+    const getVente =()=>{
+    axios
+      .get(`/api/ventes/stats-by-hebdo`)
+      .then((response) => {
+        setStatsWeeks(response.data.stats);
+      })
+      .catch((err) => console.error(err));
+    };
+    getVente()
+  }, []);
+
+  console.log(statsWeeks)
 
 
   //charger les depenses
@@ -102,38 +116,7 @@ export default function Home() {
       { field: 'total_ventes', headerName: 'Total', flex: 1 },
     ]
 
-    const statsweek = [
-      {
-        day: "1",
-        total: "68728"
-      },
-      {
-        day: "2",
-        total: "28728"
-      },
-      {
-        day: "3",
-        total: "25898"
-      },
-      {
-        day: "4",
-        total: "84729"
-      },
-      {
-        day: "5",
-        total: "58998"
-      },
-      {
-        day: "6",
-        total: "64728"
-      },
-      {
-        day: "7",
-        total: "24728"
-      },
-  
-    ]
-
+    
     
   return (
     <>
@@ -145,6 +128,7 @@ export default function Home() {
       <h1>TABLEAU DE RESUME</h1>
     </header>
     <div className='home-container-d'>
+    <StatsWeek data={statsWeeks} />
      <Tendance/>
      <EtatStocks/>
    </div>
@@ -159,11 +143,8 @@ export default function Home() {
      <Revenues/>
     </div>
     <div className='home-container-c'>
-     <StatsWeek data={statsweek} />
-     <Statstistiques data={statsVentes}  columns={columns} />
-    </div>
-    <div className='home-container-c'>
     <StatGraphique data={statsVentes} />
+    <Statstistiques data={statsVentes}  columns={columns} />
     </div>
     <div>
     

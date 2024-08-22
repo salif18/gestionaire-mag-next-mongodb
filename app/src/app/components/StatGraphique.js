@@ -1,3 +1,4 @@
+import moment from 'moment';
 import React from 'react';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip} from 'recharts';
 
@@ -5,18 +6,20 @@ const StatGraphique = ({ data }) => {
 
   const months = ["jan","fev","mar","avr","mai","jun","jui","aout","sept","oct","nov","dec"]
   
-  const chartData = data && data.length > 0 ? data.map((row) => ({
-    label: row.annee && row.mois ? `${ months[row.mois]} ${row.annee}` : 'Inconnu',
+  const chartData = data && data.length > 0 ? data.map((row) => {
+    return {
+      label: row.annee && row.mois ? `${months[row.mois - 1]}-${row.annee}` : 'Inconnu',
     nombreVentes: row.nombre_ventes || 0,
     totalVentes: row.total_ventes || 0,
-  })) : [];
+  }
+  }) : [];
   
 
   return (
     <div className='stats-graph'>
       <h1>Interprétation graphique</h1>
       <div style={{ height: 300, flex:1}}>
-        <AreaChart width={1200} height={300} data={chartData}
+        <AreaChart width={850} height={300} data={chartData}
           margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
           <defs>
             <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
