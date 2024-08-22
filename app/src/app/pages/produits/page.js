@@ -17,18 +17,18 @@ const Produits = () => {
   const router = useRouter()
   const {handleAddPanier} = useContext(MyStore)
 
-//charger les produits
-useEffect(() => {
+ //charger les produits
+ useEffect(() => {
   const getProduits =()=>{
-    axios.get(`/api/produits`)
-    .then((res) => {
-      setProduits(res.data.produits);
+  axios
+    .get(`/api/produits`)
+    .then((response) => {
+      setProduits(response.data.produits);
     })
     .catch((err) => console.error(err));
   };
   getProduits()
 }, []);
-console.log(produits)
 
   //caclule le nombre total de stocks
 const calculeStock = ()=>{

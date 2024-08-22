@@ -17,6 +17,7 @@ const BestVente = () => {
     };
     getBestVente()
  },[])
+ 
     return (
       <>
       <Navbar/>

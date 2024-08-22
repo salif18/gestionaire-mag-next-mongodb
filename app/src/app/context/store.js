@@ -69,58 +69,6 @@ export const MyStoreProvider = (props) => {
     .then((response) => setMessage(response.data.message))
     .catch((err)=> console.log(err))
   }
-
-  
-  //charger les produits
-  useEffect(() => {
-    const getProduits =()=>{
-    axios
-      .get(`/api/produits`)
-      .then((response) => {
-        setProduits(response.data.produits);
-      })
-      .catch((err) => console.error(err));
-    };
-    getProduits()
-  }, []);
-
-  //charger les ventes
-  useEffect(() => {
-    const getVente =()=>{
-    axios
-      .get(`/api/ventes`)
-      .then((response) => {
-        setVendues(response.data.results);
-      })
-      .catch((err) => console.error(err));
-    };
-    getVente()
-  }, []);
-
-
-
-  //charger les depenses
-  useEffect(()=>{
-      const getDepenses =()=>{
-       axios.get(`/api/depenses`)
-       .then((res) =>{
-        setOpperations(res.data.results)
-       }).catch(err => console.error(err))
-      };
-      getDepenses()
-  },[])
-
-
-  //recuperer les meilleur vente
-  useEffect(()=>{
-     const getBestVente =()=>{
-       axios.get(`/api/ventes/stats-by-categories`)
-       .then((res)=>{
-        setBestVendu(res.data.results)
-       }).catch((err)=>console.error(err))
-     };
-     getBestVente()
-  },[])
   
   //calcule de stock
   const configStock = async (item) => {
@@ -225,6 +173,8 @@ export const MyStoreProvider = (props) => {
     setPanier: setPanier,
     vendues: vendues,
     setVendues: setVendues,
+    setBestVendu:setBestVendu,
+    setOpperations:setOpperations,
     handleAddPanier: handleAddPanier,
     handleVendre: handleVendre,
     increment: increment,

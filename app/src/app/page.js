@@ -1,7 +1,7 @@
 "use client"
 
 import axios from "axios"
-import { useEffect, useState} from "react"
+import { useContext, useEffect, useState} from "react"
 import Tendance from "./components/Tendance"
 import EtatStocks from "./components/EtatStocks"
 import Achats from "./components/Achats"
@@ -14,11 +14,65 @@ import StatGraphique from "./components/StatGraphique"
 import Cout from "./components/Cout"
 import Navbar from "./components/layouts/Navbar"
 import SideBar from "./components/layouts/SideBar"
+import { MyStore } from "./context/store"
 
 export default function Home() {
 
+  const {setProduits , setVendues, setBestVendu ,setOpperations } = useContext(MyStore)
+
   const [statsVentes ,setStatsVentes ] = useState([])
+
   
+  //charger les produits
+  useEffect(() => {
+    const getProduits =()=>{
+    axios
+      .get(`/api/produits`)
+      .then((response) => {
+        setProduits(response.data.produits);
+      })
+      .catch((err) => console.error(err));
+    };
+    getProduits()
+  }, []);
+
+  //charger les ventes
+  useEffect(() => {
+    const getVente =()=>{
+    axios
+      .get(`/api/ventes`)
+      .then((response) => {
+        setVendues(response.data.results);
+      })
+      .catch((err) => console.error(err));
+    };
+    getVente()
+  }, []);
+
+
+
+  //charger les depenses
+  useEffect(()=>{
+      const getDepenses =()=>{
+       axios.get(`/api/depenses`)
+       .then((res) =>{
+        setOpperations(res.data.results)
+       }).catch(err => console.error(err))
+      };
+      getDepenses()
+  },[])
+
+
+  //recuperer les meilleur vente
+  useEffect(()=>{
+     const getBestVente =()=>{
+       axios.get(`/api/ventes/stats-by-categories`)
+       .then((res)=>{
+        setBestVendu(res.data.results)
+       }).catch((err)=>console.error(err))
+     };
+     getBestVente()
+  },[])
   
   useEffect(() => {
       async function fetchSalesStatistics() {
