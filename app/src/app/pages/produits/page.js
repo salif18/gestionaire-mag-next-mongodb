@@ -54,7 +54,7 @@ const handledelete = (id)=>{
 
 //la valeur de recherche
 const [searchValue,setSearchValue] = useState('')
-const ProductFilter = produits.length > 0 && produits.filter((item) => item.nom.includes(searchValue) || item.categories.includes(searchValue) || item.stocks == searchValue)
+const ProductFilter = produits.length > 0 && produits.filter((item) => item.nom.toLocaleLowerCase().startsWith(searchValue.toLocaleLowerCase()) || item.categories.toLocaleLowerCase().startsWith(searchValue.toLocaleLowerCase() || item.stocks == searchValue))
 
 //le slice par nombre
 const [selection,setSelection] = useState(produits.length)
