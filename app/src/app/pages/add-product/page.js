@@ -62,40 +62,36 @@ const AddProduits = () => {
 
     //vue frontend
     return (
-        <>
-    
-        <main className='App'>
-        <section className='addproduits'>
-            <div className='header-add'>
+        
+        <main className='addproduits'>
+            <section className='header-add'>
              <h1>Ajouter des produits</h1>
-            </div>
-            <div className='add-container'>
+            </section>
+            <form className='add-container' onSubmit={()=>handleAdd()}>
             
-            <div className='infos-fournisseur'>
-            
-             <div className='fourmi'>
+             <section className='form'>
              <label>Prix d'achats</label>
              <input type='number' name='prixAchat' value={produits.prixAchat} onChange={(e)=>handleChange(e)} placeholder="Prix d'achat.."/>
              {produits.prixAchat.length <= 0 && <span>{error}</span>}
-             </div>
+             </section>
 
-             <div className='fourmi'>
+             <section className='form'>
             <label>Prix de ventes</label>
             <input type='number' name='prixVente' value={produits.prixVente} onChange={(e)=>handleChange(e)} placeholder='Prix de vente..' />
             {produits.prixVente.length <= 0 && <span>{error}</span>}
-            </div>
+            </section>
               <span className='messge-add'>{message}</span>
-            </div>
+            
 
            
-            <div className='infos-produit'>
-            <div className='fourmi'>
+            
+            <section className='form'>
             <label>Nom</label>
             <input type='text' name='nom' value={produits.nom} onChange={(e)=>handleChange(e)} placeholder='Nom du produit' />
             {produits.nom.length <= 0 && <span>{error}</span>}
-            </div>
+            </section>
 
-            <div className='fourmi'>
+            <section className='form'>
             <label >Catégories</label>
             <select type='text' name='categories' value={produits.categories} onChange={(e)=>handleChange(e)} placeholder='Categorie'>
             <option >Catégorie--Select</option>
@@ -104,27 +100,26 @@ const AddProduits = () => {
             ))}
             </select>
             {produits.categories.length <= 0 && <span>{error}</span>}
-            </div>
+            </section>
 
-            <div className='fourmi'>
+            <section className='form'>
              <label>Date</label>
              <input type='date' name='dateAchat' value={produits.dateAchat} onChange={(e)=>handleChange(e)}/>
              {produits.dateAchat.length <= 0 && <span>{error}</span>}
-             </div>
+             </section>
             
 
-            <div className='fourmi'>
+            <section className='form'>
             <label>Quantités</label>
             <input className='input-qty' type='number' name='stocks' value={produits.stocks} onChange={(e)=>handleChange(e)} placeholder='Quantites de stocks' />
             {produits.stocks.length <= 0 && <span>{error}</span>}
-            </div>
-            </div>
+            </section>
+            
 
-            <button className='btn-save' onClick={()=>handleAdd()}>Enregistrer</button>
-             </div>
-        </section>
+            <button className='btn-save' type='submit'>Enregistrer</button>
+            </form>
         </main>
-        </>
+        
     );
 }
 
