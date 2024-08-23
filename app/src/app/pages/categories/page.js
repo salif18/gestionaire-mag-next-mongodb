@@ -44,40 +44,20 @@ const handledelete = (id)=>{
    .catch((err)=>console.error(err))
  };
 
-     const parfum =()=>{
-        setCategories('Parfum')
-     }
+   //valeurs des options de formulaire
+   const options = [
+    {value:'Parfum',label:'Parfum'},
+    {value:'Pommade',label:'Pommade'},
+    {value:'Deodorant',label:'Deodorant'},
+    {value:'Lait',label:'Lait'},
+    {value:'Lotion',label:'Lotion'},
+    {value:'Autres',label:'Autres'},
+    {value:'Tube',label:'Tube'},
+    {value:'Savon',label:'Savon'},
+]
 
-     const deodaurant =()=>{
-        setCategories('Deodorant')
-     }
-
-     const pommade =()=>{
-        setCategories('Pommade')
-     }
-
-     const lait = ()=>{
-        setCategories('Lait')
-     }
-
-     const lotion =()=>{
-        setCategories('Lotion')
-     }
-
-     const tube =()=>{
-        setCategories('Tube')
-     }
-
-     
-
-     const autres =()=>{
-      setCategories('Autres')
-     }
-
-     const savon =()=>{
-      setCategories('Savon')
-     }
-
+     //focntion de changer les champs
+    
      const ProductFilter = produits.length > 0 && produits.filter((item) => 
       item.categories.toLocaleLowerCase().includes(categories.toLocaleLowerCase())
      
@@ -166,14 +146,12 @@ const handledelete = (id)=>{
               <h1>Categories</h1>
             </header>
             <nav className='categorie-navbar'>
-            <button className='btn-cate' onClick={()=>parfum()}>Parfum</button>
-            <button className='btn-cate' onClick={()=>deodaurant()}>Deodaurant</button>
-            <button className='btn-cate' onClick={()=>pommade()}>Pommade</button>
-            <button className='btn-cate' onClick={()=>lait()}>Lait</button>
-            <button className='btn-cate' onClick={()=>lotion()}>Lotion</button>
-            <button className='btn-cate' onClick={()=>tube()}>Tube</button> 
-            <button className='btn-cate' onClick={()=>autres()}>Autres</button>
-            <button className='btn-cate' onClick={()=>savon()}>Savon</button>
+            <select type='text' value={categories} onChange={(e)=>setCategories(e.target.value)} placeholder='Categorie'>
+            <option >Catégorie--Select</option>
+            {options.map((item) =>(
+                <option key={item.value} value={item.value}><span style={{color:"red"}}>{item.label}</span></option>
+            ))}
+            </select>
             </nav>
 
             <section className='categorie-container'>
@@ -181,7 +159,7 @@ const handledelete = (id)=>{
                 
                 <section className='array-products'>
                 <DataGrid
-                    rows={ ProductFilter}
+                    rows={ ProductFilter }
                     getRowId={(row) => row._id}
                     disableSelectionOnclick
                     columns={columns}

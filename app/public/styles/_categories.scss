@@ -20,8 +20,17 @@
         padding: 15px;
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-self: flex-start;
         background: #376369;
+
+        select{
+            width: 200px;
+            height: 40px;
+            border-radius: 10px;
+            border: none;
+            padding: 5px;
+            outline: none;
+        }
 
         .btn-cate {
             width: 200px;
