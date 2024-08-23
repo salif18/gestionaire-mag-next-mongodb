@@ -175,7 +175,7 @@ const handledelete = (id)=>{
                 <section className='array-products'>
                 <DataGrid
                     rows={ ProductFilter}
-                    getRowId={(row) => row._id.nom}
+                    getRowId={(row) => row._id}
                     disableSelectionOnclick
                     columns={columns}
                     pageSize={10}
