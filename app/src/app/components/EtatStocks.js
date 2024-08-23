@@ -1,9 +1,9 @@
-import React, { useContext } from 'react';
-import { MyStore } from '../context/store';
+import React from 'react';
+
 import CallMissedOutgoingIcon from '@mui/icons-material/CallMissedOutgoing';
 
-const EtatStocks = () => {
-    const {produits} = useContext(MyStore)
+const EtatStocks = ({produits}) => {
+   
     const filterStock =produits && produits.length > 0 && produits.filter((item) => item.stocks === 0)
     return (
         <div className='stocksWidget'>

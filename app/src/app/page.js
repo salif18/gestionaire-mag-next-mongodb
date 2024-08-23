@@ -17,10 +17,14 @@ import StatsWeek from "./components/StatsWeek"
 
 export default function Home() {
 
-  const {setProduits , setVendues, setBestVendu ,setOpperations } = useContext(MyStore)
+  const { setVendues, setBestVendu ,setOpperations } = useContext(MyStore)
+  const [ produits , setProduits] = useState([])
   const [statsVentes ,setStatsVentes ] = useState([])
   const [statsWeeks ,setStatsWeeks ] = useState([])
-  
+  const [benefice ,setBenefice ] = useState([])
+  const [totalVente ,setTotalVente ] = useState([])
+  const [totalAchatOfVente ,setTotalAchatOfVente ] = useState([])
+  const [totalAchatOfAchat ,setTotalAchatOfAchat ] = useState([])
   //charger les produits
   useEffect(() => {
     const getProduits =()=>{
@@ -28,12 +32,29 @@ export default function Home() {
       .get(`/api/produits`)
       .then((response) => {
         setProduits(response.data.produits);
+        setTotalAchatOfAchat(response.data.totalAchatOfAchat)
       })
       .catch((err) => console.error(err));
     };
     getProduits()
   }, []);
 
+  //charger les ventes
+  useEffect(() => {
+    const getVente =()=>{
+    axios
+      .get(`/api/ventes`)
+      .then((response) => {
+        setBenefice(response.data.benefices);
+        setTotalVente(response.data.totalVente);
+        setTotalAchatOfVente(response.data.totalAchatOfVente)
+      })
+      .catch((err) => console.error(err));
+    };
+    getVente()
+  }, []);
+
+  
   //charger les ventes
   useEffect(() => {
     const getVente =()=>{
@@ -47,6 +68,7 @@ export default function Home() {
     getVente()
   }, []);
 
+  console.log(benefice)
   
   //charger les ventes hebdo
   useEffect(() => {
@@ -61,7 +83,7 @@ export default function Home() {
     getVente()
   }, []);
 
-  console.log(statsWeeks)
+  
 
 
   //charger les depenses
@@ -125,17 +147,19 @@ export default function Home() {
     <section className='home-row'>
     <StatsWeek data={statsWeeks} />
      <Tendance/>
-     <EtatStocks/>
+     <EtatStocks produits ={produits}/>
    </section>
     <section className='home-row'>
-     <Achats/>
-    <CoutProduct/>
-    <Ventes/>
+     <Achats resultat={totalAchatOfVente + totalAchatOfAchat  }/>
+    {/* <CoutProduct/> */}
+    <Ventes venteTotal={totalVente}/>
+    <Cout benefice ={benefice}/>
+    <Depenses/>
     </section>
     <section className='home-row'>
-    <Cout/>
-     <Depenses/>
-     <Revenues/>
+    
+     
+     {/* <Revenues/> */}
     </section>
     <section className='home-row'>
     <StatGraphique data={statsVentes} />

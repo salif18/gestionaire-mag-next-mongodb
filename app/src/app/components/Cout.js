@@ -1,14 +1,12 @@
 import React, { useContext } from 'react';
-import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
-import RequestQuoteIcon from '@mui/icons-material/RequestQuote';
 import PaymentsIcon from '@mui/icons-material/Payments';
-import { MyStore } from '../context/store';
-const Cout = () => {
-    const {beneficeGeneral} = useContext(MyStore)
+
+const Cout = ({benefice}) => {
+   
     return (
         <div className='coutWidget'>
             <h1><PaymentsIcon className='icon'/> Bénefices global</h1>
-            <p>{beneficeGeneral} Fcfa</p>
+            <p>{benefice} Fcfa</p>
         </div>
     );
 }

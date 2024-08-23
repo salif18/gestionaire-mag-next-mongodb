@@ -10,8 +10,6 @@ export const MyStore = createContext();
 export const MyStoreProvider = (props) => {
 
   //etats de mes donnees
-  const [produits, setProduits] = useState([]);
-  const [vendues, setVendues] = useState([]);
   const [panier, setPanier] = useState([]);
   const [opperations,setOpperations] = useState([])
   const [errorStock, setErrorStock] = useState("");
@@ -47,8 +45,6 @@ export const MyStoreProvider = (props) => {
   const handleAddPanier = (item) => {
     setPanier([...panier, { ...item, qty: 1 }]);
   };
-
-  console.log(panier)
  
   //enregistrer ou effectuer une vente
   const handleVendre = () => {
@@ -70,49 +66,7 @@ export const MyStoreProvider = (props) => {
     .catch((err)=> console.log(err))
   }
    
-
-  //calcule vente total
-  const calVenteTotal = () => {
-    const prix = vendues.map((x) => x.prixVente * x.qty);
-    const sum = prix.reduce((a, b) => a + b, 0);
-    return sum;
-  };
-  let venteTotal = calVenteTotal();
-
-  //calcule benefice totale
-  const calculBenefice = (data) => {
-    let beneficeTotal = 0;
-    for (let x of data) {
-      const bene = ((x.prixVente * x.qty) / x.qty - x.prixAchat) * x.qty;
-      beneficeTotal += bene;
-    }
-    return beneficeTotal;
-  };
-  let beneficeGeneral = calculBenefice(vendues);
-
-  //calcule achat total de stock
-  const achat = ()=>{
-     const prixAchat = produits.map((x) => x.prixAchat * x.stocks);
-     const sum = prixAchat.reduce((a, b) => a + b, 0);
-     return sum
-  }
-  const sumAchat = achat()
   
-  //calcul achat total de vente
-  const vente =()=>{
-     const forvendue = vendues && vendues.map((x) => x.prixAchat * x.qty);
-     const sum = forvendue.reduce((a, b) => a + b, 0);
-     return sum
-  }
-  const sumVente = vente()
- 
-  //calcule achat total de produit
-  const calculAchatTotal = (a,b) => {
-    const total = a + b;
-    return total;
-  };
-  const achatTotal = calculAchatTotal(sumVente,sumAchat);
-
   //calcule des depenses
   const calculeDepenses =()=>{
     const somme = opperations.map((a)=> a.montants );
@@ -129,22 +83,15 @@ export const MyStoreProvider = (props) => {
 
 
   const contextValue = {
-    produits: produits,
-    setProduits: setProduits,
     handleSave: handleSave,
     panier: panier,
     setPanier: setPanier,
-    vendues: vendues,
-    setVendues: setVendues,
     setBestVendu:setBestVendu,
     setOpperations:setOpperations,
     handleAddPanier: handleAddPanier,
     handleVendre: handleVendre,
     increment: increment,
     decrement: decrement,
-    beneficeGeneral: beneficeGeneral,
-    venteTotal: venteTotal,
-    achatTotal: achatTotal,
     errorStock: errorStock,
     opperations:opperations,
     sendDepensesToDataBase:sendDepensesToDataBase,

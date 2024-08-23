@@ -1,12 +1,11 @@
-import React, { useContext } from 'react';
-import { MyStore } from '../context/store';
+import React from 'react';
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
-const Achats = () => {
-    const {achatTotal} = useContext(MyStore)
+const Achats = ({resultat}) => {
+   
     return (
         <div className='achatsWidget'>
             <h1><AttachMoneyIcon className='icon'/>  Prix d'achats générals </h1>
-            <p>{achatTotal} Fcfa</p>
+            <p>{resultat} Fcfa</p>
         </div>
     );
 }

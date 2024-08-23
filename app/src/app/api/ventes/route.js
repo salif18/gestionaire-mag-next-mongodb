@@ -54,8 +54,22 @@ export const GET = async (req, res) => {
       await dbConnect();
         const ventes = await Vente.find().sort({ timestamps: -1 });
 
+        const totalAchat = ventes.map((x) => x.prixAchat * x.qty).reduce((a, b) => a + b, 0);
+        const totalVente = ventes.map((x) => x.prixVente * x.qty).reduce((a, b) => a + b, 0);
+
+        let beneficeTotal = 0;
+        for (let x of ventes) {
+          const bene = ((x.prixVente * x.qty) / x.qty - x.prixAchat) * x.qty;
+          beneficeTotal += bene;
+        }
+
         return NextResponse.json(
-            { message: "ok", results: ventes },
+            { message: "ok", 
+              results: ventes , 
+              totalVente:totalVente, 
+              benefices: beneficeTotal, 
+              totalAchatOfVente:totalAchat 
+            },
             { status: 200 }
         );
     } catch (err) {
