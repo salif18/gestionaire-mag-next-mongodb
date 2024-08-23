@@ -103,13 +103,19 @@ const ProductFilter = produits.length > 0 && produits.filter((item) =>
     }
 
     },
-    { field: "dateAchat", headerName: "Date d'achat", width: 200 ,renderCell:(params)=>{
-      return (
-        <section className='title'>
-          <p>{params.row.dateAchat}</p>
-        </section>
-      )
-    } },
+    { 
+      field: "dateAchat", 
+      headerName: "Date d'achat", 
+      width: 200,
+      renderCell: (params) => {
+          const formattedDate = new Date(params.row.dateAchat).toISOString().split('T')[0];
+          return (
+              <section className='title'>
+                  <p>{formattedDate}</p>
+              </section>
+          )
+      } 
+  },
     {
         field: 'actions', headerName: 'Actions', width: 200,
         renderCell: (params) => {
