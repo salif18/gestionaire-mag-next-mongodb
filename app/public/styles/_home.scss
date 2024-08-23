@@ -1,9 +1,9 @@
-.home {
+.dashboard {
    display: flex;
    flex-direction: column;
    background: #f0f1f5;
 
-   .header-home {
+   .header-dashboard {
       padding: 15px;
       margin: 10px;
       background: #fff;
@@ -17,25 +17,10 @@
       }
    }
 
-   .home-container-a {
+   .home-row {
       display: flex;
       margin: 10px;
 
    }
 
-   .home-container-b {
-      display: flex;
-      margin: 10px;
-
-   }
-
-   .home-container-c {
-      display: flex;
-      margin: 10px;
-   }
-
-   .home-container-d {
-      display: flex;
-      margin: 10px;
-   }
 }

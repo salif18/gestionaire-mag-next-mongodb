@@ -1,17 +1,13 @@
 "use client"
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import RotateLeftIcon from '@mui/icons-material/RotateLeft';
-import { MyStore } from '../../context/store';
-import Navbar from '../../components/layouts/Navbar';
-import SideBar from '../../components/layouts/SideBar';
 import { useRouter } from 'next/navigation';
 
 
 
 const ListeVente = () => {
   const router = useRouter()
-  const {cancelStock} = useContext(MyStore)
   const [message ,setMessage] = useState('')
   const [vendues , setVendues] = useState([])
 
@@ -36,7 +32,7 @@ const handledelete = (item)=>{
     router.push('/pages/vendues') 
   })
   .catch((err)=>console.error(err));
-   cancelStock(item)
+  
 }
 
 message && setTimeout(()=>setMessage(''),2000)

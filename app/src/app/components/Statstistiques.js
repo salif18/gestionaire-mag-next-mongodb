@@ -13,7 +13,7 @@ const Statstistiques = ({data, columns}) => {
   }));
    
     return (
-        <div className='stats'>
+        <div className='statsWidget'>
             <h1>Etude detaillée</h1>
             <div style={{ height: 300, width:300 }}>
             <DataGrid  columns={columns} pageSize={10} rows={formattedData} getRowId={(row) => row.annee + row.mois} />

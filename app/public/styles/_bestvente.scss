@@ -1,12 +1,5 @@
 .bestvente{
-    flex:4;
-    background: #f0f2f5;
-    width: 100%;
-    height: calc(100vh - 50px);
-    overflow-y: scroll;
-    display: flex;
-    flex-direction: column;
-}
+   
 
 .header-best{
     padding: 15px;
@@ -38,6 +31,7 @@
         font-size: 20px;
         text-transform: uppercase;
         border-bottom: 1px solid #000;
+        margin: 10px;
     }
     .card-best{
         width: 100%;
@@ -62,4 +56,5 @@
             font-size: 12px;
         }
     }
+}
 }

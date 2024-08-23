@@ -48,6 +48,7 @@ export const MyStoreProvider = (props) => {
     setPanier([...panier, { ...item, qty: 1 }]);
   };
 
+  console.log(panier)
  
   //enregistrer ou effectuer une vente
   const handleVendre = () => {
@@ -58,7 +59,6 @@ export const MyStoreProvider = (props) => {
           setMessage(response.data.message)
         })
         .catch((err) => console.log(err));
-      return configStock(item);
       
     });
   };
@@ -69,44 +69,7 @@ export const MyStoreProvider = (props) => {
     .then((response) => setMessage(response.data.message))
     .catch((err)=> console.log(err))
   }
-  
-  //calcule de stock
-  const configStock = async (item) => {
-    const product = produits.find((x) => x._id === item._id);
-    if (product && item.qty > 0 && item.qty <= product.stocks) {
-      product.stocks -= item.qty;
-      try {
-        await axios.patch(
-          `/api/produits/${product._id}`,
-          { stocks: product.stocks }
-        );
-      } catch (err) {
-        console.error(err);
-      }
-    } else {
-      setErrorStock(`Stock insuffisant pour le produit ${item.nom}`);
-    }
-  };
-
-  
-  //calcule de stock en ca 'annuler une vente
-  const cancelStock = async (item) => {
-    const product = produits.find((x) => x._id === item._id);
-    if ((product && item.qty > 0 && item.qty <= product.stocks) || item.qty >= product.stocks) {
-      product.stocks += item.qty;
-      try {
-        await axios.patch(
-          `/api/produits/${product._id}`,
-          { stocks: product.stocks }
-        );
-      } catch (err) {
-        console.error(err);
-      }
-    } else {
-      setErrorStock(`Stock insuffisant pour le produit ${item.nom}`);
-    }
-  };
-  
+   
 
   //calcule vente total
   const calVenteTotal = () => {
@@ -183,8 +146,6 @@ export const MyStoreProvider = (props) => {
     venteTotal: venteTotal,
     achatTotal: achatTotal,
     errorStock: errorStock,
-    configStock: configStock,
-    cancelStock:cancelStock,
     opperations:opperations,
     sendDepensesToDataBase:sendDepensesToDataBase,
     depensesTotal:depensesTotal,

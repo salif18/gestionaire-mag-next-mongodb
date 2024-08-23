@@ -8,7 +8,7 @@ const Revenues = () => {
     const {beneficeGeneral,depensesTotal} = useContext(MyStore)
     const result = beneficeGeneral - depensesTotal
     return (
-        <div className='revenus'>
+        <div className='revenusWidget'>
         <h1><TrendingDownIcon style={{color:result <= 0 ? 'red':''}} className='icon'/> Revenus après dépenses</h1>
         <div className='r'><p>{result} Fcfa</p> {result <= 0 ?<ArrowDownwardIcon style={{color:'red'}}/> :<ArrowUpwardIcon style={{color:'green'}} />}</div>
     </div>

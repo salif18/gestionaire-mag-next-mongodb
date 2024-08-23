@@ -1,223 +1,249 @@
-.cout{
+.coutWidget {
     padding: 15px;
     margin: 5px;
     display: flex;
     flex-direction: column;
     background: #fff;
-    border:1px solid #dfdfdf;
+    border: 1px solid #dfdfdf;
     border-radius: 10px;
-    box-shadow: 2px 2px 2px 2px #d3d3d3;
+    box-shadow: 1px 1px 1px 1px #d3d3d3;
     width: 400px;
     height: 100px;
     cursor: pointer;
-    h1{
+
+    h1 {
         font-family: Roboto;
         font-size: 18px;
         font-weight: 600;
     }
-    p{
+
+    p {
         font-size: 16px;
         font-family: Roboto;
-
+        margin: 15px;
     }
-    .icon{
+
+    .icon {
         font-size: 30px;
         color: rgb(165, 78, 247);
     }
 }
 
-.achats{
+.achatsWidget {
     padding: 15px;
     margin: 5px;
     display: flex;
     flex-direction: column;
     background: #fff;
-    border:1px solid #dfdfdf;
+    border: 1px solid #dfdfdf;
     border-radius: 10px;
-    box-shadow: 2px 2px 2px 2px #d3d3d3;
+    box-shadow: 1px 1px 1px 1px #d3d3d3;
     width: 400px;
     height: 100px;
     cursor: pointer;
-    h1{
+
+    h1 {
         font-family: Roboto;
         font-size: 18px;
         font-weight: 600;
     }
-    p{
+
+    p {
         font-size: 16px;
         font-family: Roboto;
-
+        margin: 15px;
     }
-    .icon{
+
+    .icon {
         font-size: 30px;
         color: rgb(252, 13, 13);
     }
 }
 
-.coutprod{
+.coutprodWidget {
     padding: 15px;
     margin: 5px;
     display: flex;
     flex-direction: column;
     background: #fff;
-    border:1px solid #dfdfdf;
+    border: 1px solid #dfdfdf;
     border-radius: 10px;
-    box-shadow: 2px 2px 2px 2px #d3d3d3;
+    box-shadow: 1px 1px 1px 1px #d3d3d3;
     width: 400px;
     height: 100px;
     cursor: pointer;
-    h1{
+
+    h1 {
         font-family: Roboto;
         font-size: 18px;
         font-weight: 600;
     }
-    p{
+
+    p {
         font-size: 16px;
         font-family: Roboto;
-
+        margin: 15px;
     }
-    .icon{
+
+    .icon {
         font-size: 30px;
         color: rgb(241, 8, 183);
     }
 }
 
-.vents{
+.ventsWidget {
     padding: 15px;
     margin: 5px;
     display: flex;
     flex-direction: column;
     background: #fff;
-    border:1px solid #dfdfdf;
+    border: 1px solid #dfdfdf;
     border-radius: 10px;
-    box-shadow: 2px 2px 2px 2px #d3d3d3;
+    box-shadow: 1px 1px 1px 1px #d3d3d3;
     width: 400px;
     height: 100px;
     cursor: pointer;
-    h1{
+
+    h1 {
         font-family: Roboto;
         font-size: 18px;
         font-weight: 600;
     }
-    p{
+
+    p {
         font-size: 16px;
         font-family: Roboto;
-
+        margin: 15px;
     }
-    .icon{
+
+    .icon {
         font-size: 30px;
         color: rgb(252, 196, 13);
     }
 }
 
-.revenus{
+.revenusWidget {
     padding: 15px;
     margin: 5px;
     display: flex;
     flex-direction: column;
     background: #fff;
-    border:1px solid #dfdfdf;
+    border: 1px solid #dfdfdf;
     border-radius: 10px;
-    box-shadow: 2px 2px 2px 2px #d3d3d3;
+    box-shadow: 1px 1px 1px 1px #d3d3d3;
     width: 400px;
     height: 100px;
     cursor: pointer;
-    h1{
+
+    h1 {
         font-family: Roboto;
         font-size: 18px;
         font-weight: 600;
     }
-    p{
+
+    p {
         font-size: 16px;
         font-family: Roboto;
-
+        margin: 15px;
     }
-    .icon{
+
+    .icon {
         font-size: 50px;
         color: rgb(36, 172, 24);
     }
-    .r{
+
+    .r {
         display: flex;
     }
 }
 
-.depenses{
+.depensesWidget {
     padding: 15px;
     margin: 5px;
     display: flex;
     flex-direction: column;
     background: #fff;
-    border:1px solid #dfdfdf;
+    border: 1px solid #dfdfdf;
     border-radius: 10px;
-    box-shadow: 2px 2px 2px 2px #d3d3d3;
+    box-shadow: 1px 1px 1px 1px #d3d3d3;
     width: 400px;
     height: 100px;
     cursor: pointer;
-    h1{
+
+    h1 {
         font-family: Roboto;
         font-size: 18px;
         font-weight: 600;
     }
-    p{
+
+    p {
         font-size: 16px;
         font-family: Roboto;
-
+        margin: 15px;
     }
-    .icon{
+
+    .icon {
         font-size: 30px;
         color: rgb(103, 182, 155);
     }
 }
 
-.stats-graph{
+.stats-graph-widget {
     padding: 15px;
     margin: 5px;
     display: flex;
     flex-direction: column;
     background: #ffffff;
-    border:1px solid #dfdfdf;
+    border: 1px solid #dfdfdf;
     border-radius: 10px;
     box-shadow: 2px 2px 2px 2px #d3d3d3;
     flex: 1;
     cursor: pointer;
-    h1{
+
+    h1 {
+        margin: 5px;
         font-family: Roboto;
         font-size: 18px;
         font-weight: 600;
     }
-    p{
+
+    p {
         font-size: 16px;
         font-family: Roboto;
 
     }
 }
 
-.stats{
+.statsWidget {
     padding: 15px;
     margin: 5px;
     display: flex;
     flex-direction: column;
     background: #fff;
-    border:1px solid #dfdfdf;
+    border: 1px solid #dfdfdf;
     border-radius: 10px;
-    box-shadow: 2px 2px 2px 2px #d3d3d3;
-    width: 300;;
+    box-shadow: 1px 1px 1px 1px #d3d3d3;
+    width: 300;
+    ;
     cursor: pointer;
-    h1{
+
+    h1 {
         font-family: Roboto;
         font-size: 18px;
         font-weight: 600;
+        margin: 5px;
     }
-    p{
+
+    p {
         font-size: 16px;
         font-family: Roboto;
-
+        margin: 15px;
     }
 }
 
-.widget4{
+.statsWeekwidget {
     flex: 1;
-    height: 220px;
+    height: 275px;
     border-radius: 10px;
     background-color: rgb(121, 177, 252);
     box-shadow: 1px 1px 1px 1px #c9c9c9;
@@ -226,105 +252,119 @@
     padding: 15px;
     margin: 5px;
 
-    h1{
+    h1 {
         margin: 5px;
         font-size: 16px;
         font-weight: bold;
-        font-family: Roboto ,sans-serif;
+        font-family: Roboto, sans-serif;
         color: #f0f1f5;
     }
 
-    p{
+    p {
         margin: 5px;
         font-size: 16px;
         font-weight: bold;
         color: #f0f1f5;
-        font-family: Roboto ,sans-serif;
+        font-family: Roboto, sans-serif;
     }
 }
 
-.tendance{
+.tendanceWidget {
     padding: 15px;
     margin: 5px;
     display: flex;
     flex-direction: column;
     background: #fff;
-    border:1px solid #dfdfdf;
+    border: 1px solid #dfdfdf;
     border-radius: 10px;
     box-shadow: 2px 2px 2px 2px #d3d3d3;
     width: 250px;
     cursor: pointer;
-    h1{
+
+    h1 {
         font-family: Roboto;
         font-size: 18px;
         font-weight: 600;
     }
-    .ssss{
+
+    .content {
         display: flex;
-        
+        flex-direction: column;
+
     }
-    .tendance-cont{
+
+    .tendance-info {
         display: flex;
-        flex-wrap: wrap;
-        margin-left: 10px;
-         p{
-        font-size: 12px;
-        font-family: Roboto;
-        margin-right: 10px;
-       }
-       span{
-        color:rgb(53, 28, 194);
-        font-weight: 600;
-       }
+        flex-direction: row;
+        align-items: center;
+        margin: 10px;
+
+        p {
+            font-size: 12px;
+            font-family: Roboto;
+            margin-right: 10px;
+        }
+
+        span {
+            color: rgb(53, 28, 194);
+            font-weight: 600;
+        }
     }
-   
-    .icon{
+
+    .icon {
         font-size: 30px;
         color: rgb(255, 145, 0);
     }
 }
 
-.stocksin{
+.stocksWidget {
     padding: 15px;
     margin: 5px;
     display: flex;
     flex-direction: column;
     background: #fff;
-    border:1px solid #dfdfdf;
+    border: 1px solid #dfdfdf;
     border-radius: 10px;
     box-shadow: 2px 2px 2px 2px #d3d3d3;
     width: 250px;
     cursor: pointer;
-    h1{
+
+    h1 {
         font-family: Roboto;
         font-size: 18px;
         font-weight: 600;
     }
-    .ssss{
-        display: flex;
-    }
-    .stocks-cont{
-        //margin-left: 5px;
-        display: flex;
-        flex-wrap: wrap;
-        .nom{
-        font-size: 14px;
-        font-family: Roboto;
-        margin-right: 10px;
-       }
-       .cat{
-        font-size: 14px;
-        font-family: Roboto;
-        margin-right: 10px;
-        color: #009cb8;
-       }
-       span{
-        color:red
-       }
-    }
-   
-    .icon{
+
+    .icon {
         font-size: 30px;
         color: rgb(245, 0, 0);
+    }
+
+    .content {
+        display: flex;
+        flex-direction: column;
+
+        .stocks-container {
+            display: flex;
+            flex-wrap: wrap;
+            margin:10px;
+            .nom {
+                font-size: 14px;
+                font-family: Roboto;
+                margin-right: 10px;
+            }
+
+            .categorie {
+                font-size: 14px;
+                font-family: Roboto;
+                margin-right: 10px;
+                color: #009cb8;
+            }
+
+            span {
+                color: red
+            }
+        }
+
     }
 }

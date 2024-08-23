@@ -12,8 +12,6 @@ import Revenues from "./components/Revenues"
 import Statstistiques from "./components/Statstistiques"
 import StatGraphique from "./components/StatGraphique"
 import Cout from "./components/Cout"
-import Navbar from "./components/layouts/Navbar"
-import SideBar from "./components/layouts/SideBar"
 import { MyStore } from "./context/store"
 import StatsWeek from "./components/StatsWeek"
 
@@ -120,26 +118,26 @@ export default function Home() {
     
   return (
     <>
-    <main className="home">
-    <header className='header-home'>
+    <main className="dashboard">
+    <header className='header-dashboard'>
       <h1>TABLEAU DE RESUME</h1>
     </header>
-    <section className='home-container-d'>
+    <section className='home-row'>
     <StatsWeek data={statsWeeks} />
      <Tendance/>
      <EtatStocks/>
    </section>
-    <section className='home-container-a'>
+    <section className='home-row'>
      <Achats/>
     <CoutProduct/>
     <Ventes/>
     </section>
-    <section className='home-container-b'>
+    <section className='home-row'>
     <Cout/>
      <Depenses/>
      <Revenues/>
     </section>
-    <section className='home-container-c'>
+    <section className='home-row'>
     <StatGraphique data={statsVentes} />
     <Statstistiques data={statsVentes}  columns={columns} />
     </section>

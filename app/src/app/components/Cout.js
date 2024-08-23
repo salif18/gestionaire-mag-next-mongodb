@@ -6,7 +6,7 @@ import { MyStore } from '../context/store';
 const Cout = () => {
     const {beneficeGeneral} = useContext(MyStore)
     return (
-        <div className='cout'>
+        <div className='coutWidget'>
             <h1><PaymentsIcon className='icon'/> Bénefices global</h1>
             <p>{beneficeGeneral} Fcfa</p>
         </div>

@@ -89,11 +89,8 @@ const handledelete = (id)=>{
   
     //le rendue vue
     return (
-      <>
-      <Navbar/>
-      <main className='App'>
-      <SideBar/>
-        <section className='single'>
+      
+        <main className='single'>
         <div className='header-single'>
          <h1>Modification du produit</h1>
         </div>
@@ -138,12 +135,11 @@ const handledelete = (id)=>{
         </div>
         </div>
 
-        <button className='btn-save-modif' onClick={()=>handlePut(items.id)}>Modifier</button>
-        <button className='btn-supp-modif' onClick={()=>handledelete(items.id)}>Supprimer</button>
+        <button className='btn-save-modif' onClick={()=>handlePut(items._id)}>Modifier</button>
+        <button className='btn-supp-modif' onClick={()=>handledelete(items._id)}>Supprimer</button>
          </div>
-    </section>
     </main>
-    </>
+   
     );
 }
 

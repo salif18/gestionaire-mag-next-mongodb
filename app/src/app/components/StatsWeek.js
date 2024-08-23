@@ -18,10 +18,10 @@ const StatsWeek = ({data}) => {
     };
   });
   return (
-    <article className='widget4'>
+    <article className='statsWeekwidget'>
     <h1>Statistiques Hebdomadaire</h1>
     <section style={{ width: 750 , marginTop:5 }}>
-    <BarChart width={750} height={200} data={chartData} barSize={25} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
+    <BarChart width={750} height={250} data={chartData} barSize={25} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
       <CartesianGrid strokeDasharray="3 3" />
       <XAxis dataKey="label" />
       <YAxis />

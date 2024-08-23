@@ -6,17 +6,22 @@ import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 const Tendance = () => {
     const {bestVendu} = useContext(MyStore)
     return (
-        <div className='tendance'>
+        <div className='tendanceWidget'>
             <AutoAwesomeIcon className='icon'/><h1>Meilleur vente</h1>
-            <div className='ssss'>
+            <section className='content'>
             {bestVendu && bestVendu.length > 0 &&
-                bestVendu.slice(0,3).map((item) => (
-                    <div className='tendance-cont' key={item._id}>
-                      <p>{item._id.nom}<ArrowUpwardIcon style={{color:'rgb(29, 245, 0)'}}/></p><span>{item.total_vendu}</span>
-                    </div>
+                bestVendu.slice(0,5).map((item) => (
+                    <section className='tendance-info' key={item._id}>
+                    <section style={{width:80}}>
+                    <p>{item._id.nom}</p>
+                    </section>
+                      <p>plus de</p>
+                      <span>{item.total_vendu}</span>
+                      <ArrowUpwardIcon style={{color:'rgb(29, 245, 0)'}}/>
+                    </section>
                 ))
             }
-            </div>
+            </section>
         </div>
     );
 }

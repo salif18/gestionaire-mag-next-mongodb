@@ -6,8 +6,6 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import DeleteIcon from '@mui/icons-material/Delete';
 import axios from 'axios';
 import AddBusinessIcon from '@mui/icons-material/AddBusiness';
-import Navbar from '../../components/layouts/Navbar';
-import SideBar from '../../components/layouts/SideBar';
 import { useRouter } from 'next/navigation'
 import { DataGrid } from '@mui/x-data-grid';
 
@@ -67,31 +65,61 @@ const ProductFilter = produits.length > 0 && produits.filter((item) =>
 
   //DEFINITION DES DIFFERENTES COLONNES POUR LE TABLEAU DE DATA GRID
   const columns = [
-    { field: "nom", headerName: "Name", width: 100 },
-    { field: 'categories', headerName: 'Categories', width: 100 },
-    { field: 'prixAchat', headerName: "Prix d'achat", width: 200 },
-    { field: 'prixVente', headerName: "Prix de vente", width: 200 },
+    { field: "nom", headerName: "Name", width: 100 ,renderCell:(params)=>{
+      return (
+        <section className='title'>
+          <p>{params.row.nom}</p>
+        </section>
+      )
+    }},
+    { field: 'categories', headerName: 'Categories', width: 100 ,renderCell:(params)=>{
+      return (
+        <section className='title'>
+          <p>{params.row.categories}</p>
+        </section>
+      )
+    }},
+    { field: 'prixAchat', headerName: "Prix d'achat", width: 200 ,renderCell:(params)=>{
+      return (
+        <section className='title'>
+          <p>{params.row.prixAchat}</p>
+        </section>
+      )
+    }},
+    { field: 'prixVente',headerName: "Prix de vente", width: 200 ,renderCell:(params)=>{
+      return (
+        <section className='title'>
+          <p>{params.row.prixVente}</p>
+        </section>
+      )
+    } },
     { field: 'stocks', headerName: 'Stocks', width: 200 ,
       renderCell: (params) => {
         return (
-            <section>
-             {params.row.stocks <= 0 ? <span className='fini'>Ce stock est fini</span> : params.row.stocks}
+            <section className='title'>
+             {params.row.stocks <= 0 ? <span className='stock-fini'>Ce stock est fini</span> : params.row.stocks}
             </section>
         )
     }
 
     },
-    { field: "dateAchat", headerName: "Date d'achat", width: 200 },
+    { field: "dateAchat", headerName: "Date d'achat", width: 200 ,renderCell:(params)=>{
+      return (
+        <section className='title'>
+          <p>{params.row.dateAchat}</p>
+        </section>
+      )
+    } },
     {
         field: 'actions', headerName: 'Actions', width: 200,
         renderCell: (params) => {
             return (
-                <section>
-                {params.row.stocks > 0 && <span onClick={()=>handleAjouter(params.row)}><ShoppingCartIcon className='ico' /></span>}
-                <span onClick={()=>router.push(`/pages/produits/${params.row._id}`)}> <EditIcon className='edit' /> </span>
+                <section className='action'>
+                {params.row.stocks > 0 && <span onClick={()=>handleAjouter(params.row)}><ShoppingCartIcon className='icon-add' /></span>}
+                <span onClick={()=>router.push(`/pages/produits/${params.row._id}`)}> <EditIcon className='icon-edit' /> </span>
                 {params.row.stocks <= 0 && 
-                  <span onClick={()=>handledelete(params.row._id)}>
-                    <DeleteIcon className='del' /> 
+                  <span onClick={()=>handledelete(params.row._id.nom)}>
+                    <DeleteIcon className='icon-del' /> 
                   </span>
                  }
                 </section>
@@ -102,35 +130,31 @@ const ProductFilter = produits.length > 0 && produits.filter((item) =>
 ];
 
     return (
-      <>
-      <main className='App'>
-        <section className='produits'>
-            <div className='title-stock'>
-            <div className='leftp'>
+      
+        <main className='produits'>
+            <section className='title-stock'>
+            <section className='left'>
               <h3>Etat de stock</h3>
               <p> {numberStock} produits</p>
-            </div>
+            </section>
             <button className='btn-add' onClick={()=>router.push('/pages/add-product')}>Ajouter <AddBusinessIcon style={{marginLeft:5}} /></button>
-            </div>
-            <div className='filter-search'>
+            </section>
+            <section className='search'>
              <input className='search-champs' type='text' value={searchValue} onChange={(e)=>setSearchValue(e.target.value)} placeholder='Rechercher un produit...' />
-            </div>
+            </section>
 
-            <section className='array-products'>
+            <section className='products-content'>
             <DataGrid
                     rows={!searchValue ? produits : ProductFilter}
                     getRowId={(row) => row._id}
-                    disableSelectionOnclick
                     columns={columns}
                     pageSize={10}
                     rowsPerPageOptions={[5]}
-                    checkboxSelection
+                  
                 />
              
             </section>
-        </section>
         </main>
-        </>
     );
 }
 

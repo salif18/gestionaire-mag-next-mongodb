@@ -1,17 +1,32 @@
 "use client"
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { MyStore } from '../../context/store';
 import EditIcon from '@mui/icons-material/Edit';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import axios from 'axios';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { useRouter } from 'next/navigation';
+import { DataGrid } from '@mui/x-data-grid';
 
 const Categories = () => {
-    const {produits , handleAddPanier} = useContext(MyStore)
+    const {handleAddPanier} = useContext(MyStore)
     const router = useRouter()
     //etat initiale de la valeur de categorie a filtrer
+    const [produits, setProduits] = useState([])
     const [categories ,setCategories ] = useState('')
+
+    //charger les produits
+ useEffect(() => {
+   const getProduits =()=>{
+   axios
+     .get(`/api/produits`)
+     .then((response) => {
+       setProduits(response.data.produits);
+     })
+     .catch((err) => console.error(err));
+   };
+   getProduits()
+ }, []);
 
     
     // les bouton de categories
@@ -63,13 +78,83 @@ const handledelete = (id)=>{
       setCategories('Savon')
      }
 
+     const ProductFilter = produits.length > 0 && produits.filter((item) => 
+      item.categories.toLocaleLowerCase().includes(categories.toLocaleLowerCase())
+     
+    );
+    
+
+  
+  //DEFINITION DES DIFFERENTES COLONNES POUR LE TABLEAU DE DATA GRID
+  const columns = [
+    { field: "nom", headerName: "Name", width: 100 ,renderCell:(params)=>{
+      return (
+        <section className='title'>
+          <p>{params.row.nom}</p>
+        </section>
+      )
+    }},
+    { field: 'categories', headerName: 'Categories', width: 100 ,renderCell:(params)=>{
+      return (
+        <section className='title'>
+          <p>{params.row.categories}</p>
+        </section>
+      )
+    }},
+    { field: 'prixAchat', headerName: "Prix d'achat", width: 200 ,renderCell:(params)=>{
+      return (
+        <section className='title'>
+          <p>{params.row.prixAchat}</p>
+        </section>
+      )
+    }},
+    { field: 'prixVente',headerName: "Prix de vente", width: 200 ,renderCell:(params)=>{
+      return (
+        <section className='title'>
+          <p>{params.row.prixVente}</p>
+        </section>
+      )
+    } },
+    { field: 'stocks', headerName: 'Stocks', width: 200 ,
+      renderCell: (params) => {
+        return (
+            <section className='title'>
+             {params.row.stocks <= 0 ? <span className='stock-fini'>Ce stock est fini</span> : params.row.stocks}
+            </section>
+        )
+    }
+
+    },
+    { field: "dateAchat", headerName: "Date d'achat", width: 200 ,renderCell:(params)=>{
+      return (
+        <section className='title'>
+          <p>{params.row.dateAchat}</p>
+        </section>
+      )
+    } },
+    {
+        field: 'actions', headerName: 'Actions', width: 200,
+        renderCell: (params) => {
+            return (
+                <section className='action'>
+                {params.row.stocks > 0 && <span onClick={()=>handleAjouter(params.row)}><ShoppingCartIcon className='icon-add' /></span>}
+                <span onClick={()=>router.push(`/pages/produits/${params.row._id}`)}> <EditIcon className='icon-edit' /> </span>
+                {params.row.stocks <= 0 && 
+                  <span onClick={()=>handledelete(params.row._id)}>
+                    <DeleteIcon className='icon-del' /> 
+                  </span>
+                 }
+                </section>
+            )
+        }
+    },
+
+];
+
      //vue de frontend
     return (
-      <>
-   
-      <main className='App'>
 
-        <section className='categories'>
+        <main className='categories'>
             <header className='header-categories'>
               <h1>Categories</h1>
             </header>
@@ -84,46 +169,23 @@ const handledelete = (id)=>{
             <button className='btn-cate' onClick={()=>savon()}>Savon</button>
             </nav>
 
-            <div className='categorie-container'>
+            <section className='categorie-container'>
                <h1>Choisir une catégorie de produits</h1>
-               {
-                <div className='array-products'>
-              <table className='table'>
-               <thead className='table-header'>
-               <tr className='ligne'>
-                 <th  className='colonne'>NOMS</th>
-                 <th className='colonne'>CATEGORIES</th>
-                 <th className='colonne'>PRIX D'ACHATS</th>
-                 <th className='colonne'>PRIX DE VENTE</th>
-                 <th className='colonne'>STOCKS</th>
-                 <th className='colonne'>DATE</th>
-                 <th className='colonne'>ACTIONS</th>
-               </tr>
-               </thead>
-              {produits.filter((item) => item.categories === categories).map((item)=>(
-               <tbody className='table-body' key={item._id}>
-               <tr className='ligne-body' >
-                <th className='colon'>{item.nom}</th>
-                <th className='colon'>{item.categories}</th>
-                <th className='colon'>{item.prixAchat} FCFA</th>
-                <th className='colon'>{item.prixVente} FCFA</th>
-                <th className='colon'>{item.stocks <= 0 ? <span className='fini'>Ce stock est fini</span> : item.stocks}</th>
-                <th className='colon'>{item.dateAchat}</th>
-                <th className='colon'>
-                {item.stocks > 0 && <span onClick={()=>handleAjouter(item)}><ShoppingCartIcon className='ico' /></span>}
-                <span onClick={()=>router.push(`/pages/produits/${item._id}`)}> <EditIcon className='edit' /> </span>
-                {item.stocks <= 0 &&<span onClick={()=>handledelete(item._id)}><DeleteIcon className='del' /> </span>}
-                </th>
-               </tr>
-              </tbody>))}
-              </table>
-            </div>
+                
+                <section className='array-products'>
+                <DataGrid
+                    rows={ ProductFilter}
+                    getRowId={(row) => row._id.nom}
+                    disableSelectionOnclick
+                    columns={columns}
+                    pageSize={10}
+                    rowsPerPageOptions={[5]}
 
-               }
-            </div>
-        </section>
+                />
+            </section>
+            </section>
         </main>
-        </>
+        
     );
 }
 

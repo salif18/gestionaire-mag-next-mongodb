@@ -4,7 +4,7 @@ import { MyStore } from '../context/store';
 const Depenses = () => {
     const {depensesTotal} = useContext(MyStore)
     return (
-        <div className='depenses'>
+        <div className='depensesWidget'>
         <h1><MonetizationOnIcon className='icon'/>  Dépenses sur bénefice </h1>
         <p>{depensesTotal} Fcfa </p>
         </div>

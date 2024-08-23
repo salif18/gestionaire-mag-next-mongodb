@@ -2,21 +2,44 @@
 import dbConnect from "../../lib/mongoosedb";
 import { NextResponse } from "next/server";
 import Vente from "../models/ventes"; // Assurez-vous d'avoir un modèle Vente
+import Produits from "../models/produits";
 
 export const POST = async (req) => {
-    const { id, nom, categories, prixAchat, prixVente, stocks, qty, timestamps } = await req.json();
+    const { _id, nom, categories, prixAchat, prixVente, stocks, qty, timestamps } = await req.json();
 
     try {
       await dbConnect();
-      
-        const vente = new Vente({ id, nom, categories, prixAchat, prixVente, stocks, qty, timestamps });
+      // Trouver le produit associé à la vente
+    const product = await Produits.findById({_id});
 
-        const savedVente = await vente.save();
+    if (!product) {
+      return NextResponse.json(
+        { message: 'Produit non trouvé' },
+        { status: 404 }
+      );
+    }
 
-        return NextResponse.json(
-            { message: 'Vente effectuée avec succès !!', results: savedVente },
-            { status: 201 }
-        );
+    // Vérifier si le stock est suffisant
+    if (qty > 0 && qty <= product.stocks) {
+      // Créer la vente
+      const vente = new Vente({ id:_id, nom, categories, prixAchat, prixVente, stocks, qty, timestamps });
+      const savedVente = await vente.save();
+
+      // Mettre à jour le stock du produit
+      product.stocks -= qty;
+      await product.save();
+
+      return NextResponse.json(
+        { message: 'Vente effectuée avec succès !!', results: savedVente },
+        { status: 201 }
+      );
+    } else {
+      return NextResponse.json(
+        { message: `Stock insuffisant pour le produit ${nom}` },
+        { status: 400 }
+      );
+    }
+
     } catch (err) {
         return NextResponse.json(
             { message: 'Erreur lors de la sauvegarde de la vente', error: err },
@@ -43,61 +66,3 @@ export const GET = async (req, res) => {
     }
 };
 
-
-// export const POST = async(req)=>{
-//     const { id, nom, categories, prixAchat, prixVente, stocks, qty, timestamps} = await req.json();
-//     const sql = 'INSERT INTO vente set ?';
-//     const ventes= {
-//         id:id,
-//         nom:nom,
-//         categories:categories,
-//         prixAchat:prixAchat,
-//         prixVente:prixVente,
-//         stocks:stocks,
-//         qty:qty,
-//         timestamps:timestamps
-//     }
-//     try{
-//         const results = await new Promise((reject,resolve)=>{
-//             db.query(sql,[ventes],(err,result)=>{
-//               if(err){
-//                  reject(err)
-//               }else{
-//                 resolve(result)
-//               }
-//             })
-//         })
-//         return NextResponse.json(
-//             {message:'Vente effectuée avec succès !!s', results},
-//             {status:201}
-//         )
-//     }catch(err){
-//         return NextResponse.json(
-//             {message:'err',erro:err},
-//             {status:500}
-//         )
-//     } 
-// }
-
-// //route pour obtenir tous
-// export const GET = async (req, res) => {
-//     try {
-//       const sql = 'SELECT * FROM vente ORDER BY timestamps DESC';
-//       const results = await new Promise((resolve, reject) => {
-//         db.query(sql, (err, result) => {
-//           if (err) {
-//             reject(err);
-//           } else {
-//             resolve(result);
-//           }
-//         });
-//       });
-//       return NextResponse.json({ message: "ok", results }, { status: 200 });
-//     } catch (err) {
-//       return NextResponse.json({ message: "err" }, { status: 500 });
-//     }
-//   };
-  
-
-  
- 

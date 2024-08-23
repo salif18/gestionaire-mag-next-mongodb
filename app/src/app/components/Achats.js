@@ -4,7 +4,7 @@ import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 const Achats = () => {
     const {achatTotal} = useContext(MyStore)
     return (
-        <div className='achats'>
+        <div className='achatsWidget'>
             <h1><AttachMoneyIcon className='icon'/>  Prix d'achats générals </h1>
             <p>{achatTotal} Fcfa</p>
         </div>
