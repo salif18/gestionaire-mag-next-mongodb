@@ -1,11 +1,13 @@
 "use client"
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { MyStore } from '../../context/store';
 import { useRouter } from 'next/navigation';
+import axios from 'axios';
 
 const AddProduits = () => {
     const router = useRouter
     const {handleSave, message} = useContext(MyStore)
+    const [options ,setOptions ] = useState([])
     //etat initial des champs de formulaire
     const [produits, setProduits] = useState({
         nom:"",
@@ -18,17 +20,19 @@ const AddProduits = () => {
    //etat de stockage d'erreur
     const [error , setError] = useState('')
 
-    //valeurs des options de formulaire
-    const options = [
-        {value:'Parfum',label:'Parfum'},
-        {value:'Pommade',label:'Pommade'},
-        {value:'Deodorant',label:'Deodorant'},
-        {value:'Lait',label:'Lait'},
-        {value:'Lotion',label:'Lotion'},
-        {value:'Autres',label:'Autres'},
-        {value:'Tube',label:'Tube'},
-        {value:'Savon',label:'Savon'},
-    ]
+    
+  //charger les depenses
+  useEffect(()=>{
+    const getDepenses =()=>{
+     axios.get(`/api/categories`)
+     .then((res) =>{
+      setOptions(res.data.results)
+     }).catch(err => console.error(err))
+    };
+    getDepenses()
+},[])
+
+    
 
     //focntion de changer les champs
     const handleChange =(e)=>{
@@ -96,7 +100,7 @@ const AddProduits = () => {
             <select type='text' name='categories' value={produits.categories} onChange={(e)=>handleChange(e)} placeholder='Categorie'>
             <option >Catégorie--Select</option>
             {options.map((item) =>(
-                <option key={item.value} value={item.value}>{item.label}</option>
+                <option key={item.name} value={item.name}>{item.name}</option>
             ))}
             </select>
             {produits.categories.length <= 0 && <span>{error}</span>}

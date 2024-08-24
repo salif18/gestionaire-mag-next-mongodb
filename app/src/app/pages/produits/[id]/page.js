@@ -22,6 +22,10 @@ const SingleProduits = () => {
 
   //recuperation dune seul donnee selectioner
   const [items, setItems] = useState({})
+  const [options ,setOptions ] = useState([])
+ 
+
+    
 
   const router = useRouter();
   const { id } = useParams()
@@ -35,19 +39,17 @@ const SingleProduits = () => {
   }, [])
 
 
-  //valeur des champs options
-  const options = [
-    { value: 'Parfum', label: 'Parfum' },
-    { value: 'Pommade', label: 'Pommade' },
-    { value: 'Deodorant', label: 'Deodorant' },
-    { value: 'Lait', label: 'Lait' },
-    { value: 'Lotion', label: 'Lotion' },
-    { value: 'Coton', label: 'Coton' },
-    { value: 'Meche', label: 'Meche' },
-    { value: 'Moustiquaire', label: 'Anti-moustique' },
-    { value: 'Accessoire', label: 'Accessoire' },
-    { value: 'Savon', label: 'Savon' },
-  ]
+     
+  //charger les depenses
+  useEffect(()=>{
+    const getDepenses =()=>{
+     axios.get(`/api/categories`)
+     .then((res) =>{
+      setOptions(res.data.results)
+     }).catch(err => console.error(err))
+    };
+    getDepenses()
+},[])
 
   //changement de etat des champs
   const handleChange = (e) => {
@@ -120,7 +122,7 @@ const SingleProduits = () => {
           <select type='text' name='categories' value={produits.categories} onChange={(e) => handleChange(e)} placeholder='Categorie'>
             <option >{items?.categories ? items?.categories : "Catégorie--Select"}</option>
             {options.map((item) => (
-              <option key={item.value} value={item.value}>{item.label}</option>
+              <option key={item.name} value={item.name}>{item.name}</option>
             ))}
           </select>
           {produits.categories.length <= 0 && <span>{error}</span>}

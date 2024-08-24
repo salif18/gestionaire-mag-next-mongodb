@@ -20,7 +20,7 @@
         padding: 15px;
         display: flex;
         align-items: center;
-        justify-self: flex-start;
+        justify-content: space-between;
         background: #376369;
 
         select{
@@ -30,6 +30,18 @@
             border: none;
             padding: 5px;
             outline: none;
+        }
+
+        .link-create-categorie{
+          background-color: #fff;
+          padding: 10px;
+          border-radius: 10px;
+          a{
+            text-decoration: none;
+            font-family: roboto;
+            font-size: 14px;
+            color: #52637e;
+          }
         }
 
         .btn-cate {

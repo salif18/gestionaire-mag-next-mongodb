@@ -7,6 +7,8 @@ import axios from 'axios';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { useRouter } from 'next/navigation';
 import { DataGrid } from '@mui/x-data-grid';
+import Link from 'next/link';
+
 
 const Categories = () => {
     const {handleAddPanier} = useContext(MyStore)
@@ -152,6 +154,9 @@ const handledelete = (id)=>{
                 <option key={item.value} value={item.value}><span style={{color:"red"}}>{item.label}</span></option>
             ))}
             </select>
+            <section className='link-create-categorie'>
+              <Link href="/pages/create_categorie">Créer votre categorie</Link>
+            </section>
             </nav>
 
             <section className='categorie-container'>
