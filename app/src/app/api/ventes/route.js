@@ -6,6 +6,7 @@ import Produits from "../models/produits";
 
 export const POST = async (req) => {
     const { _id, nom, categories, prixAchat, prixVente, stocks, qty, timestamps } = await req.json();
+    console.log(nom)
 
     try {
       await dbConnect();
