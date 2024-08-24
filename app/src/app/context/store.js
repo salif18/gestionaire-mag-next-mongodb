@@ -47,17 +47,28 @@ export const MyStoreProvider = (props) => {
   };
  
   //enregistrer ou effectuer une vente
-  const handleVendre = () => {
-    panier.map((item) => {
-      axios
-        .post(`/api/ventes`,datePersonaliser ? {...item, timestamps:datePersonaliser} : item)
-        .then((response) => {
-          setMessage(response.data.message)
-        })
-        .catch((err) => console.log(err));
-      
+  const handleVendre = async () => {
+  try {
+    // Créer une liste de promesses pour chaque requête axios
+    const promises = panier.map((item) => {
+      return axios.post(`/api/ventes`, datePersonaliser ? {...item, timestamps: datePersonaliser} : item);
     });
-  };
+
+    // Attendre que toutes les requêtes soient terminées
+    const responses = await Promise.all(promises);
+
+    // Récupérer les messages de succès de chaque réponse
+    const messages = responses.map((response) => response.data.message);
+    
+    // Afficher tous les messages de succès
+    setMessage(messages.join('\n'));
+
+  } catch (error) {
+    // Gestion des erreurs
+    console.error('Erreur lors de la gestion des ventes:', error);
+    setMessage('Une erreur s\'est produite lors de l\'enregistrement des ventes.');
+  }
+};
 
   //envoyer les depenses
   const sendDepensesToDataBase = (item)=> {
