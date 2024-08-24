@@ -72,11 +72,7 @@ const handledelete = (id)=>{
       renderCell: (params) => {
         return (
           <section className='title'>
-<<<<<<< HEAD
              <p>{params.row.qty}</p>
-=======
-            <p>{params.row.qty}</p>
->>>>>>> d329c2ff74125ed318198a20b5accfa0fa50c0fb
           </section>
         )
       }
