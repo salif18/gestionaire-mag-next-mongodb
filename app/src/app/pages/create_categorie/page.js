@@ -16,11 +16,16 @@ const CreateCategorie = () => {
 }
 
 const handleAdd=async()=>{
-    try{
-     const res = await axios.post("/api/categories", categorie)
-    }catch(e){
-        console.log[e]
+    if(categorie.name.length > 0){
+        try{
+            const res = await axios.post("/api/categories", categorie)
+           }catch(e){
+               console.log[e]
+           }
+    }else{
+        setError("Remplir le champs")
     }
+   
 }
 
   return (
@@ -34,7 +39,7 @@ const handleAdd=async()=>{
      <section className='form'>
      <label>Nom</label>
      <input type='text' name='name' value={categorie.name} onChange={(e)=>handleChange(e)} placeholder="nom du categorie.."/>
-    
+     {categorie.name.length <= 0 && <span>{error}</span>}
      </section> 
 
     <button className='btn-save' type='submit'>Enregistrer</button>

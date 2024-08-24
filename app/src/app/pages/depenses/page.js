@@ -127,7 +127,7 @@ const Depenseur = () => {
              </div> 
              <div className='rig'>
              <h3>DATE</h3>
-             <p>{item.timestamps}</p>
+             <p>{new Date(item.createdAt).toLocaleDateString('fr-FR', { month: 'long', day: 'numeric', year: 'numeric' })}</p>
              </div> 
              <span className='btn-depense' onClick={()=>handleDelete(item._id)}><DeleteIcon className='i' /></span>
              

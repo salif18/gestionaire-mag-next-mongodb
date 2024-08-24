@@ -117,7 +117,7 @@ const Produits = () => {
       headerName: "Date d'achat",
       width: 200,
       renderCell: (params) => {
-        const formattedDate = new Date(params.row.dateAchat).toISOString().split('T')[0];
+        const formattedDate = new Date(params.row.dateAchat).toLocaleDateString('fr-FR', { month: 'long', day: 'numeric', year: 'numeric' })
         return (
           <section className='title'>
             <p>{formattedDate}</p>
@@ -166,11 +166,13 @@ const Produits = () => {
           pageSize={10}
           rowsPerPageOptions={[5]}
           sx={{
-            '& .MuiDataGrid-columnHeaders': {
-              backgroundColor: '#376369;', // Changez cette couleur selon vos besoins
-              color: '#fff', // Pour changer la couleur du texte du header
-            },
-          }}
+              '& .MuiDataGrid-columnHeaders': {
+                backgroundColor: '#376369;', // Changez cette couleur selon vos besoins
+                color: '#000000', // Pour changer la couleur du texte du header
+                textTransform:"uppercase",
+                fontWeight:600
+              },
+            }}
         />
 
       </section>

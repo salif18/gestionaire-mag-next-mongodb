@@ -1,17 +1,5 @@
 .rapports {
-  flex: 4;
-  background-color: #f0f2f5;
-  width: 100%;
-  height: calc(100vh - 80px);
-  overflow-y: scroll;
-}
-.table{
-  .co{
-    width: 200px;
-    height: 40px;
-  }
-}
-
+  background: #ffff;
 .header-rapport {
   padding: 15px;
   border: 1px solid #94abc2;
@@ -46,119 +34,109 @@
     padding: 10px;
   }
 }
-
-.rapport-container {
-  display: flex;
-  flex-direction: column;
-  padding: 15px;
-  margin: 10px;
-  border: 1px solid #94abc2;
-  box-shadow: -2px 2px 2px 2px #c2c4c9;
-  border-radius: 10px;
-  background: #fff;
-  .card-rapport {
-    thead {
-      height: 50px;
-      //background: #94abc2;
-      th {
-        border: 1px solid #f0f2f5;
-        font-size: 14px;
-        font-family: Roboto;
-      }
-    }
-    tr {
-      margin: 10px;
-      th {
-        margin: 20px;
-        font-family: Roboto;
-        font-weight: 500;
-        color: #376369;
-      }
-    }
-  }
-}
-
-.infos-ventes {
-  margin: 10px;
-  padding: 15px;
-  display: flex;
-  flex-direction: column;
-  border-radius: 10px;
-  background: #fff;
-  border: 1px solid #94abc2;
-  box-shadow: -2px 2px 2px 2px #c2c4c9;
-
-  .tot {
-    display: flex;
-    justify-content: flex-end;
-    p {
-      font-family: Open sans ;
-      font-size: 16px;
-      font-weight: 600;
-      margin: 10px;
-    }
-    span {
-      font-family: Roboto;
-      font-weight: 600;
-      margin: 10px;
-      color: blue;
-    }
-  }
-  .nombr {
-    display: flex;
-    justify-content: flex-end;
-    p {
-      font-family: Open sans;
-      font-size: 16px;
-      font-weight: 600;
-      margin: 10px;
-    }
-    span {
-      font-family: Roboto;
-      font-weight: 600;
-      margin: 10px;
-      color: red;
-    }
-  }
-  .bene {
-    display: flex;
-    justify-content: flex-end;
-    p {
-      font-family: Open sans;
-      font-size: 16px;
-      font-weight: 600;
-      margin: 10px;
-    }
-    span {
-      font-family: Roboto;
-      font-weight: 600;
-      margin: 10px;
-      color: green;
-    }
-  }
-}
-.tableau-de-vente{
-  .table{
-    .li_2{
-      .co2{
-        font-size: 14.9px;
+  
+  .tableau-de-vente{
+    padding: 15px;
+    margin: 10px;
+    border: 1px solid #cccccc;
+    box-shadow: -2px 2px 2px 2px #dadada;
+    .table{
+        .head_1{
+            background: #39858f;
+            .li_1{
+                .co{
+                  width: 200px;
+                  height: 40px;
+                    font-family: Roboto;
+                    font-size: 14px;
+                    border: 1px solid #fff;
+                }
+            }
+        }
+        .li_2{
+            .co2{
+              font-size: 14.9px;
         width: 200px;
         height: 40px;
-      }
+                font-family: Roboto;
+                font-weight: 500;
+                border: 1px solid #dddddd;
+            }
+        }
     }
   }
-}
 
-.btn-print {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 120px;
-  height: 40px;
-  border: none;
-  font-family: "Roboto";
-  color: #4e4e4e;
-}
+  .infos-ventes {
+    margin: 10px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    background: #fff;
+    border: 1px solid #94abc2;
+    box-shadow: -2px 2px 2px 2px #c2c4c9;
+  
+    .tot {
+      display: flex;
+      justify-content: flex-end;
+      p {
+        font-family: Open sans ;
+        font-size: 16px;
+        font-weight: 600;
+        margin: 10px;
+      }
+      span {
+        font-family: Roboto;
+        font-weight: 600;
+        margin: 10px;
+        color: blue;
+      }
+    }
+    .nombr {
+      display: flex;
+      justify-content: flex-end;
+      p {
+        font-family: Open sans;
+        font-size: 16px;
+        font-weight: 600;
+        margin: 10px;
+      }
+      span {
+        font-family: Roboto;
+        font-weight: 600;
+        margin: 10px;
+        color: red;
+      }
+    }
+    .bene {
+      display: flex;
+      justify-content: flex-end;
+      p {
+        font-family: Open sans;
+        font-size: 16px;
+        font-weight: 600;
+        margin: 10px;
+      }
+      span {
+        font-family: Roboto;
+        font-weight: 600;
+        margin: 10px;
+        color: green;
+      }
+    }
+
+    .btn-print {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 120px;
+      height: 40px;
+      border: none;
+      font-family: "Roboto";
+      color: #4e4e4e;
+    }
+    
+  }
 
 
 @media print {
@@ -181,4 +159,5 @@
   .btn-print {
     display: none;
   }
+}
 }

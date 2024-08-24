@@ -1,59 +1,48 @@
+.list {
+    .header-list {
+        padding: 15px;
+        background: #376369;
+        border: 1px solid #838383;
 
-.header-list{
-    padding: 15px;
-    background: #376369;
-    border: 1px solid #838383;
-    h1{
-        font-family: Open sans;
-        font-weight: 600;
-        text-transform: uppercase;
-        font-size: 20px;
-        text-align: center;
-        color: #fff;
-    }
-}
-
-.tableau-de-vente{
-    padding: 15px;
-    margin: 10px;
-    border: 1px solid #cccccc;
-    box-shadow: -2px 2px 2px 2px #dadada;
-    .table{
-        .head_1{
-            background: #39858f;
-            .li_1{
-                .co{
-                    font-family: Roboto;
-                    font-size: 14px;
-                    border: 1px solid #fff;
-                }
-            }
-        }
-        .li_2{
-            .co2{
-                font-family: Roboto;
-                font-weight: 500;
-                border: 1px solid #dddddd;
-            }
+        h1 {
+            font-family: Open sans;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 20px;
+            text-align: center;
+            color: #fff;
         }
     }
-}
 
-.cancel{
-    color:#3498db;
-    font-weight: bold;
-    cursor: pointer;
-    &:hover{
-       color: rgb(0, 175, 15);
-       font-weight: 600;
+
+    .products-content {
+        border: 1px solid #dfdfdf;
+        padding: 15px;
+        margin: 10px;
+        background: #fff;
+        border-radius: 10px;
+
+        .title {
+            p {
+                font-size: 14px;
+                font-family: roboto, sans-serif;
+                color: rgb(0, 0, 0);
+                font-weight: 400;
+            }
+
+        }
+
+        .action {
+            display: flex;
+
+            .cancel {
+                display: flex;
+                flex-direction: row;
+                align-content: center;
+                cursor: pointer;
+                color: rgb(21, 109, 150);
+            }
+        }
     }
-}
 
-.messge-vente-list{
-    font-family: Roboto;
-    color: rgb(254, 255, 254);
-    font-size: 16px;
-    position: absolute;
-    top: 20px;
-    right: 50px;
-   }
+}

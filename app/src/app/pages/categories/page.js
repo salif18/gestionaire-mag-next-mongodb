@@ -123,7 +123,7 @@ const Categories = () => {
       headerName: "Date d'achat",
       width: 200,
       renderCell: (params) => {
-        const formattedDate = new Date(params.row.dateAchat).toISOString().split('T')[0];
+        const formattedDate = new Date(params.row.dateAchat).toLocaleDateString('fr-FR', { month: 'long', day: 'numeric', year: 'numeric' })
         return (
           <section className='title'>
             <p>{formattedDate}</p>
@@ -161,7 +161,7 @@ const Categories = () => {
         <select type='text' value={categories} onChange={(e) => setCategories(e.target.value)} placeholder='Categorie'>
           <option >Catégorie--Select</option>
           {options.map((item) => (
-            <option key={item.value} value={item.value}><span style={{ color: "red" }}>{item.label}</span></option>
+            <option key={item.name} value={item.name}>{item.name}</option>
           ))}
         </select>
         <section className='link-create-categorie'>
@@ -183,7 +183,9 @@ const Categories = () => {
             sx={{
               '& .MuiDataGrid-columnHeaders': {
                 backgroundColor: '#376369;', // Changez cette couleur selon vos besoins
-                color: '#fff', // Pour changer la couleur du texte du header
+                color: '#000000', // Pour changer la couleur du texte du header
+                textTransform:"uppercase",
+                fontWeight:600
               },
             }}
           />

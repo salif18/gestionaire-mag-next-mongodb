@@ -13,6 +13,22 @@
         font-size: 16px;
         color: #fff;
         &:hover{
+            color:#f87c08;
+        }
+        .icon{
+            margin-right: 10px;
+        }
+    }
+
+    .activliens{
+        display: flex;
+        margin: 20px;
+        text-decoration: none;
+        font-family:Open sans ;
+        font-weight: 400;
+        font-size: 16px;
+        color: #f87c08;
+        &:hover{
             color:#cccccc
         }
         .icon{
