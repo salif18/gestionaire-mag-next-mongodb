@@ -5,6 +5,13 @@ import { useParams, useRouter} from 'next/navigation';
 
 
 const SingleProduits = () => {
+//etat de stockage d'erreur
+const [error, setError] = useState('')
+//recuperation dune seul donnee selectioner
+const [items, setItems] = useState({})
+const [options ,setOptions ] = useState([])
+const router = useRouter();
+const { id } = useParams()
 
   const [messages, setMessages] = useState('')
   //etat initial des champs de formulaire
@@ -16,20 +23,7 @@ const SingleProduits = () => {
     stocks: "",
   })
 
-  //etat de stockage d'erreur
-  const [error, setError] = useState('')
-
-
-  //recuperation dune seul donnee selectioner
-  const [items, setItems] = useState({})
-  const [options ,setOptions ] = useState([])
- 
-
-    
-
-  const router = useRouter();
-  const { id } = useParams()
-
+  
   //recuperer le produit de id
   useEffect(() => {
     axios.get(`/api/produits/${id}`)
