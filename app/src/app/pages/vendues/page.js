@@ -72,7 +72,7 @@ const handledelete = (id)=>{
       renderCell: (params) => {
         return (
           <section className='title'>
-            {params.row.stocks <= 0 ? <span className='stock-fini'>Ce stock est fini</span> : params.row.stocks}
+            <p>{params.row.qty}</p>
           </section>
         )
       }
