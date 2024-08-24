@@ -22,7 +22,7 @@ export const POST = async (req) => {
     // Vérifier si le stock est suffisant
     if (qty > 0 && qty <= product.stocks) {
       // Créer la vente
-      const vente = new Vente({ id:_id, nom, categories, prixAchat, prixVente, stocks, qty, timestamps });
+      const vente = new Vente({ _id, nom, categories, prixAchat, prixVente, stocks, qty, timestamps :timestamps ? timestamps : new Date() });
       const savedVente = await vente.save();
 
       // Mettre à jour le stock du produit

@@ -11,12 +11,12 @@ const StatsWeek = ({data}) => {
   const chartData = data && data.length > 0 && data.map((row) => {
     const day = parseInt(row.date.split("-")[0], 10); // Extraire le jour du mois
     const dayOfWeek = moment(row.date, "DD-MM-YYYY").isoWeekday(); // Obtenir le jour de la semaine
-     console.log(day)
     return {
       label: weekday[dayOfWeek - 1], // Utiliser le jour de la semaine pour obtenir le label correct
       total: row.total,
     };
   });
+
   return (
     <article className='statsWeekwidget'>
     <h1>Statistiques Hebdomadaire</h1>
@@ -28,7 +28,8 @@ const StatsWeek = ({data}) => {
       <Tooltip />
       <Legend />
       <Bar dataKey="jour" name="Jour" fill="#f0f1f5" />
-      <Bar dataKey="total" name="Total" fill="#b3108add" />
+      <Bar dataKey="total" name="Total" fill="rgb(253, 144, 2)" />
+      {/* "#b3108add" */}
     </BarChart>
     </section>
   </article>

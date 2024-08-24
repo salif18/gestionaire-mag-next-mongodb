@@ -20,9 +20,6 @@ const Ventes = () => {
     }
     
   }
-
-  
-
   return (
     <>
 

@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 const schema = mongoose.Schema({
-        id:{type:mongoose.Types.ObjectId},
+        _id:{type:mongoose.Types.ObjectId},
         nom:{type:String},
         categories:{type:String},
         prixAchat:{type:Number},

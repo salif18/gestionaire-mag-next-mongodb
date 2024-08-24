@@ -26,8 +26,8 @@ const ListeVente = () => {
   }, []);
 
   //supprimer
-const handledelete = (item)=>{
-  axios.delete(`/api/ventes/${item._id}`)
+const handledelete = (id)=>{
+  axios.delete(`/api/ventes/${id}`)
   .then((res) => {
     setMessage(res.data.message)
     router.push('/pages/vendues') 
@@ -96,7 +96,7 @@ const handledelete = (item)=>{
       renderCell: (params) => {
         return (
           <section className='action'>
-             <span className='cancel' onClick={()=>handledelete(params.row)}> <RotateLeftIcon style={{marginRight:10}}  />  Annuler </span>
+             <span className='cancel' onClick={()=>handledelete(params.row._id)}> <RotateLeftIcon style={{marginRight:10}}  />  Annuler </span>
           </section>
         )
       }
