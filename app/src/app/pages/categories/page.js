@@ -137,7 +137,7 @@ const Categories = () => {
         return (
           <section className='action'>
             {params.row.stocks > 0 && <span onClick={() => handleAjouter(params.row)}><ShoppingCartIcon className='icon-add' /></span>}
-            <span onClick={() => router.push(`/pages/produits/${params.row._id}`)}> <EditIcon className='icon-edit' /> </span>
+            {params.row.stocks > 0 && <span onClick={() => router.push(`/pages/produits/${params.row._id}`)}> <EditIcon className='icon-edit' /> </span>}
             {params.row.stocks <= 0 &&
               <span onClick={() => handledelete(params.row._id)}>
                 <DeleteIcon className='icon-del' />
