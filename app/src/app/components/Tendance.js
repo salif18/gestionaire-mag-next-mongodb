@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { MyStore } from '../context/store';
 import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
-
+import GroupsIcon from '@mui/icons-material/Groups';
 const Tendance = () => {
     const {bestVendu} = useContext(MyStore)
     return (
@@ -17,7 +17,8 @@ const Tendance = () => {
                     </section>
                       <p>plus de</p>
                       <span>{item.total_vendu}</span>
-                      <ArrowUpwardIcon style={{color:'rgb(29, 245, 0)'}}/>
+                      <GroupsIcon  style={{color:'red', margin:5}}/>
+                      <ArrowUpwardIcon style={{color:'rgb(29, 245, 0)',margin:5}}/>
                     </section>
                 ))
             }
