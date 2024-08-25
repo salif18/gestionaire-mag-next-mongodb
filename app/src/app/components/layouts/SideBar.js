@@ -32,7 +32,7 @@ const SideBar = () => {
            {
             navLinks.map((link)=>{
                 const isActive = pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href));
-                return  <Link className={isActive ? "activliens" :"liens"} href={link.href}><link.icon className='icon'/>{link.name}</Link>
+                return  <Link key={link.name + link.href} className={isActive ? "activliens" :"liens"} href={link.href}><link.icon className='icon'/>{link.name}</Link>
             })
            }
           
