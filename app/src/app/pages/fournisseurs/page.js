@@ -22,6 +22,14 @@ const Fournisseurs = () => {
     getProduits()
   }, []);
 
+   //supprimer le produit
+   const handledelete = (id) => {
+    axios.delete(`/api/fournisseurs/${id}`)
+      .then((res) => res.data)
+      .catch((err) => console.error(err))
+  };
+
+
     
   //DEFINITION DES DIFFERENTES COLONNES POUR LE TABLEAU DE DATA GRID
   const columns = [
@@ -77,7 +85,7 @@ const Fournisseurs = () => {
       renderCell: (params) => {
         return (
           <section className='title'>
-           <button className='btn-del' >supprimer</button>
+           <button className='btn-del' onClick={()=>handledelete(params.row._id)} >supprimer</button>
           </section>
         )
       }
