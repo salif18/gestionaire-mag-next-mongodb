@@ -20,7 +20,7 @@ export const DELETE = async (req) => {
         }
 
         // Trouver le produit associé à la vente
-        const product = await Produits.findById(vente._id); 
+        const product = await Produits.findById(vente.productId); 
 
         if (!product) {
             return NextResponse.json({ message: 'Produit non trouvé' }, { status: 404 });

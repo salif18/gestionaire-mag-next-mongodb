@@ -5,50 +5,63 @@ import Vente from "../models/ventes"; // Assurez-vous d'avoir un modèle Vente
 import Produits from "../models/produits";
 
 export const POST = async (req) => {
-    const { _id, nom, categories, prixAchat, prixVente, stocks, qty, timestamps } = await req.json();
-    console.log(nom)
+  const { _id, nom, categories, prixAchat, prixVente, stocks, qty, timestamps } = await req.json();
+  console.log("ID du produit reçu:", _id); // Affichage du _id reçu depuis le client
 
-    try {
+  try {
       await dbConnect();
+
       // Trouver le produit associé à la vente
-    const product = await Produits.findById({_id});
+      const product = await Produits.findById(_id); // Pas besoin d'encapsuler _id dans un objet
+      console.log("ID du produit trouvé:", product._id); // Afficher l'ID du produit trouvé
 
-    if (!product) {
+      if (!product) {
+          return NextResponse.json(
+              { message: 'Produit non trouvé' },
+              { status: 404 }
+          );
+      }
+
+      // Vérifier si le stock est suffisant
+      if (qty > 0 && qty <= product.stocks) {
+          // Créer la vente avec le productId assigné correctement
+          const vente = new Vente({
+              productId: product._id, // Conversion en chaîne de caractères
+              nom,
+              categories,
+              prixAchat,
+              prixVente,
+              stocks,
+              qty,
+              timestamps: timestamps ? timestamps : new Date()
+          });
+
+          console.log("Objet Vente créé:", vente); // Afficher l'objet vente complet
+
+          const savedVente = await vente.save();
+
+          // Mettre à jour le stock du produit
+          product.stocks -= qty;
+          await product.save();
+
+          return NextResponse.json(
+              { message: 'Vente effectuée avec succès !!', results: savedVente },
+              { status: 201 }
+          );
+      } else {
+          return NextResponse.json(
+              { message: `Stock insuffisant pour le produit ${nom}` },
+              { status: 400 }
+          );
+      }
+
+  } catch (err) {
       return NextResponse.json(
-        { message: 'Produit non trouvé' },
-        { status: 404 }
+          { message: 'Erreur lors de la sauvegarde de la vente', error: err },
+          { status: 500 }
       );
-    }
-
-    // Vérifier si le stock est suffisant
-    if (qty > 0 && qty <= product.stocks) {
-      // Créer la vente
-      const vente = new Vente({ _id, nom, categories, prixAchat, prixVente, stocks, qty, timestamps :timestamps ? timestamps : new Date() });
-      const savedVente = await vente.save();
-
-      // Mettre à jour le stock du produit
-      product.stocks -= qty;
-      await product.save();
-
-      return NextResponse.json(
-        { message: 'Vente effectuée avec succès !!', results: savedVente },
-        { status: 201 }
-      );
-    } else {
-      return NextResponse.json(
-        { message: `Stock insuffisant pour le produit ${nom}` },
-        { status: 400 }
-      );
-    }
-
-    } catch (err) {
-        return NextResponse.json(
-            { message: 'Erreur lors de la sauvegarde de la vente', error: err },
-            { status: 500 }
-        );
-    }
+  }
 };
-
 // Route pour obtenir toutes les ventes
 export const GET = async (req, res) => {
     try {

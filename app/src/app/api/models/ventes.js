@@ -1,15 +1,15 @@
 import mongoose from "mongoose";
 
 const schema = mongoose.Schema({
-        _id:{type:mongoose.Types.ObjectId},
-        nom:{type:String},
-        categories:{type:String},
-        prixAchat:{type:Number},
-        prixVente:{type:Number},
-        stocks:{type:Number},
-        qty:{type:Number},
-        timestamps:{type:Date}
-}, { timestamps: true });
+        productId: { type: mongoose.Schema.Types.ObjectId, ref: 'Produits' },
+        nom: { type: String },
+        categories: { type: String },
+        prixAchat: { type: Number },
+        prixVente: { type: Number },
+        stocks: { type: Number },
+        qty: { type: Number },
+        timestamps: { type: Date }
+    }, { timestamps: true });
 
 const Ventes = mongoose.models.Ventes || mongoose.model("Ventes", schema);
 

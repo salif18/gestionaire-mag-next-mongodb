@@ -6,6 +6,7 @@ export const GET = async (req) => {
   try {
     await dbConnect()
     const id = req.url.split('produits/')[1];
+   
     const produit = await Produit.findById(id);
 
     if (!produit) {

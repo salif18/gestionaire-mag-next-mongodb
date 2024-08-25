@@ -6,7 +6,7 @@ const Navbar = () => {
         <header className='header'>
           <div className='header-left'>
           <Image src={image} alt='' />
-          <h1>GESTIONNAIRE </h1>
+          <h1>GESTASHOP </h1>
           </div>
            
         </header>
