@@ -1,39 +1,55 @@
-"use client"
+"use client";
 
 import { createContext, useState, useEffect } from "react";
 import axios from "axios";
 
-//creation de mon context
+// Création de mon context
 export const MyStore = createContext();
 
-//la fonction provider
+// La fonction provider
 export const MyStoreProvider = (props) => {
-
-  //etats de mes donnees
+  // États de mes données
   const [panier, setPanier] = useState([]);
-  const [opperations,setOpperations] = useState([])
-  const [errorStock, setErrorStock] = useState("");
-  const [message,setMessage] = useState('')
-  const [bestVendu,setBestVendu] = useState([])
-  const [datePersonaliser,setDatePersonnaliser] = useState('')
-  //domaine
-  
-  //ajout de de nouveau produits
-  const handleSave = (item) => {
-    axios
-      .post(`/api/produits`, item)
-      .then((response) => setMessage(response.data.message))
-      .catch((err) => console.log(err));
+  const [message, setMessage] = useState('');
+  const [datePersonaliser, setDatePersonnaliser] = useState('');
+  const [token, setToken] = useState(null);
+  const [userId, setUserId] = useState(null);
+
+  useEffect(() => {
+    const storedToken = localStorage.getItem('token');
+    const storedUserId = localStorage.getItem('userId');
+
+    if (storedToken) setToken(storedToken);
+    if (storedUserId) setUserId(storedUserId);
+  }, []);
+
+  const login = (token, userId) => {
+    setToken(token);
+    setUserId(userId);
+    localStorage.setItem('token', token);
+    localStorage.setItem('userId', userId);
   };
 
-  //incrementation du nombre de produits
+  const logout = () => {
+    setToken(null);
+    setUserId(null);
+    localStorage.removeItem('token');
+    localStorage.removeItem('userId');
+  };
+
+  // Domaine...
+
+  
+
+  // Incrémentation du nombre de produits
   const increment = (item) => {
     const toSale = panier.map((d) =>
       d._id === item._id ? { ...d, qty: d.qty + 1 } : d
     );
     setPanier(toSale);
   };
-  //decrementation du nombre de produits
+
+  // Décrémentation du nombre de produits
   const decrement = (item) => {
     const toSale = panier.map((d) =>
       d._id === item._id ? { ...d, qty: d.qty - 1 } : d
@@ -41,79 +57,78 @@ export const MyStoreProvider = (props) => {
     setPanier(toSale);
   };
 
-  //ajout des produit dans le panier pour la vente
+  // Ajout des produit dans le panier pour la vente
   const handleAddPanier = (item) => {
     setPanier([...panier, { ...item, qty: 1 }]);
   };
- 
-  //enregistrer ou effectuer une vente
+
+  // Enregistrer ou effectuer une vente
   const handleVendre = async () => {
-  try {
-    // Créer une liste de promesses pour chaque requête axios
-    const promises = panier.map((item) => {
-      return axios.post(`/api/ventes`, datePersonaliser ? {...item, timestamps: datePersonaliser} : item);
-    });
+    try {
+      const promises = panier.map((item) => {
+        return axios.post(`/api/ventes`, datePersonaliser ? { userId,...item, date_vente: datePersonaliser } : {userId ,...item} ,
+         { headers: {
+              'Content-Type': 'application/json',
+              'Authorization': `Bearer ${token}`,
+          },
+      });
+      });
 
-    // Attendre que toutes les requêtes soient terminées
-    const responses = await Promise.all(promises);
+      const responses = await Promise.all(promises);
 
-    // Récupérer les messages de succès de chaque réponse
-    const messages = responses.map((response) => response.data.message);
-    
-    // Afficher tous les messages de succès
-    setMessage(messages.join('\n'));
+      const messages = responses.map((response) => response.data.message);
+      setMessage(messages.join('\n'));
 
-  } catch (error) {
-    // Gestion des erreurs
-    console.error('Erreur lors de la gestion des ventes:', error);
-    setMessage('Une erreur s\'est produite lors de l\'enregistrement des ventes.');
-  }
-};
+    } catch (error) {
+      console.error('Erreur lors de la gestion des ventes:', error);
+      setMessage('Une erreur s\'est produite lors de l\'enregistrement des ventes.');
+    }
+  };
 
-  //envoyer les depenses
-  const sendDepensesToDataBase = (item)=> {
-    axios.post(`/api/depenses`,item)
-    .then((response) => setMessage(response.data.message))
-    .catch((err)=> console.log(err))
-  }
-   
-  
-  //calcule des depenses
-  const calculeDepenses =()=>{
-    const somme = opperations.map((a)=> a.montants );
-    const result = somme.reduce((a,b) => a+b,0)
-    return result
-  }
-  const depensesTotal = calculeDepenses()
-  
+  // Envoyer les dépenses
+  const sendDepensesToDataBase = (item) => {
+    axios.post(`/api/depenses`,{userId,...item},
+      {
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`,
+        },
+    }
+    )
+      .then((response) => setMessage(response.data.message))
+      .catch((err) => console.log(err));
+  };
 
-  //reinitialiser etat de message automatiquement apres 3s
-  message && setTimeout(()=>{
-    setMessage('')
-  },2000)
-
+ 
+  useEffect(() => {
+    if (message) {
+      const timer = setTimeout(() => {
+        setMessage('');
+      }, 2000);
+      return () => clearTimeout(timer);
+    }
+  }, [message]);
 
   const contextValue = {
-    handleSave: handleSave,
-    panier: panier,
-    setPanier: setPanier,
-    setBestVendu:setBestVendu,
-    setOpperations:setOpperations,
-    handleAddPanier: handleAddPanier,
-    handleVendre: handleVendre,
-    increment: increment,
-    decrement: decrement,
-    errorStock: errorStock,
-    opperations:opperations,
-    sendDepensesToDataBase:sendDepensesToDataBase,
-    depensesTotal:depensesTotal,
-    message:message,
-    bestVendu:bestVendu,
-    setDatePersonnaliser:setDatePersonnaliser,
-    datePersonaliser:datePersonaliser
+    panier,
+    setPanier,
+    handleAddPanier,
+    handleVendre,
+    increment,
+    decrement,
+    sendDepensesToDataBase,
+    message,
+    setDatePersonnaliser,
+    datePersonaliser,
+    login,
+    logout,
+    token,
+    userId
   };
 
   return (
-    <MyStore.Provider value={contextValue}>{props.children}</MyStore.Provider>
+    <MyStore.Provider value={contextValue}>
+      {props.children}
+    </MyStore.Provider>
   );
 };

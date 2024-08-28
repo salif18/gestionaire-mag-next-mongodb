@@ -1,8 +1,7 @@
 import React, { useContext } from 'react';
 import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
-import { MyStore } from '../context/store';
-const Depenses = () => {
-    const {depensesTotal} = useContext(MyStore)
+const Depenses = ({depensesTotal}) => {
+
     return (
         <div className='depensesWidget'>
         <h1><MonetizationOnIcon className='icon'/>  Dépenses sur bénefice </h1>

@@ -1,0 +1,113 @@
+.registre{
+    background: #376369;
+    height: 91vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .title{
+        text-transform: uppercase;
+        font-size: 40px;
+        margin: 25px;
+        font-family: roboto;
+        font-weight: 600;
+        color: #f0f1f5;
+    }
+    .form-content{
+        width: 25%;
+        background-color: #f0f1f5;
+        padding: 20px;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        .header{
+            font-size: 20px;
+            font-family: roboto;
+            color: #f0f1f5;
+            padding: 10px;
+            margin: 10px;
+            width: 300px;
+            border-radius: 10px;
+        }
+
+        .form{
+            display: flex;
+            flex-direction: column;
+            .column{
+                display: flex;
+                flex-direction: column;
+                margin: 10px;
+                label{
+                    font-size: 14px;
+                    font-family: roboto;
+                    margin-bottom:10px
+                }
+                input{
+                    height: 40px;
+                    padding-left: 10px;
+                    border: none;
+                    border-radius: 10px;
+                    outline: none;
+                }
+            }
+            span{
+                color:red;
+                font-family: roboto;
+                font-size: 14px;
+            }
+            .forget-password{
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-end;
+                p{
+                    font-size: 12px;
+                    color: rgb(109, 109, 255);
+                    font-family: roboto;
+                    display: flex;
+                    margin: 20px;
+                    cursor: pointer;
+                    
+                }
+            
+            }
+            .btn-inscription{
+                margin: 20px;
+               height: 40px;
+               background-color: #376369;
+               border: none;
+               border-radius: 20px;
+               color: #f0f1f5;
+               font-size: 14px;
+               font-weight: 500;
+               font-family: roboto;
+               cursor: pointer;
+               transition:  0.3s ease;
+               &:hover{
+                background: #54a0aa;
+               }
+            }
+
+            .se-log{
+                margin: 20px;
+                padding: 10px;
+                display: flex;
+                justify-content: flex-end;
+                .no-compte{
+                    font-family: roboto;
+                    font-size: 12px;
+                    font-weight: 500;
+                    color: #474747;
+                    margin-right: 10px;
+                }
+                p{
+                    font-family: roboto;
+                    font-size: 12px;
+                    font-weight: 600;
+                    color: #4ad5e7;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}

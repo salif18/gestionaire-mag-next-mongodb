@@ -1,9 +1,10 @@
 "use client"
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { DataGrid } from '@mui/x-data-grid';
 import axios from 'axios';
 import Link from 'next/link';
 import DeleteIcon from '@mui/icons-material/Delete';
+import { MyStore } from '../../context/store';
 
 // export async function getServerSideProps(context) {
 //     // Récupérer des données côté serveur ici
@@ -18,24 +19,30 @@ import DeleteIcon from '@mui/icons-material/Delete';
 //     };
 //   }
 const CategoriesList = () => {
+  const {token , userId } = useContext(MyStore)
     const [categories, setCategories] = useState([])
        
 //   charger les depenses
   useEffect(()=>{
     const getDepenses =()=>{
-     axios.get(`/api/categories`)
+     axios.get(`/api/categories/${userId}`,{
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`,
+      },
+    })
      .then((res) =>{
       setCategories(res.data.results)
      }).catch(err => console.error(err))
     };
     getDepenses()
-},[])
+},[userId, token])
 
 
 
   //supprimer le produit
   const handledelete = (id) => {
-    axios.delete(`/api/categories/${id}`)
+    axios.delete(`/api/categories/single/${id}`)
       .then((res) => res.data)
       .catch((err) => console.error(err))
   };

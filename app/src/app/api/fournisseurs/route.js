@@ -2,16 +2,18 @@
 import { NextResponse } from "next/server";
 import dbConnect from "../../lib/mongoosedb";
 import Fournisseurs from "../models/fournisseurs";
+import middlewareAuthenticate from "../middlewares/auth";
 //route pour ajouter
 
 
 export const POST = async (req) => {
     try {
         await dbConnect();
+        await middlewareAuthenticate(req);
 
-        const { nom,prenom,numero,address,produit} = await req.json();
+        const { userId, nom,prenom,numero,address,produit} = await req.json();
 
-        const nouveauFournisseur = new Fournisseurs({ nom,prenom,numero,address,produit});
+        const nouveauFournisseur = new Fournisseurs({ userId, nom,prenom,numero,address,produit});
 
         const fournisseurSauvegarde = await nouveauFournisseur.save();
        
@@ -21,16 +23,3 @@ export const POST = async (req) => {
     }
 };
 
-
-export const GET = async () => {
-    try {
-        await dbConnect();
-  
-        const fournisseurs = await Fournisseurs.find().sort({ nom: -1 });
-       
-        return NextResponse.json({ message: "OK", fournisseurs }, { status: 200 });
-    } catch (err) {
-        return NextResponse.json({ message: "Erreur", error: err.message }, { status: 500 });
-    }
-  };
-  

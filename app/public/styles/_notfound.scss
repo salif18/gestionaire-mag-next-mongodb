@@ -1,0 +1,21 @@
+.notfound{
+    display: flex;
+    flex-direction: column;
+    height: max-content;
+    width: 100%;
+    .error{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: 20%;
+        h2{
+            font-size: 20px;
+            color: rgb(148, 148, 148);
+        }
+
+        h1{
+            font-size: 20px;
+            color: rgb(148, 148, 148);
+        }
+    }
+}

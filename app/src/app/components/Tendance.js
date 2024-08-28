@@ -3,8 +3,7 @@ import { MyStore } from '../context/store';
 import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import GroupsIcon from '@mui/icons-material/Groups';
-const Tendance = () => {
-    const {bestVendu} = useContext(MyStore)
+const Tendance = ({bestVendu}) => {
     return (
         <div className='tendanceWidget'>
             <AutoAwesomeIcon className='icon'/><h1>Meilleur vente</h1>
