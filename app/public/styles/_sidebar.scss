@@ -10,7 +10,7 @@
         text-decoration: none;
         font-family:Open sans ;
         font-weight: 600;
-        font-size: 16px;
+        font-size: 14px;
         color: #fff;
         &:hover{
             color:rgb(21, 109, 150);
@@ -26,10 +26,26 @@
         text-decoration: none;
         font-family:Open sans ;
         font-weight: 600;
-        font-size: 16px;
+        font-size: 14px;
         color: rgb(21, 109, 150);
         &:hover{
             color:#cccccc
+        }
+        .icon{
+            margin-right: 10px;
+        }
+    }
+    .btn-logout{
+        display: flex;
+        margin: 20px;
+        text-decoration: none;
+        font-family:Open sans ;
+        font-weight: 600;
+        font-size: 14px;
+        color: #fff;
+        cursor: pointer;
+        &:hover{
+            color:rgb(21, 109, 150);
         }
         .icon{
             margin-right: 10px;

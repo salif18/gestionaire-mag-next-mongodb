@@ -17,7 +17,7 @@ export const POST = async (req) => {
 
         const fournisseurSauvegarde = await nouveauFournisseur.save();
        
-        return NextResponse.json({ message: "Produit ajouté", fournisseurSauvegarde , }, { status: 201 });
+        return NextResponse.json({ message: "Fournisseurs ajouté", fournisseurSauvegarde , }, { status: 201 });
     } catch (err) {
         return NextResponse.json({ message: "Erreur", error: err.message }, { status: 500 });
     }

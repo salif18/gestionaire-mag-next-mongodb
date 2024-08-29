@@ -6,13 +6,12 @@ import { useRouter } from "next/navigation";
 
 const Recus = () => {
   const router = useRouter();
-  const { panier, handleVendre, setPanier,errorStock } = useContext(MyStore);
+  const { panier, handleVendre,message, setPanier,errorStock } = useContext(MyStore);
 
   const imprimer = () => {
     window.print();
     handleVendre();
     setPanier([]);
-    router.push("/pages/produits");
   };
 
 //   bouton pour enregistrer les donnees dans la base de donnee et vider le panier
@@ -20,7 +19,6 @@ const Recus = () => {
     if(!errorStock){
        handleVendre()
        setPanier([])
-      router.push('/pages/produits')
     }else{ 
       console.log('err')
       return false
@@ -83,10 +81,11 @@ const Recus = () => {
 
       <div className="bt">
         <button className="btn-imp" onClick={() => imprimer()}>
-          <PrintIcon /> Sauvegarde PDF
+        {!message ?  <PrintIcon/> : message}
+          
         </button>
         <span>OU</span>
-        <button className="btn-vente" onClick={()=>handleEnregistre()}>Enregistrer sans PDF</button>
+        <button className="btn-vente" onClick={()=>handleEnregistre()}>{!message ? "Enregistrer sans PDF" : message}</button>
         
       </div>
     </div>

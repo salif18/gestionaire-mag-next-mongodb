@@ -1,21 +1,19 @@
 "use client"
-import { useRouter } from 'next/navigation';
 
 import Navbar from './components/layouts/Navbar'
 import SideBar from './components/layouts/SideBar'
-import { useContext, useEffect } from 'react';
+import { useContext} from 'react';
 import { MyStore } from './context/store';
 import Login from './pages/(auth)/login/page';
 
 export default function BodyLayout({ children, interClassName }) {
-    const router = useRouter();
+
     const { token } = useContext(MyStore)
-    console.log(token)
-    
   
   return (
     <body className={interClassName}>
-    
+    {token ?
+      (<>
       <Navbar />
       <section className="body">
         <SideBar />
@@ -23,6 +21,8 @@ export default function BodyLayout({ children, interClassName }) {
             {children}
         </section>
       </section>
+    </>
+   ):(<Login/>) }
     </body>
   );
 }

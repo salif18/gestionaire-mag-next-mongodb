@@ -2,7 +2,6 @@
 import axios from 'axios'
 import React, { useContext, useEffect, useState } from 'react'
 import { MyStore } from '../../context/store'
-import { headers } from '@/next.config'
 
 const Fournisseurs = () => {
   const {userId, token } = useContext(MyStore)
@@ -49,7 +48,7 @@ const handleAdd = async () => {
               }
           );
 
-          if (res.status === 200) {
+          if (res.status === 201) {
               const data = res.data;
               setAlertMessage(data.message); // Vous pouvez manipuler les données ici si besoin
           }
