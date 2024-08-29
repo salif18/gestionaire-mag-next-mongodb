@@ -43,13 +43,24 @@ const Registre = () => {
                     router.push("/"); // Redirige vers la page d'accueil après l'inscription
                 }
             } catch (e) {
-                console.log(e);
-                setAlertMessage("Erreur lors de l'inscription. Veuillez réessayer.");
+                if (e.response) {
+                    setAlertMessage(e.response.data.message); // Message d'erreur spécifique depuis le serveur
+                } else {
+                    setAlertMessage("Erreur lors de la connexion. Veuillez réessayer.");
+                }
             }
         } else {
             setAlertMessage("Veuillez remplir les champs");
         }
     }
+    useEffect(() => {
+        if (alertMessage) {
+            const timer = setTimeout(() => {
+                setAlertMessage('');
+            }, 2000);
+            return () => clearTimeout(timer);
+        }
+    }, [alertMessage]);
 
     return (
         <section className='registre'>

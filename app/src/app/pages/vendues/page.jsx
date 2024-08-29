@@ -109,7 +109,7 @@ const handledelete = (id)=>{
       renderCell: (params) => {
         return (
           <section className='action'>
-             <span className='cancel' onClick={()=>handledelete(params.row._id)}> <RotateLeftIcon style={{marginRight:10}}  />  Annuler </span>
+            {!message ? <span className='cancel' onClick={()=>handledelete(params.row._id)}> <RotateLeftIcon style={{marginRight:10}}  />  Annuler </span> : <span className='alert'>{message}</span> }
           </section>
         )
       }

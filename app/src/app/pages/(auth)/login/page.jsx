@@ -2,7 +2,7 @@
 import { MyStore } from '@/src/app/context/store'
 import axios from 'axios'
 import { useRouter } from 'next/navigation'
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 
 const Login = () => {
     const { login } = useContext(MyStore);
@@ -30,22 +30,32 @@ const Login = () => {
                     login(data.token, data.userId);
                     setUser({ contacts: "", password: "" });
                     router.push("/"); // Redirige vers la page d'accueil après la connexion
-                }else{
-                    setAlertMessage(data.message)
-                    console.log(data.message)
                 }
             } catch (e) {
-                console.log(e);
-                setAlertMessage("Erreur lors de la connexion. Veuillez réessayer.");
+                if (e.response) {
+                    setAlertMessage(e.response.data.message); // Message d'erreur spécifique depuis le serveur
+                } else {
+                    setAlertMessage("Erreur lors de la connexion. Veuillez réessayer.");
+                }
             }
         } else {
             setAlertMessage("Veuillez remplir les champs");
         }
     }
 
+
+    useEffect(() => {
+        if (alertMessage) {
+            const timer = setTimeout(() => {
+                setAlertMessage('');
+            }, 2000);
+            return () => clearTimeout(timer);
+        }
+    }, [alertMessage]);
+
     return (
         <section className='login'>
-        {/* <section className='title'>
+            {/* <section className='title'>
             <h1>GestaShop</h1>
         </section> */}
 
@@ -76,14 +86,14 @@ const Login = () => {
                         />
                         {user.password.length > 0 ? null : <span>{alertMessage}</span>}
                     </section>
-                    {!alertMessage  ? null : <span>{alertMessage}</span>}
+                    {!alertMessage ? null : <span>{alertMessage}</span>}
                     <section className='forget-password'>
                         <p>Mot de passe oublié ?</p>
                     </section>
                     <button className='btn-connexion' type='submit'>Se connecter</button>
                     <section className='create-new'>
-                    <p className='no-compte'>Vous n'avez pas de compte ?</p>
-                        <p onClick={()=>router.push("/pages/registre")}>Créer votre compte</p>
+                        <p className='no-compte'>Vous n'avez pas de compte ?</p>
+                        <p onClick={() => router.push("/pages/registre")}>Créer votre compte</p>
                     </section>
                 </form>
             </section>

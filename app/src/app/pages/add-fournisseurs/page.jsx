@@ -6,6 +6,7 @@ import { headers } from '@/next.config'
 
 const Fournisseurs = () => {
   const {userId, token } = useContext(MyStore)
+  const [alertMessage ,setAlertMessage] =useState("")
 
     const [fournisseur, setFournisseur] = useState({
         prenom:"",
@@ -50,7 +51,7 @@ const handleAdd = async () => {
 
           if (res.status === 200) {
               const data = res.data;
-              console.log(data); // Vous pouvez manipuler les données ici si besoin
+              setAlertMessage(data.message); // Vous pouvez manipuler les données ici si besoin
           }
 
           // Réinitialisation des champs du formulaire
@@ -67,6 +68,15 @@ const handleAdd = async () => {
       }
   }
 };
+useEffect(() => {
+    if (alertMessage) {
+        const timer = setTimeout(() => {
+            setAlertMessage('');
+        }, 2000);
+        return () => clearTimeout(timer);
+    }
+}, [alertMessage]);
+
 
   return (
     <main className='addfournisseurs'>
@@ -107,7 +117,7 @@ const handleAdd = async () => {
             </section>
             
 
-            <button className='btn-save' type='submit'>Enregistrer</button>
+            <button className='btn-save' type='submit'>{!alertMessage ? "Enregistrer" : alertMessage}</button>
             </form>
         </main>
   )

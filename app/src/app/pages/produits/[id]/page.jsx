@@ -11,6 +11,7 @@ const SingleProduits = () => {
   const [error, setError] = useState('')
   //recuperation dune seul donnee selectioner
   const [items, setItems] = useState({})
+  const [alertMessage ,setAlertMessage] =useState("")
   const [options, setOptions] = useState([])
   const router = useRouter();
   const { id } = useParams()
@@ -78,7 +79,7 @@ const SingleProduits = () => {
       },
     })
       .then((response) => {
-        setMessages(response.data.message)
+        setAlertMessage(response.data.message)
       }).catch((err) => console.error(err));
     router.push('/pages/produits');
     setProduits({
@@ -105,9 +106,16 @@ const SingleProduits = () => {
       .catch((err) => console.error(err))
   }
 
-  messages && setTimeout(() => {
-    setMessages('')
-  }, 2000)
+ 
+  useEffect(() => {
+    if (alertMessage) {
+        const timer = setTimeout(() => {
+            setAlertMessage('');
+        }, 2000);
+        return () => clearTimeout(timer);
+    }
+}, [alertMessage]);
+
 
   //le rendue vue
   return (
@@ -158,7 +166,7 @@ const SingleProduits = () => {
         </section>
 
 
-        <button className='btn-save-modif' onClick={() => handlePut(items._id)}>Modifier</button>
+        <button className='btn-save-modif' onClick={() => handlePut(items._id)}>{!alertMessage ? "Modifier" : alertMessage}</button>
         <button className='btn-supp-modif' onClick={() => handledelete(items._id)}>Supprimer</button>
       </section>
     </main>

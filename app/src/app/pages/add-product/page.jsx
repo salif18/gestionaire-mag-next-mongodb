@@ -7,6 +7,7 @@ import axios from 'axios';
 const AddProduits = () => {
     const router = useRouter();
     const { userId, token, setMessage, message } = useContext(MyStore);
+    const [alertMessage ,setAlertMessage] =useState("")
     const [options, setOptions] = useState([]);
     const [produits, setProduits] = useState({
         nom: "",
@@ -63,10 +64,15 @@ const AddProduits = () => {
                 });
                 if (res.status === 201) {
                     const responseData = res.data;
-                    setMessage(responseData.message);
-                    router.push('/pages/produits');
+                    setAlertMessage(responseData.message);
+                    
                 }
             } catch (e) {
+                if (e.response) {
+                    setAlertMessage(e.response.data.message); // Message d'erreur spécifique depuis le serveur
+                } else {
+                    setAlertMessage("Erreur lors de la connexion. Veuillez réessayer.");
+                }
                 console.error(e);
             }
             setProduits({
@@ -80,6 +86,14 @@ const AddProduits = () => {
         }
     };
 
+    useEffect(() => {
+        if (alertMessage) {
+            const timer = setTimeout(() => {
+                setAlertMessage('');
+            }, 2000);
+            return () => clearTimeout(timer);
+        }
+    }, [alertMessage]);
 
     //vue frontend
     return (
@@ -135,9 +149,7 @@ const AddProduits = () => {
                     <input className='input-qty' type='number' name='stocks' value={produits.stocks} onChange={(e) => handleChange(e)} placeholder='Quantites de stocks' />
                     {produits.stocks.length <= 0 && <span>{error}</span>}
                 </section>
-
-
-                <button className='btn-save' type='submit'>Enregistrer</button>
+                <button className='btn-save' type='submit'>{!alertMessage ? "Enregistrer" : alertMessage}</button>
             </form>
         </main>
 
