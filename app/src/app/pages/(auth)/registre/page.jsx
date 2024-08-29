@@ -3,7 +3,7 @@ import { MyStore } from '@/src/app/context/store'
 import axios from 'axios'
 import { useRouter } from 'next/navigation'
 
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 
 const Registre = () => {
     const { login } = useContext(MyStore);
