@@ -1,6 +1,6 @@
 "use client"
 import axios from 'axios'
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { MyStore } from '../../context/store'
 import { headers } from '@/next.config'
 
