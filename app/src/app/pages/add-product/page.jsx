@@ -10,6 +10,7 @@ const AddProduits = () => {
     const [alertMessage ,setAlertMessage] =useState("")
     const [options, setOptions] = useState([]);
     const [produits, setProduits] = useState({
+        image:"",
         nom: "",
         categories: "",
         prix_achat: "",
@@ -41,51 +42,69 @@ const AddProduits = () => {
         setProduits({ ...produits, [name]: value });
     };
 
+    const pickedImage = (e) => {
+        const file = e.target.files[0];
+        if (file) {
+            setProduits({ ...produits, image: file });
+        } else {
+            setError("Veuillez sélectionner une image.");
+        }
+    };
+   
+
     const handleSubmit = async (e) => {
         e.preventDefault();
-        if (!produits.nom || !produits.prix_achat || !produits.prix_vente || !produits.stocks || !produits.date_achat || !produits.categories) {
+        setError(null);
+    
+        if (!produits.nom || !produits.prix_achat || !produits.prix_vente || !produits.stocks || !produits.date_achat || !produits.categories || !produits.image) {
             setError('Veuillez remplir tous les champs.');
         } else {
             try {
-                const data = {
-                    userId: userId,
-                    nom: produits.nom,
-                    categories: produits.categories,
-                    prix_achat: produits.prix_achat,
-                    prix_vente: produits.prix_vente,
-                    stocks: produits.stocks,
-                    date_achat: produits.date_achat
-                };
-                const res = await axios.post(`/api/produits`, data, {
+                // const data = {
+                //     userId: userId,
+                //     nom: produits.nom,
+                //     categories: produits.categories,
+                //     prix_achat: produits.prix_achat,
+                //     prix_vente: produits.prix_vente,
+                //     stocks: produits.stocks,
+                //     date_achat: produits.date_achat
+                // };
+                const formData = new FormData();
+                formData.append("userId", userId);
+                formData.append("image", produits.image);
+                formData.append("nom", produits.nom);
+                formData.append("categories", produits.categories);
+                formData.append("prix_achat", produits.prix_achat);
+                formData.append("prix_vente", produits.prix_vente);
+                formData.append("stocks", produits.stocks);
+                formData.append("date_achat", produits.date_achat);
+    
+                const res = await axios.post(`/api/produits`, formData, {
                     headers: {
-                        'Content-Type': 'application/json',
+                        'Content-Type': 'multipart/form-data',
                         'Authorization': `Bearer ${token}`,
                     },
                 });
+    
                 if (res.status === 201) {
-                    const responseData = res.data;
-                    setAlertMessage(responseData.message);
-                    
+                    setAlertMessage("Produit ajouté avec succès !");
+                    setProduits({
+                        image: "",
+                        nom: "",
+                        categories: "",
+                        prix_achat: "",
+                        prix_vente: "",
+                        stocks: "",
+                        date_achat: ""
+                    });
                 }
             } catch (e) {
-                if (e.response) {
-                    setAlertMessage(e.response.data.message); // Message d'erreur spécifique depuis le serveur
-                } else {
-                    setAlertMessage("Erreur lors de la connexion. Veuillez réessayer.");
-                }
+                setAlertMessage(e.response?.data?.message || "Erreur lors de l'ajout du produit.");
                 console.error(e);
             }
-            setProduits({
-                nom: "",
-                categories: "",
-                prix_achat: "",
-                prix_vente: "",
-                stocks: "",
-                date_achat: ""
-            });
         }
     };
-
+    
     useEffect(() => {
         if (alertMessage) {
             const timer = setTimeout(() => {
@@ -103,6 +122,12 @@ const AddProduits = () => {
                 <h1>Ajouter des produits</h1>
             </section>
             <form className='add-container' onSubmit={handleSubmit}>
+
+            <section className='form'>
+                    <label htmlFor='upload'>Image du produit</label>
+                    <input type='file' id='upload' name='image' accept='image/*' onChange={(e) => pickedImage(e)} placeholder="Photo.." />
+                    {produits.prix_achat.length <= 0 && <span>{error}</span>}
+                </section>
 
                 <section className='form'>
                     <label>Prix d'achats</label>

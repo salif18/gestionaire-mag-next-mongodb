@@ -27,7 +27,7 @@ const Login = () => {
                 const data = await res.data;
 
                 if (res.status === 200) { // Vérification du statut de la réponse
-                    login(data.token, data.userId);
+                    login(data.token, data.userId, data.userName);
                     setUser({ contacts: "", password: "" });
                     router.push("/"); // Redirige vers la page d'accueil après la connexion
                 }

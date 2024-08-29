@@ -14,27 +14,33 @@ export const MyStoreProvider = (props) => {
   const [datePersonaliser, setDatePersonnaliser] = useState('');
   const [token, setToken] = useState(null);
   const [userId, setUserId] = useState(null);
+  const [userName , setUserName] = useState(null)
 
   useEffect(() => {
     const storedToken = localStorage.getItem('token');
     const storedUserId = localStorage.getItem('userId');
-
+    const storedUserName = localStorage.getItem('username');
     if (storedToken) setToken(storedToken);
     if (storedUserId) setUserId(storedUserId);
+    if (storedUserName) setUserId(storedUserName);
   }, []);
 
-  const login = (token, userId) => {
+  const login = (token, userId ,userName) => {
     setToken(token);
     setUserId(userId);
+    setUserName(userName)
     localStorage.setItem('token', token);
     localStorage.setItem('userId', userId);
+    localStorage.setItem('username', userName);
   };
 
   const logout = () => {
     setToken(null);
     setUserId(null);
+    setUserName(null);
     localStorage.removeItem('token');
     localStorage.removeItem('userId');
+    localStorage.removeItem('username');
   };
 
   // Domaine...
@@ -123,7 +129,9 @@ export const MyStoreProvider = (props) => {
     login,
     logout,
     token,
-    userId
+    userId,
+    userName,
+    setUserName
   };
 
   return (

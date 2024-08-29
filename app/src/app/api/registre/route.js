@@ -49,6 +49,7 @@ export const POST = async (req, res) => {
     return NextResponse.json({
       token: token,
       userId: user._id,
+      userName:user.name,
       message:"user creer"
     },{status:201});
   } catch (error) {

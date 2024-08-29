@@ -8,10 +8,12 @@ import axios from 'axios';
 import AddBusinessIcon from '@mui/icons-material/AddBusiness';
 import { useRouter } from 'next/navigation'
 import { DataGrid } from '@mui/x-data-grid';
-
+import imageDefault from "@/public/images/defaultImg.png"
+import Image from 'next/image';
 
 const Produits = () => {
   const [produits, setProduits] = useState([])
+  const [stocks , setStocks ] = useState(0)
   const router = useRouter()
   const { token , userId,handleAddPanier } = useContext(MyStore)
 
@@ -27,19 +29,13 @@ const Produits = () => {
       })
         .then((response) => {
           setProduits(response.data.produits);
+          setStocks(response.data.stocks)
         })
         .catch((err) => console.error(err));
     };
     getProduits()
   }, [userId, token]);
 
-  //caclule le nombre total de stocks
-  const calculeStock = () => {
-    const numberStock = produits.length > 0 && produits.map((item) => (item?.stocks))
-    const resultat = numberStock && numberStock.reduce((a, b) => a + b, 0)
-    return resultat
-  }
-  const numberStock = calculeStock()
 
   //ajouter produit dans le panier de vente
   const handleAjouter = (item) => {
@@ -75,6 +71,15 @@ const Produits = () => {
 
   //DEFINITION DES DIFFERENTES COLONNES POUR LE TABLEAU DE DATA GRID
   const columns = [
+    {
+      field: "image", headerName: "Image", width: 100, renderCell: (params) => {
+        return (
+          <figure className='title'>
+            <Image src={params.row.image ||imageDefault } width={50} height={50} alt=""/>
+          </figure>
+        )
+      }
+    },
     {
       field: "nom", headerName: "Name", width: 100, renderCell: (params) => {
         return (
@@ -160,7 +165,7 @@ const Produits = () => {
       <section className='title-stock'>
         <section className='left'>
           <h3>Etat de stock</h3>
-          <p> {numberStock} produits</p>
+          <p> {stocks} produits</p>
         </section>
         <button className='btn-add' onClick={() => router.push('/pages/add-product')}>Ajouter <AddBusinessIcon style={{ marginLeft: 5 }} /></button>
       </section>

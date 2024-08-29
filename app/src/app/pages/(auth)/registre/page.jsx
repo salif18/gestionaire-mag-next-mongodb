@@ -30,10 +30,8 @@ const Registre = () => {
                 const data = await res.data;
 
                 if (res.status === 201) { // Vérification du statut de la réponse
-                    console.log(data.message);
-                    console.log(data.userId);
-                    console.log(data.token);
-                    login(data.token, data.userId);
+                 
+                    login(data.token, data.userId, data.userName);
                     setUser({
                         name: "",
                         numero: "",

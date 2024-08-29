@@ -8,6 +8,8 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import { useRouter } from 'next/navigation';
 import { DataGrid } from '@mui/x-data-grid';
 import Link from 'next/link';
+import Image from 'next/image';
+import imageDefault from "@/public/images/defaultImg.png"
 
 
 const Categories = () => {
@@ -85,6 +87,15 @@ const Categories = () => {
 
   //DEFINITION DES DIFFERENTES COLONNES POUR LE TABLEAU DE DATA GRID
   const columns = [
+    {
+      field: "image", headerName: "Image", width: 100, renderCell: (params) => {
+        return (
+          <figure className='title'>
+            <Image src={params.row.image || imageDefault } width={50} height={50} alt=""/>
+          </figure>
+        )
+      }
+    },
     {
       field: "nom", headerName: "Name", width: 100, renderCell: (params) => {
         return (

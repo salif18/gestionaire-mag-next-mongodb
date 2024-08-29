@@ -2,6 +2,7 @@ import mongoose from "mongoose";
 
 const schema = mongoose.Schema({
     userId: { type: mongoose.Schema.Types.ObjectId, ref: 'Users' },
+    image: { type: String, default: null },
     nom: { type: String, required: true },
     categories: { type: String, required: true },
     prix_achat: { type: Number, required: true },

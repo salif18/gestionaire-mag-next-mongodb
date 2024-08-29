@@ -19,11 +19,12 @@ const storage = multer.diskStorage({
     }
 });
 
-const upload = multer({ storage: storage });
+// 'image' est le nom du champ attendu dans la requête
+const upload = multer({ storage: storage }).single('image');
 
+// uploadMiddleware 
 export const uploadMiddleware = (req, res, next) => {
-    const uploadSingle = upload.single('image'); // 'image' est le nom du champ attendu dans la requête
-    uploadSingle(req, res, (err) => {
+    upload(req, res, (err) => {
         if (err) {
             return res.status(400).json({ message: err.message });
         }

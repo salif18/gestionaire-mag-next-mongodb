@@ -1,16 +1,20 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import image from '../../../../public/images/logo.jpg'
 import Image from 'next/image';
+import { MyStore } from '../../context/store';
 const Navbar = () => {
-    return (
-        <header className='header'>
-          <div className='header-left'>
-          <Image src={image} alt='' />
-          <h1>GESTASHOP </h1>
-          </div>
-           
-        </header>
-    );
+  const { userName } = useContext(MyStore)
+  return (
+    <header className='header'>
+      <section className='header-left'>
+        <Image src={image} alt='' />
+        <h1>GESTASHOP </h1>
+      </section>
+      <section className='username'>
+        <p>{userName}</p>
+      </section>
+    </header>
+  );
 }
 
 export default Navbar;
