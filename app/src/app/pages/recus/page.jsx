@@ -81,7 +81,7 @@ const Recus = () => {
 
       <div className="bt">
         <button className="btn-imp" onClick={() => imprimer()}>
-        {!message ?  <PrintIcon/> : message}
+        <PrintIcon/>
           
         </button>
         <span>OU</span>

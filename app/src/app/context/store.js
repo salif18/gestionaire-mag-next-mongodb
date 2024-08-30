@@ -2,6 +2,7 @@
 
 import { createContext, useState, useEffect } from "react";
 import axios from "axios";
+import { useRouter } from "next/navigation";
 
 // Création de mon context
 export const MyStore = createContext();
@@ -15,6 +16,15 @@ export const MyStoreProvider = (props) => {
   const [token, setToken] = useState(null);
   const [userId, setUserId] = useState(null);
   const [userName , setUserName] = useState(null)
+
+  const router = useRouter()
+
+  useEffect(() => {
+    if (!token) {
+      router.replace("/pages/login")
+    }
+  }, [token, router])
+
 
   useEffect(() => {
     const storedToken = localStorage.getItem('token');

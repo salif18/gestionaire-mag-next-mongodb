@@ -19,6 +19,7 @@ const SingleProduits = () => {
   const [messages, setMessages] = useState('')
   //etat initial des champs de formulaire
   const [produits, setProduits] = useState({
+    image:"",
     nom: "",
     categories: "",
     prix_achat: "",
@@ -70,19 +71,41 @@ const SingleProduits = () => {
     setProduits({ ...produits, [name]: value })
   }
 
+  const pickedImage = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+        setProduits({ ...produits, image: file });
+    } else {
+        setError("Veuillez sélectionner une image.");
+    }
+};
+
+
   //fonction envoie des donnee modifier dans le backend
   const handlePut = (id) => {
+
+    // const formData = new FormData();
+    // formData.append("userId", userId);
+    // formData.append("image", produits.image);
+    // formData.append("nom", produits.nom);
+    // formData.append("categories", produits.categories);
+    // formData.append("prix_achat", produits.prix_achat);
+    // formData.append("prix_vente", produits.prix_vente);
+    // formData.append("stocks", produits.stocks);
+    // formData.append("date_achat", produits.date_achat);
+    
     axios.put(`/api/produits/single/${id}`, produits, {
       headers: {
-        'Content-Type': 'application/json',
+        // 'Content-Type': 'application/json',
+        'Content-Type': 'multipart/form-data',
         'Authorization': `Bearer ${token}`,
       },
     })
       .then((response) => {
         setAlertMessage(response.data.message)
       }).catch((err) => console.error(err));
-    router.push('/pages/produits');
     setProduits({
+      image:"",
       nom: "",
       categories: "",
       prix_achat: "",
@@ -127,6 +150,13 @@ const SingleProduits = () => {
 
 
       <section className='update-form'>
+
+      <section className='form'>
+                    <label htmlFor='upload'>Image du produit</label>
+                    <input type='file' id='upload' name='image' accept='image/*' onChange={(e) => pickedImage(e)} placeholder="Photo.." />
+                    {produits.prix_achat.length <= 0 && <span>{error}</span>}
+                </section>
+
         <section className='form'>
           <label>Prix d'achats</label>
           <input type='text' name='prix_achat' value={produits.prix_achat} onChange={(e) => handleChange(e)} placeholder={items?.prix_achat} />
