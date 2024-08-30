@@ -8,7 +8,7 @@ export default function BodyLayout({ children, interClassName }) {
   const { token } = useContext(MyStore)
 
   return (
-    <main className={interClassName}>
+    <section className={interClassName}>
       <Navbar />
       <section className="body">
         {token && <SideBar />}
@@ -16,6 +16,6 @@ export default function BodyLayout({ children, interClassName }) {
           {children}
         </section>
       </section>
-    </main>
+    </section>
   );
 }

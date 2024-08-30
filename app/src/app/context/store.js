@@ -15,15 +15,15 @@ export const MyStoreProvider = (props) => {
   const [datePersonaliser, setDatePersonnaliser] = useState('');
   const [token, setToken] = useState(null);
   const [userId, setUserId] = useState(null);
-  const [userName , setUserName] = useState(null)
+  const [userName, setUserName] = useState(null)
 
   const router = useRouter()
 
   useEffect(() => {
-    if (!token) {
+    if (!token && !userId) {
       router.replace("/pages/login")
     }
-  }, [token, router])
+  }, [token, userId, router])
 
 
   useEffect(() => {
@@ -35,7 +35,7 @@ export const MyStoreProvider = (props) => {
     if (storedUserName) setUserId(storedUserName);
   }, []);
 
-  const login = (token, userId ,userName) => {
+  const login = (token, userId, userName) => {
     setToken(token);
     setUserId(userId);
     setUserName(userName)
@@ -53,9 +53,6 @@ export const MyStoreProvider = (props) => {
     localStorage.removeItem('username');
   };
 
-  // Domaine...
-
-  
 
   // Incrémentation du nombre de produits
   const increment = (item) => {
@@ -82,12 +79,13 @@ export const MyStoreProvider = (props) => {
   const handleVendre = async () => {
     try {
       const promises = panier.map((item) => {
-        return axios.post(`/api/ventes`, datePersonaliser ? { userId,...item, date_vente: datePersonaliser } : {userId ,...item} ,
-         { headers: {
+        return axios.post(`/api/ventes`, datePersonaliser ? { userId, ...item, date_vente: datePersonaliser } : { userId, ...item },
+          {
+            headers: {
               'Content-Type': 'application/json',
               'Authorization': `Bearer ${token}`,
-          },
-      });
+            },
+          });
       });
 
       const responses = await Promise.all(promises);
@@ -103,19 +101,19 @@ export const MyStoreProvider = (props) => {
 
   // Envoyer les dépenses
   const sendDepensesToDataBase = (item) => {
-    axios.post(`/api/depenses`,{userId,...item},
+    axios.post(`/api/depenses`, { userId, ...item },
       {
         headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`,
         },
-    }
+      }
     )
       .then((response) => setMessage(response.data.message))
       .catch((err) => console.log(err));
   };
 
- 
+
   useEffect(() => {
     if (message) {
       const timer = setTimeout(() => {
