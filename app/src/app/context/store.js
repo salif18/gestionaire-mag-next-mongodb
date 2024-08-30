@@ -18,22 +18,21 @@ export const MyStoreProvider = (props) => {
   const [userName, setUserName] = useState(null)
 
   const router = useRouter()
-
-  useEffect(() => {
-    if (!token && !userId) {
-      router.replace("/pages/login")
-    }
-  }, [token, userId, router])
-
-
   useEffect(() => {
     const storedToken = localStorage.getItem('token');
     const storedUserId = localStorage.getItem('userId');
     const storedUserName = localStorage.getItem('username');
     if (storedToken) setToken(storedToken);
     if (storedUserId) setUserId(storedUserId);
-    if (storedUserName) setUserId(storedUserName);
+    if (storedUserName) setUserName(storedUserName);
   }, []);
+  
+  useEffect(() => {
+    if (!token && !userId) {
+      router.replace("/pages/login");
+    }
+  }, [token, userId, router]);
+  
 
   const login = (token, userId, userName) => {
     setToken(token);
@@ -51,9 +50,9 @@ export const MyStoreProvider = (props) => {
     localStorage.removeItem('token');
     localStorage.removeItem('userId');
     localStorage.removeItem('username');
+    router.replace("/pages/login");
   };
-
-
+  
   // Incrémentation du nombre de produits
   const increment = (item) => {
     const toSale = panier.map((d) =>
