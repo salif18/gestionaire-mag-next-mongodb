@@ -96,8 +96,8 @@ const SingleProduits = () => {
     
     axios.put(`/api/produits/single/${id}`, produits, {
       headers: {
-        // 'Content-Type': 'application/json',
-        'Content-Type': 'multipart/form-data',
+        'Content-Type': 'application/json',
+        // 'Content-Type': 'multipart/form-data',
         'Authorization': `Bearer ${token}`,
       },
     })

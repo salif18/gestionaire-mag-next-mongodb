@@ -47,7 +47,7 @@ const Recus = () => {
   return (
     <div className="recus">
       <header>
-        <h1>Recus</h1>
+        <h1>Reçus</h1>
       </header>
        <div className="entete"><h1>DATE</h1><span>{date}</span></div>
        <div className="entete"><h1>BOUTIQUE</h1><span>FOOZO Cosmetics</span></div>
