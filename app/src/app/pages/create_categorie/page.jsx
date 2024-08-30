@@ -5,6 +5,7 @@ import { MyStore } from '../../context/store'
 
 const CreateCategorie = () => {
     const { userId, token } = useContext(MyStore)
+    const [alertMessage , setAlertMessage] = useState("")
     const [categorie, setCategorie] = useState({
         name:"",
     })
@@ -26,6 +27,10 @@ const handleAdd=async()=>{
                     'Authorization': `Bearer ${token}`,
                 },
             })
+            if(res.status === 201 ){
+                const data = res.data;
+                setAlertMessage(data.message)
+            }
            }catch(e){
                console.log[e]
            }
@@ -49,7 +54,7 @@ const handleAdd=async()=>{
      {categorie.name.length <= 0 && <span>{error}</span>}
      </section> 
 
-    <button className='btn-save' type='submit'>Enregistrer</button>
+    <button className='btn-save' type='submit'>{!alertMessage ? "Enregistrer" : alertMessage}</button>
     </form>
 </main>
 

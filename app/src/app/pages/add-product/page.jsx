@@ -1,11 +1,9 @@
 "use client"
 import React, { useContext, useEffect, useState } from 'react';
 import { MyStore } from '../../context/store';
-import { useRouter } from 'next/navigation';
 import axios from 'axios';
 
 const AddProduits = () => {
-    const router = useRouter();
     const { userId, token, setMessage, message } = useContext(MyStore);
     const [alertMessage ,setAlertMessage] =useState("")
     const [options, setOptions] = useState([]);
@@ -141,9 +139,6 @@ const AddProduits = () => {
                     {produits.prix_vente.length <= 0 && <span>{error}</span>}
                 </section>
                 <span className='messge-add'>{message}</span>
-
-
-
 
                 <section className='form'>
                     <label>Nom</label>

@@ -109,8 +109,7 @@ const Depenseur = () => {
             </select>
             {depenses.motifs.length <=0 && <span>{error}</span>}
              </div>
-             <span className='messge-dep'>{message}</span>
-             <button className='btn-contact'  onClick={(e)=>handleSend(e)}>Enregistrer</button>
+             <button className='btn-contact'  onClick={(e)=>handleSend(e)}>{!message ? "Enregistrer" : message}</button>
              
             </div>
             </form>

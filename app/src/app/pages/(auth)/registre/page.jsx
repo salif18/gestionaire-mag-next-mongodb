@@ -67,7 +67,7 @@ const Registre = () => {
         </section> */}
             <section className='form-content'>
             <section className='header'>
-                    <p>Inscription</p>
+                    <p>Créer un compte</p>
                 </section>
                 <form className='form' onSubmit={handleSubmit}>
                     <section className='column'>

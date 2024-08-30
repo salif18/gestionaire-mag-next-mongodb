@@ -114,7 +114,6 @@ useEffect(() => {
             <input  type='text' name='produit' value={fournisseur.produit} onChange={(e)=>handleChange(e)} placeholder='produit' />
             {fournisseur.produit.length <= 0 && <span>{error}</span>}
             </section>
-            
 
             <button className='btn-save' type='submit'>{!alertMessage ? "Enregistrer" : alertMessage}</button>
             </form>
