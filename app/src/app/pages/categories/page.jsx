@@ -97,7 +97,7 @@ const Categories = () => {
       }
     },
     {
-      field: "nom", headerName: "Name", width: 100, renderCell: (params) => {
+      field: "nom", headerName: "Name", width: 200, renderCell: (params) => {
         return (
           <section className='title'>
             <p>{params.row.nom}</p>
@@ -106,7 +106,7 @@ const Categories = () => {
       }
     },
     {
-      field: 'categories', headerName: 'Categories', width: 100, renderCell: (params) => {
+      field: 'categories', headerName: 'Categories', width: 150, renderCell: (params) => {
         return (
           <section className='title'>
             <p>{params.row.categories}</p>
@@ -115,7 +115,7 @@ const Categories = () => {
       }
     },
     {
-      field: 'prix_achat', headerName: "Prix d'achat", width: 200, renderCell: (params) => {
+      field: 'prix_achat', headerName: "Prix d'achat", width: 150, renderCell: (params) => {
         return (
           <section className='title'>
             <p>{params.row.prix_achat}</p>
@@ -124,7 +124,7 @@ const Categories = () => {
       }
     },
     {
-      field: 'prix_vente', headerName: "Prix de vente", width: 200, renderCell: (params) => {
+      field: 'prix_vente', headerName: "Prix de vente", width: 150, renderCell: (params) => {
         return (
           <section className='title'>
             <p>{params.row.prix_vente}</p>
@@ -133,7 +133,7 @@ const Categories = () => {
       }
     },
     {
-      field: 'stocks', headerName: 'Stocks', width: 200,
+      field: 'stocks', headerName: 'Stocks', width: 100,
       renderCell: (params) => {
         return (
           <section className='title'>

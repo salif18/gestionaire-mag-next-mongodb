@@ -81,7 +81,7 @@ const Produits = () => {
       }
     },
     {
-      field: "nom", headerName: "Name", width: 100, renderCell: (params) => {
+      field: "nom", headerName: "Name", width: 200, renderCell: (params) => {
         return (
           <section className='title'>
             <p>{params.row.nom}</p>
@@ -90,7 +90,7 @@ const Produits = () => {
       }
     },
     {
-      field: 'categories', headerName: 'Categories', width: 100, renderCell: (params) => {
+      field: 'categories', headerName: 'Categories', width: 150, renderCell: (params) => {
         return (
           <section className='title'>
             <p>{params.row.categories}</p>
@@ -99,7 +99,7 @@ const Produits = () => {
       }
     },
     {
-      field: 'prix_achat', headerName: "Prix d'achat", width: 200, renderCell: (params) => {
+      field: 'prix_achat', headerName: "Prix d'achat", width: 150, renderCell: (params) => {
         return (
           <section className='title'>
             <p>{params.row.prix_achat}</p>
@@ -108,7 +108,7 @@ const Produits = () => {
       }
     },
     {
-      field: 'prixVente', headerName: "Prix de vente", width: 200, renderCell: (params) => {
+      field: 'prixVente', headerName: "Prix de vente", width: 150, renderCell: (params) => {
         return (
           <section className='title'>
             <p>{params.row.prix_vente}</p>
@@ -117,7 +117,7 @@ const Produits = () => {
       }
     },
     {
-      field: 'stocks', headerName: 'Stocks', width: 200,
+      field: 'stocks', headerName: 'Stocks', width: 100,
       renderCell: (params) => {
         return (
           <section className='title'>
