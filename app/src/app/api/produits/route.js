@@ -19,14 +19,14 @@ export const POST = async (req) => {
         // Lecture des données de la requête
         const formData = await req.formData();
         console.log("corps de la requete", formData)
-        const file = formData.get("image")
+        // const file = formData.get("image")
 
-        if(!file){
-            console.log("pas de fichier")
-        }
+        // if(!file){
+        //     console.log("pas de fichier")
+        // }
 
-        const bufferData = await file.arrayBuffer();
-        const buffer = Buffer.from(bufferData)
+        // const bufferData = await file.arrayBuffer();
+        // const buffer = Buffer.from(bufferData)
 
         const data = {};
         formData.forEach((value, key) => {
@@ -37,7 +37,7 @@ export const POST = async (req) => {
         // Création d'un nouvel objet produit
         const nouveauProduit = new Produits({
             ...data,
-            image:buffer,
+            // image:buffer ,
             userId: req.auth.userId // Associer le produit à l'utilisateur
         });
 

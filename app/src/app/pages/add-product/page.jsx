@@ -54,7 +54,7 @@ const AddProduits = () => {
         e.preventDefault();
         setError(null);
     
-        if (!produits.nom || !produits.prix_achat || !produits.prix_vente || !produits.stocks || !produits.date_achat || !produits.categories || !produits.image) {
+        if (!produits.nom || !produits.prix_achat || !produits.prix_vente || !produits.stocks || !produits.date_achat || !produits.categories ) {
             setError('Veuillez remplir tous les champs.');
         } else {
             try {
