@@ -1,3 +1,5 @@
+"use client";
+
 import Navbar from './components/layouts/Navbar';
 import SideBar from './components/layouts/SideBar';
 // import { useContext, useState, useEffect } from 'react';
