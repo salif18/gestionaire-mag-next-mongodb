@@ -29,7 +29,7 @@ export const MyStoreProvider = (props) => {
     if (storedToken) {
       setToken(storedToken);
     // } else if (!publicRoutes.includes(router.pathname)) {
-      // router.replace('/pages/home');
+      router.replace('/pages/home');
     }
 
     if (storedUserId) setUserId(storedUserId);
@@ -39,7 +39,7 @@ export const MyStoreProvider = (props) => {
 
   useEffect(() => {
     checkAuth();
-  }, [router.pathname]);
+  }, [token, userId]);
 
 
   const login = (token, userId, userName) => {

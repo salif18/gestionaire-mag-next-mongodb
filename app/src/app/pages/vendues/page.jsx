@@ -147,4 +147,4 @@ message && setTimeout(()=>setMessage(''),2000)
     );
 }
 
-export default withAuth(ListeVente) ;
+export default withAuth(ListeVente)

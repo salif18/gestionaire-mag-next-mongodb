@@ -19,7 +19,8 @@ export const POST = async (req) => {
     try {
       await dbConnect();
       const { contacts, password } = await req.json();
-  
+     console.log(contacts)
+     console.log(password)
       const user = await Users.findOne({
         $or: [
           { numero: contacts },

@@ -127,4 +127,4 @@ const Rapports = () => {
   );
 }
 
-export default withAuth(Rapports);
+export default withAuth(Rapports)

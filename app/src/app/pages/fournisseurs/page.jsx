@@ -136,4 +136,4 @@ const Fournisseurs = () => {
   )
 }
 
-export default withAuth(Fournisseurs);
+export default withAuth(Fournisseurs)

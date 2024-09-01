@@ -15,8 +15,9 @@ import Cout from "../../components/Cout"
 import { MyStore } from "../../context/store"
 import StatsWeek from "../../components/StatsWeek"
 import Loading from "../../loading"
+import withAuth from "../../withAuth"
 
-export default function Home() {
+  const  Home = () =>{
   const { token, userId} = useContext(MyStore)
   const [produits, setProduits] = useState([])
   const [statsVentes, setStatsVentes] = useState([])
@@ -186,3 +187,5 @@ const prix_achatGlobal = totalAchatOfVente + totalAchatOfAchat;
     
   )
 }
+
+export default withAuth(Home)

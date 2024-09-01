@@ -20,7 +20,7 @@ const BodyLayout=({ children, interClassName }) =>{
     <section className={interClassName}>
       <Navbar />
       <section className="body">
-        {showSideBar && <SideBar />}
+      <SideBar />
         <section className="contents">
           {children}
         </section>
