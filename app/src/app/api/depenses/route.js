@@ -21,7 +21,7 @@ export const POST = async (req) => {
         const results = await nouvelleDepense.save();
 
         return NextResponse.json(
-            { message: 'Dépense enregistrée avec succès !!', results },
+            { message: 'Ajoutée !!', results },
             { status: 201 }
         );
     } catch (err) {

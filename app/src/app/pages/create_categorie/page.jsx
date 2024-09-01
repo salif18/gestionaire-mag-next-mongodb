@@ -31,6 +31,7 @@ const handleAdd=async()=>{
             if(res.status === 201 ){
                 const data = res.data;
                 setAlertMessage(data.message)
+                setCategorie({name:""})
             }
            }catch(e){
                console.log[e]

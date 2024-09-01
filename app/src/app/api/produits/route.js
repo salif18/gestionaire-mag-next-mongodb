@@ -46,7 +46,7 @@ export const POST = async (req) => {
         console.log('Produit sauvegardé avec succès:', produitSauvegarde);
 
         // Retourner une réponse avec le produit sauvegardé
-        return NextResponse.json({ message: "Produit ajouté", produitSauvegarde }, { status: 201 });
+        return NextResponse.json({ message: "Ajouté", produitSauvegarde }, { status: 201 });
     } catch (err) {
         console.error('Erreur pendant la requête POST:', err.message);
         return NextResponse.json({ message: "Erreur", error: err.message }, { status: 500 });

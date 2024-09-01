@@ -48,12 +48,12 @@ export const POST = async (req) => {
           await product.save();
 
           return NextResponse.json(
-              { message: 'Vente effectuée avec succès !!', results: savedVente },
+              { message: 'Vente effectuée !!', results: savedVente },
               { status: 201 }
           );
       } else {
           return NextResponse.json(
-              { message: `Stock insuffisant pour le produit ${nom}` },
+              { message: `${nom} insuffisant ` },
               { status: 400 }
           );
       }

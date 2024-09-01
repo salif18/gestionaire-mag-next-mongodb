@@ -35,7 +35,7 @@ export const DELETE = async (req) => {
         await vente.deleteOne();
 
         return NextResponse.json(
-            { message: 'La vente a été annulée avec succès !!', results: vente },
+            { message: 'Annulée !!', results: vente },
             { status: 200 }
         );
 

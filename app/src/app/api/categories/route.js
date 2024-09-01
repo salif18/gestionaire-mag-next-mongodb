@@ -20,7 +20,7 @@ export const POST = async (req) => {
         const results = await nouvelleCategorie.save();
 
         return NextResponse.json(
-            { message: 'Categories enregistrée avec succès !!', results },
+            { message: 'Ajouté !!', results },
             { status: 201 }
         );
     } catch (err) {

@@ -21,7 +21,7 @@ export const DELETE = async (req) => {
         }
 
         return NextResponse.json(
-            { message: 'Dépense supprimée avec succès !!', results },
+            { message: 'Supprimée !!', results },
             { status: 200 }
         );
     } catch (err) {

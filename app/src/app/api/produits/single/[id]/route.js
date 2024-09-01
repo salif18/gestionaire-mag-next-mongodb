@@ -59,34 +59,10 @@ export const PUT = async (req) => {
     );
 
     return NextResponse.json(
-      { message: 'Produit modifié avec succès !!', results: produitMisAJour },
+      { message: 'Modifié !!', results: produitMisAJour },
       { status: 200 }
     );
 
-  } catch (err) {
-    return NextResponse.json({ message: err.message }, { status: 500 });
-  }
-};
-
-export const PATCH = async (req) => {
-  try {
-    await dbConnect()
-    await middlewareAuthenticate(req);
-    const url = new URL(req.url);
-    const id = url.pathname.split('/').pop(); 
-    const { stocks } = await req.json();
-
-    const produit = await Produit.findByIdAndUpdate(
-      id,
-      { stocks },
-      { new: true } // retourne le document mis à jour
-    );
-
-    if (!produit) {
-      return NextResponse.json({ message: 'Produit non trouvé' }, { status: 404 });
-    }
-
-    return NextResponse.json({ message: 'Stock modifié avec succès !!', results: produit }, { status: 200 });
   } catch (err) {
     return NextResponse.json({ message: err.message }, { status: 500 });
   }
@@ -104,7 +80,7 @@ export const DELETE = async (req) => {
       return NextResponse.json({ message: 'Produit non trouvé' }, { status: 404 });
     }
 
-    return NextResponse.json({ message: 'Le produit a été supprimé avec succès !!', results: produit }, { status: 200 });
+    return NextResponse.json({ message: 'Supprimé !!', results: produit }, { status: 200 });
   } catch (err) {
     return NextResponse.json({ message: err.message }, { status: 500 });
   }

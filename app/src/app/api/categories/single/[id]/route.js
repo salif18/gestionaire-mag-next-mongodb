@@ -15,7 +15,7 @@ export const DELETE = async (req) => {
         return NextResponse.json({ message: 'Categorie non trouvé' }, { status: 404 });
       }
   
-      return NextResponse.json({ message: 'Le categorie a été supprimé avec succès !!', results: produit }, { status: 200 });
+      return NextResponse.json({ message: 'Supprimé !!', results: produit }, { status: 200 });
     } catch (err) {
       return NextResponse.json({ message: err.message }, { status: 500 });
     }
