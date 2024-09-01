@@ -19,7 +19,7 @@ const CreateCategorie = () => {
     setCategorie({...categorie,[name]:value})
 }
 
-const handleAdd=async()=>{
+const handleSubmit=async()=>{
     if(categorie.name.length > 0){
         try{
             const res = await axios.post("/api/categories", {userId,...categorie} ,{
@@ -48,7 +48,7 @@ const handleAdd=async()=>{
     <section className='header'>
      <h1>Ajouter des categories</h1>
     </section>
-    <form className='create-container' onSubmit={()=>handleAdd()}>
+    <form className='create-container' onSubmit={handleSubmit}>
     
      <section className='form'>
      <label>Nom</label>
