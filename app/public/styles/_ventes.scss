@@ -4,13 +4,13 @@
     padding: 15px;
     background: #376369;
     box-shadow: -2px 2px 2px 2px #516f74;
-    border: 1px solid #c6ced6;
+    // border: 1px solid #c6ced6;
     display: flex;
     justify-content: center;
     align-items: center;
     h1{
         text-transform: uppercase;
-        font-size: 20px;
+        font-size: 18px;
         color: #f0f2f5;
         font-family: 'Roboto';
     }
@@ -179,10 +179,12 @@
 }
 
 .panier-vide{
+    margin: 20%;
     display: flex;
     justify-content: center;
-    text-align: center;
-    font-size: 30px;
-    font-family: 'Roboto';
-    color: #c6ced6;
+    align-items: center;
+    align-content: center;
+    font-size: 16px;
+    font-family: roboto;
+    color: #a1a8af;
 }
