@@ -4,8 +4,9 @@ import Navbar from './components/layouts/Navbar';
 import SideBar from './components/layouts/SideBar';
 import { useContext, useState, useEffect } from 'react';
 import { MyStore } from './context/store';
+import withAuth from './withAuth';
 
-export default function BodyLayout({ children, interClassName }) {
+const BodyLayout=({ children, interClassName }) =>{
   const { token } = useContext(MyStore);
   const [showSideBar, setShowSideBar] = useState(false);
 
@@ -27,3 +28,5 @@ export default function BodyLayout({ children, interClassName }) {
     </section>
   );
 }
+
+export default withAuth(BodyLayout)

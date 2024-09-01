@@ -10,6 +10,7 @@ import { useRouter } from 'next/navigation'
 import { DataGrid } from '@mui/x-data-grid';
 import imageDefault from "@/public/images/defaultImg.png"
 import Image from 'next/image';
+import withAuth from '../../withAuth';
 
 const Produits = () => {
   const [produits, setProduits] = useState([])
@@ -195,4 +196,4 @@ const Produits = () => {
   );
 }
 
-export default Produits;
+export default withAuth(Produits);

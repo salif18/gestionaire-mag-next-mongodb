@@ -11,7 +11,7 @@ const EtatStocks = ({produits}) => {
         {filterStock.length <=0 && <p>Aucuns</p>}
         <div className='content'>
         {filterStock &&
-            filterStock.slice(0,5).map((item) => (
+            filterStock.slice(0,4).map((item) => (
                 <div className='stocks-container'>
                   <p className='nom'>{item.nom}</p>
                   <p className='categorie'>{item.categories}</p>

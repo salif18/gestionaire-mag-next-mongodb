@@ -38,7 +38,7 @@ const Registre = () => {
                         email: "",
                         password: ""
                     });
-                    router.push("/"); // Redirige vers la page d'accueil après l'inscription
+                    router.push("/pages/home"); // Redirige vers la page d'accueil après l'inscription
                 }
             } catch (e) {
                 if (e.response) {
@@ -117,7 +117,7 @@ const Registre = () => {
                     <button className='btn-inscription' type='submit'>S'inscrire</button>
                     <section className='se-log'>
                     <p className='no-compte'>Vous avez déjà un compte ?</p>
-                        <p onClick={()=>router.push("/pages/login")}>Se connecter</p>
+                        <p onClick={()=>router.push("/")}>Se connecter</p>
                     </section>
                 </form>
             </section>

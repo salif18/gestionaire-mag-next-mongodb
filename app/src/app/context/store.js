@@ -16,23 +16,31 @@ export const MyStoreProvider = (props) => {
   const [token, setToken] = useState(null);
   const [userId, setUserId] = useState(null);
   const [userName, setUserName] = useState(null)
+  const [isLoading, setIsLoading] = useState(true);
 
   const router = useRouter()
-  useEffect(() => {
+  const publicRoutes = ['/pages/login', '/pages/register'];
+
+  const checkAuth = () => {
     const storedToken = localStorage.getItem('token');
     const storedUserId = localStorage.getItem('userId');
     const storedUserName = localStorage.getItem('username');
-    if (storedToken) setToken(storedToken);
+
+    if (storedToken) {
+      setToken(storedToken);
+    // } else if (!publicRoutes.includes(router.pathname)) {
+      // router.replace('/pages/home');
+    }
+
     if (storedUserId) setUserId(storedUserId);
     if (storedUserName) setUserName(storedUserName);
-  }, []);
-  
+    setIsLoading(false);
+  };
+
   useEffect(() => {
-    if (!token && !userId) {
-      router.replace("/pages/login");
-    }
-  }, [token, userId, router]);
-  
+    checkAuth();
+  }, [router.pathname]);
+
 
   const login = (token, userId, userName) => {
     setToken(token);
@@ -50,9 +58,9 @@ export const MyStoreProvider = (props) => {
     localStorage.removeItem('token');
     localStorage.removeItem('userId');
     localStorage.removeItem('username');
-    router.replace("/pages/login");
+    router.replace("/");
   };
-  
+
   // Incrémentation du nombre de produits
   const increment = (item) => {
     const toSale = panier.map((d) =>
@@ -71,7 +79,12 @@ export const MyStoreProvider = (props) => {
 
   // Ajout des produit dans le panier pour la vente
   const handleAddPanier = (item) => {
-    setPanier([...panier, { ...item, qty: 1 }]);
+    const existingItem = panier.find((d) => d._id === item._id);
+    if (existingItem) {
+      increment(existingItem);
+    } else {
+      setPanier([...panier, { ...item, qty: 1 }]);
+    }
   };
 
   // Enregistrer ou effectuer une vente
@@ -99,17 +112,19 @@ export const MyStoreProvider = (props) => {
   };
 
   // Envoyer les dépenses
-  const sendDepensesToDataBase = (item) => {
-    axios.post(`/api/depenses`, { userId, ...item },
-      {
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`,
-        },
-      }
-    )
-      .then((response) => setMessage(response.data.message))
-      .catch((err) => console.log(err));
+  const sendDepensesToDataBase = async (item) => {
+    try {
+      const response = await axios.post(`/api/depenses`, { userId, ...item },
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`,
+          },
+        });
+      setMessage(response.data.message);
+    } catch (err) {
+      console.error('Erreur lors de l\'envoi des dépenses:', err);
+    }
   };
 
 
@@ -145,5 +160,14 @@ export const MyStoreProvider = (props) => {
     <MyStore.Provider value={contextValue}>
       {props.children}
     </MyStore.Provider>
+
+    /* <MyStore.Provider value={contextValue}>
+      {isLoading && (!token || publicRoutes.includes(router.pathname)) ? (
+        props.children
+      ) : (
+        <div>Redirecting...</div>
+      )}
+    </MyStore.Provider> */
   );
-};
+}
+

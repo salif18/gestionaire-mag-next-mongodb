@@ -19,7 +19,7 @@ const SideBar = () => {
     const { logout } = useContext(MyStore)
     const pathname = usePathname()
     const navLinks = [
-        {name:"Tableau de bord", href:'/', icon :GridViewIcon},
+        {name:"Tableau de bord", href:'/pages/home', icon :GridViewIcon},
         {name:"Stocks", href:'/pages/produits', icon :AccountBalanceOutlinedIcon},
         {name:"Stocks par categories", href:'/pages/categories', icon :CategoryIcon},
         {name:"Categorie liste", href:'/pages/categories-list', icon :ClearAllOutlinedIcon},

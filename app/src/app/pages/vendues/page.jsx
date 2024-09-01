@@ -6,6 +6,7 @@ import { useRouter } from 'next/navigation';
 import { DataGrid } from '@mui/x-data-grid';
 import { useContext } from 'react';
 import { MyStore } from '../../context/store';
+import withAuth from '../../withAuth';
 
 
 
@@ -146,4 +147,4 @@ message && setTimeout(()=>setMessage(''),2000)
     );
 }
 
-export default ListeVente;
+export default withAuth(ListeVente) ;

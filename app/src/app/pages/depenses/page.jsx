@@ -4,6 +4,7 @@ import { MyStore } from '../../context/store';
 import axios from 'axios';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { useRouter } from 'next/navigation';
+import withAuth from '../../withAuth';
 
 
 const Depenseur = () => {
@@ -150,4 +151,4 @@ const Depenseur = () => {
     );
 }
 
-export default Depenseur;
+export default withAuth(Depenseur)

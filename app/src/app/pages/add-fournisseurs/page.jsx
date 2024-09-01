@@ -2,6 +2,7 @@
 import axios from 'axios'
 import React, { useContext, useEffect, useState } from 'react'
 import { MyStore } from '../../context/store'
+import withAuth from '../../withAuth'
 
 const Fournisseurs = () => {
   const {userId, token } = useContext(MyStore)
@@ -121,4 +122,4 @@ useEffect(() => {
   )
 }
 
-export default Fournisseurs
+export default withAuth(Fournisseurs)

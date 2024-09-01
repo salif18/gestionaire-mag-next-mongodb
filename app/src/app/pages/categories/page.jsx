@@ -10,6 +10,7 @@ import { DataGrid } from '@mui/x-data-grid';
 import Link from 'next/link';
 import Image from 'next/image';
 import imageDefault from "@/public/images/defaultImg.png"
+import withAuth from '../../withAuth';
 
 
 const Categories = () => {
@@ -222,4 +223,4 @@ const Categories = () => {
   );
 }
 
-export default Categories;
+export default withAuth(Categories)

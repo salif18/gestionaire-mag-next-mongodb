@@ -6,6 +6,7 @@ import axios from 'axios';
 import { useRouter } from 'next/navigation';
 import CoPresentIcon from '@mui/icons-material/CoPresent';
 import { MyStore } from '../../context/store';
+import withAuth from '../../withAuth';
 const Fournisseurs = () => {
   const { token, userId } = useContext(MyStore)
   const router = useRouter()
@@ -135,4 +136,4 @@ const Fournisseurs = () => {
   )
 }
 
-export default Fournisseurs
+export default withAuth(Fournisseurs);

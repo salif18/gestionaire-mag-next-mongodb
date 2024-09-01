@@ -29,7 +29,7 @@ const Login = () => {
                 if (res.status === 200) { // Vérification du statut de la réponse
                     login(data.token, data.userId, data.userName);
                     setUser({ contacts: "", password: "" });
-                    router.push("/"); // Redirige vers la page d'accueil après la connexion
+                    router.push("/pages/home"); // Redirige vers la page d'accueil après la connexion
                 }
             } catch (e) {
                 if (e.response) {

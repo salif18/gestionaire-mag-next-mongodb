@@ -2,19 +2,19 @@
 
 import axios from "axios"
 import { Suspense, useContext, useEffect, useState } from "react"
-import Tendance from "./components/Tendance"
-import EtatStocks from "./components/EtatStocks"
-import Achats from "./components/Achats"
-import CoutProduct from "./components/CoutProduct"
-import Ventes from "./components/Ventes"
-import Depenses from "./components/Depenses"
-import Revenues from "./components/Revenues"
-import Statstistiques from "./components/Statstistiques"
-import StatGraphique from "./components/StatGraphique"
-import Cout from "./components/Cout"
-import { MyStore } from "./context/store"
-import StatsWeek from "./components/StatsWeek"
-import Loading from "./loading"
+import Tendance from "../../components/Tendance"
+import EtatStocks from "../../components/EtatStocks"
+import Achats from "../../components/Achats"
+import CoutProduct from "../../components/CoutProduct"
+import Ventes from "../../components/Ventes"
+import Depenses from "../../components/Depenses"
+import Revenues from "../../components/Revenues"
+import Statstistiques from "../../components/Statstistiques"
+import StatGraphique from "../../components/StatGraphique"
+import Cout from "../../components/Cout"
+import { MyStore } from "../../context/store"
+import StatsWeek from "../../components/StatsWeek"
+import Loading from "../../loading"
 
 export default function Home() {
   const { token, userId} = useContext(MyStore)
@@ -87,9 +87,6 @@ useEffect(() => {
     };
     getVente()
   }, [userId, token]);
-
-
-
 
   //charger les depenses
   useEffect(() => {

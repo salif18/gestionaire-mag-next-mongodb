@@ -2,6 +2,7 @@
 import axios from 'axios'
 import React, { useContext, useState } from 'react'
 import { MyStore } from '../../context/store'
+import withAuth from '../../withAuth'
 
 const CreateCategorie = () => {
     const { userId, token } = useContext(MyStore)
@@ -61,4 +62,4 @@ const handleAdd=async()=>{
   )
 }
 
-export default CreateCategorie
+export default withAuth(CreateCategorie)

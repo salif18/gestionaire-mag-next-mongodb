@@ -3,6 +3,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import { DataGrid } from '@mui/x-data-grid';
 import { MyStore } from '../../context/store';
+import withAuth from '../../withAuth';
 
 const BestVente = () => {
     const { userId , token } = useContext(MyStore)
@@ -71,4 +72,4 @@ const BestVente = () => {
     );
 }
 
-export default BestVente;
+export default withAuth(BestVente)

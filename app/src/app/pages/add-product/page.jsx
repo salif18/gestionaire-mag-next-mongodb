@@ -2,6 +2,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { MyStore } from '../../context/store';
 import axios from 'axios';
+import withAuth from '../../withAuth';
 
 const AddProduits = () => {
     const { userId, token, setMessage, message } = useContext(MyStore);
@@ -176,4 +177,4 @@ const AddProduits = () => {
     );
 }
 
-export default AddProduits;
+export default withAuth(AddProduits)

@@ -5,6 +5,7 @@ import axios from 'axios';
 import Link from 'next/link';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { MyStore } from '../../context/store';
+import withAuth from '../../withAuth';
 
 // export async function getServerSideProps(context) {
 //     // Récupérer des données côté serveur ici
@@ -114,4 +115,4 @@ const CategoriesList = () => {
   )
 }
 
-export default CategoriesList
+export default withAuth(CategoriesList)

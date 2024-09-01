@@ -9,7 +9,7 @@ const Tendance = ({bestVendu}) => {
             <AutoAwesomeIcon className='icon'/><h1>Meilleur vente</h1>
             <section className='content'>
             {bestVendu && bestVendu.length > 0 &&
-                bestVendu.slice(0,5).map((item) => (
+                bestVendu.slice(0,4).map((item) => (
                     <section className='tendance-info' key={item._id}>
                     <section style={{width:80}}>
                     <p>{item._id.nom}</p>
