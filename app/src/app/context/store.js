@@ -30,9 +30,7 @@ export const MyStoreProvider = (props) => {
     // if (!publicRoutes.includes(router.pathname)) {
       if (storedToken) {
         setToken(storedToken);
-      } else {
         router.replace('/pages/home');
-      // }
     }
   
     if (storedUserId) setUserId(storedUserId);
