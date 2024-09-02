@@ -55,40 +55,43 @@ const DepenseListe = () => {
 
   return (
     <section className='depenselist'>
-       <header className='header-fournisseurs'>
+       <header className='header-depenses'>
               <h1>Les dépenses</h1>     
        </header>
-       <section className='list'>
-       <div className='rigth-zone'>
-            <div className='filtre'>
+      
+       <section className='list-zone'>
+            <section className='filtre'>
+            <section className='infos'>
             <label>Dépenses du </label>
-            <input type='date' value={dateValue} onChange={(e)=>setDateValue(e.target.value)} />
-            <div className='donto'>
             <h3>Total</h3>
              <span>{sommeDujour} FCFA</span>
-             </div>
-            </div>
+             </section>
+            <input type='date' value={dateValue} onChange={(e)=>setDateValue(e.target.value)} />
+           
+            </section>
+            <section className='section-list'>
             {opperationFilter.length <=0 && <span className='aucun'>Aucunes dépenses</span>}
             { opperationFilter.map((item)=>(
-              <div className='card-contact' key={item._id}>
-             <div className='rig'>
+              <article className='card-depense' key={item._id}>
+             <section className='rig'>
              <h3>MONTANTS</h3>
                <p>{item.montants} FCFA</p>
-             </div>
-             <div className='rig'>
+             </section>
+             <section className='rig'>
              <h3>MOTIFS</h3>
              <p>{item.motifs}</p>
-             </div> 
-             <div className='rig'>
+             </section> 
+             <section className='rig'>
              <h3>DATE</h3>
              <p>{new Date(item.createdAt).toLocaleDateString('fr-FR', { month: 'long', day: 'numeric', year: 'numeric' })}</p>
-             </div> 
-             <span className='btn-depense' onClick={()=>handleDelete(item._id)}><DeleteIcon className='i' /></span>
+             </section> 
+             <span className='btn-depense' onClick={()=>handleDelete(item._id)}><DeleteIcon className='icon' /></span>
              
-             </div>
+             </article>
              ))}
-            </div>
-       </section>
+             </section>
+            </section>
+     
     </section>
   )
 }

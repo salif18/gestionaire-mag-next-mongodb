@@ -3,6 +3,7 @@
 import { createContext, useState, useEffect } from "react";
 import axios from "axios";
 import { useRouter } from "next/navigation";
+import Cookies from "js-cookie";
 
 // Création de mon context
 export const MyStore = createContext();
@@ -58,8 +59,13 @@ export const MyStoreProvider = (props) => {
     localStorage.removeItem('token');
     localStorage.removeItem('userId');
     localStorage.removeItem('username');
+    sessionStorage.removeItem("sessionToken")
+    Cookies.remove('cookiesToken');
     router.replace("/");
   };
+
+  const tokenCookie = Cookies.get('cookiesToken');
+  console.log(tokenCookie)
 
   // Incrémentation du nombre de produits
   const increment = (item) => {

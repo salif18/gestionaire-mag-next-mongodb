@@ -4,6 +4,7 @@ import { MyStore } from '@/src/app/context/store'
 import axios from 'axios'
 import { useRouter } from 'next/navigation'
 import React, { useContext, useEffect, useState } from 'react'
+import Cookies from 'js-cookie';
 
 const Login = () => {
     const { login } = useContext(MyStore);
@@ -13,7 +14,7 @@ const Login = () => {
         password: ""
     });
     const [alertMessage, setAlertMessage] = useState("");
-
+    const [rememberMe, setRememberMe] = useState(false);
     // obtenir les valeurs du champ
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -29,6 +30,14 @@ const Login = () => {
 
                 if (res.status === 200) { // Vérification du statut de la réponse
                     login(data.token, data.userId, data.userName);
+                  
+                    if (rememberMe) {
+                       // Le cookie expire après 30 jours
+                       Cookies.set('cookiesToken', data.token, { expires:1});
+                    }else{
+                        sessionStorage.setItem("sessionToken",data.token)
+                    }
+
                     setUser({ contacts: "", password: "" });
                     router.push("/pages/home"); // Redirige vers la page d'accueil après la connexion
                 }
@@ -88,6 +97,16 @@ const Login = () => {
                         {user.password.length > 0 ? null : <span>{alertMessage}</span>}
                     </section>
                     {!alertMessage ? null : <span>{alertMessage}</span>}
+                    <section className='check'>
+                        <label>
+                            <input
+                                type="checkbox"
+                                checked={rememberMe}
+                                onChange={(e) => setRememberMe(e.target.checked)}
+                            />
+                            Se souvenir de moi
+                        </label>
+                    </section>
                     <section className='forget-password'>
                         <p>Mot de passe oublié ?</p>
                     </section>

@@ -40,6 +40,9 @@
             margin: 10px;
             color: #ffff;
             cursor: pointer;
+            &:hover{
+                color: #9fecf7;
+            }
         }
     }
 
@@ -75,7 +78,10 @@
         height: 40px;
         border: none;
         border-radius: 10px;
-        
+        cursor: pointer;
+        &:hover{
+            background-color: #45828a;
+        }
     }
 }
 }
