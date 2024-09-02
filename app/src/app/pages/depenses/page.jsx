@@ -1,32 +1,16 @@
 "use client"
-import React, { useContext, useEffect, useState } from 'react';
-import { MyStore } from '../../context/store';
-import axios from 'axios';
-import DeleteIcon from '@mui/icons-material/Delete';
+import React, { useContext, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import withAuth from '../../withAuth';
+import { MyStore } from '@/src/app/context/store';
+import withAuth from '@/src/app/withAuth';
+import ChecklistIcon from '@mui/icons-material/Checklist';
+
 
 
 const Depenseur = () => {
-  const {message, sendDepensesToDataBase, userId ,token} = useContext(MyStore)
-  const [dateValue, setDateValue] = useState('');
-  const [opperations,setOpperations] = useState([])
+  const {message, sendDepensesToDataBase} = useContext(MyStore)
   const router = useRouter()
-  //charger les depenses
-  useEffect(()=>{
-    const getDepenses =()=>{
-     axios.get(`/api/depenses/${userId}`,{
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${token}`,
-      },
-    })
-     .then((res) =>{
-      setOpperations(res.data.results)
-     }).catch(err => console.error(err))
-    };
-    getDepenses()
-},[userId, token])
+ 
 
   //etat initial des champs formulaire
   const [depenses,setDepenses] = useState({ montants:'', motifs:''})
@@ -59,95 +43,42 @@ const Depenseur = () => {
       }
     };
     
-    //supprimer la depense
-    const handleDelete =(id)=>{
-         axios.delete(`/api/depenses/single/${id}`,{
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`,
-          },
-        })
-         .then((res) => res.data)
-         .catch((err) => console.error(err))
-    };
+   
 
-    //calcule de la somme du depense journaliere
-    const calcul =()=>{
-      const filterDepense = opperations?.filter((x) => x.createdAt.includes(dateValue))
-      const prix  = filterDepense.map((a) => a.montants );
-      const sum = prix.reduce((a,b) => a + b,0)
-      return sum
+    const handleNavigate =()=>{
+        router.push("/pages/depenses/list")
     }
-    const sommeDujour = calcul()
 
-    //filtrage par date
-    const opperationFilter = opperations.filter((x) => x.createdAt.includes(dateValue))
 
     return (
-      <>
-  
-      <main className='App'>
       
         <section className='depenseurs'>
             <header className='header-fournisseurs'>
               <h1>Enregistrer vos dépenses</h1>
             </header>
-            <div className='contacts-zone'>
+            <section className='form-zone'>
+            <aside className='left'>
+                <p className='link' onClick={handleNavigate} ><ChecklistIcon style={{marginRight:5, fontSize:24}}/> Liste des dépenses</p>
+              </aside>
             <form>
-            <div className='left-zone'>
-             <div className='con'>
-             <label>MONTANTS</label>
+            
+             <sectin className='colonne'>
+             <label>Montant</label>
              <input type='number' name='montants' value={depenses.montants} onChange={(e)=>handleChange(e)} placeholder='Montant...'/>
              { depenses.montants.length <= 0 && <span>{error}</span>}
-             </div>
-             <div className='con'>
-             <label>MOTIFS</label>
-             <select type='text' name='motifs' value={depenses.motifs} onChange={(e)=>handleChange(e)} >
-            <option >Sélectionner--un--motif</option>
-            {options.map((item) =>(
-                <option key={item.values} value={item.values}>{item.label}</option>
-            ))}
-            </select>
+             </sectin>
+             <section className='colonne'>
+             <label>Description</label>
+             <input type='text' name='motifs' value={depenses.motifs} onChange={(e)=>handleChange(e)} placeholder='description...'  /> 
             {depenses.motifs.length <=0 && <span>{error}</span>}
-             </div>
-             <button className='btn-contact'  onClick={(e)=>handleSend(e)}>{!message ? "Enregistrer" : message}</button>
-             
-            </div>
+             </section>
+             <button className='btn-save'  onClick={(e)=>handleSend(e)}>{!message ? "Enregistrer" : message}</button>
+        
             </form>
 
-            <div className='rigth-zone'>
-            <div className='filtre'>
-            <label>Dépenses du </label>
-            <input type='date' value={dateValue} onChange={(e)=>setDateValue(e.target.value)} />
-            <div className='donto'>
-            <h3>Total</h3>
-             <span>{sommeDujour} FCFA</span>
-             </div>
-            </div>
-            {opperationFilter.length <=0 && <span className='aucun'>Aucunes dépenses</span>}
-            { opperationFilter.map((item)=>(
-              <div className='card-contact' key={item._id}>
-             <div className='rig'>
-             <h3>MONTANTS</h3>
-               <p>{item.montants} FCFA</p>
-             </div>
-             <div className='rig'>
-             <h3>MOTIFS</h3>
-             <p>{item.motifs}</p>
-             </div> 
-             <div className='rig'>
-             <h3>DATE</h3>
-             <p>{new Date(item.createdAt).toLocaleDateString('fr-FR', { month: 'long', day: 'numeric', year: 'numeric' })}</p>
-             </div> 
-             <span className='btn-depense' onClick={()=>handleDelete(item._id)}><DeleteIcon className='i' /></span>
-             
-             </div>
-             ))}
-            </div>
-            </div>
+           
+            </section>
         </section>
-        </main>
-        </>
     );
 }
 
