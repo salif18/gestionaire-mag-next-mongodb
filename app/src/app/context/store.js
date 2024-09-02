@@ -27,11 +27,12 @@ export const MyStoreProvider = (props) => {
     const storedUserId = localStorage.getItem('userId');
     const storedUserName = localStorage.getItem('username');
   
-    // if (!publicRoutes.includes(router.pathname)) {
+    if (!publicRoutes.includes(router.pathname)) {
       if (storedToken) {
         setToken(storedToken);
         router.replace('/pages/home');
     }
+  }
   
     if (storedUserId) setUserId(storedUserId);
     if (storedUserName) setUserName(storedUserName);
