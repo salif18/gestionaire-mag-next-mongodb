@@ -1,12 +1,11 @@
 import React, { useContext } from 'react';
-import { MyStore } from '../context/store';
 import TrendingDownIcon from '@mui/icons-material/TrendingDown';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 
-const Revenues = () => {
-    const {beneficeGeneral,depensesTotal} = useContext(MyStore)
-    const result = beneficeGeneral - depensesTotal
+const Revenues = ({depensesTotal ,benefice}) => {
+    
+    const result = benefice - depensesTotal
     return (
         <div className='revenusWidget'>
         <h1><TrendingDownIcon style={{color:result <= 0 ? 'red':''}} className='icon'/> Revenus après dépenses</h1>

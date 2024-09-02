@@ -4,7 +4,7 @@ const Achats = ({resultat}) => {
    
     return (
         <div className='achatsWidget'>
-            <h1><AttachMoneyIcon className='icon'/>  Prix d'achats générals </h1>
+            <h1><AttachMoneyIcon className='icon'/>  Prix d'achats </h1>
             <p>{resultat} Fcfa</p>
         </div>
     );

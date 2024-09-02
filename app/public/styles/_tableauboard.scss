@@ -15,6 +15,8 @@
         font-family: Roboto;
         font-size: 18px;
         font-weight: 600;
+        display: flex;
+        align-items: center;
     }
 
     p {
@@ -24,6 +26,7 @@
     }
 
     .icon {
+    margin-right: 10px;
         font-size: 30px;
         color: rgb(165, 78, 247);
     }
@@ -46,6 +49,8 @@
         font-family: Roboto;
         font-size: 18px;
         font-weight: 600;
+        display: flex;
+        align-items: center;
     }
 
     p {
@@ -55,6 +60,7 @@
     }
 
     .icon {
+        margin-right: 10px;
         font-size: 30px;
         color: rgb(252, 13, 13);
     }
@@ -103,11 +109,14 @@
     width: 400px;
     height: 100px;
     cursor: pointer;
-
+    
     h1 {
         font-family: Roboto;
         font-size: 18px;
         font-weight: 600;
+        display: flex;
+        align-items: center;
+       
     }
 
     p {
@@ -117,6 +126,7 @@
     }
 
     .icon {
+        margin-right: 10px;
         font-size: 30px;
         color: rgb(252, 196, 13);
     }
@@ -131,7 +141,7 @@
     border: 1px solid #dfdfdf;
     border-radius: 10px;
     box-shadow: 1px 1px 1px 1px #d3d3d3;
-    width: 400px;
+    flex:1;
     height: 100px;
     cursor: pointer;
 
@@ -139,6 +149,8 @@
         font-family: Roboto;
         font-size: 18px;
         font-weight: 600;
+        display: flex;
+        align-items: center;
     }
 
     p {
@@ -148,6 +160,7 @@
     }
 
     .icon {
+        margin-right: 10px;
         font-size: 50px;
         color: rgb(36, 172, 24);
     }
@@ -166,7 +179,7 @@
     border: 1px solid #dfdfdf;
     border-radius: 10px;
     box-shadow: 1px 1px 1px 1px #d3d3d3;
-    width: 400px;
+    flex: 1;
     height: 100px;
     cursor: pointer;
 
@@ -174,6 +187,8 @@
         font-family: Roboto;
         font-size: 18px;
         font-weight: 600;
+        display: flex;
+        align-items: center;
     }
 
     p {
@@ -183,6 +198,7 @@
     }
 
     .icon {
+        margin-right: 10px;
         font-size: 30px;
         color: rgb(103, 182, 155);
     }

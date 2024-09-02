@@ -168,15 +168,14 @@ const prix_achatGlobal = totalAchatOfVente + totalAchatOfAchat;
         </section>
         <section className='home-row'>
           <Achats resultat={prix_achatGlobal || 0} />
-          {/* <CoutProduct/> */}
           <Ventes venteTotal={totalVente } />
           <Cout benefice={benefice } />
-          <Depenses depensesTotal ={depensesTotal}/>
+          
         </section>
         <section className='home-row'>
-
-
-          {/* <Revenues/> */}
+        {/* <CoutProduct/> */}
+          <Depenses depensesTotal ={depensesTotal}/>
+          <Revenues depensesTotal ={depensesTotal} benefice={benefice} />
         </section>
         <section className='home-row'>
           <StatGraphique data={statsVentes} />

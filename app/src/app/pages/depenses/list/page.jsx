@@ -4,7 +4,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import withAuth from '../../../withAuth'
 import { MyStore } from '@/src/app/context/store'
 import axios from 'axios';
-import DeleteIcon from '@mui/icons-material/Delete';
+import PlaylistRemoveIcon from '@mui/icons-material/PlaylistRemove';
 
 const DepenseListe = () => {
   const { userId ,token} = useContext(MyStore)
@@ -85,7 +85,7 @@ const DepenseListe = () => {
              <h3>DATE</h3>
              <p>{new Date(item.createdAt).toLocaleDateString('fr-FR', { month: 'long', day: 'numeric', year: 'numeric' })}</p>
              </section> 
-             <span className='btn-depense' onClick={()=>handleDelete(item._id)}><DeleteIcon className='icon' /></span>
+             <span className='btn-depense' onClick={()=>handleDelete(item._id)}><PlaylistRemoveIcon className='icon' /></span>
              
              </article>
              ))}

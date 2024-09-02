@@ -36,6 +36,7 @@
                 label {
                     font-family: roboto;
                     font-size: 14px;
+                    font-weight: bold;
                 }
 
                 h3 {
@@ -46,7 +47,7 @@
                 span {
                     font-size: 14px;
                     font-family: roboto;
-
+                    color: #376369;
                 }
             }
 
@@ -61,7 +62,13 @@
         .section-list {
             display: flex;
             flex-direction: column;
-
+            align-items: center;
+            justify-content: center;
+            .aucun{
+                font-size: 16px;
+                font-family: roboto;
+                margin: 40px;
+            }
             .card-depense {
                 padding: 10px;
                 display: flex;
@@ -70,7 +77,7 @@
                 height: 50px;
                 background-color: #f0f1f5;
                 margin: 2px;
-
+                cursor: pointer;
                 .rig {
                     width: 300px;
 
@@ -91,11 +98,11 @@
                     .icon {
                         color: red;
                         margin-right: 20px;
-                        opacity: 0;
+                        opacity: 10%;
                     }
 
                     &:hover {
-                        .i {
+                        .icon {
                             opacity: 80%;
                         }
 

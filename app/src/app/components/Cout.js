@@ -5,7 +5,7 @@ const Cout = ({benefice}) => {
    
     return (
         <div className='coutWidget'>
-            <h1><PaymentsIcon className='icon'/> Bénefices global</h1>
+            <h1><PaymentsIcon className='icon'/> Bénefices </h1>
             <p>{benefice} Fcfa</p>
         </div>
     );

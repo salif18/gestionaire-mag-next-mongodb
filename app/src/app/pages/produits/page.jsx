@@ -165,8 +165,8 @@ const Produits = () => {
     <main className='produits'>
       <section className='title-stock'>
         <section className='left'>
-          <h3>Etat de stock</h3>
-          <p> {stocks} produits</p>
+          <h3>Nombre de stocks</h3>
+          <p> {stocks} </p>
         </section>
         <button className='btn-add' onClick={() => router.push('/pages/add-product')}>Ajouter <AddBusinessIcon style={{ marginLeft: 5 }} /></button>
       </section>
