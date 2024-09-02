@@ -26,21 +26,25 @@ export const MyStoreProvider = (props) => {
     const storedToken = localStorage.getItem('token');
     const storedUserId = localStorage.getItem('userId');
     const storedUserName = localStorage.getItem('username');
-
-    if (storedToken) {
-      setToken(storedToken);
-    // } else if (!publicRoutes.includes(router.pathname)) {
-      router.replace('/pages/home');
+  
+    if (!publicRoutes.includes(router.pathname)) {
+      if (storedToken) {
+        setToken(storedToken);
+      } else {
+        router.replace('/pages/home');
+      }
     }
-
+  
     if (storedUserId) setUserId(storedUserId);
     if (storedUserName) setUserName(storedUserName);
     setIsLoading(false);
   };
-
+  
   useEffect(() => {
     checkAuth();
-  }, [token, userId]);
+    // On n'inclut pas de dépendances pour éviter les redirections multiples
+  }, []);
+  
 
 
   const login = (token, userId, userName) => {
