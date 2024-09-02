@@ -8,6 +8,17 @@ import Cookies from "js-cookie";
 // Création de mon context
 export const MyStore = createContext();
 
+
+const checkAuth = () => {
+  const storedToken = localStorage.getItem('token');
+  const storedUserId = localStorage.getItem('userId');
+  const storedUserName = localStorage.getItem('username');
+
+  if (storedToken) setToken(storedToken);
+  if (storedUserId) setUserId(storedUserId);
+  if (storedUserName) setUserName(storedUserName);
+  setIsLoading(false);
+};
 // La fonction provider
 export const MyStoreProvider = (props) => {
   // États de mes données
@@ -22,16 +33,6 @@ export const MyStoreProvider = (props) => {
   const router = useRouter()
   const publicRoutes = ['/pages/login', '/pages/register'];
 
-  const checkAuth = () => {
-    const storedToken = localStorage.getItem('token');
-    const storedUserId = localStorage.getItem('userId');
-    const storedUserName = localStorage.getItem('username');
-
-    if (storedToken) setToken(storedToken);
-    if (storedUserId) setUserId(storedUserId);
-    if (storedUserName) setUserName(storedUserName);
-    setIsLoading(false);
-  };
   
   useEffect(() => {
     checkAuth();
