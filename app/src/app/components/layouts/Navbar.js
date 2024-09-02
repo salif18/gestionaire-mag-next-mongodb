@@ -8,7 +8,7 @@ const Navbar = () => {
     <header className='header'>
       <section className='header-left'>
         <Image src={image} alt='' />
-        <h1>GESTASHOP </h1>
+        <h1>G-MANAGER </h1>
       </section>
       <section className='username'>
         <p>{userName}</p>
