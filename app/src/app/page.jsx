@@ -7,12 +7,19 @@ import React, { useContext, useEffect, useState } from 'react'
 import Cookies from 'js-cookie';
 
 const Login = () => {
-    const { login } = useContext(MyStore);
+    const { login, token } = useContext(MyStore);
     const router = useRouter();
     const [user, setUser] = useState({
         contacts: "",
         password: ""
     });
+
+    useEffect(() => {
+        if (token) {
+          router.replace('/pages/home');
+        }
+      }, [token, router]);
+      
     const [alertMessage, setAlertMessage] = useState("");
     const [rememberMe, setRememberMe] = useState(false);
     // obtenir les valeurs du champ
@@ -30,12 +37,12 @@ const Login = () => {
 
                 if (res.status === 200) { // Vérification du statut de la réponse
                     login(data.token, data.userId, data.userName);
-                  
+
                     if (rememberMe) {
-                       // Le cookie expire après 30 jours
-                       Cookies.set('cookiesToken', data.token, { expires:1});
-                    }else{
-                        sessionStorage.setItem("sessionToken",data.token)
+                        // Le cookie expire après 30 jours
+                        Cookies.set('cookiesToken', data.token, { expires: 1 });
+                    } else {
+                        sessionStorage.setItem("sessionToken", data.token)
                     }
 
                     setUser({ contacts: "", password: "" });

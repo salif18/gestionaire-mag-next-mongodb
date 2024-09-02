@@ -26,14 +26,8 @@ export const MyStoreProvider = (props) => {
     const storedToken = localStorage.getItem('token');
     const storedUserId = localStorage.getItem('userId');
     const storedUserName = localStorage.getItem('username');
-  
-    if (!publicRoutes.includes(router.pathname)) {
-      if (storedToken) {
-        setToken(storedToken);
-        router.replace('/pages/home');
-    }
-  }
-  
+
+    if (storedToken) setToken(storedToken);
     if (storedUserId) setUserId(storedUserId);
     if (storedUserName) setUserName(storedUserName);
     setIsLoading(false);
@@ -169,14 +163,6 @@ export const MyStoreProvider = (props) => {
     <MyStore.Provider value={contextValue}>
       {props.children}
     </MyStore.Provider>
-
-    /* <MyStore.Provider value={contextValue}>
-      {isLoading && (!token || publicRoutes.includes(router.pathname)) ? (
-        props.children
-      ) : (
-        <div>Redirecting...</div>
-      )}
-    </MyStore.Provider> */
   );
 }
 
