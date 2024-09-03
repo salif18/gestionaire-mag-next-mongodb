@@ -4,10 +4,9 @@ import axios from 'axios'
 import Cookies from 'js-cookie'
 import { useRouter } from 'next/navigation'
 
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 const Registre = () => {
-    // const { login } = useContext(MyStore);
     const router = useRouter();
     const [user, setUser] = useState({
         name: "",
@@ -31,8 +30,6 @@ const Registre = () => {
                 const data = await res.data;
 
                 if (res.status === 201) { // Vérification du statut de la réponse
-                 
-                    // login(data.userName);
                      // Le cookie expire après 30 jours
                      Cookies.set('userName', data.userName, { expires: 1 });
                      Cookies.set('cookiesToken', data.token, { expires: 1 });
@@ -67,9 +64,6 @@ const Registre = () => {
 
     return (
         <section className='registre'>
-             {/* <section className='title'>
-            <h1>GestaShop</h1>
-        </section> */}
             <section className='form-content'>
             <section className='header'>
                     <p>Créer un compte</p>

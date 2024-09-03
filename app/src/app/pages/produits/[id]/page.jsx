@@ -2,13 +2,11 @@
 import React, { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams, useRouter } from 'next/navigation';
-import { MyStore } from '@/src/app/context/store';
 import Cookies from 'js-cookie';
 
 
 const SingleProduits = () => {
   //etat de stockage d'erreur
-  // const { token, userId } = useContext(MyStore)
   const userId = Cookies.get("cookiesUserId");
   const token = Cookies.get("cookiesToken");
   const [error, setError] = useState('')

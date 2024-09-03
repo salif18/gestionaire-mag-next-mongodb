@@ -1,13 +1,11 @@
 "use client"
 
-import { MyStore } from '@/src/app/context/store'
 import axios from 'axios'
 import { useRouter } from 'next/navigation'
 import React, { useContext, useEffect, useState } from 'react'
 import Cookies from 'js-cookie';
 
 const Login = () => {
-    // const { login, token } = useContext(MyStore);
     const token = Cookies.get('cookiesToken');
     const router = useRouter();
     const [user, setUser] = useState({
@@ -37,7 +35,9 @@ const Login = () => {
                 const data = await res.data;
 
                 if (res.status === 200) { // Vérification du statut de la réponse
-                    // login(data.userName);
+                    Cookies.set('cookiesToken', data.token, { expires: 1 });
+                    Cookies.set('cookiesUserId', data.userId, { expires: 1 });
+                    Cookies.set('userName', data.userName, { expires: 1 });
                     if (rememberMe) {
                         // Le cookie expire après 30 jours
                         Cookies.set('cookiesToken', data.token, { expires: 1 });

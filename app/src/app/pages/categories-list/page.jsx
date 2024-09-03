@@ -1,15 +1,12 @@
 "use client"
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { DataGrid } from '@mui/x-data-grid';
 import axios from 'axios';
 import Link from 'next/link';
-import DeleteIcon from '@mui/icons-material/Delete';
-import { MyStore } from '../../context/store';
 import withAuth from '../../withAuth';
 import Cookies from 'js-cookie';
 
 const CategoriesList = () => {
-  // const {token , userId } = useContext(MyStore)
     const [categories, setCategories] = useState([])
     const userId = Cookies.get("cookiesUserId");
     const token = Cookies.get("cookiesToken");

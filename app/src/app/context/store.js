@@ -14,20 +14,10 @@ export const MyStoreProvider = (props) => {
   const [panier, setPanier] = useState([]);
   const [message, setMessage] = useState('');
   const [datePersonaliser, setDatePersonnaliser] = useState('');
-  // const [userName, setUserName] = useState(null);
-
-
 
   const router = useRouter()
 
-  // const login = (userName) => {
-  //   setUserName(userName)
-  //   localStorage.setItem('username', userName);
-  // };
-
   const logout = () => {
-    // setUserName(null);
-    // localStorage.removeItem('username');
     sessionStorage.removeItem("sessionToken")
     Cookies.remove('cookiesToken');
     Cookies.remove('cookiesUserId');
@@ -145,10 +135,7 @@ export const MyStoreProvider = (props) => {
     message,
     setDatePersonnaliser,
     datePersonaliser,
-    // login,
     logout,
-    // userName,
-    // setUserName
   };
 
   return (

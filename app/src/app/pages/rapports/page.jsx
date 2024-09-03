@@ -2,12 +2,10 @@
 import React, { useContext, useEffect, useState } from 'react';
 import PrintIcon from '@mui/icons-material/Print';
 import axios from 'axios';
-import { MyStore } from '../../context/store';
 import withAuth from '../../withAuth';
 import Cookies from 'js-cookie';
 
 const Rapports = () => {
-  // const { token, userId} = useContext(MyStore)
   const userId = Cookies.get("cookiesUserId");
   const token = Cookies.get("cookiesToken");
   const [vendues, setVendues] = useState([])

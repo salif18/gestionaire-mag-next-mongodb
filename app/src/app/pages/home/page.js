@@ -12,14 +12,12 @@ import Revenues from "../../components/Revenues"
 import Statstistiques from "../../components/Statstistiques"
 import StatGraphique from "../../components/StatGraphique"
 import Cout from "../../components/Cout"
-import { MyStore } from "../../context/store"
 import StatsWeek from "../../components/StatsWeek"
 import Loading from "../../loading"
 import withAuth from "../../withAuth"
 import Cookies from "js-cookie"
 
   const  Home = () =>{
-  // const { token, userId} = useContext(MyStore)
   const [produits, setProduits] = useState([])
   const [statsVentes, setStatsVentes] = useState([])
   const [statsWeeks, setStatsWeeks] = useState([])

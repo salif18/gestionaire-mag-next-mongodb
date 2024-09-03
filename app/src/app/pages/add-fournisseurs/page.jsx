@@ -1,12 +1,10 @@
 "use client"
 import axios from 'axios'
-import React, { useContext, useEffect, useState } from 'react'
-import { MyStore } from '../../context/store'
+import React, { useEffect, useState } from 'react'
 import withAuth from '../../withAuth'
 import Cookies from 'js-cookie'
 
 const Fournisseurs = () => {
-//   const {userId, token } = useContext(MyStore)
   const [alertMessage ,setAlertMessage] =useState("")
    // Le cookie expire après 30 jours
   const userId = Cookies.get("cookiesUserId");

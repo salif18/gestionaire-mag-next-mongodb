@@ -1,10 +1,9 @@
 import React, { useContext } from 'react';
 import image from '../../../../public/images/logo.jpg'
 import Image from 'next/image';
-import { MyStore } from '../../context/store';
 import Cookies from 'js-cookie';
+
 const Navbar = () => {
-  // const { userName } = useContext(MyStore)
   const userName = Cookies.get('userName');
 
   return (

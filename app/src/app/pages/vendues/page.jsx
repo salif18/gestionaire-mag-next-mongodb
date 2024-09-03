@@ -12,7 +12,6 @@ import Cookies from 'js-cookie';
 
 
 const ListeVente = () => {
-  // const { token, userId} = useContext(MyStore)
   const userId = Cookies.get("cookiesUserId");
   const token = Cookies.get("cookiesToken");
   const router = useRouter()
