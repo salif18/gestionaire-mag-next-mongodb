@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Cookies from 'js-cookie';
 
 const Navbar = () => {
-  const userName = Cookies.get('userName');
+  const entreprise = Cookies.get('entreprise');
 
   return (
     <header className='header'>
@@ -13,7 +13,7 @@ const Navbar = () => {
         <h1>VENTE-MANAGER </h1>
       </section>
       <section className='username'>
-        <p>{userName}</p>
+        <p>{entreprise}</p>
       </section>
     </header>
   );
