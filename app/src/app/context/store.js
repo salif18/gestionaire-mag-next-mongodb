@@ -60,6 +60,7 @@ export const MyStoreProvider = (props) => {
       increment(existingItem);
     } else {
       setPanier([...panier, { ...item, qty: 1 }]);
+      localStorage.setItem('panier', JSON.stringify(panier));
     }
   };
 
@@ -67,6 +68,7 @@ export const MyStoreProvider = (props) => {
   const handleRemovePanier = (id) => {
     const newpanier = panier.filter((item) => item._id !== id)
     setPanier(newpanier)
+    localStorage.setItem('panier', JSON.stringify(panier));
   }
 
   // Enregistrer ou effectuer une vente
@@ -121,12 +123,7 @@ export const MyStoreProvider = (props) => {
     }
   }, []);
 
-  // Effet pour sauvegarder le panier dans localStorage à chaque modification du panier
-  useEffect(() => {
-    localStorage.setItem('panier', JSON.stringify(panier));
-  }, [panier]);
-
-
+ 
   useEffect(() => {
     if (message) {
       const timer = setTimeout(() => {
