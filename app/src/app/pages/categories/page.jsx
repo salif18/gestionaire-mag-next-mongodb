@@ -11,6 +11,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import imageDefault from "@/public/images/defaultImg.png"
 import withAuth from '../../withAuth';
+import Cookies from 'js-cookie';
 
 
 const Categories = () => {
