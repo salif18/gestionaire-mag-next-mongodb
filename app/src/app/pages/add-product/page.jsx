@@ -86,7 +86,8 @@ const AddProduits = () => {
                 });
     
                 if (res.status === 201) {
-                    setAlertMessage("Produit ajouté avec succès !");
+                    const data = res.data
+                    setAlertMessage(data.message);
                     setProduits({
                         image: "",
                         nom: "",

@@ -11,9 +11,9 @@ export const POST = async (req) => {
         await dbConnect();
         await middlewareAuthenticate(req);
 
-        const { userId, nom,prenom,numero,address,produit} = await req.json();
+        const data = await req.json();
 
-        const nouveauFournisseur = new Fournisseurs({ userId, nom,prenom,numero,address,produit});
+        const nouveauFournisseur = new Fournisseurs({ ...data });
 
         const fournisseurSauvegarde = await nouveauFournisseur.save();
        

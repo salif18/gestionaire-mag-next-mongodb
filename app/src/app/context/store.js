@@ -9,37 +9,24 @@ import Cookies from "js-cookie";
 export const MyStore = createContext();
 
 
-const checkAuth = () => {
   const storedToken = localStorage.getItem('token');
   const storedUserId = localStorage.getItem('userId');
   const storedUserName = localStorage.getItem('username');
-
-  if (storedToken) setToken(storedToken);
-  if (storedUserId) setUserId(storedUserId);
-  if (storedUserName) setUserName(storedUserName);
-  setIsLoading(false);
-};
+  const tokenCookie = Cookies.get('cookiesToken');
+ 
 // La fonction provider
 export const MyStoreProvider = (props) => {
   // États de mes données
   const [panier, setPanier] = useState([]);
   const [message, setMessage] = useState('');
   const [datePersonaliser, setDatePersonnaliser] = useState('');
-  const [token, setToken] = useState(null);
-  const [userId, setUserId] = useState(null);
-  const [userName, setUserName] = useState(null)
-  const [isLoading, setIsLoading] = useState(true);
+  const [token, setToken] = useState(storedToken);
+  const [userId, setUserId] = useState(storedUserId);
+  const [userName, setUserName] = useState(storedUserName);
+ 
+
 
   const router = useRouter()
-  const publicRoutes = ['/pages/login', '/pages/register'];
-
-  
-  useEffect(() => {
-    checkAuth();
-    // On n'inclut pas de dépendances pour éviter les redirections multiples
-  }, []);
-  
-
 
   const login = (token, userId, userName) => {
     setToken(token);
@@ -62,8 +49,7 @@ export const MyStoreProvider = (props) => {
     router.replace("/");
   };
 
-  const tokenCookie = Cookies.get('cookiesToken');
-  console.log(tokenCookie)
+  
 
   // Incrémentation du nombre de produits
   const increment = (item) => {

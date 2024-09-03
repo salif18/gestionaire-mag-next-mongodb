@@ -8,12 +8,11 @@ export const POST = async (req) => {
     try {
         await dbConnect()
         await middlewareAuthenticate(req);
-        const {userId, name } = await req.json();
-
+        const data = await req.json();
+        console.log(data)
         // Créer une nouvelle dépense
         const nouvelleCategorie = new Categories({
-          userId,
-           name:name
+          ...data
         });
 
         // Sauvegarder dans la base de données

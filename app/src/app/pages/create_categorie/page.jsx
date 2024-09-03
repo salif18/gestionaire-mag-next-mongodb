@@ -21,6 +21,7 @@ const CreateCategorie = () => {
 
 const handleSubmit=async()=>{
     if(categorie.name.length > 0){
+        
         try{
             const res = await axios.post("/api/categories", {userId,...categorie} ,{
                 headers: {
@@ -34,7 +35,7 @@ const handleSubmit=async()=>{
                 setCategorie({name:""})
             }
            }catch(e){
-               console.log[e]
+               console.log(e)
            }
     }else{
         setError("Remplir le champs")
