@@ -15,6 +15,7 @@ const ListeVente = () => {
   const router = useRouter()
   const [message ,setMessage] = useState('')
   const [vendues , setVendues] = useState([])
+  const [indexItem ,setIndexItem] = useState("")
 
   //charger les ventes
   useEffect(() => {
@@ -44,6 +45,7 @@ const handledelete = (id)=>{
   })
   .then((res) => {
     setMessage(res.data.message)
+    setIndexItem(id)
     router.push('/pages/vendues') 
   })
   .catch((err)=>console.error(err));
@@ -110,7 +112,7 @@ const handledelete = (id)=>{
       renderCell: (params) => {
         return (
           <section className='action'>
-            {!message ? <span className='cancel' onClick={()=>handledelete(params.row._id)}> <RotateLeftIcon style={{marginRight:10}}  />  Annuler </span> : <span className='alert'>{message}</span> }
+            {indexItem !== params.row._id ?  <span className='cancel' onClick={()=>handledelete(params.row._id)}> <RotateLeftIcon style={{marginRight:10}}  />  Annuler </span> : <span className='alert'>{message}</span> }
           </section>
         )
       }
@@ -119,6 +121,14 @@ const handledelete = (id)=>{
   ];
 
 message && setTimeout(()=>setMessage(''),2000)
+useEffect(() => {
+  if (message) {
+      const timer = setTimeout(() => {
+          setMessage('');
+      }, 1000);
+      return () => clearTimeout(timer);
+  }
+}, [message]);
 //vue de frontend
     return (
         <main className='list'>

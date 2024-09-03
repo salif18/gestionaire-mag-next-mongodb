@@ -17,6 +17,7 @@ const Produits = () => {
   const [stocks , setStocks ] = useState(0)
   const router = useRouter()
   const { token , userId,handleAddPanier } = useContext(MyStore)
+  const [alertMessage ,setAlertMessage] =useState("")
 
   //charger les produits
   useEffect(() => {
@@ -41,8 +42,7 @@ const Produits = () => {
   //ajouter produit dans le panier de vente
   const handleAjouter = (item) => {
     handleAddPanier(item)
-    router.push('/pages/panier')
-
+    setAlertMessage(item._id); // Store the product ID
   }
 
   //supprimer le produit
@@ -56,6 +56,16 @@ const Produits = () => {
       .then((res) => res.data)
       .catch((err) => console.error(err))
   }
+
+  
+  useEffect(() => {
+    if (alertMessage) {
+        const timer = setTimeout(() => {
+            setAlertMessage('');
+        }, 1000);
+        return () => clearTimeout(timer);
+    }
+}, [alertMessage]);
 
   //la valeur de recherche
   const [searchValue, setSearchValue] = useState('')
@@ -146,7 +156,7 @@ const Produits = () => {
       renderCell: (params) => {
         return (
           <section className='action'>
-            {params.row.stocks > 0 && <span onClick={() => handleAjouter(params.row)}><ShoppingCartIcon className='icon-add' /></span>}
+            {params.row.stocks > 0 && <span onClick={() => handleAjouter(params.row)}>  {alertMessage === params.row._id ? "Ajouté" : <ShoppingCartIcon className='icon-add' />}</span>}
             {params.row.stocks > 0 && <span onClick={() => router.push(`/pages/produits/${params.row._id}`)}> <EditIcon className='icon-edit' /> </span>}
             {params.row.stocks <= 0 &&
               <span onClick={() => handledelete(params.row._id)}>

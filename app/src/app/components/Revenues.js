@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import TrendingDownIcon from '@mui/icons-material/TrendingDown';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';

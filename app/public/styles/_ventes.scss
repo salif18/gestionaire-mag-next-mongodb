@@ -48,12 +48,13 @@
                 }
             }
             .th{
-                font-family: Open sans ;
+                font-family: roboto ;
                 font-size: 14px;
                 padding-top: 20px;
                 padding-bottom: 20px;
                 font-weight: 500;
             }
+          
         }
         tbody{
             th{
@@ -166,9 +167,12 @@
 .timestamps{
     outline: none;
     padding: 10px;
+    margin: 20px;
     width: 160px;
     border-radius: 10px;
-    border: 1px solid #d4d4d4;
+    border: none;
+    background-color: #376369;
+    color: #ffff;
 }
 
 .message-vente{
