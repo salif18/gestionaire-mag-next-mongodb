@@ -8,7 +8,7 @@ const Ventes = () => {
   const router = useRouter()
   const { setDatePersonnaliser,
     datePersonaliser,
-    message, panier, increment, decrement, errorStock } = useContext(MyStore)
+    message, panier, handleRemovePanier, increment, decrement, errorStock } = useContext(MyStore)
 
 
   const handleEnregistreAvecRecu = () => {
@@ -18,8 +18,8 @@ const Ventes = () => {
       console.log('err')
       return false
     }
-
   }
+
   return (
     <>
 
@@ -28,7 +28,6 @@ const Ventes = () => {
         <section className="ventes">
           <header className="header-vente">
             <h1>Enregistrer les ventes effetuées</h1>
-            {/*<button className="btn-vendues" onClick={()=>navigate('/liste-ventes')}>Ventes effectuees</button>*/}
           </header>
           {panier.length > 0 ? 
            (<div className="vente-container">
@@ -61,7 +60,7 @@ const Ventes = () => {
 
                       </th>
                       <th className="qtys">{item.qty * item.prix_vente} FCFA</th>
-
+                      <th className="qtys"><button onClick={()=>handleRemovePanier(item._id)}>Enlever</button> </th>
                     </tr>
                     <tr><th></th><th></th><th></th><th></th><th>{item.stocks < item.qty && <span>Stocks insuffisant</span>}</th><th></th></tr>
                   </tbody>))}

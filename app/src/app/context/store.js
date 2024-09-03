@@ -77,6 +77,12 @@ export const MyStoreProvider = (props) => {
     }
   };
 
+  
+  const handleRemovePanier =(id)=>{
+    const newpanier = panier.filter((item )=> item._id  !== id)
+    setPanier(newpanier)
+  }
+
   // Enregistrer ou effectuer une vente
   const handleVendre = async () => {
     try {
@@ -131,6 +137,7 @@ export const MyStoreProvider = (props) => {
     panier,
     setPanier,
     handleAddPanier,
+    handleRemovePanier,
     handleVendre,
     increment,
     decrement,
