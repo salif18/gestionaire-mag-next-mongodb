@@ -1,14 +1,12 @@
 "use client"
 import axios from 'axios'
-import React, { useContext, useState } from 'react'
-import { MyStore } from '../../context/store'
+import React, { useState } from 'react'
 import withAuth from '../../withAuth'
 import Cookies from 'js-cookie'
 
 const CreateCategorie = () => {
   const userId = Cookies.get("cookiesUserId");
   const token = Cookies.get("cookiesToken");
-    // const { userId, token } = useContext(MyStore)
     const [alertMessage , setAlertMessage] = useState("")
     const [categorie, setCategorie] = useState({
         name:"",
@@ -45,6 +43,16 @@ const handleSubmit=async()=>{
     }
    
 }
+
+useEffect(() => {
+    if (alertMessage) {
+        const timer = setTimeout(() => {
+            setAlertMessage('');
+        }, 2000);
+        return () => clearTimeout(timer);
+    }
+}, [alertMessage]);
+
 
   return (
      
