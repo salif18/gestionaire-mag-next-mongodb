@@ -1,7 +1,7 @@
 "use client"
 
 import axios from "axios"
-import { Suspense, useContext, useEffect, useState } from "react"
+import { Suspense, useEffect, useState } from "react"
 import Tendance from "../../components/Tendance"
 import EtatStocks from "../../components/EtatStocks"
 import Achats from "../../components/Achats"
@@ -27,6 +27,7 @@ import Cookies from "js-cookie"
   const [totalAchatOfVente, setTotalAchatOfVente] = useState(0)
   const [totalAchatOfAchat, setTotalAchatOfAchat] = useState(0)
   const [depensesTotal , setDepensesTotal] = useState(0)
+  const [prix_achatGlobal, setPrix_achatGlobal] = useState(0)
   const userId = Cookies.get("cookiesUserId");
   const token = Cookies.get("cookiesToken");
  
@@ -152,7 +153,11 @@ useEffect(() => {
     { field: 'total_ventes', headerName: 'Total', flex: 1 },
   ]
 
-const prix_achatGlobal = totalAchatOfVente + totalAchatOfAchat;
+
+useEffect(() => {
+    const calculatedResult = totalAchatOfVente + totalAchatOfAchat;
+    setPrix_achatGlobal(calculatedResult);
+}, [depensesTotal, benefice]);
 
   return (
     
