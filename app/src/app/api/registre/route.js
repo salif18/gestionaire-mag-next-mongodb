@@ -11,7 +11,7 @@ configDotenv();
 export const POST = async (req, res) => {
   try {
     await dbConnect();
-    const { name , numero, email, password } = await req.json();
+    const { name , boutique_name , numero, email, password } = await req.json();
 
     // Vérifiez si l'utilisateur existe
     const userExiste = await Users.findOne({
@@ -31,7 +31,7 @@ export const POST = async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, 10);
 
     // Créer un instance du model user
-    const user = new Users({name, numero , email,password: hashedPassword});
+    const user = new Users({name,  boutique_name, numero , email,password: hashedPassword});
 
     console.log(user)
 
@@ -50,6 +50,7 @@ export const POST = async (req, res) => {
       token: token,
       userId: user._id,
       userName:user.name,
+      entreprise:user.boutique_name,
       message:"user creer"
     },{status:201});
   } catch (error) {

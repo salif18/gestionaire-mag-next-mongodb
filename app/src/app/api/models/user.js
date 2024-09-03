@@ -4,6 +4,7 @@ import uniqueValidator from "mongoose-unique-validator";
 
 const schema = mongoose.Schema({
     name: { type: String, require: true },
+    boutique_name:{type:String},
     numero: { type: String, require: true, unique: true },
     email: { type: String, require: true, unique: true },
     password: { type: String, require: true, min: 6 },

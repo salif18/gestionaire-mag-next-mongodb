@@ -73,6 +73,7 @@ export const POST = async (req) => {
         token: token,
         userId: user._id,
         userName:user.name,
+        entreprise:user.boutique_name,
         message:"user connecté"
       },{status:200});
   

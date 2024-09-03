@@ -38,11 +38,13 @@ const Login = () => {
                     Cookies.set('cookiesToken', data.token, { expires: 1 });
                     Cookies.set('cookiesUserId', data.userId, { expires: 1 });
                     Cookies.set('userName', data.userName, { expires: 1 });
+                    Cookies.set('entreprise', data.entreprise, { expires: 1 });
                     if (rememberMe) {
                         // Le cookie expire après 30 jours
                         Cookies.set('cookiesToken', data.token, { expires: 1 });
                         Cookies.set('cookiesUserId', data.userId, { expires: 1 });
                         Cookies.set('userName', data.userName, { expires: 1 });
+                        Cookies.set('entreprise', data.entreprise, { expires: 1 });
                     } else {
                         sessionStorage.setItem("sessionToken", data.token)
                     }

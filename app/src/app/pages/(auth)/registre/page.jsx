@@ -10,6 +10,7 @@ const Registre = () => {
     const router = useRouter();
     const [user, setUser] = useState({
         name: "",
+        boutique_name:"",
         numero: "",
         email: "",
         password: ""
@@ -34,8 +35,10 @@ const Registre = () => {
                      Cookies.set('userName', data.userName, { expires: 1 });
                      Cookies.set('cookiesToken', data.token, { expires: 1 });
                      Cookies.set('cookiesUserId', data.userId, { expires: 1 });
+                     Cookies.set('entreprise', data.entreprise, { expires: 1 });
                     setUser({
                         name: "",
+                        boutique_name:"",
                         numero: "",
                         email: "",
                         password: ""
@@ -79,6 +82,17 @@ const Registre = () => {
                             placeholder='Votre nom'
                         />
                         {user.name.length > 0 ? null : <span>{alertMessage}</span>}
+                    </section>
+                    <section className='column'>
+                        <label htmlFor='name'>Entreprise</label>
+                        <input
+                            type="text"
+                            name="boutique_name"
+                            value={user.boutique_name}
+                            onChange={handleChange}
+                            placeholder='Nom de votre entreprise'
+                        />
+                        {user.boutique_name.length > 0 ? null : <span>{alertMessage}</span>}
                     </section>
                     <section className='column'>
                         <label htmlFor='numero'>Numéro</label>

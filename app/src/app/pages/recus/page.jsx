@@ -3,10 +3,12 @@ import React, { useContext } from "react";
 import { MyStore } from "../../context/store";
 import PrintIcon from "@mui/icons-material/Print";
 import { useRouter } from "next/navigation";
+import Cookies from "js-cookie";
 
 const Recus = () => {
   const router = useRouter();
   const { panier, handleVendre,message, setPanier,errorStock } = useContext(MyStore);
+  const entreprise = Cookies.get('entreprise');
 
   const imprimer = () => {
     window.print();
@@ -50,7 +52,7 @@ const Recus = () => {
         <h1>Reçus</h1>
       </header>
        <div className="entete"><h1>DATE</h1><span>{date}</span></div>
-       <div className="entete"><h1>BOUTIQUE</h1><span>FOOZO Cosmetics</span></div>
+       <div className="entete"><h1>BOUTIQUE</h1><span>{entreprise}</span></div>
        <div className="entete"><h1>NUMERO VENDEUR</h1><span></span></div>
       <table className="container-recu">
         <thead>
