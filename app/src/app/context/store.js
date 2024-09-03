@@ -39,6 +39,7 @@ export const MyStoreProvider = (props) => {
     Cookies.remove('cookiesToken');
     Cookies.remove('cookiesUserId');
     Cookies.remove('userName');
+    Cookies.remove('entreprise');
     router.replace("/");
   };
 
