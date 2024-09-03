@@ -8,18 +8,6 @@ import { MyStore } from '../../context/store';
 import withAuth from '../../withAuth';
 import Cookies from 'js-cookie';
 
-// export async function getServerSideProps(context) {
-//     // Récupérer des données côté serveur ici
-//     const res = await axios.get('/api/categories');
-//     const categories = await res.results;
-  
-//     // Passer les données à la page via les props
-//     return {
-//       props: {
-//         categories,
-//       },
-//     };
-//   }
 const CategoriesList = () => {
   // const {token , userId } = useContext(MyStore)
     const [categories, setCategories] = useState([])

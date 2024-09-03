@@ -8,7 +8,7 @@ import ChecklistIcon from '@mui/icons-material/Checklist';
 
 
 const Depenseur = () => {
-  const {message, sendDepensesToDataBase} = useContext(MyStore)
+  const {message,sendDepensesToDataBase} = useContext(MyStore)
   const router = useRouter()
  
 

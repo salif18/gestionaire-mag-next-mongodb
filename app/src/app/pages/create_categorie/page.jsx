@@ -6,7 +6,7 @@ import withAuth from '../../withAuth'
 import Cookies from 'js-cookie'
 
 const CreateCategorie = () => {
-    const userId = Cookies.get("cookiesUserId");
+  const userId = Cookies.get("cookiesUserId");
   const token = Cookies.get("cookiesToken");
     // const { userId, token } = useContext(MyStore)
     const [alertMessage , setAlertMessage] = useState("")

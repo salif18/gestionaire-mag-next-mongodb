@@ -8,42 +8,25 @@ import Cookies from "js-cookie";
 // Création de mon context
 export const MyStore = createContext();
 
-
-  // const storedToken = localStorage.getItem('token');
-  // const storedUserId = localStorage.getItem('userId');
-  // const storedUserName = localStorage.getItem('username');
-  // const tokenCookie = Cookies.get('cookiesToken');
- 
 // La fonction provider
 export const MyStoreProvider = (props) => {
   // États de mes données
   const [panier, setPanier] = useState([]);
   const [message, setMessage] = useState('');
   const [datePersonaliser, setDatePersonnaliser] = useState('');
-  // const [token, setToken] = useState(null);
-  // const [userId, setUserId] = useState(null);
   const [userName, setUserName] = useState(null);
- 
+
 
 
   const router = useRouter()
 
-  const login = (token, userId, userName) => {
-    // setToken(token);
-    // setUserId(userId);
+  const login = (userName) => {
     setUserName(userName)
-    
-    // localStorage.setItem('token', token);
-    // localStorage.setItem('userId', userId);
     localStorage.setItem('username', userName);
   };
 
   const logout = () => {
-    setToken(null);
-    setUserId(null);
     setUserName(null);
-    localStorage.removeItem('token');
-    localStorage.removeItem('userId');
     localStorage.removeItem('username');
     sessionStorage.removeItem("sessionToken")
     Cookies.remove('cookiesToken');
@@ -51,7 +34,7 @@ export const MyStoreProvider = (props) => {
     router.replace("/");
   };
 
-  
+
 
   // Incrémentation du nombre de produits
   const increment = (item) => {
@@ -79,16 +62,16 @@ export const MyStoreProvider = (props) => {
     }
   };
 
-  
-  const handleRemovePanier =(id)=>{
-    const newpanier = panier.filter((item )=> item._id  !== id)
+
+  const handleRemovePanier = (id) => {
+    const newpanier = panier.filter((item) => item._id !== id)
     setPanier(newpanier)
   }
 
   // Enregistrer ou effectuer une vente
   const handleVendre = async () => {
     const userId = Cookies.get("cookiesUserId");
-  const token = Cookies.get("cookiesToken");
+    const token = Cookies.get("cookiesToken");
     try {
       const promises = panier.map((item) => {
         return axios.post(`/api/ventes`, datePersonaliser ? { userId, ...item, date_vente: datePersonaliser } : { userId, ...item },
@@ -114,7 +97,7 @@ export const MyStoreProvider = (props) => {
   // Envoyer les dépenses
   const sendDepensesToDataBase = async (item) => {
     const userId = Cookies.get("cookiesUserId");
-  const token = Cookies.get("cookiesToken");
+    const token = Cookies.get("cookiesToken");
     try {
       const response = await axios.post(`/api/depenses`, { userId, ...item },
         {
@@ -153,8 +136,6 @@ export const MyStoreProvider = (props) => {
     datePersonaliser,
     login,
     logout,
-    // token,
-    // userId,
     userName,
     setUserName
   };

@@ -36,8 +36,7 @@ const Login = () => {
                 const data = await res.data;
 
                 if (res.status === 200) { // Vérification du statut de la réponse
-                    login(data.token, data.userId, data.userName);
-
+                    login(data.userName);
                     if (rememberMe) {
                         // Le cookie expire après 30 jours
                         Cookies.set('cookiesToken', data.token, { expires: 1 });
