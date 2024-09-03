@@ -1,5 +1,5 @@
 "use client"
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { MyStore } from "../../context/store";
 import { useRouter } from "next/navigation";
 
@@ -8,7 +8,16 @@ const Ventes = () => {
   const router = useRouter()
   const { setDatePersonnaliser,
     datePersonaliser,
-    message, panier, handleRemovePanier, increment, decrement, errorStock } = useContext(MyStore)
+    message, panier, setPanier, handleRemovePanier, increment, decrement, errorStock } = useContext(MyStore)
+
+    
+// Effet pour charger le panier depuis localStorage au montage du composant
+useEffect(() => {
+  const storedPanier =  localStorage.getItem('panier');
+  if (storedPanier) {
+    setPanier(JSON.parse(storedPanier));
+  }
+},[panier])
 
 
   const handleEnregistreAvecRecu = () => {

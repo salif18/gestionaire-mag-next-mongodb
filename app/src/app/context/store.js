@@ -8,19 +8,10 @@ import Cookies from "js-cookie";
 // Création de mon context
 export const MyStore = createContext();
 
-// Effet pour charger le panier depuis localStorage au montage du composant
-const getPanier =() => {
-  const storedPanier =  localStorage.getItem('panier');
-  if (storedPanier) {
-    return JSON.parse(storedPanier);
-  }
-}
-
-
 // La fonction provider
 export const MyStoreProvider = (props) => {
   // États de mes données
-  const [panier, setPanier] = useState(getPanier());
+  const [panier, setPanier] = useState([]);
   const [message, setMessage] = useState('');
   const [datePersonaliser, setDatePersonnaliser] = useState('');
 
