@@ -3,6 +3,7 @@ import axios from 'axios'
 import React, { useContext, useEffect, useState } from 'react'
 import { MyStore } from '../../context/store'
 import withAuth from '../../withAuth'
+import Cookies from 'js-cookie'
 
 const Fournisseurs = () => {
 //   const {userId, token } = useContext(MyStore)
