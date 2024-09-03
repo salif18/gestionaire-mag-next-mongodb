@@ -7,16 +7,6 @@ import { useRouter } from "next/navigation";
 const Ventes = () => {
   const router = useRouter()
   const { setDatePersonnaliser, datePersonaliser, panier, message, handleRemovePanier, increment, decrement, errorStock } = useContext(MyStore)
-//  const [panier , setPanier ] = useState([])
-//   // Effet pour charger le panier depuis localStorage au montage du composant
-//   useEffect(() => {
-//     const storedPanier = localStorage.getItem('panier');
-//     if (storedPanier) {
-//       console.log(storedPanier)
-//       setPanier(JSON.parse(storedPanier));
-//     }
-//   }, [])
-
 
   const handleEnregistreAvecRecu = () => {
     if (!errorStock) {
