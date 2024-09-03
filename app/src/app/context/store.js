@@ -8,10 +8,19 @@ import Cookies from "js-cookie";
 // Création de mon context
 export const MyStore = createContext();
 
+// Effet pour charger le panier depuis localStorage au montage du composant
+const getPanier =() => {
+  const storedPanier =  localStorage.getItem('panier');
+  if (storedPanier) {
+    return JSON.parse(storedPanier);
+  }
+}
+
+
 // La fonction provider
 export const MyStoreProvider = (props) => {
   // États de mes données
-  const [panier, setPanier] = useState([]);
+  const [panier, setPanier] = useState(getPanier());
   const [message, setMessage] = useState('');
   const [datePersonaliser, setDatePersonnaliser] = useState('');
 
@@ -46,13 +55,24 @@ export const MyStoreProvider = (props) => {
   // Ajout des produit dans le panier pour la vente
   const handleAddPanier = (item) => {
     const existingItem = panier.find((d) => d._id === item._id);
+    let newPanier;
+  
     if (existingItem) {
-      increment(existingItem);
+      newPanier = panier.map((d) =>
+        d._id === item._id ? { ...d, qty: d.qty + 1 } : d
+      );
     } else {
-      setPanier([...panier, { ...item, qty: 1 }]);
-      localStorage.setItem('panier', JSON.stringify(panier));
+      newPanier = [...panier, { ...item, qty: 1 }];
     }
+  
+    setPanier(newPanier);
   };
+  
+
+  // Synchroniser le panier avec localStorage à chaque fois qu'il est mis à jour
+  useEffect(() => {
+    localStorage.setItem('panier', JSON.stringify(panier));
+  }, [panier]);
 
 
   const handleRemovePanier = (id) => {
@@ -104,14 +124,6 @@ export const MyStoreProvider = (props) => {
       console.error('Erreur lors de l\'envoi des dépenses:', err);
     }
   };
-
-  // Effet pour charger le panier depuis localStorage au montage du composant
-  useEffect(() => {
-    const storedPanier = localStorage.getItem('panier');
-    if (storedPanier) {
-      setPanier(JSON.parse(storedPanier));
-    }
-  }, []);
 
  
   useEffect(() => {
