@@ -14,23 +14,24 @@ export const MyStoreProvider = (props) => {
   const [panier, setPanier] = useState([]);
   const [message, setMessage] = useState('');
   const [datePersonaliser, setDatePersonnaliser] = useState('');
-  const [userName, setUserName] = useState(null);
+  // const [userName, setUserName] = useState(null);
 
 
 
   const router = useRouter()
 
-  const login = (userName) => {
-    setUserName(userName)
-    localStorage.setItem('username', userName);
-  };
+  // const login = (userName) => {
+  //   setUserName(userName)
+  //   localStorage.setItem('username', userName);
+  // };
 
   const logout = () => {
-    setUserName(null);
-    localStorage.removeItem('username');
+    // setUserName(null);
+    // localStorage.removeItem('username');
     sessionStorage.removeItem("sessionToken")
     Cookies.remove('cookiesToken');
     Cookies.remove('cookiesUserId');
+    Cookies.remove('userName');
     router.replace("/");
   };
 
@@ -112,6 +113,19 @@ export const MyStoreProvider = (props) => {
     }
   };
 
+  // Effet pour charger le panier depuis localStorage au montage du composant
+  useEffect(() => {
+    const storedPanier = localStorage.getItem('panier');
+    if (storedPanier) {
+      setPanier(JSON.parse(storedPanier));
+    }
+  }, []);
+
+  // Effet pour sauvegarder le panier dans localStorage à chaque modification du panier
+  useEffect(() => {
+    localStorage.setItem('panier', JSON.stringify(panier));
+  }, [panier]);
+
 
   useEffect(() => {
     if (message) {
@@ -134,10 +148,10 @@ export const MyStoreProvider = (props) => {
     message,
     setDatePersonnaliser,
     datePersonaliser,
-    login,
+    // login,
     logout,
-    userName,
-    setUserName
+    // userName,
+    // setUserName
   };
 
   return (

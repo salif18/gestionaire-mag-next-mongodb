@@ -7,7 +7,7 @@ import { useRouter } from 'next/navigation'
 import React, { useContext, useEffect, useState } from 'react'
 
 const Registre = () => {
-    const { login } = useContext(MyStore);
+    // const { login } = useContext(MyStore);
     const router = useRouter();
     const [user, setUser] = useState({
         name: "",
@@ -32,8 +32,9 @@ const Registre = () => {
 
                 if (res.status === 201) { // Vérification du statut de la réponse
                  
-                    login(data.userName);
+                    // login(data.userName);
                      // Le cookie expire après 30 jours
+                     Cookies.set('userName', data.userName, { expires: 1 });
                      Cookies.set('cookiesToken', data.token, { expires: 1 });
                      Cookies.set('cookiesUserId', data.userId, { expires: 1 });
                     setUser({

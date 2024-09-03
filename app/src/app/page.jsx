@@ -7,7 +7,8 @@ import React, { useContext, useEffect, useState } from 'react'
 import Cookies from 'js-cookie';
 
 const Login = () => {
-    const { login, token } = useContext(MyStore);
+    // const { login, token } = useContext(MyStore);
+    const token = Cookies.get('cookiesToken');
     const router = useRouter();
     const [user, setUser] = useState({
         contacts: "",
@@ -36,11 +37,12 @@ const Login = () => {
                 const data = await res.data;
 
                 if (res.status === 200) { // Vérification du statut de la réponse
-                    login(data.userName);
+                    // login(data.userName);
                     if (rememberMe) {
                         // Le cookie expire après 30 jours
                         Cookies.set('cookiesToken', data.token, { expires: 1 });
                         Cookies.set('cookiesUserId', data.userId, { expires: 1 });
+                        Cookies.set('userName', data.userName, { expires: 1 });
                     } else {
                         sessionStorage.setItem("sessionToken", data.token)
                     }
