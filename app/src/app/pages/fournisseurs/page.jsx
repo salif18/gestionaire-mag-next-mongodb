@@ -7,10 +7,13 @@ import { useRouter } from 'next/navigation';
 import CoPresentIcon from '@mui/icons-material/CoPresent';
 import { MyStore } from '../../context/store';
 import withAuth from '../../withAuth';
+import Cookies from 'js-cookie';
 const Fournisseurs = () => {
-  const { token, userId } = useContext(MyStore)
+  // const { token, userId } = useContext(MyStore)
   const router = useRouter()
   const [fournisseurs, setFournisseurs] = useState([])
+  const userId = Cookies.get("cookiesUserId");
+  const token = Cookies.get("cookiesToken");
 
   //charger les produits
   useEffect(() => {

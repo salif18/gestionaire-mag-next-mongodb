@@ -5,8 +5,11 @@ import { MyStore } from '../../context/store'
 import withAuth from '../../withAuth'
 
 const Fournisseurs = () => {
-  const {userId, token } = useContext(MyStore)
+//   const {userId, token } = useContext(MyStore)
   const [alertMessage ,setAlertMessage] =useState("")
+   // Le cookie expire après 30 jours
+  const userId = Cookies.get("cookiesUserId");
+  const token = Cookies.get("cookiesToken");
 
     const [fournisseur, setFournisseur] = useState({
         prenom:"",

@@ -4,10 +4,12 @@ import axios from 'axios';
 import { DataGrid } from '@mui/x-data-grid';
 import { MyStore } from '../../context/store';
 import withAuth from '../../withAuth';
+import Cookies from 'js-cookie';
 
 const BestVente = () => {
-    const { userId , token } = useContext(MyStore)
-
+    // const { userId , token } = useContext(MyStore)
+    const userId = Cookies.get("cookiesUserId");
+    const token = Cookies.get("cookiesToken");
     const [bestVendu, setBestVendu] = useState([])
     //recuperer les meilleur vente
     useEffect(() => {

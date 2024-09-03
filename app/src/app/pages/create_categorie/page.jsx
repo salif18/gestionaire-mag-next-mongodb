@@ -3,9 +3,12 @@ import axios from 'axios'
 import React, { useContext, useState } from 'react'
 import { MyStore } from '../../context/store'
 import withAuth from '../../withAuth'
+import Cookies from 'js-cookie'
 
 const CreateCategorie = () => {
-    const { userId, token } = useContext(MyStore)
+    const userId = Cookies.get("cookiesUserId");
+  const token = Cookies.get("cookiesToken");
+    // const { userId, token } = useContext(MyStore)
     const [alertMessage , setAlertMessage] = useState("")
     const [categorie, setCategorie] = useState({
         name:"",

@@ -14,7 +14,9 @@ import withAuth from '../../withAuth';
 
 
 const Categories = () => {
-  const { handleAddPanier, userId , token } = useContext(MyStore)
+  const { handleAddPanier } = useContext(MyStore)
+  const userId = Cookies.get("cookiesUserId");
+  const token = Cookies.get("cookiesToken");
   const router = useRouter()
   //etat initiale de la valeur de categorie a filtrer
   const [produits, setProduits] = useState([])

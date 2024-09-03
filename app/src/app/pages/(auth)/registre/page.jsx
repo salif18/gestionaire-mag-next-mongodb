@@ -32,6 +32,9 @@ const Registre = () => {
                 if (res.status === 201) { // Vérification du statut de la réponse
                  
                     login(data.token, data.userId, data.userName);
+                     // Le cookie expire après 30 jours
+                     Cookies.set('cookiesToken', data.token, { expires: 1 });
+                     Cookies.set('cookiesUserId', data.userId, { expires: 1 });
                     setUser({
                         name: "",
                         numero: "",

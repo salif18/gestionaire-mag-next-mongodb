@@ -3,9 +3,10 @@ import React, { useContext, useEffect, useState } from 'react';
 import { MyStore } from '../../context/store';
 import axios from 'axios';
 import withAuth from '../../withAuth';
+import Cookies from 'js-cookie';
 
 const AddProduits = () => {
-    const { userId, token, setMessage, message } = useContext(MyStore);
+    const { message } = useContext(MyStore);
     const [alertMessage ,setAlertMessage] =useState("")
     const [options, setOptions] = useState([]);
     const [produits, setProduits] = useState({
@@ -18,6 +19,8 @@ const AddProduits = () => {
         date_achat: ""
     });
     const [error, setError] = useState(null);
+    const userId = Cookies.get("cookiesUserId");
+    const token = Cookies.get("cookiesToken");
 
     useEffect(() => {
         const getDepenses = async () => {

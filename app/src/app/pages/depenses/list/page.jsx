@@ -5,9 +5,12 @@ import withAuth from '../../../withAuth'
 import { MyStore } from '@/src/app/context/store'
 import axios from 'axios';
 import PlaylistRemoveIcon from '@mui/icons-material/PlaylistRemove';
+import Cookies from 'js-cookie';
 
 const DepenseListe = () => {
-  const { userId ,token} = useContext(MyStore)
+  // const { userId ,token} = useContext(MyStore)
+  const userId = Cookies.get("cookiesUserId");
+  const token = Cookies.get("cookiesToken");
   const [opperations,setOpperations] = useState([])
   const [dateValue, setDateValue] = useState('');
 

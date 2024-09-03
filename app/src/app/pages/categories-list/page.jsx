@@ -6,6 +6,7 @@ import Link from 'next/link';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { MyStore } from '../../context/store';
 import withAuth from '../../withAuth';
+import Cookies from 'js-cookie';
 
 // export async function getServerSideProps(context) {
 //     // Récupérer des données côté serveur ici
@@ -20,8 +21,10 @@ import withAuth from '../../withAuth';
 //     };
 //   }
 const CategoriesList = () => {
-  const {token , userId } = useContext(MyStore)
+  // const {token , userId } = useContext(MyStore)
     const [categories, setCategories] = useState([])
+    const userId = Cookies.get("cookiesUserId");
+    const token = Cookies.get("cookiesToken");
        
 //   charger les depenses
   useEffect(()=>{

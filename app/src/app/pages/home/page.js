@@ -16,9 +16,10 @@ import { MyStore } from "../../context/store"
 import StatsWeek from "../../components/StatsWeek"
 import Loading from "../../loading"
 import withAuth from "../../withAuth"
+import Cookies from "js-cookie"
 
   const  Home = () =>{
-  const { token, userId} = useContext(MyStore)
+  // const { token, userId} = useContext(MyStore)
   const [produits, setProduits] = useState([])
   const [statsVentes, setStatsVentes] = useState([])
   const [statsWeeks, setStatsWeeks] = useState([])
@@ -28,10 +29,13 @@ import withAuth from "../../withAuth"
   const [totalAchatOfVente, setTotalAchatOfVente] = useState(0)
   const [totalAchatOfAchat, setTotalAchatOfAchat] = useState(0)
   const [depensesTotal , setDepensesTotal] = useState(0)
-
+  const userId = Cookies.get("cookiesUserId");
+  const token = Cookies.get("cookiesToken");
+ 
 
   //charger les produits
   useEffect(() => {
+   
     const getProduits = () => {
       axios
         .get(`/api/produits/${userId}`, {

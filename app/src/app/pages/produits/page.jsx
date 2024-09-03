@@ -11,12 +11,15 @@ import { DataGrid } from '@mui/x-data-grid';
 import imageDefault from "@/public/images/defaultImg.png"
 import Image from 'next/image';
 import withAuth from '../../withAuth';
+import Cookies from 'js-cookie';
 
 const Produits = () => {
+  const userId = Cookies.get("cookiesUserId");
+  const token = Cookies.get("cookiesToken");
   const [produits, setProduits] = useState([])
   const [stocks , setStocks ] = useState(0)
   const router = useRouter()
-  const { token , userId,handleAddPanier } = useContext(MyStore)
+  const { handleAddPanier } = useContext(MyStore)
   const [alertMessage ,setAlertMessage] =useState("")
 
   //charger les produits
