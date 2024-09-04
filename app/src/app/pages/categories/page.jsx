@@ -23,6 +23,7 @@ const Categories = () => {
   const [produits, setProduits] = useState([])
   const [categories, setCategories] = useState('')
   const [options ,setOptions ] = useState([])
+  const [alertMessage ,setAlertMessage] =useState("")
 
   //charger les produits
   useEffect(() => {
@@ -63,7 +64,7 @@ const Categories = () => {
   // les bouton de categories
   const handleAjouter = (item) => {
     handleAddPanier(item)
-    router.push('/pages/panier')
+    setAlertMessage(item._id); // Store the product ID
 
   }
 
@@ -166,7 +167,7 @@ const Categories = () => {
       renderCell: (params) => {
         return (
           <section className='action'>
-            {params.row.stocks > 0 && <span onClick={() => handleAjouter(params.row)}><ShoppingCartIcon className='icon-add' /></span>}
+            {params.row.stocks > 0 && <span onClick={() => handleAjouter(params.row)}>  {alertMessage === params.row._id ? "Ajouté" : <ShoppingCartIcon className='icon-add' />}</span>}
             {params.row.stocks > 0 && <span onClick={() => router.push(`/pages/produits/${params.row._id}`)}> <EditIcon className='icon-edit' /> </span>}
             {params.row.stocks <= 0 &&
               <span onClick={() => handledelete(params.row._id)}>
