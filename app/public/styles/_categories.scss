@@ -83,6 +83,11 @@
         
         .action{
             display: flex;
+            span{
+                font-size: 12px;
+                font-family: roboto;
+                color: green;
+            }
             .icon-add{
                 color:#1aad9a;
                 font-size:24px;

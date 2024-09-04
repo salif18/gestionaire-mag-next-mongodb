@@ -88,6 +88,16 @@ const Categories = () => {
 
   );
 
+  useEffect(() => {
+    if (alertMessage) {
+        const timer = setTimeout(() => {
+            setAlertMessage('');
+        }, 1000);
+        return () => clearTimeout(timer);
+    }
+}, [alertMessage]);
+
+
 
 
   //DEFINITION DES DIFFERENTES COLONNES POUR LE TABLEAU DE DATA GRID
