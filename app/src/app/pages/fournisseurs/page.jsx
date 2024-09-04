@@ -41,7 +41,10 @@ const Fournisseurs = () => {
         'Authorization': `Bearer ${token}`,
       },
     })
-      .then((res) => setMessage(res.data.message))
+      .then((res) =>{
+        setMessage(res.data.message)
+        setIndexItem(id)
+      })
       .catch((err) => console.error(err))
   };
 

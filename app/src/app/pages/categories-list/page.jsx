@@ -33,10 +33,16 @@ const CategoriesList = () => {
 
   //supprimer le produit
   const handledelete = (id) => {
-    axios.delete(`/api/categories/single/${id}`)
-      .then((res) => 
-        setMessage(res.data.message)
-    )
+    axios.delete(`/api/categories/single/${id}`,{
+      headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`,
+      },
+  })
+      .then((res) => {
+        setMessage(res.data.message);
+        setIndexItem(id)
+  })
       .catch((err) => console.error(err))
   };
 
