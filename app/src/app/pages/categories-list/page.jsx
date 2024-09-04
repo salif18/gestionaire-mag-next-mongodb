@@ -10,6 +10,8 @@ const CategoriesList = () => {
     const [categories, setCategories] = useState([])
     const userId = Cookies.get("cookiesUserId");
     const token = Cookies.get("cookiesToken");
+    const [indexItem ,setIndexItem] = useState("")
+    const [message ,setMessage] = useState('')
        
 //   charger les depenses
   useEffect(()=>{
@@ -32,11 +34,20 @@ const CategoriesList = () => {
   //supprimer le produit
   const handledelete = (id) => {
     axios.delete(`/api/categories/single/${id}`)
-      .then((res) => res.data)
+      .then((res) => 
+        setMessage(res.data.message)
+    )
       .catch((err) => console.error(err))
   };
 
- 
+  useEffect(() => {
+    if (message) {
+        const timer = setTimeout(() => {
+            setMessage('');
+        }, 1000);
+        return () => clearTimeout(timer);
+    }
+  }, [message]);
 
   //DEFINITION DES DIFFERENTES COLONNES POUR LE TABLEAU DE DATA GRID
   const columns = [
@@ -56,9 +67,10 @@ const CategoriesList = () => {
         return (
           <section className='action'>
            
-              <span onClick={() => handledelete(params.row._id)}>
+           {indexItem !== params.row._id ? <span onClick={() => handledelete(params.row._id)}>
                 <p style={{fontSize:16, fontFamily:"roboto",color:"rgb(21, 109, 150)", cursor:"pointer"}}>Supprimer</p>
-              </span>
+              </span> : <span className='alert'>{message}</span>
+           }
           </section>
         )
       }

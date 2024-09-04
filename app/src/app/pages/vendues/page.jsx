@@ -122,7 +122,6 @@ const handledelete = (id)=>{
 
   ];
 
-message && setTimeout(()=>setMessage(''),2000)
 useEffect(() => {
   if (message) {
       const timer = setTimeout(() => {

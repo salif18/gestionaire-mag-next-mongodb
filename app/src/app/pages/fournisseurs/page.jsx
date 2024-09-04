@@ -12,6 +12,8 @@ const Fournisseurs = () => {
   const [fournisseurs, setFournisseurs] = useState([])
   const userId = Cookies.get("cookiesUserId");
   const token = Cookies.get("cookiesToken");
+  const [indexItem ,setIndexItem] = useState("")
+    const [message ,setMessage] = useState('')
 
   //charger les produits
   useEffect(() => {
@@ -39,11 +41,18 @@ const Fournisseurs = () => {
         'Authorization': `Bearer ${token}`,
       },
     })
-      .then((res) => res.data)
+      .then((res) => setMessage(res.data.message))
       .catch((err) => console.error(err))
   };
 
-
+  useEffect(() => {
+    if (message) {
+        const timer = setTimeout(() => {
+            setMessage('');
+        }, 1000);
+        return () => clearTimeout(timer);
+    }
+  }, [message]);
 
   //DEFINITION DES DIFFERENTES COLONNES POUR LE TABLEAU DE DATA GRID
   const columns = [
@@ -99,7 +108,7 @@ const Fournisseurs = () => {
       renderCell: (params) => {
         return (
           <section className='title'>
-            <button className='btn-del' onClick={() => handledelete(params.row._id)} >supprimer</button>
+            {indexItem !== params.row._id ? <button className='btn-del' onClick={() => handledelete(params.row._id)} >supprimer</button> : <span className='alert'>{message}</span>}
           </section>
         )
       }
