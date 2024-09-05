@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import image from '../../../../public/images/logo.jpg'
+import image from '../../../../public/images/salespule.jpg'
 import Image from 'next/image';
 import Cookies from 'js-cookie';
 
