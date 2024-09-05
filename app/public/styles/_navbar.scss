@@ -26,6 +26,16 @@
         height: 50px;
         margin: 14px;
        }
+       .column{
+        display: flex;
+        flex-direction: column;
+        p{
+            font-size: 14px;
+            font-family: roboto;
+            color: #ff5917dc;
+            font-weight: 600;
+        }
+       }
     }
 
     .username{

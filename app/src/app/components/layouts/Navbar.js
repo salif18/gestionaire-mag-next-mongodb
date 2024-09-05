@@ -10,7 +10,11 @@ const Navbar = () => {
     <header className='header'>
       <section className='header-left'>
         <Image src={image} alt='' />
-        <h1>SalesPulse </h1>
+        <section className='column'>
+          <h1>SalesPulse </h1>
+          <p>Manager</p>
+        </section>
+        
       </section>
       <section className='username'>
         <p>{entreprise}</p>
