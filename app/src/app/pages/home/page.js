@@ -16,6 +16,7 @@ import StatsWeek from "../../components/StatsWeek"
 import Loading from "../../loading"
 import withAuth from "../../withAuth"
 import Cookies from "js-cookie"
+import uri from "../../lib/uri"
 
   const  Home = () =>{
   const [produits, setProduits] = useState([])
@@ -31,13 +32,12 @@ import Cookies from "js-cookie"
   const userId = Cookies.get("cookiesUserId");
   const token = Cookies.get("cookiesToken");
  
-
   //charger les produits
   useEffect(() => {
    
     const getProduits = () => {
       axios
-        .get(`/api/produits/${userId}`, {
+        .get(`${uri}/products/${userId}`, {
           headers: {
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${token}`,
@@ -56,7 +56,7 @@ import Cookies from "js-cookie"
 useEffect(() => {
   const getVente =()=>{
   axios
-    .get(`/api/ventes/${userId}`,{
+    .get(`${uri}/ventes/${userId}`,{
       headers: {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${token}`,
@@ -78,7 +78,7 @@ useEffect(() => {
   useEffect(() => {
     const getVente = () => {
       axios
-        .get(`/api/ventes/stats-by-hebdo/${userId}`, {
+        .get(`${uri}/ventes/stats-by-hebdo/${userId}`, {
           headers: {
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${token}`,
@@ -95,7 +95,7 @@ useEffect(() => {
   //charger les depenses
   useEffect(() => {
     const getDepenses = () => {
-      axios.get(`/api/depenses/${userId}`, {
+      axios.get(`${uri}/depenses/${userId}`, {
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`,
@@ -112,7 +112,7 @@ useEffect(() => {
   //recuperer les meilleur vente
   useEffect(() => {
     const getBestVente = () => {
-      axios.get(`/api/ventes/stats-by-categories/${userId}`, {
+      axios.get(`${uri}/ventes/stats-by-categories/${userId}`, {
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`,
@@ -128,7 +128,7 @@ useEffect(() => {
   useEffect(() => {
     async function fetchSalesStatistics() {
       try {
-        const response = await axios.get(`/api/ventes/stats-by-month/${userId}`, {
+        const response = await axios.get(`${uri}/ventes/stats-by-month/${userId}`, {
           headers: {
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${token}`,
