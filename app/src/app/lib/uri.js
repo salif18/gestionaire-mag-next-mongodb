@@ -1,1 +1,2 @@
-export default uri = "https://smeckdev-salespulse-vercel.app";
+ const uri = "https://smeckdev-salespulse-vercel.app";
+ export default uri;
