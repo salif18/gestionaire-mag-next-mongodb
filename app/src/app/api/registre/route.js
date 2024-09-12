@@ -1,4 +1,3 @@
-require("dotenv").config();
 import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt"
 import Users from "../models/user"

@@ -16,6 +16,7 @@ import StatsWeek from "../../components/StatsWeek"
 import Loading from "../../loading"
 import withAuth from "../../withAuth"
 import Cookies from "js-cookie"
+import { config as configDotenv } from "dotenv";
 
   const  Home = () =>{
   const [produits, setProduits] = useState([])
@@ -37,7 +38,7 @@ import Cookies from "js-cookie"
    
     const getProduits = () => {
       axios
-        .get(`/api/produits/${userId}`, {
+        .get(`${process.env.PUBLIC_URI}/produits/${userId}`, {
           headers: {
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${token}`,
@@ -56,7 +57,7 @@ import Cookies from "js-cookie"
 useEffect(() => {
   const getVente =()=>{
   axios
-    .get(`/api/ventes/${userId}`,{
+    .get(`${process.env.PUBLIC_URI}/ventes/${userId}`,{
       headers: {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${token}`,
@@ -78,7 +79,7 @@ useEffect(() => {
   useEffect(() => {
     const getVente = () => {
       axios
-        .get(`/api/ventes/stats-by-hebdo/${userId}`, {
+        .get(`${process.env.PUBLIC_URI}/ventes/stats-by-hebdo/${userId}`, {
           headers: {
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${token}`,
@@ -95,7 +96,7 @@ useEffect(() => {
   //charger les depenses
   useEffect(() => {
     const getDepenses = () => {
-      axios.get(`/api/depenses/${userId}`, {
+      axios.get(`${process.env.PUBLIC_URI}/depenses/${userId}`, {
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`,
@@ -112,7 +113,7 @@ useEffect(() => {
   //recuperer les meilleur vente
   useEffect(() => {
     const getBestVente = () => {
-      axios.get(`/api/ventes/stats-by-categories/${userId}`, {
+      axios.get(`${process.env.PUBLIC_URI}/ventes/stats-by-categories/${userId}`, {
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`,
@@ -128,7 +129,7 @@ useEffect(() => {
   useEffect(() => {
     async function fetchSalesStatistics() {
       try {
-        const response = await axios.get(`/api/ventes/stats-by-month/${userId}`, {
+        const response = await axios.get(`${process.env.PUBLIC_URI}/ventes/stats-by-month/${userId}`, {
           headers: {
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${token}`,
