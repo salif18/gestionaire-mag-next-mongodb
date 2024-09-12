@@ -17,6 +17,7 @@ import Loading from "../../loading"
 import withAuth from "../../withAuth"
 import Cookies from "js-cookie"
 import { config as configDotenv } from "dotenv";
+configDotenv();
 
   const  Home = () =>{
   const [produits, setProduits] = useState([])

@@ -4,6 +4,8 @@ import axios from 'axios'
 import { useRouter } from 'next/navigation'
 import React, { useContext, useEffect, useState } from 'react'
 import Cookies from 'js-cookie';
+import { config as configDotenv } from "dotenv";
+configDotenv();
 
 const Login = () => {
     const token = Cookies.get('cookiesToken');
@@ -31,7 +33,7 @@ const Login = () => {
         e.preventDefault();
         if (user.contacts.length > 0 && user.password.length > 0) {
             try {
-                const res = await axios.post("/api/login", user);
+                const res = await axios.post(`${process.env.PUBLIC_URI}/auth/login`, user);
                 const data = await res.data;
 
                 if (res.status === 200) { // Vérification du statut de la réponse
