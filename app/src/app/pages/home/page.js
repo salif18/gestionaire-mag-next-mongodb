@@ -39,7 +39,7 @@ configDotenv();
    
     const getProduits = () => {
       axios
-        .get(`${process.env.PUBLIC_URI}/produits/${userId}`, {
+        .get(`${process.env.NEXT_PUBLIC_URI}/produits/${userId}`, {
           headers: {
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${token}`,
@@ -58,7 +58,7 @@ configDotenv();
 useEffect(() => {
   const getVente =()=>{
   axios
-    .get(`${process.env.PUBLIC_URI}/ventes/${userId}`,{
+    .get(`${process.env.NEXT_PUBLIC_URI}/ventes/${userId}`,{
       headers: {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${token}`,
@@ -80,7 +80,7 @@ useEffect(() => {
   useEffect(() => {
     const getVente = () => {
       axios
-        .get(`${process.env.PUBLIC_URI}/ventes/stats-by-hebdo/${userId}`, {
+        .get(`${process.env.NEXT_PUBLIC_URI}/ventes/stats-by-hebdo/${userId}`, {
           headers: {
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${token}`,
@@ -97,7 +97,7 @@ useEffect(() => {
   //charger les depenses
   useEffect(() => {
     const getDepenses = () => {
-      axios.get(`${process.env.PUBLIC_URI}/depenses/${userId}`, {
+      axios.get(`${process.env.NEXT_PUBLIC_URI}/depenses/${userId}`, {
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`,
@@ -114,7 +114,7 @@ useEffect(() => {
   //recuperer les meilleur vente
   useEffect(() => {
     const getBestVente = () => {
-      axios.get(`${process.env.PUBLIC_URI}/ventes/stats-by-categories/${userId}`, {
+      axios.get(`${process.env.NEXT_PUBLIC_URI}/ventes/stats-by-categories/${userId}`, {
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`,
@@ -130,7 +130,7 @@ useEffect(() => {
   useEffect(() => {
     async function fetchSalesStatistics() {
       try {
-        const response = await axios.get(`${process.env.PUBLIC_URI}/ventes/stats-by-month/${userId}`, {
+        const response = await axios.get(`${process.env.NEXT_PUBLIC_URI}/ventes/stats-by-month/${userId}`, {
           headers: {
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${token}`,

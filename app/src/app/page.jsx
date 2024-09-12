@@ -33,7 +33,7 @@ const Login = () => {
         e.preventDefault();
         if (user.contacts.length > 0 && user.password.length > 0) {
             try {
-                const res = await axios.post(`${process.env.PUBLIC_URI}/auth/login`, user);
+                const res = await axios.post(`${process.env.NEXT_PUBLIC_URI}/auth/login`, user);
                 const data = await res.data;
 
                 if (res.status === 200) { // Vérification du statut de la réponse
