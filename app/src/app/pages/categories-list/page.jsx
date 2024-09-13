@@ -5,6 +5,8 @@ import axios from 'axios';
 import Link from 'next/link';
 import withAuth from '../../withAuth';
 import Cookies from 'js-cookie';
+import { config as configDotenv } from "dotenv";
+configDotenv();
 
 const CategoriesList = () => {
     const [categories, setCategories] = useState([])
@@ -16,7 +18,7 @@ const CategoriesList = () => {
 //   charger les depenses
   useEffect(()=>{
     const getDepenses =()=>{
-     axios.get(`/api/categories/${userId}`,{
+     axios.get(`${process.env.NEXT_PUBLIC_URI}/categories/${userId}`,{
       headers: {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${token}`,
@@ -33,7 +35,7 @@ const CategoriesList = () => {
 
   //supprimer le produit
   const handledelete = (id) => {
-    axios.delete(`/api/categories/single/${id}`,{
+    axios.delete(`${process.env.NEXT_PUBLIC_URI}/categories/single/${id}`,{
       headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`,

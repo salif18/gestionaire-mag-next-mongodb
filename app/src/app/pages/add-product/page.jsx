@@ -4,6 +4,9 @@ import { MyStore } from '../../context/store';
 import axios from 'axios';
 import withAuth from '../../withAuth';
 import Cookies from 'js-cookie';
+import { config as configDotenv } from "dotenv";
+configDotenv();
+
 
 const AddProduits = () => {
     const { message } = useContext(MyStore);
@@ -25,7 +28,7 @@ const AddProduits = () => {
     useEffect(() => {
         const getDepenses = async () => {
             try {
-                const res = await axios.get(`/api/categories/${userId}`, {
+                const res = await axios.get(`${process.env.NEXT_PUBLIC_URI}/categories/${userId}`, {
                     headers: {
                         'Content-Type': 'application/json',
                         'Authorization': `Bearer ${token}`,
@@ -81,7 +84,7 @@ const AddProduits = () => {
                 formData.append("stocks", produits.stocks);
                 formData.append("date_achat", produits.date_achat);
     
-                const res = await axios.post(`/api/produits`, formData, {
+                const res = await axios.post( `${process.env.NEXT_PUBLIC_URI}/produits`, formData, {
                     headers: {
                         'Content-Type': 'multipart/form-data',
                         'Authorization': `Bearer ${token}`,

@@ -4,6 +4,8 @@ import axios from 'axios';
 import { DataGrid } from '@mui/x-data-grid';
 import withAuth from '../../withAuth';
 import Cookies from 'js-cookie';
+import { config as configDotenv } from "dotenv";
+configDotenv();
 
 const BestVente = () => {
     const userId = Cookies.get("cookiesUserId");
@@ -12,7 +14,7 @@ const BestVente = () => {
     //recuperer les meilleur vente
     useEffect(() => {
         const getBestVente = () => {
-            axios.get(`/api/ventes/stats-by-categories/${userId}`,{
+            axios.get(`${process.env.NEXT_PUBLIC_URI}/ventes/stats-by-categories/${userId}`,{
                 headers: {
                   'Content-Type': 'application/json',
                   'Authorization': `Bearer ${token}`,

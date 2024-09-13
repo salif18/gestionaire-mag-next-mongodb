@@ -12,7 +12,8 @@ import Image from 'next/image';
 import imageDefault from "@/public/images/defaultImg.png"
 import withAuth from '../../withAuth';
 import Cookies from 'js-cookie';
-
+import { config as configDotenv } from "dotenv";
+configDotenv();
 
 const Categories = () => {
   const { handleAddPanier } = useContext(MyStore)
@@ -29,7 +30,7 @@ const Categories = () => {
   useEffect(() => {
     const getProduits = () => {
       axios
-        .get(`/api/produits/${userId}`,{
+        .get(`${process.env.NEXT_PUBLIC_URI}/produits/${userId}`,{
           headers: {
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${token}`,
@@ -47,7 +48,7 @@ const Categories = () => {
   //charger les depenses
   useEffect(()=>{
     const getDepenses =()=>{
-     axios.get(`/api/categories/${userId}`,{
+     axios.get(`${process.env.NEXT_PUBLIC_URI}/categories/${userId}`,{
       headers: {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${token}`,
@@ -71,7 +72,7 @@ const Categories = () => {
 
   //supprimer le produit
   const handledelete = (id) => {
-    axios.delete(`/api/produits/single/${id}`,{
+    axios.delete(`${process.env.NEXT_PUBLIC_URI}/produits/single/${id}`,{
       headers: {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${token}`,

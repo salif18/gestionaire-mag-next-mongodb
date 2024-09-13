@@ -3,6 +3,9 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import withAuth from '../../withAuth'
 import Cookies from 'js-cookie'
+import { config as configDotenv } from "dotenv";
+configDotenv();
+
 
 const Fournisseurs = () => {
   const [alertMessage ,setAlertMessage] =useState("")
@@ -41,7 +44,7 @@ const handleAdd = async () => {
   } else {
       try {
           const res = await axios.post(
-              "/api/fournisseurs", 
+              `${process.env.NEXT_PUBLIC_URI}/fournisseurs`, 
               { userId, ...fournisseur },
               {
                   headers: {

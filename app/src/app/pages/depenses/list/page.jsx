@@ -1,4 +1,6 @@
 "use client"
+import { config as configDotenv } from "dotenv";
+configDotenv();
 
 import React, { useEffect, useState } from 'react'
 import withAuth from '../../../withAuth'
@@ -15,7 +17,7 @@ const DepenseListe = () => {
    //charger les depenses
    useEffect(()=>{
     const getDepenses =()=>{
-     axios.get(`/api/depenses/${userId}`,{
+     axios.get(`${process.env.NEXT_PUBLIC_URI}/depenses/${userId}`,{
       headers: {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${token}`,
@@ -30,7 +32,7 @@ const DepenseListe = () => {
 
  //supprimer la depense
  const handleDelete =(id)=>{
-  axios.delete(`/api/depenses/single/${id}`,{
+  axios.delete(`${process.env.NEXT_PUBLIC_URI}/depenses/single/${id}`,{
    headers: {
      'Content-Type': 'application/json',
      'Authorization': `Bearer ${token}`,

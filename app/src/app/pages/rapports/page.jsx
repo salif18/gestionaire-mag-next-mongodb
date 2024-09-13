@@ -1,4 +1,6 @@
 "use client"
+import { config as configDotenv } from "dotenv";
+configDotenv();
 import React, { useContext, useEffect, useState } from 'react';
 import PrintIcon from '@mui/icons-material/Print';
 import axios from 'axios';
@@ -16,7 +18,7 @@ const Rapports = () => {
   useEffect(() => {
     const getVente = () => {
       axios
-        .get(`/api/ventes/${userId}`,{
+        .get(`${process.env.NEXT_PUBLIC_URI}/ventes/${userId}`,{
           headers: {
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${token}`,

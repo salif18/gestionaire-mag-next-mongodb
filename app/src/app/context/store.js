@@ -1,9 +1,11 @@
 "use client";
-
+import { config as configDotenv } from "dotenv";
+configDotenv();
 import { createContext, useState, useEffect } from "react";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import Cookies from "js-cookie";
+
 
 // Création de mon context
 export const MyStore = createContext();
@@ -96,7 +98,7 @@ export const MyStoreProvider = (props) => {
     const token = Cookies.get("cookiesToken");
     try {
       const promises = panier.map((item) => {
-        return axios.post(`/api/ventes`, datePersonaliser ? { userId, ...item, date_vente: datePersonaliser } : { userId, ...item },
+        return axios.post(`${process.env.NEXT_PUBLIC_URI}/ventes`, datePersonaliser ? { userId, ...item, date_vente: datePersonaliser } : { userId, ...item },
           {
             headers: {
               'Content-Type': 'application/json',
@@ -121,7 +123,7 @@ export const MyStoreProvider = (props) => {
     const userId = Cookies.get("cookiesUserId");
     const token = Cookies.get("cookiesToken");
     try {
-      const response = await axios.post(`/api/depenses`, { userId, ...item },
+      const response = await axios.post(`${process.env.NEXT_PUBLIC_URI}/depenses`, { userId, ...item },
         {
           headers: {
             'Content-Type': 'application/json',

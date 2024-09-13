@@ -1,4 +1,7 @@
 "use client"
+import { config as configDotenv } from "dotenv";
+configDotenv();
+
 import React, { useContext, useEffect, useState } from 'react'
 import { DataGrid } from '@mui/x-data-grid';
 import axios from 'axios';
@@ -19,7 +22,7 @@ const Fournisseurs = () => {
   useEffect(() => {
     const getProduits = () => {
       axios
-        .get(`/api/fournisseurs/${userId}`, {
+        .get(`${process.env.NEXT_PUBLIC_URI}/fournisseurs/${userId}`, {
           headers: {
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${token}`,
@@ -35,7 +38,7 @@ const Fournisseurs = () => {
 
   //supprimer le produit
   const handledelete = (id) => {
-    axios.delete(`/api/fournisseurs/single/${id}`, {
+    axios.delete(`${process.env.NEXT_PUBLIC_URI}/fournisseurs/single/${id}`, {
       headers: {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${token}`,

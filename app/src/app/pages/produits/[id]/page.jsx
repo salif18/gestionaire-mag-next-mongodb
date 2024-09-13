@@ -1,4 +1,6 @@
 "use client"
+import { config as configDotenv } from "dotenv";
+configDotenv();
 import React, { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams, useRouter } from 'next/navigation';
@@ -31,7 +33,7 @@ const SingleProduits = () => {
 
   //recuperer le produit de id
   useEffect(() => {
-    axios.get(`/api/produits/single/${id}`, {
+    axios.get(`${process.env.NEXT_PUBLIC_URI}/produits/single/${id}`, {
       headers: {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${token}`,
@@ -53,7 +55,7 @@ const SingleProduits = () => {
 
   useEffect(() => {
     const getDepenses = () => {
-      axios.get(`/api/categories/${userId}`, {
+      axios.get(`${process.env.NEXT_PUBLIC_URI}/categories/${userId}`, {
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`,
@@ -95,7 +97,7 @@ const SingleProduits = () => {
     // formData.append("stocks", produits.stocks);
     // formData.append("date_achat", produits.date_achat);
     
-    axios.put(`/api/produits/single/${id}`, produits, {
+    axios.put(`${process.env.NEXT_PUBLIC_URI}/produits/single/${id}`, produits, {
       headers: {
         'Content-Type': 'application/json',
         // 'Content-Type': 'multipart/form-data',
@@ -118,7 +120,7 @@ const SingleProduits = () => {
 
   //supprimer le produit
   const handledelete = (id) => {
-    axios.delete(`/api/produits/single/${id}`, {
+    axios.delete(`${process.env.NEXT_PUBLIC_URI}/produits/single/${id}`, {
       headers: {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${token}`,

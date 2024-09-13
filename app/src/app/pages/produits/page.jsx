@@ -1,4 +1,6 @@
 "use client"
+import { config as configDotenv } from "dotenv";
+configDotenv();
 import React, { useContext, useEffect, useState } from 'react';
 import EditIcon from '@mui/icons-material/Edit';
 import { MyStore } from '../../context/store';
@@ -26,7 +28,7 @@ const Produits = () => {
   useEffect(() => {
     const getProduits = () => {
       axios
-        .get(`/api/produits/${userId}`, {
+        .get(`${process.env.NEXT_PUBLIC_URI}/produits/${userId}`, {
           headers: {
               'Content-Type': 'application/json',
               'Authorization': `Bearer ${token}`,
@@ -50,7 +52,7 @@ const Produits = () => {
 
   //supprimer le produit
   const handledelete = (id) => {
-    axios.delete(`/api/produits/single/${id}`, {
+    axios.delete(`${process.env.NEXT_PUBLIC_URI}/produits/single/${id}`, {
       headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`,

@@ -3,6 +3,8 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import withAuth from '../../withAuth'
 import Cookies from 'js-cookie'
+import { config as configDotenv } from "dotenv";
+configDotenv();
 
 const CreateCategorie = () => {
   const userId = Cookies.get("cookiesUserId");
@@ -24,7 +26,7 @@ const handleSubmit=async()=>{
     if(categorie.name.length > 0){
         
         try{
-            const res = await axios.post("/api/categories", {userId,...categorie} ,{
+            const res = await axios.post(`${process.env.NEXT_PUBLIC_URI}/categories`, {userId,...categorie} ,{
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${token}`,
