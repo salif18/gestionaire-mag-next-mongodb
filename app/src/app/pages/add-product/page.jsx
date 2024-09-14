@@ -1,11 +1,11 @@
 "use client"
+import { config as configDotenv } from "dotenv";
+configDotenv();
 import React, { useContext, useEffect, useState } from 'react';
 import { MyStore } from '../../context/store';
 import axios from 'axios';
 import withAuth from '../../withAuth';
 import Cookies from 'js-cookie';
-import { config as configDotenv } from "dotenv";
-configDotenv();
 
 
 const AddProduits = () => {
@@ -65,15 +65,7 @@ const AddProduits = () => {
             setError('Veuillez remplir tous les champs.');
         } else {
             try {
-                // const data = {
-                //     userId: userId,
-                //     nom: produits.nom,
-                //     categories: produits.categories,
-                //     prix_achat: produits.prix_achat,
-                //     prix_vente: produits.prix_vente,
-                //     stocks: produits.stocks,
-                //     date_achat: produits.date_achat
-                // };
+                
                 const formData = new FormData();
                 formData.append("userId", userId);
                 formData.append("image", produits.image);

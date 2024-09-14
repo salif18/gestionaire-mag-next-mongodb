@@ -34,12 +34,6 @@ const Login = () => {
         if (user.contacts.length > 0 && user.password.length > 0) {
             try {
                 const res = await axios.post(`${process.env.NEXT_PUBLIC_URI}/auth/login`, 
-                //     {
-                //     headers: {
-                //         'Content-Type': 'application/json',
-                //         'Authorization': `Bearer ${token}`, // Token Bearer dans l'en-tête
-                //     },
-                // }, 
                 user);
                 const data = await res.data;
 
