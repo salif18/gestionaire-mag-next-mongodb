@@ -5,4 +5,4 @@ const generateSecretKey = () => {
     console.log(KEY_TOKEN)
     return KEY_TOKEN
 };
-generateSecretKey()
+generateSecretKey();
