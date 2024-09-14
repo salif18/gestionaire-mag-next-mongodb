@@ -1,8 +1,8 @@
 import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt"
-import Users from "../models/user"
+import Users from "../../models/user"
 import { NextResponse } from "next/server";
-import dbConnect from "../../lib/mongoosedb";
+import dbConnect from "../../../lib/mongoosedb";
 import { config as configDotenv } from "dotenv";
 configDotenv();
 
