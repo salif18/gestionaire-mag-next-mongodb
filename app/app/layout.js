@@ -1,5 +1,5 @@
 import { Inter } from 'next/font/google'
-import '../../public/styles/globals.scss'
+import './globals.scss'
 import BodyLayout from './bodyLayout'
 import { MyStoreProvider } from './context/store'
 
