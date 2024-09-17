@@ -91,7 +91,7 @@ const Produits = () => {
       field: "image", headerName: "Image", width: 100, renderCell: (params) => {
         return (
           <figure className='title'>
-            <Image src={params.row.image ||imageDefault } width={50} height={50} alt=""/>
+            <Image src={params.row.image || imageDefault } width={50} height={50} alt=""/>
           </figure>
         )
       }
