@@ -4,8 +4,9 @@ configDotenv();
 import React, {  useEffect, useState } from 'react';
 import PrintIcon from '@mui/icons-material/Print';
 import axios from 'axios';
-import withAuth from './withAuth';
+
 import Cookies from 'js-cookie';
+import withAuth from "@/app/withAuth";
 
 const Rapports = () => {
   const userId = Cookies.get("cookiesUserId");

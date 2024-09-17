@@ -4,8 +4,8 @@ configDotenv();
 import React, { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import Cookies from 'js-cookie';
-import { MyStore } from "@/app/context/store";
 import withAuth from "@/app/withAuth";
+import { MyStore } from "@/app/context/store";
 
 
 const AddProduits = () => {
