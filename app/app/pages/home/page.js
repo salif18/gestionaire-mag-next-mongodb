@@ -40,7 +40,7 @@ configDotenv();
    
     const getProduits = () => {
       axios
-        .get(`${process.env.NEXT_PUBLIC_URI}/produits/${userId}`, {
+        .get(`${process.env.NEXT_PUBLIC_URI}/products/${userId}`, {
           headers: {
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${token}`,
