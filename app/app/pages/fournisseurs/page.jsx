@@ -7,7 +7,7 @@ import { DataGrid } from '@mui/x-data-grid';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
 import CoPresentIcon from '@mui/icons-material/CoPresent';
-import withAuth from '../../withAuth';
+import withAuth from './withAuth';
 import Cookies from 'js-cookie';
 
 const Fournisseurs = () => {

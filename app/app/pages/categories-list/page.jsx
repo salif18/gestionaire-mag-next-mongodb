@@ -3,9 +3,9 @@ import React, { useEffect, useState } from 'react'
 import { DataGrid } from '@mui/x-data-grid';
 import axios from 'axios';
 import Link from 'next/link';
-import withAuth from '../../withAuth';
 import Cookies from 'js-cookie';
 import { config as configDotenv } from "dotenv";
+import withAuth from '@/app/withAuth';
 configDotenv();
 
 const CategoriesList = () => {

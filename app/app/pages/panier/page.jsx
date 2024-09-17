@@ -1,7 +1,8 @@
 "use client"
-import React, { useContext, useEffect, useState } from "react";
-import { MyStore } from "../../context/store";
+import React, { useContext } from "react";
+
 import { useRouter } from "next/navigation";
+import { MyStore } from "@/app/context/store";
 
 
 const Ventes = () => {

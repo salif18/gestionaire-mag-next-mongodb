@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import { MyStore } from '../context/store';
 import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import GroupsIcon from '@mui/icons-material/Groups';

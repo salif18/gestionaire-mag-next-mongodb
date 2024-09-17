@@ -4,6 +4,7 @@ import Navbar from './components/layouts/Navbar';
 import SideBar from './components/layouts/SideBar';
 import withAuth from './withAuth';
 
+
 const BodyLayout=({ children, interClassName }) =>{
   
   return (

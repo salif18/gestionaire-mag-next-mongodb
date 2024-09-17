@@ -2,10 +2,10 @@
 import { config as configDotenv } from "dotenv";
 configDotenv();
 import React, { useContext, useEffect, useState } from 'react';
-import { MyStore } from '../../context/store';
 import axios from 'axios';
-import withAuth from '../../withAuth';
 import Cookies from 'js-cookie';
+import { MyStore } from "@/app/context/store";
+import withAuth from "@/app/withAuth";
 
 
 const AddProduits = () => {

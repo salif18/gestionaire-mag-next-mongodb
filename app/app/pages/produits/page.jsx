@@ -3,7 +3,6 @@ import { config as configDotenv } from "dotenv";
 configDotenv();
 import React, { useContext, useEffect, useState } from 'react';
 import EditIcon from '@mui/icons-material/Edit';
-import { MyStore } from '../../context/store';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import DeleteIcon from '@mui/icons-material/Delete';
 import axios from 'axios';
@@ -12,8 +11,9 @@ import { useRouter } from 'next/navigation'
 import { DataGrid } from '@mui/x-data-grid';
 import imageDefault from "@/public/images/defaultImg.png"
 import Image from 'next/image';
-import withAuth from '../../withAuth';
+import withAuth from './withAuth';
 import Cookies from 'js-cookie';
+import { MyStore } from "@/app/context/store";
 
 const Produits = () => {
   const userId = Cookies.get("cookiesUserId");

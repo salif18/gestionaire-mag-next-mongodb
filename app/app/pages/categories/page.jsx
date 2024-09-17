@@ -1,6 +1,5 @@
 "use client"
 import React, { useContext, useEffect, useState } from 'react';
-import { MyStore } from '../../context/store';
 import EditIcon from '@mui/icons-material/Edit';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import axios from 'axios';
@@ -10,9 +9,10 @@ import { DataGrid } from '@mui/x-data-grid';
 import Link from 'next/link';
 import Image from 'next/image';
 import imageDefault from "@/public/images/defaultImg.png"
-import withAuth from '../../withAuth';
 import Cookies from 'js-cookie';
 import { config as configDotenv } from "dotenv";
+import { MyStore } from '@/app/context/store';
+import withAuth from '@/app/withAuth';
 configDotenv();
 
 const Categories = () => {

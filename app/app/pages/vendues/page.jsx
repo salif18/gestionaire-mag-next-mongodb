@@ -4,10 +4,8 @@ import axios from 'axios';
 import RotateLeftIcon from '@mui/icons-material/RotateLeft';
 import { useRouter } from 'next/navigation';
 import { DataGrid } from '@mui/x-data-grid';
-import { useContext } from 'react';
-import { MyStore } from '../../context/store';
-import withAuth from '../../withAuth';
 import Cookies from 'js-cookie';
+import withAuth from '@/app/withAuth';
 
 
 

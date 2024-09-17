@@ -1,7 +1,8 @@
 import React, { useContext } from 'react';
 
-import { MyStore } from '../context/store';
+
 import EuroIcon from '@mui/icons-material/Euro';
+import { MyStore } from '../context/store';
 
 const CoutProduct = () => {
     const {venteTotal,beneficeGeneral} = useContext(MyStore)

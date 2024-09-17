@@ -2,7 +2,7 @@
 import React, { useContext, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { MyStore } from '@/src/app/context/store';
-import withAuth from '@/src/app/withAuth';
+import withAuth from './withAuth';
 import ChecklistIcon from '@mui/icons-material/Checklist';
 
 

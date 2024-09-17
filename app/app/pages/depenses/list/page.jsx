@@ -3,10 +3,11 @@ import { config as configDotenv } from "dotenv";
 configDotenv();
 
 import React, { useEffect, useState } from 'react'
-import withAuth from '../../../withAuth'
+
 import axios from 'axios';
 import PlaylistRemoveIcon from '@mui/icons-material/PlaylistRemove';
 import Cookies from 'js-cookie';
+import withAuth from "@/app/withAuth";
 
 const DepenseListe = () => {
   const userId = Cookies.get("cookiesUserId");

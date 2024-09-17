@@ -1,9 +1,9 @@
 "use client"
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import withAuth from '../../withAuth'
 import Cookies from 'js-cookie'
 import { config as configDotenv } from "dotenv";
+import withAuth from '@/app/withAuth';
 configDotenv();
 
 

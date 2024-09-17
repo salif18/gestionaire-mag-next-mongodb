@@ -3,6 +3,7 @@ import './globals.scss'
 import BodyLayout from './bodyLayout'
 import { MyStoreProvider } from './context/store'
 
+
 const inter = Inter({ subsets: ['latin'] })
 
  export const metadata = {

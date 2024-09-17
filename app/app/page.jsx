@@ -2,7 +2,7 @@
 
 import axios from 'axios'
 import { useRouter } from 'next/navigation'
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Cookies from 'js-cookie';
 import { config as configDotenv } from "dotenv";
 configDotenv();

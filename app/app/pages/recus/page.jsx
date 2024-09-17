@@ -1,9 +1,9 @@
 "use client"
 import React, { useContext } from "react";
-import { MyStore } from "../../context/store";
 import PrintIcon from "@mui/icons-material/Print";
 import { useRouter } from "next/navigation";
 import Cookies from "js-cookie";
+import { MyStore } from "@/app/context/store";
 
 const Recus = () => {
   const router = useRouter();
