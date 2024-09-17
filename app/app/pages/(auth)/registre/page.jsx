@@ -1,12 +1,12 @@
 "use client"
-
+import { config as configDotenv } from "dotenv";
+configDotenv();
 import axios from 'axios'
 import Cookies from 'js-cookie'
 import { useRouter } from 'next/navigation'
 
 import React, { useEffect, useState } from 'react'
-import { config as configDotenv } from "dotenv";
-configDotenv();
+
 
 const Registre = () => {
     const router = useRouter();
@@ -29,12 +29,7 @@ const Registre = () => {
         e.preventDefault();
         if (user.name.length > 0 && user.numero.length > 0 && user.email.length > 0 && user.password.length > 0) {
             try {
-                const res = await axios.post(`${process.env.NEXT_PUBLIC_URI}/auth/registre`,{
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${token}`, // Token Bearer dans l'en-tête
-                    },
-                }, user);
+                const res = await axios.post(`${process.env.NEXT_PUBLIC_URI}/auth/registre`, user);
                 const data = await res.data;
 
                 if (res.status === 201) { // Vérification du statut de la réponse

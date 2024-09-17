@@ -1,11 +1,11 @@
 "use client"
-
+import { config as configDotenv } from "dotenv";
+configDotenv();
 import axios from 'axios'
 import { useRouter } from 'next/navigation'
 import React, { useEffect, useState } from 'react';
 import Cookies from 'js-cookie';
-import { config as configDotenv } from "dotenv";
-configDotenv();
+
 
 const Login = () => {
     const token = Cookies.get('cookiesToken');
@@ -33,12 +33,7 @@ const Login = () => {
         e.preventDefault();
         if (user.contacts.length > 0 && user.password.length > 0) {
             try {
-                const res = await axios.post(`${process.env.NEXT_PUBLIC_URI}/auth/login`, {
-                    headers: {
-                      'Content-Type': 'application/json',
-                      'Authorization': `Bearer ${token}`,
-                    },
-                  },
+                const res = await axios.post(`${process.env.NEXT_PUBLIC_URI}/auth/login`,
                 user);
                 const data = await res.data;
 
