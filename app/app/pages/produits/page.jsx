@@ -11,9 +11,9 @@ import { useRouter } from 'next/navigation'
 import { DataGrid } from '@mui/x-data-grid';
 import imageDefault from "@/public/images/defaultImg.png"
 import Image from 'next/image';
-import withAuth from './withAuth';
 import Cookies from 'js-cookie';
 import { MyStore } from "@/app/context/store";
+import withAuth from "@/app/withAuth";
 
 const Produits = () => {
   const userId = Cookies.get("cookiesUserId");
