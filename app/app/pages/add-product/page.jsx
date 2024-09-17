@@ -49,7 +49,7 @@ const AddProduits = () => {
 
     const pickedImage = (e) => {
         const file = e.target.files[0];
-        if (file) {
+        if (file && file.type.startsWith("image/")) {
             setProduits({ ...produits, image: file });
         } else {
             setError("Veuillez sélectionner une image.");
