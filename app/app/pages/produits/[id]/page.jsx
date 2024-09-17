@@ -33,7 +33,7 @@ const SingleProduits = () => {
 
   //recuperer le produit de id
   useEffect(() => {
-    axios.get(`${process.env.NEXT_PUBLIC_URI}/produits/single/${id}`, {
+    axios.get(`${process.env.NEXT_PUBLIC_URI}/products/single/${id}`, {
       headers: {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${token}`,
@@ -97,7 +97,7 @@ const SingleProduits = () => {
     // formData.append("stocks", produits.stocks);
     // formData.append("date_achat", produits.date_achat);
     
-    axios.put(`${process.env.NEXT_PUBLIC_URI}/produits/single/${id}`, produits, {
+    axios.put(`${process.env.NEXT_PUBLIC_URI}/products/single/${id}`, produits, {
       headers: {
         'Content-Type': 'application/json',
         // 'Content-Type': 'multipart/form-data',
@@ -120,7 +120,7 @@ const SingleProduits = () => {
 
   //supprimer le produit
   const handledelete = (id) => {
-    axios.delete(`${process.env.NEXT_PUBLIC_URI}/produits/single/${id}`, {
+    axios.delete(`${process.env.NEXT_PUBLIC_URI}/products/single/${id}`, {
       headers: {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${token}`,

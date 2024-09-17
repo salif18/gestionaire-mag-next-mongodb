@@ -76,7 +76,7 @@ const AddProduits = () => {
                 formData.append("stocks", produits.stocks);
                 formData.append("date_achat", produits.date_achat);
     
-                const res = await axios.post( `${process.env.NEXT_PUBLIC_URI}/produits`, formData, {
+                const res = await axios.post( `${process.env.NEXT_PUBLIC_URI}/products`, formData, {
                     headers: {
                         'Content-Type': 'multipart/form-data',
                         'Authorization': `Bearer ${token}`,
