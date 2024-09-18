@@ -40,7 +40,7 @@ const SingleProduits = () => {
       },
     })
       .then((res) => {
-        setItems(res.data.results)
+        setItems(res.data.produits)
         setProduits({
           nom: res.data.results.nom || "",
           categories: res.data.results.categories || "",
