@@ -82,7 +82,7 @@ const AddProduits = () => {
                 formData.append("stocks", produits.stocks);
                 formData.append("date_achat", produits.date_achat);
     
-                const res = await axios.post( `http:localhost:8080/api/products`, formData, {
+                const res = await axios.post( `http://localhost:8080/api/products`, formData, {
                     headers: {
                         'Content-Type': 'multipart/form-data',
                         'Authorization': `Bearer ${token}`,
