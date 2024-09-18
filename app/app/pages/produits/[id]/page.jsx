@@ -19,7 +19,6 @@ const SingleProduits = () => {
   const router = useRouter();
   const { id } = useParams()
 
-  const [messages, setMessages] = useState('')
   //etat initial des champs de formulaire
   const [produits, setProduits] = useState({
     image:"",
@@ -126,7 +125,7 @@ const SingleProduits = () => {
       },
     })
       .then((res) => {
-        setMessages(res.data.message)
+        setAlertMessage(res.data.message)
       })
       .catch((err) => console.error(err))
   }
@@ -170,10 +169,7 @@ const SingleProduits = () => {
           <input type='number' name='prix_vente' value={produits.prix_vente} onChange={(e) => handleChange(e)} placeholder={items?.prix_vente} />
           {produits.prix_vente.length <= 0 && <span>{error}</span>}
         </section>
-        <span className='messge-single'>{messages}</span>
-
-
-
+        
         <section className='form'>
           <label>Nom</label>
           <input type='text' name='nom' value={produits.nom} onChange={(e) => handleChange(e)} placeholder={items?.nom} />
@@ -190,13 +186,11 @@ const SingleProduits = () => {
           {produits.categories.length <= 0 && <span>{error}</span>}
         </section>
 
-
         <section className='form'>
           <label>Quantités</label>
           <input className='input-qty' type='number' name='stocks' value={produits.stocks} onChange={(e) => handleChange(e)} placeholder={items?.stocks} />
           {produits.stocks.length <= 0 && <span>{error}</span>}
         </section>
-
 
         <button className='btn-save-modif' onClick={() => handlePut(items._id)}>{!alertMessage ? "Modifier" : alertMessage}</button>
         <button className='btn-supp-modif' onClick={() => handledelete(items._id)}>{alertMessage || "Supprimer"}</button>
