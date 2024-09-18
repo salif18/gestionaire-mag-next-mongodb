@@ -199,7 +199,7 @@ const SingleProduits = () => {
 
 
         <button className='btn-save-modif' onClick={() => handlePut(items._id)}>{!alertMessage ? "Modifier" : alertMessage}</button>
-        <button className='btn-supp-modif' onClick={() => handledelete(items._id)}>{alertMessage || Supprimer}</button>
+        <button className='btn-supp-modif' onClick={() => handledelete(items._id)}>{alertMessage || "Supprimer"}</button>
       </section>
     </main>
 
