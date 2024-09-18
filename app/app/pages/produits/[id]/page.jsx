@@ -87,20 +87,19 @@ const SingleProduits = () => {
   //fonction envoie des donnee modifier dans le backend
   const handlePut = (id) => {
 
-    // const formData = new FormData();
-    // formData.append("userId", userId);
-    // formData.append("image", produits.image);
-    // formData.append("nom", produits.nom);
-    // formData.append("categories", produits.categories);
-    // formData.append("prix_achat", produits.prix_achat);
-    // formData.append("prix_vente", produits.prix_vente);
-    // formData.append("stocks", produits.stocks);
-    // formData.append("date_achat", produits.date_achat);
+    const formData = new FormData();
+    formData.append("userId", userId);
+    formData.append("image", produits.image);
+    formData.append("nom", produits.nom);
+    formData.append("categories", produits.categories);
+    formData.append("prix_achat", produits.prix_achat);
+    formData.append("prix_vente", produits.prix_vente);
+    formData.append("stocks", produits.stocks);
+    formData.append("date_achat", produits.date_achat);
     
-    axios.put(`${process.env.NEXT_PUBLIC_URI}/products/single/${id}`, produits, {
+    axios.put(`${process.env.NEXT_PUBLIC_URI}/products/single/${id}`, formData, {
       headers: {
-        'Content-Type': 'application/json',
-        // 'Content-Type': 'multipart/form-data',
+        'Content-Type': 'multipart/form-data',
         'Authorization': `Bearer ${token}`,
       },
     })
