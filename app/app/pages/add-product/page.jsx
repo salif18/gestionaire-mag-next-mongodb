@@ -49,10 +49,10 @@ const AddProduits = () => {
 
     const pickedImage = (e) => {
         const file = e.target.files[0];
-        if (file && file.type.startsWith("image/")) {
+        if (file) {
             setProduits({ ...produits, image: file });
         } else {
-            setError("Veuillez sélectionner une image.");
+            setProduits("");
         }
     };
    
@@ -61,7 +61,13 @@ const AddProduits = () => {
         e.preventDefault();
         setError(null);
     
-        if (!produits.nom || !produits.prix_achat || !produits.prix_vente || !produits.stocks || !produits.date_achat || !produits.categories ) {
+        if (!produits.nom || 
+            !produits.prix_achat || 
+            !produits.prix_vente || 
+            !produits.stocks || 
+            !produits.date_achat || 
+            !produits.categories 
+        ) {
             setError('Veuillez remplir tous les champs.');
         } else {
             try {
@@ -123,27 +129,35 @@ const AddProduits = () => {
 
             <section className='form'>
                     <label htmlFor='upload'>Image du produit</label>
-                    <input type='file' id='upload' name='image' accept='image/*' onChange={(e) => pickedImage(e)} placeholder="Photo.." />
-                    {produits.prix_achat.length <= 0 && <span>{error}</span>}
+                    <input 
+                       type='file' 
+                       id='upload' 
+                       name='image' 
+                       accept='image/*' 
+                       onChange={(e) => pickedImage(e)} 
+                       placeholder="Photo.." 
+
+                       />
+                    {error && !produits.image && <span>{error}</span>}
                 </section>
 
                 <section className='form'>
                     <label>Prix d'achats</label>
                     <input type='number' name='prix_achat' value={produits.prix_achat} onChange={(e) => handleChange(e)} placeholder="Prix d'achat.." />
-                    {produits.prix_achat.length <= 0 && <span>{error}</span>}
+                    {error && !produits.prix_achat && <span>{error}</span>}
                 </section>
 
                 <section className='form'>
                     <label>Prix de ventes</label>
                     <input type='number' name='prix_vente' value={produits.prix_vente} onChange={(e) => handleChange(e)} placeholder='Prix de vente..' />
-                    {produits.prix_vente.length <= 0 && <span>{error}</span>}
+                    {error && !produits.prix_vente && <span>{error}</span>}
                 </section>
                 <span className='messge-add'>{message}</span>
 
                 <section className='form'>
                     <label>Nom</label>
                     <input type='text' name='nom' value={produits.nom} onChange={(e) => handleChange(e)} placeholder='Nom du produit' />
-                    {produits.nom.length <= 0 && <span>{error}</span>}
+                    {error && !produits.nom && <span>{error}</span>}
                 </section>
 
                 <section className='form'>
@@ -154,22 +168,22 @@ const AddProduits = () => {
                             <option key={item.name} value={item.name}>{item.name}</option>
                         ))}
                     </select>
-                    {produits.categories.length <= 0 && <span>{error}</span>}
+                    {error && !produits.categories && <span>{error}</span>}
                 </section>
 
                 <section className='form'>
                     <label>Date</label>
                     <input type='date' name='date_achat' value={produits.date_achat} onChange={(e) => handleChange(e)} />
-                    {produits.date_achat.length <= 0 && <span>{error}</span>}
+                    {error && !produits.date_achat && <span>{error}</span>}
                 </section>
 
 
                 <section className='form'>
                     <label>Quantités</label>
                     <input className='input-qty' type='number' name='stocks' value={produits.stocks} onChange={(e) => handleChange(e)} placeholder='Quantites de stocks' />
-                    {produits.stocks.length <= 0 && <span>{error}</span>}
+                    {error && !produits.stocks && <span>{error}</span>}
                 </section>
-                <button className='btn-save' type='submit'>{!alertMessage ? "Enregistrer" : alertMessage}</button>
+                <button className='btn-save' type='submit'>{alertMessage || "Enregistrer"}</button>
             </form>
         </main>
 
