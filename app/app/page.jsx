@@ -33,7 +33,7 @@ const Login = () => {
         e.preventDefault();
         if (user.contacts.length > 0 && user.password.length > 0) {
             try {
-                const res = await axios.post(`${process.env.NEXT_PUBLIC_URI}/auth/login`,
+                const res = await axios.post(`http://localhost:8080/api/auth/login`,
                 user);
                 const data = await res.data;
 

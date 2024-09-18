@@ -104,7 +104,7 @@ const AddProduits = () => {
                 }
             } catch (e) {
                 setAlertMessage(e.response?.data?.message || "Erreur lors de l'ajout du produit.");
-                console.error(e);
+                // console.error(e);
             }
         }
     };
