@@ -49,7 +49,7 @@ const Login = () => {
                         Cookies.set('userName', data.userName, { expires: 1 });
                         Cookies.set('entreprise', data.entreprise, { expires: 1 });
                     } else {
-                        sessionStorage.setItem("sessionToken", data.token)
+                        sessionStorage.setItem("sessionToken", data.token);
                     }
 
                     setUser({ contacts: "", password: "" });
