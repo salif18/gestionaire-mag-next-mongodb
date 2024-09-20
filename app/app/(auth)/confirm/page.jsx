@@ -31,6 +31,7 @@ const ConfirmPage = () => {
                 if(res.status === 200){
                     router.push("/");
                     setServerMessage(data.message)
+                    console.log(data.message)
                 }
                 
          }catch(e){
