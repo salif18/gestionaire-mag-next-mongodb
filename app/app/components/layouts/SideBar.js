@@ -21,16 +21,16 @@ const SideBar = () => {
     console.log(isMenuOpen)
     const pathname = usePathname()
     const navLinks = [
-        {name:"Tableau de bord", href:'/pages/home', icon :GridViewIcon},
-        {name:"Stocks", href:'/pages/produits', icon :AccountBalanceOutlinedIcon},
-        {name:"Stocks par categories", href:'/pages/categories', icon :CategoryIcon},
-        {name:"Categorie liste", href:'/pages/categories-list', icon :ClearAllOutlinedIcon},
-        {name:"Panier de vente", href:'/pages/panier', icon :ShoppingCartIcon},
-        {name:"Ventes effectuées", href:'/pages/vendues', icon :MonetizationOnIcon},
-        {name:"Rapports", href:'/pages/rapports', icon :AssignmentIcon},
-        {name:"Meilleur vente", href:'/pages/best-ventes', icon :AutoAwesomeIcon},
-        {name:"Dépenses", href:'/pages/depenses', icon :StyleIcon},
-        {name:"Fournisseurs", href:'/pages/fournisseurs', icon :AccountBoxIcon},
+        {name:"Tableau de bord", href:'/home', icon :GridViewIcon},
+        {name:"Stocks", href:'/produits', icon :AccountBalanceOutlinedIcon},
+        {name:"Stocks par categories", href:'/categories', icon :CategoryIcon},
+        {name:"Categorie liste", href:'/categories-list', icon :ClearAllOutlinedIcon},
+        {name:"Panier de vente", href:'/panier', icon :ShoppingCartIcon},
+        {name:"Ventes effectuées", href:'/vendues', icon :MonetizationOnIcon},
+        {name:"Rapports", href:'/rapports', icon :AssignmentIcon},
+        {name:"Meilleur vente", href:'/best-ventes', icon :AutoAwesomeIcon},
+        {name:"Dépenses", href:'/depenses', icon :StyleIcon},
+        {name:"Fournisseurs", href:'/fournisseurs', icon :AccountBoxIcon},
         
 
     ]

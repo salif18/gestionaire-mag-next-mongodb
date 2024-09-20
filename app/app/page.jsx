@@ -16,7 +16,7 @@ const Login = () => {
 
     useEffect(() => {
         if (token) {
-            router.replace('/pages/home');
+            router.replace('/home');
         }
     }, [token, router]);
 
@@ -52,7 +52,7 @@ const Login = () => {
                     }
 
                     setUser({ contacts: "", password: "" });
-                    router.push("/pages/home"); // Redirige vers la page d'accueil après la connexion
+                    router.push("/home"); // Redirige vers la page d'accueil après la connexion
                 }
             } catch (e) {
                 if (e.response) {
@@ -121,12 +121,12 @@ const Login = () => {
                         </label>
                     </section>
                     <section className='forget-password'>
-                        <p onClick={()=>router.push("/pages/reset")}>Mot de passe oublié ?</p>
+                        <p onClick={()=>router.push("/reset")}>Mot de passe oublié ?</p>
                     </section>
                     <button className='btn-connexion' type='submit'>Se connecter</button>
                     <section className='create-new'>
                         <p className='no-compte'>Vous n'avez pas de compte ?</p>
-                        <p onClick={() => router.push("/pages/registre")}>Créer votre compte</p>
+                        <p onClick={() => router.push("/registre")}>Créer votre compte</p>
                     </section>
                 </form>
             </section>
