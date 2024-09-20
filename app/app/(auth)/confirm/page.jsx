@@ -24,23 +24,19 @@ const ConfirmPage = () => {
                 new_password: user.newPassword,
                 confirm_password:user.confirmPassword
             }
-            console.log(newData)
              try{
                 const res = await axios.post(`${process.env.NEXT_PUBLIC_URI}/reset/reset_valid`, newData);
                 const data = await res.data;
                 if(res.status === 200){
                     router.push("/");
                     setServerMessage(data.message)
-                    console.log(data.message)
                 }
                 
          }catch(e){
             if (e.response) {
-                console.log(e.response.data.message)
                 setServerMessage(e.response.data.message); // Message d'erreur spécifique depuis le serveur
             } else {
                 setAlertMessage("Erreur lors de la connexion. Veuillez réessayer.");
-                console.log("Erreur lors de la connexion. Veuillez réessayer.")
             }
          }
         }

@@ -18,11 +18,11 @@ const ResetPage = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (user.numero.length > 0 && user.email.length > 0) {
-            console.log(user)
+           
             try {
                 const res = await axios.post(`${process.env.NEXT_PUBLIC_URI}/reset/reset_token`, user);
                 const data = await res.data;
-                console.log(data)
+              
                 if (res.status === 200) {
                   
                     router.push("/confirm");
@@ -31,11 +31,11 @@ const ResetPage = () => {
                 }
             } catch (e) {
                 if (e.response) {
-                    console.log(e.response.data.message)
+                 
                     setServerMessage(e.response.data.message); // Message d'erreur spécifique depuis le serveur
                 } else {
                     setServerMessage("Erreur lors de la connexion. Veuillez réessayer.");
-                    console.log("Erreur lors de la connexion. Veuillez réessayer.")
+                    
                 }
             }
         } else {
