@@ -21,7 +21,7 @@ const ResetPage = () => {
                 const res = await axios.post(`${process.env.NEXT_PUBLIC_URI}/reset/reset_token`, data);
                 const data = await res.data;
                 if(res.status === 200){
-                    router.push("/pages/confirm");
+                    router.push("/confirm");
                 }else{
                   setAlertMessage(data.message)
                 }           
