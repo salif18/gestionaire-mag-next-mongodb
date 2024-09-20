@@ -18,7 +18,7 @@ const ConfirmPage = () => {
 
     const handleSbumit=async(e)=>{
         e.preventDefault();
-        if(data.numero && data.email){
+        if(data.numero.length > 0 && data.email.length > 0){
             const newData ={
                 reset_token: data.resetToken,
                 new_password: data.new_password,

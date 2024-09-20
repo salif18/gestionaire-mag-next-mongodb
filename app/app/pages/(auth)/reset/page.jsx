@@ -16,7 +16,7 @@ const ResetPage = () => {
 
     const handleSbumit=async(e)=>{
         e.preventDefault();
-        if(data.numero && data.email){
+        if(data.numero.length > 0 && data.email.length > 0){
              try{
                 const res = await axios.post(`${process.env.NEXT_PUBLIC_URI}/reset/reset_token`, data);
                 const data = await res.data;
