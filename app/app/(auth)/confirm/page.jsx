@@ -8,20 +8,20 @@ const ConfirmPage = () => {
 
     const router = useRouter();
     const [alertMessage, setAlertMessage] = useState("");
-    const [data , setData ] = useState({resetToken:"", newPassword:"", confirmPassword:""});
+    const [user , setUser ] = useState({resetToken:"", newPassword:"", confirmPassword:""});
 
     const handleChange=(e)=>{
      const {name , value } = e.target;
-     setData({...data ,[name]:value})
+     setUser({...user ,[name]:value})
     }
 
     const handleSbumit=async(e)=>{
         e.preventDefault();
-        if(data.numero.length > 0 && data.email.length > 0){
+        if(user.resetToken.length > 0 && user.newPassword.length > 0 && user.confirmPassword.length > 0){
             const newData ={
-                reset_token: data.resetToken,
-                new_password: data.newPassword,
-                confirm_password:data.confirmPassword
+                reset_token: user.resetToken,
+                new_password: user.newPassword,
+                confirm_password:user.confirmPassword
             }
             console.log(newData)
              try{
@@ -59,18 +59,18 @@ const ConfirmPage = () => {
        <p>Veuillez entrer les bonnes informations pour pouvoir recuperer votre compte</p>
          <section className='form-content'>
           <label htmlFor='password' >Nouveau</label>
-          <input id='password' type='password' name='newPassword' value={data.newPassword} onChange={handleChange} placeholder='nouveau mot de passe' />
-          {data.newPassword.length > 0 ? null : <span>{alertMessage}</span>}
+          <input id='password' type='password' name='newPassword' value={user.newPassword} onChange={handleChange} placeholder='nouveau mot de passe' />
+          {user.newPassword.length > 0 ? null : <span>{alertMessage}</span>}
          </section>
          <section className='form-content'>
           <label htmlFor='confirm'>Confirmation</label>
-          <input id='confirm' type='password' name='confirmPassword' value={data.confirmPassword} onChange={handleChange} placeholder='confirmation de mot de passe'/>
-          {data.confirmPassword.length > 0 ? null : <span>{alertMessage}</span>}
+          <input id='confirm' type='password' name='confirmPassword' value={user.confirmPassword} onChange={handleChange} placeholder='confirmation de mot de passe'/>
+          {user.confirmPassword.length > 0 ? null : <span>{alertMessage}</span>}
          </section>
          <section className='form-content'>
           <label htmlFor='code'>Code de validation</label>
-          <input id='code' type='number' name='resetToken' value={data.resetToken} onChange={handleSbumit} placeholder='entrer les quatres chiffres envoyer sur votre email'/>
-          {data.resetToken.length > 0 ? null : <span>{alertMessage}</span>}
+          <input id='code' type='number' name='resetToken' value={user.resetToken} onChange={handleSbumit} placeholder='entrer les quatres chiffres envoyer sur votre email'/>
+          {user.resetToken.length > 0 ? null : <span>{alertMessage}</span>}
          </section>
          <button className='btn-send' type='submit' >Envoyer</button>
        </form>
