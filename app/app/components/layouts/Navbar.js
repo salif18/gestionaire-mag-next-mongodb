@@ -1,6 +1,6 @@
 "use client"
 import React, { useContext, useState } from 'react';
-import image from "/public/images/salespule.jpg";
+import image from "/public/images/salespulse.jpg";
 import Image from 'next/image';
 import Cookies from 'js-cookie';
 import MenuIcon from '@mui/icons-material/Menu';
