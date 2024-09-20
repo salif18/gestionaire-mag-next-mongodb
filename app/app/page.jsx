@@ -122,7 +122,7 @@ const Login = () => {
                         </label>
                     </section>
                     <section className='forget-password'>
-                        <p>Mot de passe oublié ?</p>
+                        <p onClick={()=>router.push("/pages/reset")}>Mot de passe oublié ?</p>
                     </section>
                     <button className='btn-connexion' type='submit'>Se connecter</button>
                     <section className='create-new'>

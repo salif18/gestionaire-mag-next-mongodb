@@ -13,10 +13,12 @@ import StyleIcon from '@mui/icons-material/Style';
 import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';
 import ClearAllOutlinedIcon from '@mui/icons-material/ClearAllOutlined';
 import { usePathname } from 'next/navigation';
-import { MyStore } from '../../context/store';
+import { MyStore } from '@/app/context/store';
+
 
 const SideBar = () => {
-    const { logout } = useContext(MyStore)
+    const { logout ,isMenuOpen} = useContext(MyStore)
+    console.log(isMenuOpen)
     const pathname = usePathname()
     const navLinks = [
         {name:"Tableau de bord", href:'/pages/home', icon :GridViewIcon},
@@ -33,8 +35,8 @@ const SideBar = () => {
 
     ]
     return (
-        <aside className='sidebar'>
-           
+        <aside className={`sidebar ${ isMenuOpen && " active" }`}>
+          
            {
             navLinks.map((link)=>{
                 const isActive = pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href));

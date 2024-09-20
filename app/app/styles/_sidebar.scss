@@ -1,9 +1,12 @@
 .sidebar{
+    position: relative;
     min-width: 250px;;
     display: flex;
     flex-direction: column;
     background-color: rgb(3, 3, 3);
     min-height:91vh;
+
+    
     .liens{
         display: flex;
         margin: 20px;
@@ -54,3 +57,4 @@
         }
     }
 }
+
