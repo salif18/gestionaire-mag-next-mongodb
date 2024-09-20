@@ -13,7 +13,7 @@ const ResetPage = () => {
      setData({...data ,[name]:value})
     }
 
-    const handleSbumit=async(e)=>{
+    const handleSubmit=async(e)=>{
         e.preventDefault();
         if(data.numero.length > 0 && data.email.length > 0){
             console.log(data)
@@ -48,7 +48,7 @@ const ResetPage = () => {
 
   return (
     <section className='reset-page'>
-       <form className='form' onSubmit={handleSbumit}>
+       <form className='form' onSubmit={handleSubmit}>
        <h1>Recuperation de votre compte</h1>
        <p>Veuillez entrer les bonnes informations pour pouvoir recuperer votre compte</p>
          <section className='form-content'>
