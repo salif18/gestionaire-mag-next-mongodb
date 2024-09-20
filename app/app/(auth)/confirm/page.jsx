@@ -71,7 +71,7 @@ const ConfirmPage = () => {
          </section>
          <section className='form-content'>
           <label htmlFor='code'>Code de validation</label>
-          <input id='code' type='number' name='resetToken' value={user.resetToken} onChange={handleSbumit} placeholder='entrer les quatres chiffres envoyer sur votre email'/>
+          <input id='code' type='number' name='resetToken' value={user.resetToken} onChange={handleChange} placeholder='entrer les quatres chiffres envoyer sur votre email'/>
           {user.resetToken.length > 0 ? null : <span>{alertMessage}</span>}
          </section>
          <button className='btn-send' type='submit' >Envoyer</button>
