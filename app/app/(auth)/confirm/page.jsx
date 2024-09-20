@@ -8,6 +8,7 @@ const ConfirmPage = () => {
 
     const router = useRouter();
     const [alertMessage, setAlertMessage] = useState("");
+    const [serverMessage, setServerMessage] = useState("");
     const [user , setUser ] = useState({resetToken:"", newPassword:"", confirmPassword:""});
 
     const handleChange=(e)=>{
@@ -29,13 +30,13 @@ const ConfirmPage = () => {
                 const data = await res.data;
                 if(res.status === 200){
                     router.push("/");
-                    setAlertMessage(data.message)
+                    setServerMessage(data.message)
                 }
                 
          }catch(e){
             if (e.response) {
                 console.log(e.response.data.message)
-                setAlertMessage(e.response.data.message); // Message d'erreur spécifique depuis le serveur
+                setServerMessage(e.response.data.message); // Message d'erreur spécifique depuis le serveur
             } else {
                 setAlertMessage("Erreur lors de la connexion. Veuillez réessayer.");
                 console.log("Erreur lors de la connexion. Veuillez réessayer.")
@@ -49,6 +50,7 @@ const ConfirmPage = () => {
         if (alertMessage) {
             const timer = setTimeout(() => {
                 setAlertMessage('');
+                setServerMessage("")
             }, 2000);
             return () => clearTimeout(timer);
         }
@@ -74,6 +76,7 @@ const ConfirmPage = () => {
           <input id='code' type='number' name='resetToken' value={user.resetToken} onChange={handleChange} placeholder='entrer les quatres chiffres envoyer sur votre email'/>
           {user.resetToken.length > 0 ? null : <span>{alertMessage}</span>}
          </section>
+         <span>{serverMessage}</span>
          <button className='btn-send' type='submit' >Envoyer</button>
        </form>
       </section>

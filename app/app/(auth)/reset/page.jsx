@@ -7,6 +7,7 @@ import axios from "axios";
 const ResetPage = () => {
     const router = useRouter();
     const [alertMessage, setAlertMessage] = useState("");
+    const [serverMessage, setServerMessage] = useState("");
     const [user, setUser] = useState({ numero: "", email: "" });
 
     const handleChange = (e) => {
@@ -23,7 +24,7 @@ const ResetPage = () => {
                 const data = await res.data;
                 console.log(data)
                 if (res.status === 200) {
-
+                  
                     router.push("/confirm");
                 } else {
                     setAlertMessage(data.message)
@@ -31,9 +32,9 @@ const ResetPage = () => {
             } catch (e) {
                 if (e.response) {
                     console.log(e.response.data.message)
-                    setAlertMessage(e.response.data.message); // Message d'erreur spécifique depuis le serveur
+                    setServerMessage(e.response.data.message); // Message d'erreur spécifique depuis le serveur
                 } else {
-                    setAlertMessage("Erreur lors de la connexion. Veuillez réessayer.");
+                    setServerMessage("Erreur lors de la connexion. Veuillez réessayer.");
                     console.log("Erreur lors de la connexion. Veuillez réessayer.")
                 }
             }
@@ -46,6 +47,7 @@ const ResetPage = () => {
         if (alertMessage) {
             const timer = setTimeout(() => {
                 setAlertMessage('');
+                setServerMessage("")
             }, 2000);
             return () => clearTimeout(timer);
         }
@@ -66,6 +68,7 @@ const ResetPage = () => {
                     <input id='email' type='email' name='email' value={user.email} onChange={handleChange} placeholder='email' />
                     {user.email.length > 0 ? null : <span>{alertMessage}</span>}
                 </section>
+                <span>{serverMessage}</span>
                 <button className='btn-send' type='submit' >Envoyer</button>
             </form>
         </section>
