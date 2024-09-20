@@ -34,9 +34,11 @@ const ConfirmPage = () => {
                 
          }catch(e){
             if (e.response) {
+                console.log(e.response.data.message)
                 setAlertMessage(e.response.data.message); // Message d'erreur spécifique depuis le serveur
             } else {
                 setAlertMessage("Erreur lors de la connexion. Veuillez réessayer.");
+                console.log("Erreur lors de la connexion. Veuillez réessayer.")
             }
          }
         }
