@@ -18,7 +18,7 @@ import { MyStore } from '@/app/context/store';
 
 const SideBar = () => {
     const { logout ,isMenuOpen} = useContext(MyStore)
-    console.log(isMenuOpen)
+ 
     const pathname = usePathname()
     const navLinks = [
         {name:"Tableau de bord", href:'/home', icon :GridViewIcon},
