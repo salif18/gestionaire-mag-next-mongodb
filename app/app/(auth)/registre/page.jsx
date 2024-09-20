@@ -44,7 +44,7 @@ const Registre = () => {
                         email: "",
                         password: ""
                     });
-                    router.push("/pages/home"); // Redirige vers la page d'accueil après l'inscription
+                    router.push("/home"); // Redirige vers la page d'accueil après l'inscription
                 }
             } catch (e) {
                 if (e.response) {
