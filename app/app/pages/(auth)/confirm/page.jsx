@@ -3,7 +3,7 @@
 import { config as configDotenv } from "dotenv";
 configDotenv();
 import { useRouter } from 'next/navigation'
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 
 const ConfirmPage = () => {
 
