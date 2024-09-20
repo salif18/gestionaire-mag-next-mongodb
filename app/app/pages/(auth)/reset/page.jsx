@@ -16,6 +16,7 @@ const ResetPage = () => {
     const handleSbumit=async(e)=>{
         e.preventDefault();
         if(data.numero.length > 0 && data.email.length > 0){
+            console.log(data)
              try{
                 const res = await axios.post(`${process.env.NEXT_PUBLIC_URI}/reset/reset_token`, data);
                 const data = await res.data;
@@ -30,8 +31,9 @@ const ResetPage = () => {
                 setAlertMessage("Erreur lors de la connexion. Veuillez réessayer.");
             }
          }
+        }else{
+             setAlertMessage("Veuiller remplir tous les champs")
         }
-        setAlertMessage("Veuiller remplir tous les champs")
     }
 
     useEffect(() => {

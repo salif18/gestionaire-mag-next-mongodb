@@ -23,6 +23,7 @@ const ConfirmPage = () => {
                 new_password: data.newPassword,
                 confirm_password:data.confirmPassword
             }
+            console.log(newData)
              try{
                 const res = await axios.post(`${process.env.NEXT_PUBLIC_URI}/reset/reset_valid`, newData);
                 const data = await res.data;
