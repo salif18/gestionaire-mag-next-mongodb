@@ -13,14 +13,16 @@ const ResetPage = () => {
      setData({...data ,[name]:value})
     }
 
-    const handleSubmit=async(e)=>{
+    const handleSubmit= async(e)=>{
         e.preventDefault();
         if(data.numero.length > 0 && data.email.length > 0){
             console.log(data)
              try{
-                const res = await axios.post(`${process.env.NEXT_PUBLIC_URI}/reset/reset_token`, data);
-                const data = await res.data;
+                const res = await axios.post(`${process.env.NEXT_PUBLIC_URI}/reset/reset_token`,data);
+                const data = await res.data; 
+                   console.log(data)
                 if(res.status === 200){
+                
                     router.push("/confirm");
                 }else{
                   setAlertMessage(data.message)
