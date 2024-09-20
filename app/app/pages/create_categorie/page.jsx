@@ -2,9 +2,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import Cookies from 'js-cookie'
-import { config as configDotenv } from "dotenv";
 import withAuth from '@/app/withAuth';
-configDotenv();
 
 const CreateCategorie = () => {
   const userId = Cookies.get("cookiesUserId");

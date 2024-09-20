@@ -1,6 +1,5 @@
 "use client"
-import { config as configDotenv } from "dotenv";
-configDotenv();
+
 import axios from 'axios'
 import { useRouter } from 'next/navigation'
 import React, { useEffect, useState } from 'react';

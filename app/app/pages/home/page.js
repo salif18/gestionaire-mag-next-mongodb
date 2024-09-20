@@ -14,11 +14,9 @@ import StatGraphique from "../../components/StatGraphique"
 import Cout from "../../components/Cout"
 import StatsWeek from "../../components/StatsWeek"
 import Loading from "../../loading"
-
 import Cookies from "js-cookie"
-import { config as configDotenv } from "dotenv";
 import withAuth from "@/app/withAuth"
-configDotenv();
+
 
   const  Home = () =>{
   const [produits, setProduits] = useState([])

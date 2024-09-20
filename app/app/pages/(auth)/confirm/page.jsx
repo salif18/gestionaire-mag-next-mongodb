@@ -1,7 +1,6 @@
 "use client"
 
-import { config as configDotenv } from "dotenv";
-configDotenv();
+import axios from 'axios';
 import { useRouter } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
 
@@ -21,7 +20,7 @@ const ConfirmPage = () => {
         if(data.numero.length > 0 && data.email.length > 0){
             const newData ={
                 reset_token: data.resetToken,
-                new_password: data.new_password,
+                new_password: data.newPassword,
                 confirm_password:data.confirmPassword
             }
              try{

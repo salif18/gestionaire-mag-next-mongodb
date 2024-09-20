@@ -1,6 +1,4 @@
 "use client"
-import { config as configDotenv } from "dotenv";
-configDotenv();
 
 import React, { useContext, useEffect, useState } from 'react'
 import { DataGrid } from '@mui/x-data-grid';

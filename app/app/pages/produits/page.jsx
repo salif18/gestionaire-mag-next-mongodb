@@ -1,6 +1,5 @@
 "use client"
-import { config as configDotenv } from "dotenv";
-configDotenv();
+
 import React, { useContext, useEffect, useState } from 'react';
 import EditIcon from '@mui/icons-material/Edit';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';

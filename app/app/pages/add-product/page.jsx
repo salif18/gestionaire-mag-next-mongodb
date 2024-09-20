@@ -1,6 +1,5 @@
 "use client"
-import { config as configDotenv } from "dotenv";
-configDotenv();
+
 import React, { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import Cookies from 'js-cookie';

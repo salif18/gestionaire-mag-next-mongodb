@@ -3,9 +3,8 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { DataGrid } from '@mui/x-data-grid';
 import Cookies from 'js-cookie';
-import { config as configDotenv } from "dotenv";
 import withAuth from '@/app/withAuth';
-configDotenv();
+
 
 const BestVente = () => {
     const userId = Cookies.get("cookiesUserId");

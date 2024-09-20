@@ -1,6 +1,5 @@
 "use client"
-import { config as configDotenv } from "dotenv";
-configDotenv();
+
 import axios from 'axios'
 import Cookies from 'js-cookie'
 import { useRouter } from 'next/navigation'

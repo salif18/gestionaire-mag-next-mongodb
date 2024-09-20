@@ -4,9 +4,7 @@ import { DataGrid } from '@mui/x-data-grid';
 import axios from 'axios';
 import Link from 'next/link';
 import Cookies from 'js-cookie';
-import { config as configDotenv } from "dotenv";
 import withAuth from '@/app/withAuth';
-configDotenv();
 
 const CategoriesList = () => {
     const [categories, setCategories] = useState([])

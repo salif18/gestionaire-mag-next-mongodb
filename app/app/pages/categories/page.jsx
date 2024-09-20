@@ -10,10 +10,9 @@ import Link from 'next/link';
 import Image from 'next/image';
 import imageDefault from "@/public/images/defaultImg.png"
 import Cookies from 'js-cookie';
-import { config as configDotenv } from "dotenv";
 import { MyStore } from '@/app/context/store';
 import withAuth from '@/app/withAuth';
-configDotenv();
+
 
 const Categories = () => {
   const { handleAddPanier } = useContext(MyStore)

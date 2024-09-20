@@ -1,9 +1,6 @@
 "use client"
-import { config as configDotenv } from "dotenv";
-configDotenv();
 
 import React, { useEffect, useState } from 'react'
-
 import axios from 'axios';
 import PlaylistRemoveIcon from '@mui/icons-material/PlaylistRemove';
 import Cookies from 'js-cookie';
