@@ -162,7 +162,7 @@ const Produits = () => {
         return (
           <section className='action'>
             {params.row.stocks > 0 && <span onClick={() => handleAjouter(params.row)}>  {alertMessage === params.row._id ? "Ajouté" : <ShoppingCartIcon className='icon-add' />}</span>}
-            {params.row.stocks > 0 && <span onClick={() => router.push(`/pages/produits/${params.row._id}`)}> <EditIcon className='icon-edit' /> </span>}
+            {params.row.stocks > 0 && <span onClick={() => router.push(`/produits/${params.row._id}`)}> <EditIcon className='icon-edit' /> </span>}
             {params.row.stocks <= 0 &&
               <span onClick={() => handledelete(params.row._id)}>
                 <DeleteIcon className='icon-del' />
@@ -183,7 +183,7 @@ const Produits = () => {
           <h3>Nombre de stocks</h3>
           <p> {stocks} </p>
         </section>
-        <button className='btn-add' onClick={() => router.push('/pages/add-product')}>Ajouter <AddBusinessIcon style={{ marginLeft: 5 }} /></button>
+        <button className='btn-add' onClick={() => router.push('/add-product')}>Ajouter <AddBusinessIcon style={{ marginLeft: 5 }} /></button>
       </section>
       <section className='search'>
         <input className='search-champs' type='text' value={searchValue} onChange={(e) => setSearchValue(e.target.value)} placeholder='Rechercher un produit...' />
