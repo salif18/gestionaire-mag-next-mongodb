@@ -240,7 +240,7 @@
     border: 1px solid #dfdfdf;
     border-radius: 10px;
     box-shadow: 1px 1px 1px 1px #d3d3d3;
-    width: 300;
+    width: 300px;
     ;
     cursor: pointer;
 
@@ -405,7 +405,7 @@
       
 }
 
-@media (max-width:768px) {
+@media (max-width:900px) {
     .home-row{
         width: 100%;
         flex-direction: column;
