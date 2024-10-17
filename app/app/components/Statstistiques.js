@@ -15,10 +15,10 @@ const Statstistiques = ({data, columns}) => {
     return (
         <div className='statsWidget'>
             <h1>Etude detaillée</h1>
-            <div style={{ height: 300, width:300 }}>
-            <ResponsiveContainer width="100%" height="100%">
+            <div style={{ height: 300, width: '100%' }}>
+            {/* <ResponsiveContainer width="100%" height="100%"> */}
             <DataGrid  columns={columns} pageSize={10} rows={formattedData} getRowId={(row) => row.annee + row.mois} />
-            </ResponsiveContainer>
+            {/* </ResponsiveContainer> */}
           </div>
     
         </div>
