@@ -1,6 +1,6 @@
 import moment from 'moment';
 import React from 'react';
-import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip} from 'recharts';
+import { AreaChart, Area, XAxis, YAxis, CartesianGrid,ResponsiveContainer, Tooltip} from 'recharts';
 
 const StatGraphique = ({ data }) => {
 
@@ -19,6 +19,7 @@ const StatGraphique = ({ data }) => {
     <div className='stats-graph-widget'>
       <h1>Interprétation graphique</h1>
       <div style={{ height: 300, flex:1}}>
+      <ResponsiveContainer width="100%" height="100%">
         <AreaChart width={850} height={300} data={chartData}
           margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
           <defs>
@@ -38,6 +39,7 @@ const StatGraphique = ({ data }) => {
           <Area type="monotone" dataKey="nombreVentes" stroke="#8884d8" fillOpacity={1} fill="url(#colorUv)" />
           <Area type="monotone" dataKey="totalVentes" stroke="#82ca9d" fillOpacity={1} fill="url(#colorPv)" />
         </AreaChart>
+        </ResponsiveContainer>
       </div>
     </div>
   );

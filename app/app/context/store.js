@@ -17,10 +17,7 @@ export const MyStoreProvider = (props) => {
   const [panier, setPanier] = useState([]);
   const [message, setMessage] = useState('');
   const [datePersonaliser, setDatePersonnaliser] = useState('');
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
+  
   const router = useRouter()
 
   
@@ -150,8 +147,6 @@ export const MyStoreProvider = (props) => {
   }, [message]);
 
   const contextValue = {
-    isMenuOpen,
-    toggleMenu,
     panier,
     setPanier,
     handleAddPanier,

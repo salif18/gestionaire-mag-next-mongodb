@@ -17,7 +17,7 @@ import { MyStore } from '@/app/context/store';
 
 
 const SideBar = () => {
-    const { logout ,isMenuOpen} = useContext(MyStore)
+    const { logout } = useContext(MyStore)
  
     const pathname = usePathname()
     const navLinks = [
@@ -35,15 +35,15 @@ const SideBar = () => {
 
     ]
     return (
-        <aside className={`sidebar ${ isMenuOpen && " active" }`}>
+        <aside className="sidebar">
           
            {
             navLinks.map((link)=>{
                 const isActive = pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href));
-                return  <Link key={link.name} className={isActive ? "activliens" :"liens"} href={link.href}><link.icon className='icon'/>{link.name}</Link>
+                return  <Link key={link.name} className={isActive ? "activliens" :"liens"} href={link.href}><link.icon className='icon'/><span>{link.name}</span></Link>
             })
            }
-          <p className='btn-logout' onClick={logout}><LogoutOutlinedIcon className='icon'/> Se déconnecter</p>
+          <p className='btn-logout' onClick={logout}><LogoutOutlinedIcon className='icon'/> <span>Se déconnecter</span></p>
         </aside>
     );
 }

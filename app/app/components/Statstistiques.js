@@ -1,5 +1,5 @@
 import React from 'react';
-import { DataGrid } from '@mui/x-data-grid';
+import { DataGrid ,ResponsiveContainer} from '@mui/x-data-grid';
 
 const Statstistiques = ({data, columns}) => {
 
@@ -16,7 +16,9 @@ const Statstistiques = ({data, columns}) => {
         <div className='statsWidget'>
             <h1>Etude detaillée</h1>
             <div style={{ height: 300, width:300 }}>
+            <ResponsiveContainer width="100%" height="100%">
             <DataGrid  columns={columns} pageSize={10} rows={formattedData} getRowId={(row) => row.annee + row.mois} />
+            </ResponsiveContainer>
           </div>
     
         </div>

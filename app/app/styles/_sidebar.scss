@@ -1,5 +1,4 @@
 .sidebar{
-    position: relative;
     min-width: 250px;;
     display: flex;
     flex-direction: column;
@@ -56,5 +55,20 @@
             margin-right: 10px;
         }
     }
+
 }
 
+
+    @media (max-width: 768px)  {
+      .sidebar{
+        min-width: 50px;
+
+        .liens span, .activliens span{
+            display: none;
+        }
+
+        .btn-logout span{
+            display: none;
+        }
+      }
+    }

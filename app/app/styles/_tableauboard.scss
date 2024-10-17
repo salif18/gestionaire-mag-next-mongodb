@@ -388,3 +388,24 @@
 
     }
 }
+
+@media (max-width:768px) {
+    .home-row{
+        width: 100%;
+        flex-direction: column;
+
+        .coutWidget ,
+        .achatsWidget ,
+        .coutprodWidget,
+        .ventsWidget,
+        .revenusWidget,
+        .depensesWidget,
+        .stats-graph-widget,
+        .statsWidget,
+        .statsWeekwidget,
+        .tendanceWidget,
+        .stocksWidget {
+         width: 100%;
+        }
+    }
+}

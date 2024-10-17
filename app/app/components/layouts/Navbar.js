@@ -12,7 +12,7 @@ const Navbar = () => {
  
   return (
     <header className='header'>
-     <button className='menu-berger' onClick={()=>toggleMenu()}><MenuIcon /></button>
+     <button className='menu-berger' ><MenuIcon /></button>
       <section className="header-left">
         <Image src={image} alt='' />
         <section className='column'>
