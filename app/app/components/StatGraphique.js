@@ -3,7 +3,7 @@ import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContai
 
 const StatGraphique = ({ data }) => {
   const months = ["jan", "fev", "mar", "avr", "mai", "jun", "jui", "aout", "sept", "oct", "nov", "dec"];
-  
+
   const chartData = data && data.length > 0 ? data.map((row) => {
     return {
       label: row.annee && row.mois ? `${months[row.mois - 1]}-${row.annee}` : 'Inconnu',
