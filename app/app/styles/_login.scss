@@ -131,3 +131,16 @@
         }
     }
 }
+
+@media (max-width:900px) {
+    .form-content{
+        width: 100%;
+        .form{
+            width: 100%;
+        }
+
+        .btn-connexion{
+            width: 100%;
+        }
+    }
+}
