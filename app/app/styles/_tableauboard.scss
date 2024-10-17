@@ -256,6 +256,11 @@
         font-family: Roboto;
         margin: 15px;
     }
+    .dataGridContainer {
+        width: 100%; /* Largeur à 100% pour le conteneur */
+        max-width: 800px; /* Largeur maximale pour le conteneur */
+        height: 300px; /* Hauteur fixe */
+      }
 }
 
 .statsWeekwidget {
@@ -387,6 +392,17 @@
         }
 
     }
+
+    // .statsWidget {
+    //     width: 100%; /* Occuper toute la largeur disponible */
+    //     display: flex;
+    //     flex-direction: column; /* Organiser en colonne */
+    //     align-items: center; /* Centrer le contenu horizontalement */
+    //     margin: 20px 0; /* Marges verticales */
+    //   }
+      
+      
+      
 }
 
 @media (max-width:768px) {
@@ -407,5 +423,11 @@
         .stocksWidget {
          width: 100%;
         }
+
+        .dataGridContainer {
+            width: 100%; /* Largeur à 100% pour le conteneur */
+            max-width: 800px; /* Largeur maximale pour le conteneur */
+            height: 300px; /* Hauteur fixe */
+          }
     }
 }
