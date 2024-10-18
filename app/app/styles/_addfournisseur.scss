@@ -73,3 +73,42 @@
 }
 
 }
+
+
+@media (max-width:1200px) {
+    .addfournisseurs{
+        .header-add{
+           
+            h1{
+                font-size: 0.8rem;
+                
+            }
+        }
+    
+        
+    .add-container{
+       
+        .form{
+            
+            label{
+                font-size: 0.8rem;
+               
+            }
+    
+            select{
+                width: 200px;
+                
+            }
+    
+            input{
+              
+                width: 200px;
+                
+            }
+        }
+        
+    }
+    
+    }
+    
+}

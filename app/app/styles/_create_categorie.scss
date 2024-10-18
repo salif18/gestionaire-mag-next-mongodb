@@ -73,3 +73,38 @@
         }
     }
 }
+
+@media (max-width:1200px) {
+    .create-categorie {
+        .header {
+           
+    
+            h1 {
+                font-size: 0.8rem;
+                
+            }
+        }
+    
+        .create-container{
+           
+            .form{
+                
+                label{
+                    font-size: 0.8rem;
+                }
+        
+                select{
+                    width: 200px;
+                   
+                }
+        
+                input{
+                    
+                    width: 200px;
+                    
+                }
+            }
+           
+        }
+    }
+}

@@ -120,8 +120,10 @@
 }
 
 
-@media (max-width:900px){
+@media (max-width:1200px){
+  .recus{
   .container-recu{
-    overflow-x: auto;
+    overflow-x: scroll;
   }
+}
 }

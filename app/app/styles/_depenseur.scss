@@ -85,3 +85,44 @@
     }
 }
 }
+
+@media (max-width:1200px) {
+    .depenseurs{
+
+        background: #f0f2f5;
+    
+    .header-fournisseurs{
+        
+        h1{
+            font-size: 0.8rem;
+           
+        }
+    }
+    
+    .form-zone{
+       
+        .left{
+           
+            .link{
+                
+                font-size: 0.8rem;
+                
+            }
+        }
+    
+        .colonne{
+           
+            label{
+                font-size: 0.rem;
+               
+            }
+    
+            input{
+                width: 200px;
+              
+            }
+        }
+        
+    }
+    }
+}

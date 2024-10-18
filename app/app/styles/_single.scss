@@ -92,3 +92,43 @@
 
 }
 
+
+
+@media (max-width:1200px) {
+    .single{
+    
+        .header-single{
+           
+            h1{
+                font-size: 0.8rem;
+                
+            }
+        }
+    
+    
+    .update-form{
+        
+        .form{
+            
+            label{
+                font-size: 0.8rem;
+               
+            }
+    
+            select{
+                width: 220px;
+              
+            }
+    
+            input{
+               
+                width: 200px;
+               
+            }
+        }
+        
+    }
+    
+    }
+    
+}
