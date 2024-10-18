@@ -424,18 +424,23 @@
          width: 90%;
         }
 
-        .coutWidget h1, p,
-        .achatsWidget h1 ,p,
-        .coutprodWidget h1, p,
-        .ventsWidget h1, p,
-        .revenusWidget h1, p,
-        .depensesWidget h1, p,
-        .stats-graph-widget h1, p,
-        .statsWidget h1, p,
-        .statsWeekwidget h1, p,
-        .tendanceWidget h1, p,
-        .stocksWidget h1, p {
+        .coutWidget h1, p, span,
+        .achatsWidget h1 ,p, span,
+        .coutprodWidget h1, p, span,
+        .ventsWidget h1, p, span,
+        .revenusWidget h1, p, span,
+        .depensesWidget h1, p, span,
+        .stats-graph-widget h1, p, span,
+        .statsWidget h1, p, span,
+        .statsWeekwidget h1, p, span,
+        .tendanceWidget h1, p, span,
+        .stocksWidget h1, p ,span {
          font-size: 0.8rem;
+        }
+
+        .stats-graph-widget,
+        .statsWeekwidget {
+            height: 200px;
         }
 
         .dataGridContainer {

@@ -15,7 +15,7 @@ const StatGraphique = ({ data }) => {
   return (
     <div className='stats-graph-widget'>
       <h1>Interprétation graphique</h1>
-      <div style={{ height: '300px'}}>
+      <div style={{ height: '250px'}}>
         <ResponsiveContainer>
           <AreaChart data={chartData} margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
             <defs>
