@@ -83,10 +83,11 @@ const Login = () => {
         </section> */}
 
             <section className='form-content'>
+              
+                <form className='form' onSubmit={handleSubmit}>
                 <section className='header'>
                     <p>Connexion</p>
                 </section>
-                <form className='form' onSubmit={handleSubmit}>
                     <section className='column'>
                         <label htmlFor='contacts'>Numéro ou Email</label>
                         <input

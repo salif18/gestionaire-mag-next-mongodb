@@ -424,6 +424,20 @@
          width: 90%;
         }
 
+        .coutWidget h1, p,
+        .achatsWidget h1 ,p,
+        .coutprodWidget h1, p,
+        .ventsWidget h1, p,
+        .revenusWidget h1, p,
+        .depensesWidget h1, p,
+        .stats-graph-widget h1, p,
+        .statsWidget h1, p,
+        .statsWeekwidget h1, p,
+        .tendanceWidget h1, p,
+        .stocksWidget h1, p {
+         font-size: 0.8rem;
+        }
+
         .dataGridContainer {
             width: 100%; /* Largeur à 100% pour le conteneur */
             max-width: 800px; /* Largeur maximale pour le conteneur */
