@@ -393,23 +393,21 @@
 
     }
 
-    // .statsWidget {
-    //     width: 100%; /* Occuper toute la largeur disponible */
-    //     display: flex;
-    //     flex-direction: column; /* Organiser en colonne */
-    //     align-items: center; /* Centrer le contenu horizontalement */
-    //     margin: 20px 0; /* Marges verticales */
-    //   }
-      
-      
-      
 }
 
 @media (max-width:900px) {
+    .dashboard{
+
+    .header-dashboard{
+        width: 80%;
+        h1{
+            font-size: 0.8rem;
+        }
+    }
     .home-row{
         width: 100%;
         flex-direction: column;
-
+    }
         .coutWidget ,
         .achatsWidget ,
         .coutprodWidget,
@@ -421,7 +419,7 @@
         .statsWeekwidget,
         .tendanceWidget,
         .stocksWidget {
-         width: 90%;
+         width: 80%;
         }
 
         .coutWidget h1, p, span,
@@ -449,4 +447,6 @@
             height: 300px; /* Hauteur fixe */
           }
     }
+
+
 }
