@@ -74,49 +74,108 @@
         background: #fff;
         border-radius: 10px;
 
-        .title{
-            p{
+        .title {
+            p {
                 font-size: 14px;
-                font-family: roboto ,sans-serif;
+                font-family: roboto, sans-serif;
                 color: rgb(29, 29, 29);
                 font-weight: 400;
             }
-            .stock-fini{
-                color:red;
+
+            .stock-fini {
+                color: red;
                 font-size: 12px;
                 font-family: roboto;
             }
         }
 
-        .action{
+        .action {
             display: flex;
-            span{
+
+            span {
                 font-size: 12px;
                 font-family: roboto;
                 color: green;
             }
-            .icon-add{
-                color:#1aad9a;
-                font-size:24px;
-                margin: 10px;
-                cursor: pointer;
-            }
 
-            .icon-edit{
-                color:rgb(102, 102, 211);
+            .icon-add {
+                color: #1aad9a;
                 font-size: 24px;
                 margin: 10px;
                 cursor: pointer;
             }
 
-            .icon-del{
-                color:rgb(245, 86, 86);
+            .icon-edit {
+                color: rgb(102, 102, 211);
                 font-size: 24px;
                 margin: 10px;
                 cursor: pointer;
             }
-        
+
+            .icon-del {
+                color: rgb(245, 86, 86);
+                font-size: 24px;
+                margin: 10px;
+                cursor: pointer;
+            }
+
         }
     }
 
+}
+
+@media (max-width:900px) {
+    .produits {
+
+        .title-stock {
+            align-items: flex-start;
+            flex-direction: column;
+             gap: 5px;
+            .left {
+                align-items: center;
+                h1 {
+                    font-size: 0.8rem;
+                }
+
+                p {
+                    font-size: 0.8rem;
+                }
+            }
+            .btn-add{
+                font-size: 0.7rem;
+            }
+        }
+
+        .products-content {
+            .title {
+                p {
+                    font-size: 0.8rem;
+
+                }
+
+
+            }
+
+            .action {
+
+
+                .icon-add {
+                    font-size: 1rem;
+                }
+
+                .icon-edit {
+                    font-size: 1rem;
+                }
+
+                .icon-del {
+
+                    font-size: 1rem;
+
+                }
+
+            }
+        }
+
+
+    }
 }

@@ -112,3 +112,15 @@
         }
     }
 }
+
+@media (max-width:900px) {
+    .categories{
+        .categorie-navbar{
+          flex-direction: column;
+          align-items: center;
+          gap: 5px;
+        }
+
+
+    }
+}
