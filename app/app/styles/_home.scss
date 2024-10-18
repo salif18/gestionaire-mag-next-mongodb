@@ -27,6 +27,12 @@
 @media (max-width:900px) {
    .dashboard{
       width: 100%;
+
+      .header-dashboard {
+         h1{
+            font-size: 0.8rem;
+         }
+      }
    }
 
    // .home-row{
