@@ -1,231 +1,18 @@
 
 
-// .header-vente{
-//     padding: 15px;
-//     background: #376369;
-//     box-shadow: -2px 2px 2px 2px #516f74;
-//     // border: 1px solid #c6ced6;
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-//     h1{
-//         text-transform: uppercase;
-//         font-size: 18px;
-//         color: #f0f2f5;
-//         font-family: 'Roboto';
-//     }
-//     .btn-vendues{
-//         height: 40px;
-//         font-family: Roboto;
-//         text-transform: uppercase;
-//         color: #fff;
-//         font-weight: 600;
-//         border: none;
-//         background: #376369;
-//         margin-left: 20px;
-//         width: 200px;
-       
-//     }
-// }
-
-// .vente-container{
-//     padding: 15px;
-//     margin: 10px;
-//     background: #fff;
-//     box-shadow: -2px -2px 2px 2px #bdc0c0;
-//     //border-radius: 5px;
-//     border:1px solid #dfdfdf;
-    
-//     .vente-infos{
-//         display: flex;
-//         flex-direction: column;
-//         justify-content: center;
-//         thead{
-//             .tr1{
-//                 border: 1px solid #e7e7e7;
-//                 th{
-//                     border:1px solid #e7e7e7
-//                 }
-//             }
-//             .th{
-//                 font-family: roboto ;
-//                 font-size: 14px;
-//                 padding-top: 20px;
-//                 padding-bottom: 20px;
-//                 font-weight: 500;
-//             }
-          
-//         }
-//         tbody{
-//             th{
-                
-//                 font-family: Open sans;
-//                 font-weight: 500;
-//                 //border: 1px solid #e7e7e7;
-//             }
-//            span{
-//             text-align: center;
-//             font-family: Roboto,sans-serif;
-//             color: red;
-//            }
-//         }
-        
-//         .btnsss{
-//             display: flex;
-//             align-items: center;
-           
-//         }
-//     }
-//     .inf{
-//         display: flex;
-//         justify-content: space-between;
-//         margin: 20px;
-//         label{
-//             font-family: Open sans,sans-serif;
-//             font-weight: 600;
-//         }
-//         select{
-//             width: 300px;
-//             height: 40px;
-//             outline: none;
-//             border:1px solid #c3c9ca;
-//             margin-right: 500px;
-//         }
-//         input{
-//             width: 300px;
-//             height: 40px;
-//             padding: 15px;
-//             outline: none;
-//             border:1px solid #c3c9ca;
-//             margin-right: 500px;
-//         }
-//     }
-// }
-
-// .btn-vente{
-//     width: 200px;
-//     height: 40px;
-//     font-family: Roboto;
-//     color: #fff;
-//     background: #6f88af;
-//     margin: 20px;
-//     border: none;
-//     cursor: pointer;
-//     //box-shadow: -2px -2px 2px 2px #226faf;
-//     border-radius: 5px;
-//     &:hover{
-//         background: #157dd3;
-//     }
-// }
-
-// .btn-vente-recu{
-//     width: 200px;
-//     height: 40px;
-//     font-family: Roboto;
-//     color: #fff;
-//     background: #376369;
-//     margin: 20px;
-//     border: none;
-//     //box-shadow: -2px -2px 2px 2px #23c46b;
-//     border-radius: 5px;
-//     cursor: pointer;
-//     &:hover{
-//         background: #3f818a;
-//     }
-// }
-
-// .btn-incre{
-//     border: none;
-//     background: #376369;
-//     color: #fff;
-//     font-weight: bold;
-//     width: 40px;
-//     height: 25px;
-//     margin: 10px;
-//     transition: all 0.3s ;
-//     cursor: pointer;
-//     &:hover{
-//         background: #407b83;
-//     }
-// }
-
-// .btn-decre{
-//     border: none;
-//     background: #376369;
-//     color: #fff;
-//     font-weight: bold;
-//     width: 40px;
-//     height: 25px;
-//     margin: 10px;
-//     transition: all 0.3s ;
-//     cursor: pointer;
-//     &:hover{
-//         background-color: #407b83;
-//     }
-// }
-
-// .qtys{
-//     margin: 20px;
-//     button{
-//         font-family: roboto;
-//         font-size: 14px;
-//         width: 100px;
-//         height: 25px;
-//         border: none;
-//         background: rgb(255, 130, 130);
-//         color: #ffff;
-//         cursor: pointer;
-//         &:hover{
-//             background-color: red;
-//         }
-//     }
-// }
-
-// .timestamps{
-//     outline: none;
-//     padding: 10px;
-//     margin: 20px;
-//     width: 160px;
-//     border-radius: 10px;
-//     border: none;
-//     background-color: #376369;
-//     color: #ffff;
-// }
-
-// .message-vente{
-//     font-family: 'Roboto';
-//     font-size: 20px;
-//     color:green;
-//     text-align: center;
-// }
-
-// .panier-vide{
-//     margin: 20%;
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-//     align-content: center;
-//     font-size: 16px;
-//     font-family: roboto;
-//     color: #a1a8af;
-// }
-
-
 .header-vente{
     padding: 15px;
     background: #376369;
     box-shadow: -2px 2px 2px 2px #516f74;
+    // border: 1px solid #c6ced6;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    flex-wrap: wrap; /* Permet de mieux gérer l'espace sur petits écrans */
     h1{
         text-transform: uppercase;
-        font-size: 1.5rem; /* Utilisation de rem pour les tailles de texte */
+        font-size: 18px;
         color: #f0f2f5;
         font-family: 'Roboto';
-        text-align: center;
-        flex: 1 1 100%; /* Prenez toute la largeur sur petit écran */
     }
     .btn-vendues{
         height: 40px;
@@ -237,102 +24,196 @@
         background: #376369;
         margin-left: 20px;
         width: 200px;
+       
     }
 }
 
 .vente-container{
     padding: 15px;
-    margin: 10px auto;
+    margin: 10px;
     background: #fff;
     box-shadow: -2px -2px 2px 2px #bdc0c0;
+    //border-radius: 5px;
     border:1px solid #dfdfdf;
-    max-width: 100%;
+    
+    .vente-infos{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        thead{
+            .tr1{
+                border: 1px solid #e7e7e7;
+                th{
+                    border:1px solid #e7e7e7
+                }
+            }
+            .th{
+                font-family: roboto ;
+                font-size: 14px;
+                padding-top: 20px;
+                padding-bottom: 20px;
+                font-weight: 500;
+            }
+          
+        }
+        tbody{
+            th{
+                
+                font-family: Open sans;
+                font-weight: 500;
+                //border: 1px solid #e7e7e7;
+            }
+           span{
+            text-align: center;
+            font-family: Roboto,sans-serif;
+            color: red;
+           }
+        }
+        
+        .btnsss{
+            display: flex;
+            align-items: center;
+           
+        }
+    }
+    .inf{
+        display: flex;
+        justify-content: space-between;
+        margin: 20px;
+        label{
+            font-family: Open sans,sans-serif;
+            font-weight: 600;
+        }
+        select{
+            width: 300px;
+            height: 40px;
+            outline: none;
+            border:1px solid #c3c9ca;
+            margin-right: 500px;
+        }
+        input{
+            width: 300px;
+            height: 40px;
+            padding: 15px;
+            outline: none;
+            border:1px solid #c3c9ca;
+            margin-right: 500px;
+        }
+    }
 }
 
-.vente-infos{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    overflow-x: auto; /* Permet de faire défiler horizontalement si nécessaire */
+.btn-vente{
+    width: 200px;
+    height: 40px;
+    font-family: Roboto;
+    color: #fff;
+    background: #6f88af;
+    margin: 20px;
+    border: none;
+    cursor: pointer;
+    //box-shadow: -2px -2px 2px 2px #226faf;
+    border-radius: 5px;
+    &:hover{
+        background: #157dd3;
+    }
 }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
+.btn-vente-recu{
+    width: 200px;
+    height: 40px;
+    font-family: Roboto;
+    color: #fff;
+    background: #376369;
+    margin: 20px;
+    border: none;
+    //box-shadow: -2px -2px 2px 2px #23c46b;
+    border-radius: 5px;
+    cursor: pointer;
+    &:hover{
+        background: #3f818a;
+    }
 }
 
-thead .tr1, tbody tr {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr); /* Chaque colonne prend une fraction égale */
+.btn-incre{
+    border: none;
+    background: #376369;
+    color: #fff;
+    font-weight: bold;
+    width: 40px;
+    height: 25px;
+    margin: 10px;
+    transition: all 0.3s ;
+    cursor: pointer;
+    &:hover{
+        background: #407b83;
+    }
+}
+
+.btn-decre{
+    border: none;
+    background: #376369;
+    color: #fff;
+    font-weight: bold;
+    width: 40px;
+    height: 25px;
+    margin: 10px;
+    transition: all 0.3s ;
+    cursor: pointer;
+    &:hover{
+        background-color: #407b83;
+    }
+}
+
+.qtys{
+    margin: 20px;
+    button{
+        font-family: roboto;
+        font-size: 14px;
+        width: 100px;
+        height: 25px;
+        border: none;
+        background: rgb(255, 130, 130);
+        color: #ffff;
+        cursor: pointer;
+        &:hover{
+            background-color: red;
+        }
+    }
+}
+
+.timestamps{
+    outline: none;
+    padding: 10px;
+    margin: 20px;
+    width: 160px;
+    border-radius: 10px;
+    border: none;
+    background-color: #376369;
+    color: #ffff;
+}
+
+.message-vente{
+    font-family: 'Roboto';
+    font-size: 20px;
+    color:green;
     text-align: center;
 }
 
-th, td {
-    padding: 10px;
-    font-family: Roboto, sans-serif;
-}
-
-.inf {
+.panier-vide{
+    margin: 20%;
     display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap; /* Permet de s'ajuster sur petits écrans */
-    margin: 20px;
-}
-
-select, input {
-    width: 100%;
-    max-width: 300px;
-    margin: 10px 0;
-    padding: 10px;
-    border: 1px solid #c3c9ca;
-}
-
-.btnsss {
-    display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
+    align-content: center;
+    font-size: 16px;
+    font-family: roboto;
+    color: #a1a8af;
 }
 
-.btn-vente-recu, .btn-vente {
-    width: 100%;
-    max-width: 200px;
-    margin: 10px;
-}
-
-@media (max-width: 768px) {
-    .vente-container {
-        margin: 5px;
+@media (max-width:900px) {
+  .vente-container{
+    .vente-infos{
+        overflow-x: auto;
     }
-
-    thead .tr1, tbody tr {
-        grid-template-columns: repeat(2, 1fr); /* Réduire le nombre de colonnes sur les petits écrans */
-    }
-
-    th, td {
-        font-size: 0.9rem; /* Réduire légèrement la taille de police */
-    }
-
-    .header-vente {
-        flex-direction: column;
-        padding: 10px;
-    }
-
-    .btn-vendues {
-        width: 100%;
-        margin: 10px 0;
-    }
-}
-
-@media (max-width: 480px) {
-    .inf {
-        flex-direction: column;
-    }
-
-    table {
-        font-size: 0.8rem; /* Encore plus petit pour les très petits écrans */
-    }
-
-    .btnsss {
-        align-items: center;
-    }
+  }
 }

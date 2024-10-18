@@ -1,303 +1,175 @@
-// .rapports {
-//   background: #ffff;
-// .header-rapport {
-//   padding: 15px;
-//   border: 1px solid #94abc2;
-//   background: #376369;
-//   h1 {
-//     font-family: Open sans, sans-serif;
-//     text-transform: uppercase;
-//     font-size: 20px;
-//     font-weight: 600;
-//     text-align: center;
-//     color: #fff;
-//   }
-// }
-
-// .filtre {
-//   padding: 15px;
-//   margin: 10px;
-//   background: #fff;
-//   border: none;
-//   display: flex;
-//   align-items: center;
-//   label {
-//     font-family: Roboto;
-//   }
-//   input {
-//     width: 200px;
-//     height: 40px;
-//     margin: 10px;
-//     outline: none;
-//     border-radius: 10px;
-//     border: none;
-//     padding: 5px;
-//     background-color: #39858f;
-//     color: #fff;
-//   }
-// }
-  
-//   .tableau-de-vente{
-//     padding: 15px;
-//     margin: 10px;
-//     border: 1px solid #cccccc;
-//     box-shadow: -2px 2px 2px 2px #dadada;
-//     .table{
-//         .head_1{
-//             background: #39858f;
-//             .li_1{
-//                 .co{
-//                   width: 200px;
-//                   height: 40px;
-//                     font-family: Roboto;
-//                     font-size: 14px;
-//                     border: 1px solid #fff;
-//                 }
-//             }
-//         }
-//         .li_2{
-//             .co2{
-//               font-size: 14.9px;
-//         width: 200px;
-//         height: 40px;
-//                 font-family: Roboto;
-//                 font-weight: 500;
-//                 border: 1px solid #dddddd;
-//             }
-//         }
-//     }
-//   }
-
-//   .infos-ventes {
-//     margin: 10px;
-//     padding: 15px;
-//     display: flex;
-//     flex-direction: column;
-//     border-radius: 10px;
-//     background: #fff;
-//     border: 1px solid #94abc2;
-//     box-shadow: -2px 2px 2px 2px #c2c4c9;
-  
-//     .tot {
-//       display: flex;
-//       justify-content: flex-end;
-//       p {
-//         font-family: Open sans ;
-//         font-size: 16px;
-//         font-weight: 600;
-//         margin: 10px;
-//       }
-//       span {
-//         font-family: Roboto;
-//         font-weight: 600;
-//         margin: 10px;
-//         color: blue;
-//       }
-//     }
-//     .nombr {
-//       display: flex;
-//       justify-content: flex-end;
-//       p {
-//         font-family: Open sans;
-//         font-size: 16px;
-//         font-weight: 600;
-//         margin: 10px;
-//       }
-//       span {
-//         font-family: Roboto;
-//         font-weight: 600;
-//         margin: 10px;
-//         color: red;
-//       }
-//     }
-//     .bene {
-//       display: flex;
-//       justify-content: flex-end;
-//       p {
-//         font-family: Open sans;
-//         font-size: 16px;
-//         font-weight: 600;
-//         margin: 10px;
-//       }
-//       span {
-//         font-family: Roboto;
-//         font-weight: 600;
-//         margin: 10px;
-//         color: green;
-//       }
-//     }
-
-//     .btn-print {
-//       display: flex;
-//       justify-content: center;
-//       align-items: center;
-//       width: 120px;
-//       height: 40px;
-//       border: none;
-//       font-family: "Roboto";
-//       color: #4e4e4e;
-//     }
-    
-//   }
-
-
-// @media print {
-//   body * {
-//     visibility: hidden;
-//   }
-//   .rapports,
-//   .rapports * {
-//     visibility: visible;
-//   }
-//   .header-rapport {
-//    display: none;
-//    //visibility: visible;
-//   }
-
-//   .filtre {
-//     display: none;
-//   }
-
-//   .btn-print {
-//     display: none;
-//   }
-// }
-// }
-
 .rapports {
-  background: #fff;
-  padding: 10px;
-}
-
+  background: #ffff;
 .header-rapport {
   padding: 15px;
+  border: 1px solid #94abc2;
   background: #376369;
-  text-align: center;
-}
-
-.header-rapport h1 {
-  font-family: Open sans, sans-serif;
-  text-transform: uppercase;
-  font-size: 20px;
-  font-weight: 600;
-  color: #fff;
+  h1 {
+    font-family: Open sans, sans-serif;
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+    color: #fff;
+  }
 }
 
 .filtre {
-  display: flex;
-  flex-direction: column;
-  margin: 10px 0;
-  background: #fff;
-}
-
-.filtre label {
-  font-family: Roboto;
-  margin-bottom: 10px;
-}
-
-.filtre input {
-  width: 100%;
-  height: 40px;
-  padding: 5px;
-  border-radius: 10px;
-  border: none;
-  background-color: #39858f;
-  color: #fff;
-  outline: none;
-}
-
-.tableau-de-vente {
-  overflow-x: auto;
-  margin: 10px 0;
-}
-
-.table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-.th, .td {
-  padding: 8px;
-  border: 1px solid #ddd;
-}
-
-.th {
-  background-color: #39858f;
-  color: white;
-  text-align: left;
-}
-
-.infos-ventes {
-  margin: 10px 0;
   padding: 15px;
+  margin: 10px;
   background: #fff;
-  border: 1px solid #94abc2;
-  box-shadow: -2px 2px 2px 2px #c2c4c9;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-}
-
-.infos-ventes p {
-  font-family: Open sans;
-  font-size: 16px;
-  font-weight: 600;
-  margin: 10px 0;
-}
-
-.infos-ventes span {
-  font-family: Roboto;
-  font-weight: 600;
-  margin-left: 10px;
-}
-
-.btn-print {
+  border: none;
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding: 10px;
-  background-color: #39858f;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-@media (min-width: 768px) {
-  .filtre {
-    flex-direction: row;
-    align-items: center;
+  label {
+    font-family: Roboto;
   }
-
-  .filtre input {
-    width: auto;
-    margin-left: 10px;
+  input {
+    width: 200px;
+    height: 40px;
+    margin: 10px;
+    outline: none;
+    border-radius: 10px;
+    border: none;
+    padding: 5px;
+    background-color: #39858f;
+    color: #fff;
+  }
+}
+  
+  .tableau-de-vente{
+    padding: 15px;
+    margin: 10px;
+    border: 1px solid #cccccc;
+    box-shadow: -2px 2px 2px 2px #dadada;
+    .table{
+        .head_1{
+            background: #39858f;
+            .li_1{
+                .co{
+                  width: 200px;
+                  height: 40px;
+                    font-family: Roboto;
+                    font-size: 14px;
+                    border: 1px solid #fff;
+                }
+            }
+        }
+        .li_2{
+            .co2{
+              font-size: 14.9px;
+        width: 200px;
+        height: 40px;
+                font-family: Roboto;
+                font-weight: 500;
+                border: 1px solid #dddddd;
+            }
+        }
+    }
   }
 
   .infos-ventes {
-    flex-direction: row;
-    justify-content: space-between;
+    margin: 10px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    background: #fff;
+    border: 1px solid #94abc2;
+    box-shadow: -2px 2px 2px 2px #c2c4c9;
+  
+    .tot {
+      display: flex;
+      justify-content: flex-end;
+      p {
+        font-family: Open sans ;
+        font-size: 16px;
+        font-weight: 600;
+        margin: 10px;
+      }
+      span {
+        font-family: Roboto;
+        font-weight: 600;
+        margin: 10px;
+        color: blue;
+      }
+    }
+    .nombr {
+      display: flex;
+      justify-content: flex-end;
+      p {
+        font-family: Open sans;
+        font-size: 16px;
+        font-weight: 600;
+        margin: 10px;
+      }
+      span {
+        font-family: Roboto;
+        font-weight: 600;
+        margin: 10px;
+        color: red;
+      }
+    }
+    .bene {
+      display: flex;
+      justify-content: flex-end;
+      p {
+        font-family: Open sans;
+        font-size: 16px;
+        font-weight: 600;
+        margin: 10px;
+      }
+      span {
+        font-family: Roboto;
+        font-weight: 600;
+        margin: 10px;
+        color: green;
+      }
+    }
+
+    .btn-print {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 120px;
+      height: 40px;
+      border: none;
+      font-family: "Roboto";
+      color: #4e4e4e;
+    }
+    
   }
 
-  .btn-print {
-    align-self: flex-start;
-  }
-}
 
 @media print {
   body * {
     visibility: hidden;
   }
-
   .rapports,
   .rapports * {
     visibility: visible;
   }
+  .header-rapport {
+   display: none;
+   //visibility: visible;
+  }
 
-  .header-rapport,
-  .filtre,
+  .filtre {
+    display: none;
+  }
+
   .btn-print {
     display: none;
   }
 }
+}
 
+@media (max-width:900px) {
+
+  .rapports{
+    .tableau-de-vente{
+      overflow-x: auto;
+  }
+  }
+ 
+}
