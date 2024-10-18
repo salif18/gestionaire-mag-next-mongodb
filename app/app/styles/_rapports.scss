@@ -1,70 +1,77 @@
 .rapports {
   background: #ffff;
-.header-rapport {
-  padding: 15px;
-  border: 1px solid #94abc2;
-  background: #376369;
-  h1 {
-    font-family: Open sans, sans-serif;
-    text-transform: uppercase;
-    font-size: 20px;
-    font-weight: 600;
-    text-align: center;
-    color: #fff;
-  }
-}
 
-.filtre {
-  padding: 15px;
-  margin: 10px;
-  background: #fff;
-  border: none;
-  display: flex;
-  align-items: center;
-  label {
-    font-family: Roboto;
+  .header-rapport {
+    padding: 15px;
+    border: 1px solid #94abc2;
+    background: #376369;
+
+    h1 {
+      font-family: Open sans, sans-serif;
+      text-transform: uppercase;
+      font-size: 20px;
+      font-weight: 600;
+      text-align: center;
+      color: #fff;
+    }
   }
-  input {
-    width: 200px;
-    height: 40px;
+
+  .filtre {
+    padding: 15px;
     margin: 10px;
-    outline: none;
-    border-radius: 10px;
+    background: #fff;
     border: none;
-    padding: 5px;
-    background-color: #39858f;
-    color: #fff;
+    display: flex;
+    align-items: center;
+
+    label {
+      font-family: Roboto;
+    }
+
+    input {
+      width: 200px;
+      height: 40px;
+      margin: 10px;
+      outline: none;
+      border-radius: 10px;
+      border: none;
+      padding: 5px;
+      background-color: #39858f;
+      color: #fff;
+    }
   }
-}
-  
-  .tableau-de-vente{
+
+  .tableau-de-vente {
     padding: 15px;
     margin: 10px;
     border: 1px solid #cccccc;
     box-shadow: -2px 2px 2px 2px #dadada;
-    .table{
-        .head_1{
-            background: #39858f;
-            .li_1{
-                .co{
-                  width: 200px;
-                  height: 40px;
-                    font-family: Roboto;
-                    font-size: 14px;
-                    border: 1px solid #fff;
-                }
-            }
+
+    .table {
+      .head_1 {
+        background: #39858f;
+
+        .li_1 {
+          .co {
+            width: 200px;
+            height: 40px;
+            font-family: Roboto;
+            font-size: 14px;
+            border: 1px solid #fff;
+          }
         }
-        .li_2{
-            .co2{
-              font-size: 14.9px;
-        width: 200px;
-        height: 40px;
-                font-family: Roboto;
-                font-weight: 500;
-                border: 1px solid #dddddd;
-            }
+      }
+
+      .li_2 {
+        .co2 {
+          font-size: 14.9px;
+          width: 200px;
+          height: 40px;
+          font-family: Roboto;
+          font-weight: 500;
+          border: 1px solid #dddddd;
         }
+      }
     }
   }
 
@@ -77,16 +84,18 @@
     background: #fff;
     border: 1px solid #94abc2;
     box-shadow: -2px 2px 2px 2px #c2c4c9;
-  
+
     .tot {
       display: flex;
       justify-content: flex-end;
+
       p {
-        font-family: Open sans ;
+        font-family: Open sans;
         font-size: 16px;
         font-weight: 600;
         margin: 10px;
       }
+
       span {
         font-family: Roboto;
         font-weight: 600;
@@ -94,15 +103,18 @@
         color: blue;
       }
     }
+
     .nombr {
       display: flex;
       justify-content: flex-end;
+
       p {
         font-family: Open sans;
         font-size: 16px;
         font-weight: 600;
         margin: 10px;
       }
+
       span {
         font-family: Roboto;
         font-weight: 600;
@@ -110,15 +122,18 @@
         color: red;
       }
     }
+
     .bene {
       display: flex;
       justify-content: flex-end;
+
       p {
         font-family: Open sans;
         font-size: 16px;
         font-weight: 600;
         margin: 10px;
       }
+
       span {
         font-family: Roboto;
         font-weight: 600;
@@ -137,39 +152,121 @@
       font-family: "Roboto";
       color: #4e4e4e;
     }
-    
+
   }
 
 
-@media print {
-  body * {
-    visibility: hidden;
-  }
-  .rapports,
-  .rapports * {
-    visibility: visible;
-  }
-  .header-rapport {
-   display: none;
-   //visibility: visible;
-  }
+  @media print {
+    body * {
+      visibility: hidden;
+    }
 
-  .filtre {
-    display: none;
-  }
+    .rapports,
+    .rapports * {
+      visibility: visible;
+    }
 
-  .btn-print {
-    display: none;
+    .header-rapport {
+      display: none;
+      //visibility: visible;
+    }
+
+    .filtre {
+      display: none;
+    }
+
+    .btn-print {
+      display: none;
+    }
   }
-}
 }
 
 @media (max-width:1200px) {
 
-  .rapports{
-    .tableau-de-vente{
+  .rapports {
+
+    .header-rapport {
+      flex-direction: column;
+      align-items: flex-start;
+
+      h1 {
+
+        font-size: 0.8rem;
+
+      }
+    }
+
+    .filtre {
+
+      label {
+        font-family: Roboto;
+      }
+
+      input {
+        width: 200px;
+
+      }
+    }
+
+    .tableau-de-vente {
+      .table {
+        .head_1 {
+          background: #39858f;
+
+          .li_1 {
+            .co {
+             
+              font-size: 0.8rem;
+             
+            }
+          }
+        }
+
+        .li_2 {
+          .co2 {
+            font-size: 0.8rem;
+          }
+        }
+      }
+
       overflow-x: auto;
+    }
+
+    .infos-ventes {
+
+      .tot {
+
+        p {
+
+          font-size: 0.8rem;
+
+        }
+
+      }
+
+      .nombr {
+
+        p {
+
+          font-size: 0.8rem;
+
+        }
+
+      }
+
+      .bene {
+
+        p {
+
+          font-size: 0.8rem;
+
+        }
+
+      }
+
+
+    }
+
   }
-  }
- 
+
 }
