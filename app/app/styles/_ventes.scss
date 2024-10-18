@@ -212,8 +212,32 @@
 
 @media (max-width:1200px) {
   .vente-container{
+
     .vente-infos{
         overflow-x: auto;
+        thead{
+           
+            .th{
+              
+                font-size: 0.8rem;
+                
+            }
+          
+        }
+       
+       
+    }
+    .inf{
+       
+       
+        select{
+            width: 200px;
+           
+        }
+        input{
+            width: 200px;
+            
+        }
     }
   }
 }
