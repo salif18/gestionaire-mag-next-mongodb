@@ -18,7 +18,7 @@
     .form-content{
           width: 400px;
         background-color: #f0f1f5;
-        padding: 20px;
+     
         border-radius: 10px;
         display: flex;
         flex-direction: column;
@@ -28,7 +28,7 @@
             color: #f0f1f5;
             padding-left: 10px;
             margin-bottom: 20px;
-            width: 350px;
+            width: 322px;
             border-radius: 10px;
         }
 
@@ -75,7 +75,7 @@
             
             }
             .btn-inscription{
-                margin: 20px;
+               margin: 20px;
                height: 40px;
                background-color: #376369;
                border: none;
@@ -117,10 +117,11 @@
 
 
 @media (max-width:900px) {
-.login{
+.registre{
+    align-self: center;
     padding: 1rem;
     .form-content{
-       
+       align-self: center;
         width: 95%;
 
        
@@ -137,9 +138,15 @@
                 }
             }
 
-            .btn-connexion{
+            .btn-inscription{
+                margin: 0;
                 width: 85%;
             }
+
+            .se-log{
+                align-self: center;
+                 margin-left: 20px;
+            } 
         }
 
        
