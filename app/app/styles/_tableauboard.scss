@@ -7,7 +7,7 @@
     border: 1px solid #dfdfdf;
     border-radius: 10px;
     box-shadow: 1px 1px 1px 1px #d3d3d3;
-    width: 400px;
+    flex:1;
     height: 100px;
     cursor: pointer;
 
@@ -41,7 +41,7 @@
     border: 1px solid #dfdfdf;
     border-radius: 10px;
     box-shadow: 1px 1px 1px 1px #d3d3d3;
-    width: 400px;
+    flex:1;
     height: 100px;
     cursor: pointer;
 
@@ -75,7 +75,7 @@
     border: 1px solid #dfdfdf;
     border-radius: 10px;
     box-shadow: 1px 1px 1px 1px #d3d3d3;
-    width: 400px;
+    flex:1;
     height: 100px;
     cursor: pointer;
 
@@ -106,7 +106,7 @@
     border: 1px solid #dfdfdf;
     border-radius: 10px;
     box-shadow: 1px 1px 1px 1px #d3d3d3;
-    width: 400px;
+    flex:1;
     height: 100px;
     cursor: pointer;
     
@@ -214,7 +214,7 @@
     border: 1px solid #dfdfdf;
     border-radius: 10px;
     box-shadow: 2px 2px 2px 2px #d3d3d3;
-    flex: 1;
+    flex: 4;
     cursor: pointer;
 
     h1 {
@@ -240,7 +240,7 @@
     border: 1px solid #dfdfdf;
     border-radius: 10px;
     box-shadow: 1px 1px 1px 1px #d3d3d3;
-    width: 300px;
+    flex: 2;
     ;
     cursor: pointer;
 
@@ -264,7 +264,7 @@
 }
 
 .statsWeekwidget {
-    flex: 1;
+    flex: 4;
     height: 275px;
     border-radius: 10px;
     background-color: #376369;
@@ -301,7 +301,7 @@
     border: 1px solid #dfdfdf;
     border-radius: 10px;
     box-shadow: 2px 2px 2px 2px #d3d3d3;
-    width: 250px;
+    flex: 1;
     cursor: pointer;
 
     h1 {
@@ -351,7 +351,7 @@
     border: 1px solid #dfdfdf;
     border-radius: 10px;
     box-shadow: 2px 2px 2px 2px #d3d3d3;
-    width: 250px;
+    flex: 1;
     cursor: pointer;
 
     h1 {
