@@ -78,11 +78,6 @@ const Login = () => {
 
     return (
         <section className='login'>
-            {/* <section className='title'>
-            <h1>GestaShop</h1>
-        </section> */}
-
-            
               
                 <form className='form' onSubmit={handleSubmit}>
                 <section className='header'>

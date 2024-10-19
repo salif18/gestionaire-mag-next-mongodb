@@ -2,9 +2,8 @@
     .header-add{
         padding: 15px;
         margin: 10px;
-        // background: #18cbeb;
-        background:#0a5a68;
-        box-shadow: -2px 2px 2px 2px #e2e2e2; ;
+        background: #0a5a68;
+        box-shadow: -2px 2px 2px 2px #e2e2e2;
         h1{
             font-size: 20px;
             font-family: Open sans,sans-serif;
@@ -17,19 +16,17 @@
     
 .add-container{
     background: #fff;
-    border-radius: 10px;
-    box-shadow: -2px -2px 2px 2px #e2e2e2;
-    display: flex;
-    justify-content: flex-start;
-    flex-direction: column;
-    padding: 15px;
-    margin: 10px;
-    border:1px solid #dfdfdf;
-
+        border-radius: 10px;
+        box-shadow: -2px -2px 2px 2px #e2e2e2;
+        display: flex;
+        justify-content: flex-start;
+        flex-direction: column;
+       
+        margin: 10px;
+        border: 1px solid #dfdfdf;
     .form{
         display: flex;
         flex-direction: column;
-        margin: 10px;
         label{
             font-size: 16px;
             font-family: roboto;
@@ -47,8 +44,8 @@
 
         input{
             border: none;
-            width: 300px;
-            height: 20px;
+               
+            height: 40px;
             padding: 10px;
             background: #f0f1f5;
             font-family: roboto;
@@ -77,36 +74,35 @@
 
 @media (max-width:1122px) {
     .addfournisseurs{
-        .header-add{
-           
-            h1{
-                font-size: 0.8rem;
-                
+        width: 100%;
+        .header-add {
+        width: 100%;
+            h1 {
+                font-size: 0.6rem;
             }
         }
     
         
     .add-container{
-       
-        .form{
-            
-            label{
-                font-size: 0.8rem;
-               
+        width: 100%;
+        padding: 0.8rem 0;
+            .form {
+            background: #fff;
+               width: 100%;
+                label {
+                    font-size: 0.8rem;
+                }
+
+                select {
+                    width: 200px;
+                }
+
+                input {
+                    height: 40px;
+                   
+
+                }
             }
-    
-            select{
-                width: 200px;
-                
-            }
-    
-            input{
-              
-                width: 200px;
-                
-            }
-        }
-        
     }
     
     }

@@ -1,18 +1,16 @@
 .create-categorie {
     .header {
         padding: 15px;
-        margin: 10px, 10px, 10px;
-        height: 50px;
-        background: #376369;
-        text-align: center;
-        box-shadow: -2px 2px 2px 2px #52637e;
-        border: 1px solid #52637e;
+        margin: 10px;
+        background: #0a5a68;
+        box-shadow: -2px 2px 2px 2px #e2e2e2;
 
         h1 {
             font-size: 20px;
-            font-family: Roboto, sans-serif;
-            text-transform: uppercase;
+            font-family: Open sans, sans-serif;
+            font-weight: 600;
             color: #fff;
+            text-transform: uppercase;
         }
     }
 
@@ -23,14 +21,13 @@
         display: flex;
         justify-content: flex-start;
         flex-direction: column;
-        padding: 15px;
+       
         margin: 10px;
-        border:1px solid #dfdfdf;
-    
+        border: 1px solid #dfdfdf;
         .form{
             display: flex;
             flex-direction: column;
-            margin: 10px;
+           background: #fff;
             label{
                 font-size: 16px;
                 font-family: roboto;
@@ -48,8 +45,7 @@
     
             input{
                 border: none;
-                width: 300px;
-                height: 20px;
+                height: 40px;
                 padding: 10px;
                 background: #f0f1f5;
                 font-family: roboto;
@@ -76,19 +72,21 @@
 
 @media (max-width:1122px) {
     .create-categorie {
+        width: 100%;
         .header {
            
-    
+            width: 100%;
             h1 {
-                font-size: 0.8rem;
-                
+                font-size: 0.6rem;
             }
         }
     
         .create-container{
-           
+            width: 100%;
+        padding: 0.8rem 0;
             .form{
-                
+                background: #fff;
+                width: 100%;
                 label{
                     font-size: 0.8rem;
                 }
@@ -98,11 +96,7 @@
                    
                 }
         
-                input{
-                    
-                    width: 200px;
-                    
-                }
+               
             }
            
         }
