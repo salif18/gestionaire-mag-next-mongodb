@@ -82,7 +82,7 @@ const Login = () => {
             <h1>GestaShop</h1>
         </section> */}
 
-            <section className='form-content'>
+            
               
                 <form className='form' onSubmit={handleSubmit}>
                 <section className='header'>
@@ -131,7 +131,6 @@ const Login = () => {
                     </section>
                 </form>
             </section>
-        </section>
     )
 }
 

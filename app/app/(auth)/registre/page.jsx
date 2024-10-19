@@ -68,11 +68,12 @@ const Registre = () => {
 
     return (
         <section className='registre'>
-            <section className='form-content'>
-            <section className='header'>
+          
+           
+                <form className='form' onSubmit={handleSubmit}>
+                <section className='header'>
                     <p>Créer un compte</p>
                 </section>
-                <form className='form' onSubmit={handleSubmit}>
                     <section className='column'>
                         <label htmlFor='name'>Nom</label>
                         <input
@@ -135,7 +136,7 @@ const Registre = () => {
                     </section>
                 </form>
             </section>
-        </section>
+        
     );
 }
 

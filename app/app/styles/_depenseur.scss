@@ -86,7 +86,7 @@
 }
 }
 
-@media (max-width:1200px) {
+@media (max-width:1122px) {
     .depenseurs{
 
         background: #f0f2f5;
@@ -94,7 +94,7 @@
     .header-fournisseurs{
         
         h1{
-            font-size: 0.8rem;
+            font-size: 0.6rem;
            
         }
     }
@@ -119,8 +119,13 @@
     
             input{
                 width: 200px;
+                font-size: 0.8rem;
               
             }
+        }
+
+        .btn-save{
+            width: 210px;
         }
         
     }

@@ -1,168 +1,174 @@
-.login{
+.login {
     background: #ffff;
-    width: 100%;
     height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 100%;
 
-    .title{
-        text-transform: uppercase;
-        font-size: 40px;
-        margin: 25px;
-        font-family: roboto;
-        font-weight: 600;
-        color: #f0f1f5;
-    }
-
-    .form-content{
-        width: 400px;
-        background-color: #f0f1f5;
-        border-radius: 10px;
+    .form {
+        padding: 16px;
         display: flex;
         flex-direction: column;
+        width: 55vw;
+        background-color: #f0f1f5;
+        border-radius: 10px;
 
-        .header{
+        .header {
             font-size: 16px;
             font-family: roboto;
             color: #f0f1f5;
             margin-bottom: 20px;
             padding-left: 10px;
-            width: 350px;
+            width: 100%;
             border-radius: 10px;
         }
 
-        .form{
-            padding: 16px;
+        .column {
             display: flex;
             flex-direction: column;
-           
-            .column{
-                display: flex;
-                flex-direction: column;
-                margin-bottom: 15px;
-                label{
-                    font-size: 14px;
-                    font-family: roboto;
-                    margin-bottom:10px
-                }
-                input{
-                    height: 40px;
-                    padding: 5px;
-                    border: none;
-                    border-radius: 10px;
-                    outline: none;
-                    font-family: roboto;
-                    width: 350px;
-                }
-            }
-            span{
-                margin: 10px;
-                color:red;
-                font-family: roboto;
-                font-size: 14px;
-            }
-            .check{
-                label{
-                    font-size: 14px;
-                    font-family: roboto;
-                    margin-bottom:10px;
-                    display: flex;
-                    align-items: center;
-                }
-                input{
-                    margin-right: 10px;
-                    height: 40px;
-                    padding-left: 10px;
-                    border: none;
-                    border-radius: 10px;
-                    outline: none;
-                    font-family: roboto;
-                }
-            }
-            .forget-password{
-                display: flex;
-                flex-direction: row;
-                justify-content: flex-end;
-                p{
-                    font-size: 12px;
-                    color: rgb(109, 109, 255);
-                    font-family: roboto;
-                    display: flex;
-                    margin: 20px;
-                    cursor: pointer;
-                    
-                }
-            
-            }
-            .btn-connexion{
-               height: 40px;
-               background-color: #376369;
-               border: none;
-               border-radius: 20px;
-               color: #f0f1f5;
-               font-size: 14px;
-               font-weight: 500;
-               font-family: roboto;
-               cursor: pointer;
-               transition:  0.3s ease;
-               &:hover{
-                background: #54a0aa;
-               }
-            }
-
-            .create-new{
-                margin: 20px;
-                padding: 10px;
-                display: flex;
-                justify-content: flex-start;
-                .no-compte{
-                    font-family: roboto;
-                    font-size: 12px;
-                    font-weight: 500;
-                    color: #474747;
-                    margin-right: 10px;
-                }
-                p{
-                    font-family: roboto;
-                    font-size: 12px;
-                    font-weight: 600;
-                    color: #4ad5e7;
-                    cursor: pointer;
-                }
-            }
-        }
-    }
-}
-
-@media (max-width:1200px) {
-.login{
-    padding: 1rem;
-    .form-content{
-       
-        width: 95%;
-
-       
-        .form{
+            margin-bottom: 15px;
             width: 100%;
-
-            .header{
-                width: 85%;
+            label {
+                font-size: 14px;
+                font-family: roboto;
+                margin-bottom: 10px
             }
 
-            .column{
-                input{
-                    width: 280px;
-                }
-            }
-
-            .btn-connexion{
-                width: 85%;
+            input {
+                height: 40px;
+                padding: 5px;
+                border: none;
+                border-radius: 10px;
+                outline: none;
+                font-family: roboto;
+                width: 100%;
             }
         }
 
-       
+        span {
+            margin: 10px;
+            color: red;
+            font-family: roboto;
+            font-size: 14px;
+        }
+
+        .check {
+            label {
+                font-size: 14px;
+                font-family: roboto;
+                margin-bottom: 10px;
+                display: flex;
+                align-items: center;
+            }
+
+            input {
+                margin-right: 10px;
+                height: 40px;
+                padding-left: 10px;
+                border: none;
+                border-radius: 10px;
+                outline: none;
+                font-family: roboto;
+            }
+        }
+
+        .forget-password {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+            margin: 15px;
+
+            p {
+                font-size: 12px;
+                color: rgb(109, 109, 255);
+                font-family: roboto;
+                display: flex;
+                margin: 20px;
+                cursor: pointer;
+
+            }
+
+        }
+
+        .btn-connexion {
+            height: 40px;
+            background-color: #376369;
+            border: none;
+            border-radius: 20px;
+            color: #f0f1f5;
+            font-size: 14px;
+            font-weight: 500;
+            font-family: roboto;
+            cursor: pointer;
+            transition: 0.3s ease;
+
+            &:hover {
+                background: #54a0aa;
+            }
+        }
+
+        .create-new {
+            margin: 20px;
+            padding: 10px;
+            display: flex;
+            justify-content: flex-start;
+
+            .no-compte {
+                font-family: roboto;
+                font-size: 12px;
+                font-weight: 500;
+                color: #474747;
+                margin-right: 10px;
+            }
+
+            p {
+                font-family: roboto;
+                font-size: 12px;
+                font-weight: 600;
+                color: #4ad5e7;
+                cursor: pointer;
+            }
+        }
     }
 }
+
+
+@media (max-width: 1122px) {
+    .login {
+        // padding: 1rem;
+        display: flex;
+        justify-content: center; /* Assure que le formulaire est centré */
+        align-items: center;
+    }
+
+    .form {
+        width: 400px; /* Utilise toute la largeur disponible */
+        max-width: 500px; /* Définit une largeur maximale */
+        padding: 20px;
+        background-color: #f0f1f5;
+        border-radius: 10px;
+    }
+
+    .header {
+        width: 100%;
+        font-size: 1.5rem; /* Ajuste la taille pour une meilleure lisibilité */
+        color: #333; /* Mets un contraste pour que le texte soit visible */
+    }
+
+    .column {
+        width: 100%;
+        input {
+            width: 100%; /* S'assure que les inputs prennent toute la largeur */
+            height: 40px;
+            padding: 10px;
+        }
+    }
+
+    .btn-connexion {
+        width: 100%; /* Le bouton prend toute la largeur */
+        height: 50px;
+        font-size: 16px;
+    }
 }
