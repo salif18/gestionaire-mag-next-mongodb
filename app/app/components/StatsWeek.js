@@ -47,7 +47,7 @@ const StatsWeek = ({data}) => {
     <h1>Statistiques Hebdomadaire</h1>
     <section style={{ width: '100%', height: "250px"}}>
     <ResponsiveContainer width="100%" height="100%">
-    <BarChart width={750} height={200} data={chartData} barSize={25} margin={{ top: 20, right: 30, bottom: 5 }}>
+    <BarChart width={750} height={250} data={chartData} barSize={25} margin={{ top: 20, right: 30, bottom: 5 }}>
       <CartesianGrid strokeDasharray="3 3" />
       <XAxis dataKey="label" />
       <YAxis tick={{ fontSize:10 }} color='#f0f1f5' /> Modifier la taille de la police ici
@@ -55,7 +55,9 @@ const StatsWeek = ({data}) => {
       <Tooltip />
       <Legend />
       <Bar dataKey="jour" name="Jour" fill="#f0f1f5" />
-      <Bar dataKey="total" name="Total" fill="rgb(253, 144, 2)" />
+      <Bar dataKey="total" name="Total" fill="#b3108add" />
+      {/* <Bar dataKey="jour" name="Jour" fill="#f0f1f5" />
+      <Bar dataKey="total" name="Total" fill="rgb(253, 144, 2)" /> */}
       {/* "#b3108add" */}
     </BarChart>
     </ResponsiveContainer>
