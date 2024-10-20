@@ -122,8 +122,9 @@
 
 @media (max-width:1122px){
   .recus{
-  .container-recu{
     overflow-x: scroll;
+  .container-recu{
+    width: 100%;
   }
 }
 }

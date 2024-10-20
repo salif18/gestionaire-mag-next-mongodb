@@ -5,11 +5,11 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
+    width: 100%;
     .form{
         display: flex;
         flex-direction: column;
-        width: 25%;
+        width: 400px;
         background-color: #f0f1f5;
         padding: 20px;
         border-radius: 10px;
@@ -64,6 +64,14 @@
                &:hover{
                 background: #54a0aa;
                }
+        }
+    }
+}
+
+@media (max-width:1122px) {
+    .confirm-page{
+        .form{
+            width: 80%;
         }
     }
 }
