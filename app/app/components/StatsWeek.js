@@ -1,5 +1,6 @@
+"use client"
 import moment from 'moment';
-import React from 'react'
+import React, { useEffect } from 'react'
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
 const StatsWeek = ({data}) => {
@@ -17,29 +18,29 @@ const StatsWeek = ({data}) => {
     };
   });
 
-  const [fontSize, setFontSize] = useState(12); // Définir la taille de la police par défaut
+  // const [fontSize, setFontSize] = useState(12); // Définir la taille de la police par défaut
 
-  // Fonction pour ajuster la taille de la police en fonction de la largeur de l'écran
-  const updateFontSize = () => {
-    const screenWidth = window.innerWidth;
-    if (screenWidth < 600) {
-      setFontSize(8); // Petite taille de police pour les petits écrans
-    } else if (screenWidth < 1200) {
-      setFontSize(10); // Taille intermédiaire pour les écrans moyens
-    } else {
-      setFontSize(12); // Taille par défaut pour les écrans larges
-    }
-  };
+  // // Fonction pour ajuster la taille de la police en fonction de la largeur de l'écran
+  // const updateFontSize = () => {
+  //   const screenWidth = window.innerWidth;
+  //   if (screenWidth < 600) {
+  //     setFontSize(8); // Petite taille de police pour les petits écrans
+  //   } else if (screenWidth < 1200) {
+  //     setFontSize(10); // Taille intermédiaire pour les écrans moyens
+  //   } else {
+  //     setFontSize(12); // Taille par défaut pour les écrans larges
+  //   }
+  // };
 
-  // Utiliser useEffect pour écouter les changements de taille de la fenêtre
-  useEffect(() => {
-    updateFontSize(); // Mettre à jour la taille de la police au chargement
-    window.addEventListener('resize', updateFontSize); // Ajouter un écouteur d'événements sur le redimensionnement de la fenêtre
+  // // Utiliser useEffect pour écouter les changements de taille de la fenêtre
+  // useEffect(() => {
+  //   updateFontSize(); // Mettre à jour la taille de la police au chargement
+  //   window.addEventListener('resize', updateFontSize); // Ajouter un écouteur d'événements sur le redimensionnement de la fenêtre
 
-    return () => {
-      window.removeEventListener('resize', updateFontSize); // Nettoyer l'écouteur lors du démontage du composant
-    };
-  }, []);
+  //   return () => {
+  //     window.removeEventListener('resize', updateFontSize); // Nettoyer l'écouteur lors du démontage du composant
+  //   };
+  // }, []);
 
   return (
     <article className='statsWeekwidget'>
@@ -49,7 +50,7 @@ const StatsWeek = ({data}) => {
     <BarChart width={750} height={200} data={chartData} barSize={25} margin={{ top: 20, right: 30, bottom: 5 }}>
       <CartesianGrid strokeDasharray="3 3" />
       <XAxis dataKey="label" />
-      <YAxis tick={{ fontSize: fontSize }} /> {/* Modifier la taille de la police ici */}
+      <YAxis tick={{ fontSize: 12 }} /> Modifier la taille de la police ici
       {/* <YAxis /> */}
       <Tooltip />
       <Legend />
