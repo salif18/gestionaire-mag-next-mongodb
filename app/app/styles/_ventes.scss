@@ -211,33 +211,30 @@
 }
 
 @media (max-width:1122px) {
-  .vente-container{
-
-    .vente-infos{
-        overflow-x: auto;
-        thead{
-           
-            .th{
+    .header-vente{
+        h1{      
+            font-size: 0.6rem;
+        }
+    }
+    
+    .vente-container{
+        .vente-infos{
+            overflow-x: auto;
+            thead{
+                .th{  
+                    font-size: 0.6rem;
+                }
               
-                font-size: 0.8rem;
-                
             }
-          
-        }
-       
-       
-    }
-    .inf{
-       
-       
-        select{
-            width: 200px;
-           
-        }
-        input{
-            width: 200px;
-            
         }
     }
-  }
+    
+    
+    .message-vente{
+        font-size: 1rem;
+    }
+    
+    .panier-vide{
+        font-size: 0.8rem;
+    }
 }

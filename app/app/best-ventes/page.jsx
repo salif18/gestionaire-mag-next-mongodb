@@ -65,7 +65,8 @@ const BestVente = () => {
                             backgroundColor: '#376369;', // Changez cette couleur selon vos besoins
                             color: '#000000', // Pour changer la couleur du texte du header
                             textTransform: "uppercase",
-                            fontWeight: 600
+                            fontWeight: 600,
+                            fontSize:"1rem"
                         },
                     }}
                 />
