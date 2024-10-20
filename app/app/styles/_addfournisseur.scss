@@ -2,7 +2,8 @@
     .header-add{
         padding: 15px;
         margin: 10px;
-        background: #0a5a68;
+        // background: #0a5a68;
+        background-color: #2d1a35;
         box-shadow: -2px 2px 2px 2px #e2e2e2;
         h1{
             font-size: 20px;
@@ -57,7 +58,8 @@
         margin: 10px;
         width: 100px;
         align-self: flex-end;
-        background-color: #0a5a68;
+        // background-color: #0a5a68;
+        background-color: #2d1a35;
         border: none;
         color: #f0f1f5;
         font-family: roboto;
@@ -65,7 +67,8 @@
         cursor: pointer;
         transition: 0.02s ease;
         &:hover{
-          background: #0b98b1;
+        //   background: #0b98b1;
+        background-color: #2d1a3579;
         }
     }
 }
