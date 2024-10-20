@@ -88,7 +88,7 @@ const DepenseListe = () => {
              <h3>DATE</h3>
              <p>{new Date(item.createdAt).toLocaleDateString('fr-FR', { month: 'long', day: 'numeric', year: 'numeric' })}</p>
              </section> 
-             <span className='btn-depense' onClick={()=>handleDelete(item._id)}><PlaylistRemoveIcon className='icon' /></span>
+             {/* <span className='btn-depense' onClick={()=>handleDelete(item._id)}><PlaylistRemoveIcon className='icon' /></span> */}
              
              </article>
              ))}
