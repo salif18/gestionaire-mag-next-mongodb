@@ -24,13 +24,13 @@
         display: flex;
         justify-content: flex-start;
         flex-direction: column;
-       
         margin: 10px;
         border: 1px solid #dfdfdf;
     
         .form {
             display: flex;
             flex-direction: column;
+            
             label {
                 font-size: 16px;
                 font-family: roboto;
@@ -48,7 +48,8 @@
 
             input {
                 border: none;
-               
+                margin: 1rem ;
+                max-width: 400px;
                 height: 40px;
                 padding: 10px;
                 background: #f0f1f5;

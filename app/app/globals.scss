@@ -18,27 +18,45 @@
 .body {
   display: flex;
   height: 91vh;
-  
-  .contents {
-    flex: 6;
-    background: #f0f2f5;
-    height: calc(100vh - 80px);
-    overflow-y: scroll;
+}
+
+.contents {
+  flex: 6;
+  background: #f0f2f5;
+  height: calc(100vh - 80px);
+  overflow-y: scroll;
+}
+
+@media (max-width: 1200px) {
+  h1, h2 {
+    font-size: 0.6rem;
+  }
+  p, span {
+    font-size: 0.7rem;
   }
 }
 
-@media (max-width:1200px) {
-  .body {
-    display: flex;
+// @media (max-width:1200px) {
+//   *{
+//      h1,h2{
+//       font-size: 0.7rem;
+//      }
+
+//      p , span{
+//       font-size: 0.7rem;
+//      }
+//   }
+//   .body {
+//     display: flex;
     
   
-    .contents {
-      background: #f0f2f5;
+//     .contents {
+//       background: #f0f2f5;
       
-      overflow-y: scroll;
-    }
-  }
-}
+//       overflow-y: scroll;
+//     }
+//   }
+// }
 
 @import './styles/home';
 @import './styles/addProduits';

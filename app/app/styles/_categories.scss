@@ -115,6 +115,11 @@
 
 @media (max-width:1122px) {
     .categories{
+        .header-categories{
+           h1{
+            font-size: 0.7rem;
+           } 
+        }
         .categorie-navbar{
           flex-direction: column;
           align-items: center;
@@ -127,6 +132,29 @@
     }
     p{
         font-size: 0.7rem;
+    }
+    .stock-fini{
+        color:red;
+        font-size: 12px;
+            font-family: roboto;
+    }
+    
+    .action{
+        span{
+            font-size: 12px;
+        }
+        .icon-add{
+            font-size:0.8rem;
+        }
+
+        .icon-edit{
+            font-size: 0.8rem;
+        }
+
+        .icon-del{
+            font-size: 0.8rem;
+        }
+    
     }
 }
 

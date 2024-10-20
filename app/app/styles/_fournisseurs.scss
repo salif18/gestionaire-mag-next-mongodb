@@ -58,3 +58,24 @@
     }
 
 }
+
+@media (max-width:1122px) {
+    .fournisseurs {
+
+        .fournisseur-head {
+
+    
+            .btn-add {
+               font-size: 0.7rem;
+    
+                &:hover {
+                    background: #1aad9a;
+                }
+            }
+        }
+    
+
+        
+    
+    }
+}

@@ -150,10 +150,10 @@
                 }
                 .card-depense {
                   width: 100%;
-                    cursor: pointer;
+                  height: auto;
                     .rig {
                         width: 100%;
-    
+                        align-self: flex-start;
                         h3 {
                             font-size: 0.7rem;
                         }

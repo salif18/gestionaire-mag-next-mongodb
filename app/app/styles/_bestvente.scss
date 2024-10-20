@@ -58,3 +58,23 @@
     }
 }
 }
+
+@media (max-width:1122px) {
+    .bestvente{
+        .header-best{
+            h1{
+                font-size: 0.7rem;
+            }
+        }
+        .best-container{
+            h1{
+                font-size: 0.7rem;
+            }
+            .card-best{
+                h1 , p ,span{
+                    font-size: 0.7rem;
+                }
+            }
+        }
+    }
+}

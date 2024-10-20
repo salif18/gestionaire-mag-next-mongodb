@@ -51,3 +51,30 @@
     }
 
 }
+
+@media (max-width:1122px) {
+    .list {
+    .header-list {
+        h1 {
+            font-size: 0.7rem;
+        }
+    }
+
+
+    .products-content {
+        .title {
+            p {
+                font-size: 0.6rem;
+            }
+
+        }
+
+        .action {
+            .alert{
+                font-size: 0.6rem;
+            }
+        }
+    }
+
+}
+}

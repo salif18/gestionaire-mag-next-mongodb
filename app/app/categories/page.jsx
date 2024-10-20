@@ -14,7 +14,6 @@ import { MyStore } from '../context/store';
 import withAuth from '../withAuth';
 
 
-
 const Categories = () => {
   const { handleAddPanier } = useContext(MyStore)
   const userId = Cookies.get("cookiesUserId");
