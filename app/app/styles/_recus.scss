@@ -123,6 +123,13 @@
 @media (max-width:1122px){
   .recus{
     overflow-x: scroll;
+    header{
+    width: 100%;
+      h1{
+          font-family: Roboto;
+          font-size: 1em;
+      }
+    }
   .container-recu{
     width: 100%;
   }
