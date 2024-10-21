@@ -199,7 +199,7 @@ const Produits = () => {
           sx={{
               '& .MuiDataGrid-columnHeaders': {
                 backgroundColor: '#2d1a35', // Changez cette couleur selon vos besoins
-                color: '#000000', // Pour changer la couleur du texte du header
+                color: '#fff', // Pour changer la couleur du texte du header
                 textTransform:"uppercase",
                 fontWeight:600
               },
