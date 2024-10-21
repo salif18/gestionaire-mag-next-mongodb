@@ -202,7 +202,7 @@ const Produits = () => {
                 color: '#fff', // Pour changer la couleur du texte du header
                 textTransform:"uppercase",
                 fontWeight:600,
-                fontSize:"0.6em"
+                fontSize:"0.9em"
               },
             }}
         />
