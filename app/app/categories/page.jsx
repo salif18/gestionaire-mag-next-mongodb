@@ -224,7 +224,7 @@ const Categories = () => {
             sx={{
               '& .MuiDataGrid-columnHeaders': {
                 backgroundColor: 'rgb(121, 177, 252);', // Changez cette couleur selon vos besoins
-                color: '#fff', // Pour changer la couleur du texte du header
+                color: '#222222', // Pour changer la couleur du texte du header
                 textTransform:"uppercase",
                 fontWeight:600,
                 fontSize:"0.9em"
