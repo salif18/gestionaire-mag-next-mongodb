@@ -139,8 +139,8 @@ const Fournisseurs = () => {
           rowsPerPageOptions={[5]}
           sx={{
             '& .MuiDataGrid-columnHeaders': {
-              backgroundColor: '#376369;', // Changez cette couleur selon vos besoins
-              color: '#000000', // Pour changer la couleur du texte du header
+              backgroundColor: '#2d1a35;', // Changez cette couleur selon vos besoins
+              color: '#fff', // Pour changer la couleur du texte du header
               textTransform: "uppercase",
               fontWeight: 600
             },

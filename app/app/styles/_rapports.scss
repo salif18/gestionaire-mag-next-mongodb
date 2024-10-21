@@ -3,9 +3,9 @@
 
   .header-rapport {
     padding: 15px;
-    border: 1px solid #94abc2;
+    // border: 1px solid #94abc2;
     // background: #376369;
-    background-color: #2d1a35;
+    background-color: #fff;
 
     h1 {
       font-family: Open sans, sans-serif;
@@ -13,7 +13,7 @@
       font-size: 20px;
       font-weight: 600;
       text-align: center;
-      color: #fff;
+      color: #222222;
     }
   }
 
@@ -57,7 +57,8 @@
             width: 200px;
             height: 40px;
             font-family: Roboto;
-            font-size: 14px;
+            color: #fff;
+            font-size: 0.7em;
             border: 1px solid #fff;
           }
         }

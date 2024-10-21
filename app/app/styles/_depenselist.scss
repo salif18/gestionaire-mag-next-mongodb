@@ -6,14 +6,14 @@
     .header-depenses {
         padding: 15px;
         // background: #376369;
-        background-color: #2d1a35;
-        border: 1px solid #45828a;
+        background-color: #ffff;
+        // border: 1px solid #45828a;
         text-align: center;
 
         h1 {
             font-size: 18px;
             font-family: Open sans;
-            color: #fff;
+            color: #222222;
             text-transform: uppercase;
         }
     }
@@ -53,10 +53,12 @@
             }
 
             input {
-                padding: 10px;
+                padding: 5px;
                // width: 200px;
                 border-radius: 20px;
                 border: 1px solid #376369;
+                background: #2d1a35;
+                color: #fff;
             }
         }
 
@@ -75,7 +77,7 @@
                 display: flex;
                 gap: 0.8rem;
                 justify-content: space-between;
-                height: 50px;
+                // height: 50px;
                 background-color: #f0f1f5;
                 margin: 2px;
                 width: 800px;
