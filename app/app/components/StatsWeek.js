@@ -47,7 +47,7 @@ const StatsWeek = ({data}) => {
     <h1>Statistiques Hebdomadaire</h1>
     <section className='chart-container'>
     <ResponsiveContainer width="100%" height="100%">
-    <BarChart width={750} height={250} data={chartData} barSize={25} margin={{ top: 20, right: 30, bottom: 5 }}>
+    <BarChart  data={chartData} barSize={25} margin={{ top: 20, right: 10, left:2, bottom: 5 }}>
       <CartesianGrid strokeDasharray="3 3" />
       <XAxis dataKey="label" />
       <YAxis tick={{ fontSize:10 }} color='#f0f1f5' /> Modifier la taille de la police ici
