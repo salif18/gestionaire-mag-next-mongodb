@@ -6,7 +6,7 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Responsive
 const StatsWeek = ({data}) => {
 
      // TABLEAU DES JOURS DE LA SEMAINE
-  const weekday = ["lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi", "dimanche"]
+  const weekday = ["lun", "mar", "mer", "jeu", "ven", "sam", "dim"]
 
   // CONVERTIRE LES DONNEES EN MODEL BARDATA
   const chartData = data && data.length > 0 && data.map((row) => {
