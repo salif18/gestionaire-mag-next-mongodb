@@ -50,7 +50,7 @@ const StatsWeek = ({data}) => {
     <BarChart  data={chartData} barSize={25} margin={{ top: 20, right: 10, left:2, bottom: 5 }}>
       <CartesianGrid strokeDasharray="3 3" />
       <XAxis dataKey="label" />
-      <YAxis tick={{ fontSize:10 }} color='#f0f1f5' /> Modifier la taille de la police ici
+      <YAxis tick={{ fontSize:10 }} color='#f0f1f5' /> 
       {/* <YAxis /> */}
       <Tooltip />
       <Legend />
