@@ -45,7 +45,7 @@ const StatsWeek = ({data}) => {
   return (
     <article className='statsWeekwidget'>
     <h1>Statistiques Hebdomadaire</h1>
-    <section style={{ width: '100%', height: "250px"}}>
+    <section className='chart-container'>
     <ResponsiveContainer width="100%" height="100%">
     <BarChart width={750} height={250} data={chartData} barSize={25} margin={{ top: 20, right: 30, bottom: 5 }}>
       <CartesianGrid strokeDasharray="3 3" />
